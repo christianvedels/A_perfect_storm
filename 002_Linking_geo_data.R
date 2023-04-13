@@ -11,9 +11,59 @@ library(rgdal)
 
 # ==== Read data ====
 load("Data/tmp_census.Rdata")
+load("Data/tmp_census_raw.Rdata")
 
 # ==== Shape files ====
 shape_parish = readOGR("Data/sogne_shape") # From www.digdag.dk
+
+# ==== Finding Lemvig ====
+# Lemvig (market town in the Limfjord) is missing in 'event_parish'
+# But the observations are there, just as 'NA'. Information is taken from
+# the raw transcribed sources
+
+# Check population counts in Lemvig according to raw census data
+merged_data_raw %>% 
+  filter(grepl("lemvig", tolower(Sogn))) %>% 
+  group_by(Year, Sogn) %>% 
+  count()
+
+# This was compared to http://ddb.byhistorie.dk/koebstaeder/by.aspx?koebstadID=24
+# The population count is within counting error of each other
+
+# Finding pa_id, which is Lemvig
+tmp = merged_data_raw %>% 
+  filter(grepl("lemvig", tolower(Sogn))) %>% 
+  select(Year, pa_id) %>% 
+  mutate(
+    place = "lemvig"
+  )
+
+merged_data1 = merged_data %>% # Check data
+  left_join(
+    tmp, by = c("Year", "pa_id")
+  )
+
+# Check manually
+merged_data1 %>%
+  left_join(
+    tmp, by = c("Year", "pa_id")
+  ) %>% 
+  filter(place=="lemvig") %>% 
+  select(Year, pa_id, name_cl, event_parish, event_district, place) %>% 
+  View()
+
+# Check unique links
+merged_data1 %>% 
+  group_by(Year, pa_id) %>% 
+  count() %>% 
+  filter(n>1)
+
+# Change event_parish
+merged_data1 %>% 
+  mutate(
+    event_parish = ifelse(place == "lemvig", "Lemvig koebstad", event_parish)
+  ) %>% 
+  select(-place)
 
 # ==== Extract data to make manual key ====
 # merged_data %>% # Tmp 1 for making key
@@ -40,7 +90,7 @@ key %>%
     GIS_ID = strsplit(GIS_ID, ", ")[[1]][3]
   )
 
-stop("Lemvig is missing in LL data")
+
 
 
 key = key %>%
