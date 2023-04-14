@@ -8,7 +8,7 @@
 
 # ==== Toydata ====
 # If TRUE only limited data will be loaded as toydata
-toyrun = TRUE
+toyrun = FALSE
 
 # ==== Libraries ====
 library(tidyverse)

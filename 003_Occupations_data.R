@@ -175,6 +175,7 @@ merged_data0 %>%
   summarise(
     Fishing = sum(Fishing, na.rm = TRUE)/n(),
     Manufacturing = sum(Manufacturing, na.rm = TRUE)/n(),
+    Farmer = sum(Farmer, na.rm = TRUE)/n(),
     n = n()
   )
 
