@@ -22,3 +22,4 @@ Data/Link lives census/census_1840_v1.2.1/LICENSE_EN
 Data/Link lives census/census_1840_v1.2.1/Link-lives Guide v.1.pdf
 Data/tmp_census.Rdata
 Data/tmp_census_raw.Rdata
+Data/LL_hisco_codes_clean.csv

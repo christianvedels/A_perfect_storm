@@ -1,8 +1,10 @@
 # Linking geo data
 #
-# Date updated:   2023-04-11
+# Date updated:   2023-04-13
 # Auhtor:         Christian Vedel 
 # Purpose:        Geo data cleaning
+#
+# Output:         'merged_data' enriched with GIS_ID to join on shape file of parishes. 
 
 # ==== Libraries and preparation ====
 library(tidyverse)
@@ -59,11 +61,13 @@ merged_data1 %>%
   filter(n>1)
 
 # Change event_parish
-merged_data1 %>% 
+merged_data = merged_data1 %>% 
   mutate(
     event_parish = ifelse(place == "lemvig", "Lemvig koebstad", event_parish)
   ) %>% 
   select(-place)
+
+rm(merged_data1)
 
 # ==== Extract data to make manual key ====
 # merged_data %>% # Tmp 1 for making key
@@ -72,57 +76,44 @@ merged_data1 %>%
 #   write_csv2("Tmp1.csv")
 # 
 # shape_parish@data %>% # Tmp 2 for making key
-#   select(AMT, HERRED, SOGN, GIS_ID, lat, long) %>% 
-#   mutate_all(.funs = sub_scandi) %>% 
+#   select(AMT, HERRED, SOGN, GIS_ID, lat, long) %>%
+#   mutate_all(.funs = sub_scandi) %>%
 #   mutate(
 #     string = paste(AMT, SOGN, GIS_ID, sep = ", ")
-#   ) %>% 
+#   ) %>%
 #   write_csv2("Tmp2.csv")
 
+
+# Key was manually made in this google sheet:
+# https://docs.google.com/spreadsheets/d/11PWH1hgR6luXMXrjYSXMqLyPVqIc5LEOkghaoVlbL2M/edit?usp=sharing
 # Read the finished key
 key = read_csv2("Data/Key_census_to_shape.csv")
 
 # ==== GIS ID to census data ====
 # 'GIS_ID' is the name of the unique ids in the shape file
-key %>% 
+key = key %>% 
   rowwise() %>% 
   mutate(
-    GIS_ID = strsplit(GIS_ID, ", ")[[1]][3]
+    GIS_ID = strsplit(GIS_ID, ", ")[[1]][3] # Only last part is the GIS_ID
   )
 
+# Add coordinates to key
+coords = shape_parish@data %>% 
+  select(GIS_ID, long, lat)
 
+key = key %>% left_join(coords, by = "GIS_ID")
 
+# Join on key
+merged_data = merged_data %>% 
+  left_join(key, by = c("event_parish", "event_district", "event_county"))
 
-key = key %>%
-  select(Amt, Herred, Sogn, GIS_ID) %>% 
-  rowwise() %>% 
-  mutate(GIS_ID = gsub("(.*),.*", "\\1", GIS_ID))
-
-match_space %>% 
-  mutate(GIS_ID = as.character(GIS_ID)) %>% 
-  anti_join(key, by = "GIS_ID") #%>% View()
-
-
-# key stats
-n_for_missing = merged_data %>%
-  group_by(Year, County, Hundred, Placename) %>%
-  count() %>%
-  rename(
-    Sogn = Placename,
-    Amt = County,
-    Herred = Hundred
-  ) %>%
-  arrange(Amt, Herred) %>%
-  semi_join(
-    key %>% filter(is.na(GIS_ID))
+# ==== Place of birth ====
+merged_data = merged_data %>% 
+  mutate(
+    Born_different_county = event_county != birth_county
   )
 
-# add key to merged_data 
-n1 = NROW(merged_data)
-tmp = merged_data %>% 
-  left_join(key, c("County"="Amt","Placename"="Sogn","Hundred"="Herred"))
+# ==== Saving data enriched data ====
 
-n2 = NROW(tmp)
-if(n1!=n2) stop("Something went wrong in key joining")
-merged_data = tmp
-rm(tmp)
+save(merged_data, file = "Data/tmp_census.Rdata")  
+

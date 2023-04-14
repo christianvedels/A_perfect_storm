@@ -1,8 +1,10 @@
 # Reading census data
 #
-# Date updated:   2023-04-11
+# Date updated:   2023-04-13
 # Auhtor:         Christian Vedel 
 # Purpose:        This script reads csv-files containing census data and merges them
+#
+# Output:         'merged_data' and 'merged_data_raw', which are both a merge of Link Lives data
 
 # ==== Libraries ====
 library(tidyverse)
@@ -135,7 +137,7 @@ tmp1 %>%
   ) %>% 
   mutate(navn == name_cl) %>% View()
 
-# ==== Merging across years ====
+# ==== Merging across years and saving ====
 lapply(the_data_std, NROW)
 merged_data = the_data_std %>% do.call("bind_rows",.)
 
