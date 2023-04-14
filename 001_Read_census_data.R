@@ -6,13 +6,23 @@
 #
 # Output:         'merged_data' and 'merged_data_raw', which are both a merge of Link Lives data
 
+# ==== Toydata ====
+# If TRUE only limited data will be loaded as toydata
+toyrun = TRUE
+
 # ==== Libraries ====
 library(tidyverse)
 source("000_functions.R")
 library(foreach)
-library(doParallel)
 
 # ==== Loading standardized data ====
+# How much to load?
+if(toyrun){
+  n_load = 10000
+} else {
+  n_load = -1
+}
+
 all_dirs = list.dirs("../Link lives census") # Download at https://www.rigsarkivet.dk/udforsk/link-lives-data/
 all_dirs = all_dirs[grep("standardized_sources/census/", all_dirs)]
 
@@ -37,6 +47,7 @@ for(i in all_dirs){
     c_class = rep("c", NCOL(data_ij))
     data_ij = read_csv(
       fname_ij, 
+      n_max = n_load,
       col_types = c_class
     )
     data_ij$Year = unique(Year)
@@ -89,6 +100,7 @@ for(i in all_dirs){
     c_class = rep("c", NCOL(data_ij))
     data_ij = read_csv(
       fname_ij, 
+      n_max = n_load,
       col_types = c_class
     )
     data_ij$Year = unique(Year)

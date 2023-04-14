@@ -110,8 +110,12 @@ merged_data = merged_data %>%
 # ==== Place of birth ====
 merged_data = merged_data %>% 
   mutate(
-    Born_different_county = event_county != birth_county
+    Born_different_county = as.numeric(event_county != birth_county)
   )
+
+merged_data %>% 
+  group_by(Year, Born_different_county) %>% 
+  count()
 
 # ==== Saving data enriched data ====
 
