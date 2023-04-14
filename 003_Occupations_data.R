@@ -170,7 +170,7 @@ merged_data0 = merged_data %>%
   left_join(hisco, by = c("Year", "pa_id"))
 
 # ==== Simple descriptive as a santity check ====
-merged_data0 %>% 
+merged_data0 %>%  
   group_by(Year) %>% 
   summarise(
     Fishing = sum(Fishing, na.rm = TRUE)/n(),
