@@ -14,7 +14,7 @@ library(tidyverse)
 library(foreach)
 
 # ==== Load data ====
-load("Data/tmp_census.Rdata")
+merged_data = read_fst("Data/tmp_census.fst") 
 hisco = read_csv2("Data/LL_hisco_codes_clean.csv") # Available here: 
 # https://www.dropbox.com/s/ov7ubxtqq21c6za/LL_hisco_codes_clean.csv?dl=0
 
@@ -183,6 +183,6 @@ merged_data = merged_data0
 rm(merged_data0)
 
 # ==== Saving data enriched data ====
-save(merged_data, file = "Data/tmp_census.Rdata", compress = FALSE) 
+write_fst(merged_data, "Data/tmp_census.fst", compress = 0) 
 
 

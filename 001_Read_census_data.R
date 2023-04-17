@@ -14,6 +14,7 @@ toyrun = FALSE
 library(tidyverse)
 source("000_functions.R")
 library(foreach)
+library(fst)
 
 # ==== Loading standardized data ====
 # How much to load?
@@ -152,9 +153,8 @@ tmp1 %>%
 # ==== Merging across years and saving ====
 lapply(the_data_std, NROW)
 merged_data = the_data_std %>% do.call("bind_rows",.)
-
 merged_data_raw = the_data_raw %>% do.call("bind_rows",.)
 
-save(merged_data, file = "Data/tmp_census.Rdata", compress = FALSE) # No compress for speed
-save(merged_data_raw, file = "Data/tmp_census_raw.Rdata", compress = FALSE)
+write_fst(merged_data, "Data/tmp_census.fst", compress = 0) 
+write_fst(merged_data_raw, "Data/tmp_census_raw.fst", compress = 0)
 

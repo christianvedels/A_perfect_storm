@@ -10,10 +10,11 @@
 library(tidyverse)
 source("000_functions.R")
 library(rgdal)
+library(fst)
 
 # ==== Read data ====
-load("Data/tmp_census.Rdata")
-load("Data/tmp_census_raw.Rdata")
+merged_data = read_fst("Data/tmp_census.fst") 
+merged_data_raw = read_fst("Data/tmp_census_raw.fst")
 
 # ==== Shape files ====
 shape_parish = readOGR("Data/sogne_shape") # From www.digdag.dk
@@ -118,6 +119,5 @@ merged_data %>%
   count()
 
 # ==== Saving data enriched data ====
-
-save(merged_data, file = "Data/tmp_census.Rdata", compress = FALSE)  
+write_fst(merged_data, "Data/tmp_census.fst", compress = 0) 
 
