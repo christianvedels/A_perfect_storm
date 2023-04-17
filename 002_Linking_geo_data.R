@@ -48,23 +48,20 @@ merged_data1 = merged_data %>% # Check data
 
 # Check manually
 merged_data1 %>%
-  left_join(
-    tmp, by = c("Year", "pa_id")
-  ) %>% 
   filter(place=="lemvig") %>% 
   select(Year, pa_id, name_cl, event_parish, event_district, place) %>% 
   View()
 
 # Check unique links
-merged_data1 %>% 
-  group_by(Year, pa_id) %>% 
-  count() %>% 
-  filter(n>1)
+# merged_data1 %>% 
+#   group_by(Year, pa_id) %>% 
+#   count() %>% 
+#   filter(n>1)
 
 # Change event_parish
 merged_data = merged_data1 %>% 
   mutate(
-    event_parish = ifelse(place == "lemvig", "Lemvig koebstad", event_parish)
+    event_parish = ifelse(is.na(place), event_parish, "Lemvig koebstad")
   ) %>% 
   select(-place)
 
