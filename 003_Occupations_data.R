@@ -12,6 +12,7 @@
 # ==== Libraries ====
 library(tidyverse)
 library(foreach)
+library(fst)
 
 # ==== Load data ====
 merged_data = read_fst("Data/tmp_census.fst") 

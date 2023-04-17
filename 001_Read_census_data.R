@@ -132,23 +132,23 @@ for(i in all_dirs){
 # ==== Check simiarity of pa_id ====
 # Check whether pa_id is the same across the different sources
 # Replace tmp1 and tmp2 by different census years to check similarity
-tmp1 = the_data_raw$`../Link lives census/census_1801_v1.2.1/transcribed_sources/census/1801_20190000.csv`
-tmp2 = the_data_std$`../Link lives census/census_1801_v1.2.1/standardized_sources/census/1801/census.csv`
-
-tmp1 = tmp1 %>% filter(pa_id %in% 200:299)
-tmp2 = tmp2 %>% filter(pa_id %in% 200:299)
-
-tmp1 %>% 
-  select(pa_id, navn) %>% 
-  left_join(
-    tmp2 %>% select(pa_id, name_cl),
-    by = "pa_id"
-  ) %>% 
-  mutate(
-    navn = tolower(navn) %>% trimws(),
-    name_cl = trimws(name_cl)
-  ) %>% 
-  mutate(navn == name_cl) %>% View()
+# tmp1 = the_data_raw$`../Link lives census/census_1801_v1.2.1/transcribed_sources/census/1801_20190000.csv`
+# tmp2 = the_data_std$`../Link lives census/census_1801_v1.2.1/standardized_sources/census/1801/census.csv`
+# 
+# tmp1 = tmp1 %>% filter(pa_id %in% 200:299)
+# tmp2 = tmp2 %>% filter(pa_id %in% 200:299)
+# 
+# tmp1 %>% 
+#   select(pa_id, navn) %>% 
+#   left_join(
+#     tmp2 %>% select(pa_id, name_cl),
+#     by = "pa_id"
+#   ) %>% 
+#   mutate(
+#     navn = tolower(navn) %>% trimws(),
+#     name_cl = trimws(name_cl)
+#   ) %>% 
+#   mutate(navn == name_cl) %>% View()
 
 # ==== Merging across years and saving ====
 lapply(the_data_std, NROW)

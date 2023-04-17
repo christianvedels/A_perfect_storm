@@ -8,8 +8,34 @@
 #
 
 # ==== Libraries ====
-librar
+library(tidyverse)
 
 
 # ==== Load data ====
-load("Data/tmp_census.Rdata")
+merged_data = read_fst("Data/tmp_census.fst") 
+
+# ==== Age_cats ====
+Age_cats = function(age, lower, upper){
+  
+}
+
+# ==== Summarise at parish level ====
+# - Population 
+# - Age groups
+# - Occupational groups
+# - HISCO first digit
+# - Males
+# - Females
+# - FLFP
+
+merged_data %>% 
+  group_by(Year, GIS_ID) %>% 
+  summarise(
+    Pop = n(),
+    
+  )
+  
+  
+  
+  
+  
