@@ -1,6 +1,6 @@
 # Adding occupations
 #
-# Date updated:   2023-04-14
+# Date updated:   2023-04-17
 # Auhtor:         Christian Vedel 
 # Purpose:        Join on data on HISCO codes and summarise
 #

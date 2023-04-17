@@ -1,6 +1,6 @@
 # Aggregate demographic data
 #
-# Date updated:   2023-04-14
+# Date updated:   2023-04-17
 # Auhtor:         Christian Vedel 
 # Purpose:        Join on data on HISCO codes and summarise
 #
@@ -9,7 +9,7 @@
 
 # ==== Libraries ====
 library(tidyverse)
-
+library(fst)
 
 # ==== Load data ====
 merged_data = read_fst("Data/tmp_census.fst") 
@@ -31,8 +31,7 @@ Age_cats = function(age, lower, upper){
 merged_data %>% 
   group_by(Year, GIS_ID) %>% 
   summarise(
-    Pop = n(),
-    
+    Pop = n()
   )
   
   
