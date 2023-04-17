@@ -183,6 +183,6 @@ merged_data = merged_data0
 rm(merged_data0)
 
 # ==== Saving data enriched data ====
-save(merged_data, file = "Data/tmp_census.Rdata") 
+save(merged_data, file = "Data/tmp_census.Rdata", compress = FALSE) 
 
 

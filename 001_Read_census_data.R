@@ -155,6 +155,6 @@ merged_data = the_data_std %>% do.call("bind_rows",.)
 
 merged_data_raw = the_data_raw %>% do.call("bind_rows",.)
 
-save(merged_data, file = "Data/tmp_census.Rdata")
-save(merged_data_raw, file = "Data/tmp_census_raw.Rdata")
+save(merged_data, file = "Data/tmp_census.Rdata", compress = FALSE) # No compress for speed
+save(merged_data_raw, file = "Data/tmp_census_raw.Rdata", compress = FALSE)
 

@@ -119,5 +119,5 @@ merged_data %>%
 
 # ==== Saving data enriched data ====
 
-save(merged_data, file = "Data/tmp_census.Rdata")  
+save(merged_data, file = "Data/tmp_census.Rdata", compress = FALSE)  
 
