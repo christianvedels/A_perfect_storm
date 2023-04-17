@@ -103,62 +103,62 @@ occ_cats = foreach(i = 1:length(occ_cats), .combine = "bind_rows") %do% {
     Category = name_i,
     hisco = occ_cats[[i]]
   )
-  
+
   # Is this category in the actual HISCO codes in census?
   # There are up to 5 HISCO codes for each individual
   # A dataframe containing dummies for all 5 potential HISCOs is created
   # Next it is coerced into one dataframe
   category_dummies = data.frame(
     cat1 = hisco %>%
-      mutate(hisco1 = as.character(hisco1)) %>% 
-      left_join(tmp_i, by = c("hisco1"="hisco")) %>% 
-      select(Category) %>% 
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>% 
+      mutate(hisco1 = as.character(hisco1)) %>%
+      left_join(tmp_i, by = c("hisco1"="hisco")) %>%
+      select(Category) %>%
+      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
       unlist(),
-    
+
     cat2 = hisco %>%
-      mutate(hisco2 = as.character(hisco2)) %>% 
-      left_join(tmp_i, by = c("hisco2"="hisco")) %>% 
-      select(Category) %>% 
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>% 
+      mutate(hisco2 = as.character(hisco2)) %>%
+      left_join(tmp_i, by = c("hisco2"="hisco")) %>%
+      select(Category) %>%
+      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
       unlist(),
-    
+
     cat3 = hisco %>%
-      mutate(hisco3 = as.character(hisco3)) %>% 
-      left_join(tmp_i, by = c("hisco3"="hisco")) %>% 
-      select(Category) %>% 
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>% 
+      mutate(hisco3 = as.character(hisco3)) %>%
+      left_join(tmp_i, by = c("hisco3"="hisco")) %>%
+      select(Category) %>%
+      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
       unlist(),
-    
+
     cat4 = hisco %>%
-      mutate(hisco4 = as.character(hisco4)) %>% 
-      left_join(tmp_i, by = c("hisco4"="hisco")) %>% 
-      select(Category) %>% 
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>% 
+      mutate(hisco4 = as.character(hisco4)) %>%
+      left_join(tmp_i, by = c("hisco4"="hisco")) %>%
+      select(Category) %>%
+      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
       unlist(),
-    
+
     cat5 = hisco %>%
-      mutate(hisco4 = as.character(hisco5)) %>% 
-      left_join(tmp_i, by = c("hisco5"="hisco")) %>% 
-      select(Category) %>% 
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>% 
+      mutate(hisco4 = as.character(hisco5)) %>%
+      left_join(tmp_i, by = c("hisco5"="hisco")) %>%
+      select(Category) %>%
+      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
       unlist()
   )
-  
+
   # Coerce into one dummy indicating whether the category is present or not
-  category_dummies = category_dummies %>% 
-    transmute(dummy = cat1 + cat2 + cat3 + cat4 + cat5) %>% 
+  category_dummies = category_dummies %>%
+    transmute(dummy = cat1 + cat2 + cat3 + cat4 + cat5) %>%
     mutate(
       dummy = ifelse(dummy>0, 1, 0)
     )
-  
+
   names(category_dummies) = name_i
   cat("\n", name_i)
-  
+
   # Store results to dataframe
-  hisco0 = hisco0 %>% 
+  hisco0 = hisco0 %>%
     bind_cols(category_dummies)
-  
+
 }
 
 hisco = hisco0
@@ -183,7 +183,35 @@ merged_data0 %>%
 merged_data = merged_data0
 rm(merged_data0)
 
+# ==== 0-9 first digit HISCO ====
+# This part takes a long time to run
+
+fix_hisco = function(x){
+  x = as.character(x)
+  x = ifelse(nchar(x)==4, paste0("0", x), x)
+  return(x)
+}
+
+merged_data = merged_data %>% 
+  # sample_n(1000) %>% 
+  # Fix HISCO codes to char
+  mutate_at(vars(starts_with("hisco")), fix_hisco) %>% 
+  mutate(unique_hiscos = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 1)))) %>% 
+  mutate(
+    hisco_1st_digit0 = as.numeric(grepl("0", unique_hiscos)),
+    hisco_1st_digit1 = as.numeric(grepl("1", unique_hiscos)),
+    hisco_1st_digit2 = as.numeric(grepl("2", unique_hiscos)),
+    hisco_1st_digit3 = as.numeric(grepl("3", unique_hiscos)),
+    hisco_1st_digit4 = as.numeric(grepl("4", unique_hiscos)),
+    hisco_1st_digit5 = as.numeric(grepl("5", unique_hiscos)),
+    hisco_1st_digit6 = as.numeric(grepl("6", unique_hiscos)),
+    hisco_1st_digit7 = as.numeric(grepl("7", unique_hiscos)),
+    hisco_1st_digit8 = as.numeric(grepl("8", unique_hiscos)),
+    hisco_1st_digit9 = as.numeric(grepl("9", unique_hiscos))
+  ) %>% select(-unique_hiscos)
+
+
 # ==== Saving data enriched data ====
-write_fst(merged_data, "Data/tmp_census.fst", compress = 0) 
+write_fst(merged_data, "Data/tmp_census.fst", compress = 0)
 
 

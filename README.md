@@ -1,6 +1,7 @@
 # Replication files for "A perfect storm and the natural endowments of trade-enabling infrastructure"
 
-## 1. Raw data sources:
+## 1. Large raw data sources:
+These are not available in this repository - either because I am not allowed to redistribute them, or because they are too large. 
 
 ### A. Danish census data from Link Lives 
 I use the publicly available from Link Lives, available at www.rigsarkivet.dk/udforsk/link-lives-data/
@@ -28,8 +29,8 @@ This contains demographic data at the parish level. The data contains the follow
 - **HERRED**: The herred in which the parish is located. Administrative division above parish and below county. Roughly translates to 'hundred'. 
 - **AMT**: County of the the parish.
 - **GIS_ID**: Unique identified used in this project. 
-- **long**: Longitude of the centroid 
-- **lat**: Latitude of the centroid
+- **long**: Longitude of the centroid of the parish
+- **lat**: Latitude of the centroid of the parish
 
 ## References 
 Boberg-Fazlic, N., Jensen, P.S., Lampe, M. et al. ‘Getting to Denmark’: the role of agricultural elites for development. J Econ Growth (2023). https://doi.org/10.1007/s10887-023-09226-8
