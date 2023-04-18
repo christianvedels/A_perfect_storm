@@ -18,8 +18,20 @@ This data is available in this repository.
 
 ### A. Popdata.csv
 This contains demographic data at the parish level. The data contains the following variables:
-**Year**: Census year 
-**GIS_ID**: Unique identifier for each parish, which 
+**Year**: Census year  
+**GIS_ID**: Unique identifier for each parish, which links to the shape data  
+**Pop**: Population in parish  
+**Age_[x]_[y]**: People in age group x <= age <= y  
+**Fishing**: Fishermen in parish  
+**Manufacturing**: People working in manufacturing  
+**Farmer**: Farmers and farm workers in the parish  
+**Born_different_county**: Number of people born in a different county  
+**hisco_1st_digit[x]**: Number of people with first digit of their HISCO code [x]. See https://historyofwork.iisg.nl/major.php  
+**prime_labor_age**: Number of people of prime working age (between 25 to 54 years)
+**occupation_in_prime**: Number of people with a HISCO code in prime working age (between 25 to 54 years)
+
+Each variables also has an equivalently named counterpart with suffix "_f" and "_m" for female/male part of the population. 
+
 
 ### B. sogne_shape
 'Sogne' tranlates to parishes. This is the shape file of Danish parishes as of January 1, 1820. Which was passed on to me from the authors of Boberg-Fazlic et al (2023). Originally this comes from www.digdag.dk. The market town of Lemvig (which is important in this application) was missing and added manually using borders downloaded directly from www.digdag.dk. The shape file has a an associated dataframe, which contains the following variables: 
