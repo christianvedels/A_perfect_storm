@@ -21,10 +21,6 @@ Age_cats = function(age, lower, upper){
   sum(x, na.rm = TRUE)
 }
 
-NAtoZero = function(x){
-  ifelse(is.na(x), 0, x)
-}
-
 # ==== Summarise at parish level ====
 # - Population 
 # - Age groups
@@ -232,7 +228,29 @@ agg_data %>%
 
 # ==== Consistent parishes ====
 # Dummy indicating parishes observed throughout
+agg_data %>% 
+  group_by(Year) %>% 
+  count()
 
+Years_in_data = agg_data$Year %>% unique()
+consistent = agg_data %>% 
+  group_by(GIS_ID) %>% 
+  count() %>% 
+  filter(n < length(Years_in_data)) %>% 
+  select(-n)
+
+agg_data = agg_data %>% 
+  mutate(
+    consistent = as.numeric(!GIS_ID %in% consistent$GIS_ID)
+  )
+  
+# Check if it works
+agg_data %>% 
+  filter(
+    consistent == 1
+  ) %>% 
+  group_by(Year) %>% 
+  count()
 
 # ==== Save data ====
 agg_data %>% 
