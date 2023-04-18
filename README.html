@@ -361,37 +361,92 @@ display: none;
 <div id="replication-files-for-a-perfect-storm-and-the-natural-endowments-of-trade-enabling-infrastructure" class="section level1">
 <h1>Replication files for “A perfect storm and the natural endowments of
 trade-enabling infrastructure”</h1>
-<div id="large-raw-data-sources" class="section level2">
-<h2>1. Large raw data sources:</h2>
-<p>These are not available in this repository - either because I am not
-allowed to redistribute them, or because they are too large.</p>
-<div id="a.-danish-census-data-from-link-lives" class="section level3">
-<h3>A. Danish census data from Link Lives</h3>
-<p>I use the publicly available from Link Lives, available at
-www.rigsarkivet.dk/udforsk/link-lives-data/</p>
-</div>
-<div id="b.-sound-toll-registers-online" class="section level3">
-<h3>B. Sound toll registers online</h3>
-<p>This is the database of the Sound Toll Registers, which is available
-at <a href="http://www.soundtoll.nl/index.php/en/over-het-project/str-online" class="uri">http://www.soundtoll.nl/index.php/en/over-het-project/str-online</a>
-It is not possible to download it directly at the website, but you they
-will send you a full copy of the database if you write them an email
-describing you project.</p>
-</div>
-<div id="c.-digdag" class="section level3">
-<h3>C. Digdag</h3>
-<p>Parish borders from 1820 are found in. Digital Atlas of Danish
-historical Administrative Geography. It is available for download at: <a href="https://digdag.dk/" class="uri">https://digdag.dk/</a></p>
-</div>
-</div>
-<div id="processed-data-sources" class="section level2">
-<h2>2. Processed data sources</h2>
-<p>This data is available in this repository.</p>
+<p>This is the repository of the paper ‘A perfect storm and the natural
+endowments of trade-enabling infrastructure’. The repository was created
+as I refactored all the code of the project to tie it up for a version
+to include in my thesis. A short version of the paper is enclosed in
+this repository as ‘Paper_short_version.pdf’. This specific version of
+the paper won the <a href="https://ehs.org.uk/society/grants-prizes/new-researcher-paper-prize-winners/">EHS’s
+New Researcher Prize</a> in the spring of 2023.</p>
+<p>The scripts in this repository are numbered to indicate the order in
+which to run them. Some of the data cannot be shared in this repository
+either because I am not authorized to redistribute it, or because it is
+too large. However, I have included all the necessary information to
+download or obtain the data below. All scripts from “005_…” onwards
+require only data that is included in the repository.<br />
+## 1. Included data The following data is included in this
+repository</p>
 <div id="a.-popdata.csv" class="section level3">
 <h3>A. Popdata.csv</h3>
 <p>This contains demographic data at the parish level. The data contains
-the following variables: <strong>Year</strong>: Census year
-<strong>GIS_ID</strong>: Unique identifier for each parish, which</p>
+the following variables:</p>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Year</td>
+<td>Census year</td>
+</tr>
+<tr class="even">
+<td>GIS_ID</td>
+<td>Unique identifier for each parish, which links to the shape
+data</td>
+</tr>
+<tr class="odd">
+<td>Pop</td>
+<td>Population in parish</td>
+</tr>
+<tr class="even">
+<td>Age_[x]_[y]</td>
+<td>People in age group x &lt;= age &lt;= y</td>
+</tr>
+<tr class="odd">
+<td>Fishing</td>
+<td>Fishermen in parish</td>
+</tr>
+<tr class="even">
+<td>Manufacturing</td>
+<td>People working in manufacturing</td>
+</tr>
+<tr class="odd">
+<td>Farmer</td>
+<td>Farmers and farm workers in the parish</td>
+</tr>
+<tr class="even">
+<td>Born_different_county</td>
+<td>Number of people born in a different county</td>
+</tr>
+<tr class="odd">
+<td>hisco_1st_digit[x]</td>
+<td>Number of people with first digit of their HISCO code [x]. See <a href="https://historyofwork.iisg.nl/major.php" class="uri">https://historyofwork.iisg.nl/major.php</a></td>
+</tr>
+<tr class="even">
+<td>prime_labor_age</td>
+<td>Number of people of prime working age (between 25 to 54 years)</td>
+</tr>
+<tr class="odd">
+<td>occupation_in_prime</td>
+<td>Number of people with a HISCO code in prime working age (between 25
+to 54 years)</td>
+</tr>
+<tr class="even">
+<td>consistent</td>
+<td>Dummy for parishes which are consistently observed across all years
+(1590 parishes)</td>
+</tr>
+</tbody>
+</table>
+<p>Each variables also has an equivalently named counterpart with suffix
+“_f” and “_m” for female/male part of the population.</p>
 </div>
 <div id="b.-sogne_shape" class="section level3">
 <h3>B. sogne_shape</h3>
@@ -402,18 +457,160 @@ www.digdag.dk. The market town of Lemvig (which is important in this
 application) was missing and added manually using borders downloaded
 directly from www.digdag.dk. The shape file has a an associated
 dataframe, which contains the following variables:</p>
-<ul>
-<li><strong>STEDNR</strong>: ID used by digdag</li>
-<li><strong>SOGN</strong>: Name of the parish</li>
-<li><strong>HERRED</strong>: The herred in which the parish is located.
-Administrative division above parish and below county. Roughly
-translates to ‘hundred’.</li>
-<li><strong>AMT</strong>: County of the the parish.</li>
-<li><strong>GIS_ID</strong>: Unique identified used in this
-project.</li>
-<li><strong>long</strong>: Longitude of the centroid</li>
-<li><strong>lat</strong>: Latitude of the centroid</li>
-</ul>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>STEDNR</td>
+<td>ID used by digdag</td>
+</tr>
+<tr class="even">
+<td>SOGN</td>
+<td>Name of the parish</td>
+</tr>
+<tr class="odd">
+<td>HERRED</td>
+<td>The herred in which the parish is located. Administrative division
+above parish and below county. Roughly translates to ‘hundred’.</td>
+</tr>
+<tr class="even">
+<td>AMT</td>
+<td>County of the the parish.</td>
+</tr>
+<tr class="odd">
+<td>GIS_ID</td>
+<td>Unique identified used in this project.</td>
+</tr>
+<tr class="even">
+<td>long</td>
+<td>Longitude of the centroid of the parish</td>
+</tr>
+<tr class="odd">
+<td>lat</td>
+<td>Latitude of the centroid of the parish</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="c.-key_census_to_shape.csv" class="section level3">
+<h3>C. Key_census_to_shape.csv</h3>
+<p>Key linking the census data to the shape data.</p>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>event_parish</td>
+<td>The parish</td>
+</tr>
+<tr class="even">
+<td>event_district</td>
+<td>The herred in which the parish is located. Administrative division
+above parish and below county. Roughly translates to ‘hundred’.</td>
+</tr>
+<tr class="odd">
+<td>event_county</td>
+<td>The county of the parish.</td>
+</tr>
+<tr class="even">
+<td>GIS_ID</td>
+<td>GIS_ID - unique ID in the shape data.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="large-or-non-redistributable-data" class="section level2">
+<h2>2. Large or non-redistributable data:</h2>
+<p>These are not available in this repository, either because I am not
+allowed to redistribute them, or because they are too large.</p>
+<div id="a.-danish-census-data-from-link-lives" class="section level3">
+<h3>A. Danish census data from Link Lives</h3>
+<p>I use the publicly available from Link Lives, available at
+www.rigsarkivet.dk/udforsk/link-lives-data/</p>
+</div>
+<div id="b.-sound-toll-registers-online" class="section level3">
+<h3>B. Sound toll registers online</h3>
+<p>This database of the Sound Toll Registers is available at <a href="http://www.soundtoll.nl/index.php/en/over-het-project/str-online" class="uri">http://www.soundtoll.nl/index.php/en/over-het-project/str-online</a>.
+Although you cannot download it directly from the website, you can
+request a copy of the full database by sending them an email describing
+your project.</p>
+</div>
+<div id="c.-digdag" class="section level3">
+<h3>C. Digdag</h3>
+<p>The parish borders from 1820 are available in the Digital Atlas of
+Danish Historical Administrative Geography. You can download it from <a href="https://digdag.dk/" class="uri">https://digdag.dk/</a>.</p>
+</div>
+<div id="d.-hisco-codes-for-danish-census-data" class="section level3">
+<h3>D. Hisco codes for Danish census data</h3>
+<p>This is data is available <a href="https://www.dropbox.com/s/ov7ubxtqq21c6za/LL_hisco_codes_clean.csv?dl=0">here</a>.
+It was created from the automatic HISCO labelling procedure described on
+my website: <a href="https://sites.google.com/view/christianvedel" class="uri">https://sites.google.com/view/christianvedel</a></p>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pa_id</td>
+<td>ID, which is unique for every year, which links to the rest of <a href="https://link-lives.dk/en/link-lives-a-research-project/">links
+lives</a> data</td>
+</tr>
+<tr class="even">
+<td>Kilde</td>
+<td>Source of the the data</td>
+</tr>
+<tr class="odd">
+<td>Year</td>
+<td>Census year</td>
+</tr>
+<tr class="even">
+<td>Erhverv</td>
+<td>Occupational description (in Danish)</td>
+</tr>
+<tr class="odd">
+<td>Stilling_i_husstanden</td>
+<td>Household position. Sometimes contains occupational description. (in
+Danish)</td>
+</tr>
+<tr class="even">
+<td>RowID</td>
+<td>ID used internally by the automatic HISCO labeling procedure</td>
+</tr>
+<tr class="odd">
+<td>hisco[x]</td>
+<td>1-5 hisco codes for each occupational description. Most only have
+one, but a few have more than one occupation.</td>
+</tr>
+<tr class="even">
+<td>en_hisco_text[x]</td>
+<td>English hisco code description from <a href="https://github.com/cedarfoundation/hisco">this repository</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="references" class="section level2">

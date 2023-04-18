@@ -1,24 +1,13 @@
 # Replication files for "A perfect storm and the natural endowments of trade-enabling infrastructure"
 
-## 1. Large raw data sources:
-These are not available in this repository - either because I am not allowed to redistribute them, or because they are too large. 
+This is the repository of the paper 'A perfect storm and the natural endowments of trade-enabling infrastructure'. The repository was created as I refactored all the code of the project to tie it up for a version to include in my thesis. A short version of the paper is enclosed in this repository as 'Paper_short_version.pdf'. This specific version of the paper won the [EHS's New Researcher Prize](https://ehs.org.uk/society/grants-prizes/new-researcher-paper-prize-winners/) in the spring of 2023.
 
-### A. Danish census data from Link Lives 
-I use the publicly available from Link Lives, available at www.rigsarkivet.dk/udforsk/link-lives-data/
-
-### B. Sound toll registers online
-This is the database of the Sound Toll Registers, which is available at http://www.soundtoll.nl/index.php/en/over-het-project/str-online
-It is not possible to download it directly at the website, but you they will send you a full copy of the database if you write them an email describing you project.
-
-### C. Digdag
-Parish borders from 1820 are found in. Digital Atlas of Danish historical Administrative Geography. It is available for download at: https://digdag.dk/
-
-## 2. Processed data sources 
-This data is available in this repository. 
+The scripts in this repository are numbered to indicate the order in which to run them. Some of the data cannot be shared in this repository either because I am not authorized to redistribute it, or because it is too large. However, I have included all the necessary information to download or obtain the data below. All scripts from "005_..." onwards require only data that is included in the repository.  
+## 1. Included data
+The following data is included in this repository
 
 ### A. Popdata.csv
 This contains demographic data at the parish level. The data contains the following variables:  
-
 
 | Variable | Description |
 |----------|-------------|
@@ -37,7 +26,6 @@ This contains demographic data at the parish level. The data contains the follow
 
 Each variables also has an equivalently named counterpart with suffix "_f" and "_m" for female/male part of the population. 
 
-
 ### B. sogne_shape
 'Sogne' tranlates to parishes. This is the shape file of Danish parishes as of January 1, 1820. Which was passed on to me from the authors of Boberg-Fazlic et al (2023). Originally this comes from www.digdag.dk. The market town of Lemvig (which is important in this application) was missing and added manually using borders downloaded directly from www.digdag.dk. The shape file has a an associated dataframe, which contains the following variables: 
 
@@ -50,6 +38,43 @@ Each variables also has an equivalently named counterpart with suffix "_f" and "
 | GIS_ID | Unique identified used in this project. |
 | long | Longitude of the centroid of the parish |
 | lat | Latitude of the centroid of the parish |
+
+### C. Key_census_to_shape.csv
+Key linking the census data to the shape data. 
+
+| Variable | Description |
+|----------|-------------|
+| event_parish | The parish |
+| event_district | The herred in which the parish is located. Administrative division above parish and below county. Roughly translates to 'hundred'. |
+| event_county | The county of the parish. |
+| GIS_ID | GIS_ID - unique ID in the shape data. |
+
+
+## 2. Large or non-redistributable data:
+These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
+
+### A. Danish census data from Link Lives 
+I use the publicly available from Link Lives, available at www.rigsarkivet.dk/udforsk/link-lives-data/
+
+### B. Sound toll registers online
+This database of the Sound Toll Registers is available at http://www.soundtoll.nl/index.php/en/over-het-project/str-online. Although you cannot download it directly from the website, you can request a copy of the full database by sending them an email describing your project.
+
+### C. Digdag
+The parish borders from 1820 are available in the Digital Atlas of Danish Historical Administrative Geography. You can download it from https://digdag.dk/.
+
+### D. Hisco codes for Danish census data 
+This is data is available [here](https://www.dropbox.com/s/ov7ubxtqq21c6za/LL_hisco_codes_clean.csv?dl=0). It was created from the automatic HISCO labelling procedure described on my website: https://sites.google.com/view/christianvedel
+
+| Variable | Description |
+|----------|-------------|
+| pa_id | ID, which is unique for every year, which links to the rest of [links lives](https://link-lives.dk/en/link-lives-a-research-project/) data |
+| Kilde | Source of the the data |
+| Year | Census year |
+| Erhverv | Occupational description (in Danish) |
+| Stilling_i_husstanden | Household position. Sometimes contains occupational description. (in Danish) |
+| RowID | ID used internally by the automatic HISCO labeling procedure |
+| hisco[x] | 1-5 hisco codes for each occupational description. Most only have one, but a few have more than one occupation. |
+| en_hisco_text[x] | English hisco code description from [this repository](https://github.com/cedarfoundation/hisco) |
 
 
 ## References 
