@@ -1,10 +1,10 @@
 # Aggregate demographic data
 #
-# Date updated:   2023-04-17
+# Date updated:   2023-04-19
 # Auhtor:         Christian Vedel 
 # Purpose:        Join on data on HISCO codes and summarise
 #
-# Output:         'popdata.csv', demographic data aggregated to parish level 
+# Output:         'Popdata.csv', demographic data aggregated to parish level 
 #
 
 # ==== Libraries ====
