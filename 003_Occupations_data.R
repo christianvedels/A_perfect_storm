@@ -2,7 +2,7 @@
 #
 # Date updated:   2023-04-17
 # Auhtor:         Christian Vedel 
-# Purpose:        Join on data on HISCO codes and summarise
+# Purpose:        Join on data on HISCO codes and categories
 #
 # Output:         'merged_data' enriched with HISCO codes + occupational categories
 #
