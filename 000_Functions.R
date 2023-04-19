@@ -70,3 +70,17 @@ sub_scandi_mis = function(x){
   
   return(x)
 }
+
+
+
+# ==== Clip_it ====
+# Clip a shape file by a bounding box
+# shp:  Shape 
+# bb:   Bounding box (e.g. matrix(c(8, 54, 16, 58), nrow=2))
+
+Clip_it = function(shp, bb){
+  require(rgeos)
+  if(class(bb)[1] == "matrix") b_poly <- as(raster::extent(as.vector(t(bb))), "SpatialPolygons")
+  else b_poly <- as(raster::extent(bb), "SpatialPolygons")
+  gIntersection(shp, b_poly, byid = T)
+}

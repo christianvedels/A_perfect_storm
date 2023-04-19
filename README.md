@@ -49,6 +49,9 @@ Key linking the census data to the shape data.
 | event_county | The county of the parish. |
 | GIS_ID | GIS_ID - unique ID in the shape data. |
 
+### D. limfjorden
+Shape file which covers the body of water known as Limfjorden. From this repository: https://github.com/DenAutonomePirat/shapefile
+
 
 ## 2. Large or non-redistributable data:
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
@@ -76,6 +79,8 @@ This is data is available [here](https://www.dropbox.com/s/ov7ubxtqq21c6za/LL_hi
 | hisco[x] | 1-5 hisco codes for each occupational description. Most only have one, but a few have more than one occupation. |
 | en_hisco_text[x] | English hisco code description from [this repository](https://github.com/cedarfoundation/hisco) |
 
+### E. Coast-line shape
+This is only used in 005_Limfjord_regions.R. It is slightly too large to redistribute. It contains coast lines, and is downloadable from: https://osmdata.openstreetmap.de/data/water-polygons.html. This was downloaded 2023-04-19.
 
 ## References 
 Boberg-Fazlic, N., Jensen, P.S., Lampe, M. et al. ‘Getting to Denmark’: the role of agricultural elites for development. J Econ Growth (2023). https://doi.org/10.1007/s10887-023-09226-8
