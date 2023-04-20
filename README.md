@@ -52,6 +52,19 @@ Key linking the census data to the shape data.
 ### D. limfjorden
 Shape file which covers the body of water known as Limfjorden. From this repository: https://github.com/DenAutonomePirat/shapefile
 
+### E. Geo.csv
+This contains various geographic information.
+| Variable | Description |
+|----------|-------------|
+| GIS_ID | GIS_ID - unique ID in the parish shape data. |
+| limfjord_placement | Does the parish belong the Limfjord area of Denmark? And which part of the Limfjord? West/middle/east |
+| distance_oce | Distance to closest coast in meters |
+| distance_lim | Distance to the Limfjord in meters |
+
+
+The Limfjord regions are based on the following definitions: 
+- The parish is categorized as being a Limfjord parish, if the closest coast is the Limfjord i.e. distance_oce >= distance_lim-200
+
 
 ## 2. Large or non-redistributable data:
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 

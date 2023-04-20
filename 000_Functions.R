@@ -84,3 +84,30 @@ Clip_it = function(shp, bb){
   else b_poly <- as(raster::extent(bb), "SpatialPolygons")
   gIntersection(shp, b_poly, byid = T)
 }
+
+
+# ==== degrees_to_km() ====
+# Converts lat long grid til km grid
+# Based on circle approximation of earth
+#
+# Args:
+# lat:  Decimal degrees lattitude
+# long: Decimal degrees longitude
+# 
+
+degrees_to_km = function(lat, long) {
+  mean_earth_radius =  6371.0088
+  to_radians = 1 / 360 * 2 * pi
+  
+  # Lat
+  earth_circumference = mean_earth_radius * 2 * pi
+  lat_km = earth_circumference * lat / 360
+  
+  # Long
+  radius_at_lat = mean_earth_radius * cos(lat * to_radians)
+  circumference_at_lat = 2 * pi * radius_at_lat
+  long_km = long / 360 * circumference_at_lat
+  
+  return(c(lat_km, long_km))
+  
+}
