@@ -150,113 +150,121 @@ market_towns_spdf@data = market_towns_spdf@data %>%
 
 
 # ==== >> DK Water / land grid ====
-# DK grid 1km x 1km
-# https://rdrr.io/cran/gdistance/f/vignettes/Overview.Rmd
-# Make grid with land / water
-
-# Cut water line
-b = matrix(c(8, 54, 16, 58),nrow=2)
-
-water_dk = Clip_it(water_line, b)
-plot(water_dk)
-
-# Transform to same proj4string
-water_dk = spTransform(water_dk, shape1@proj4string)  
-
-the_bbox = bbox(water_dk)
-
-res = 500 # meters
-resDK = res
-long_min = the_bbox[1,1]
-long_max = the_bbox[1,2]
-lat_min = the_bbox[2,1]
-lat_max = the_bbox[2,2]
-
-the_gridDK = expand.grid(
-  long = seq(from = long_min, to = long_max, by = res),
-  lat = seq(from = lat_min, to = lat_max, by = res)
-) %>%
-  mutate(cellID = 1:n()) %>%
-  filter(
-    long > 4000000,
-    lat > 3400000
-  ) %>%
-  filter(
-    lat < 3875000,
-    long < 4700000
-  ) %>%
-  ungroup()
-
-the_gridDK = SpatialPointsDataFrame(
-  coords = the_gridDK %>% dplyr::select(long, lat),
-  data = the_gridDK,
-  proj4string = shape1@proj4string
-)
-
-gc()
-the_gridDK_land = the_gridDK %over% water_dk
-
-land = ifelse(!is.na(the_gridDK_land), "water", "land")
-
-the_gridDK@data = the_gridDK@data %>%
-  mutate(land = land)
-
-the_gridDK@data %>%
-  ggplot(aes(long, lat, col = land)) +
-  geom_point() +
-  coord_fixed()
-
-
-
-
-
-
-
-
-
-
-# Agger tange
-# Added manually in approximate location
-the_gridDK@data = the_gridDK@data %>%
-  mutate(
-    Agger_Isthmus = lat < 3737500 & lat > 3732000 &
-      long > 4212000 & long < 4214000
-  )
-
-
-the_gridDK@data %>%
-  filter(
-    lat > 3700000 & lat < 3750000 &
-      long > 4200000 & long < 4240000
-  ) %>%
-  ggplot(aes(long, lat, col = paste(land, Agger_Isthmus))) +
-  geom_point() +
-  coord_fixed()
-
-# Encoding the 'Iron coast' - 1000 m. belt on the west coast
-the_gridDK@data = the_gridDK@data %>%
-  group_by(lat) %>%
-  mutate(
-    Iron_coast = cellID %in% cellID[which(land == "land")[1:2]]
-  ) %>%
-  group_by(long) %>%
-  mutate(
-    Iron_coast = Iron_coast |
-      cellID %in% cellID[rev(which(land == "land"))[1:2]] &
-      long < 4300000 & long > 4225000
-  ) %>%
-  ungroup()
-
-the_gridDK@data %>%
-  filter(
-    lat > 3400000 & lat < 3900000 &
-      long > 4200000 & long < 4700000
-  ) %>%
-  ggplot(aes(long, lat, col = paste(land, Iron_coast))) +
-  geom_point() +
-  coord_fixed()
-
-save(the_gridDK, file = "Landwater_gridDK.Rdata")
-load("Landwater_gridDK.Rdata")
+# # DK grid 0.5km x 0.5km
+# # https://rdrr.io/cran/gdistance/f/vignettes/Overview.Rmd
+# # Make grid with land / water
+# 
+# # Cut water line
+# b = matrix(c(8, 54, 16, 58),nrow=2)
+# 
+# water_dk = Clip_it(water_line, b)
+# plot(water_dk)
+# 
+# # Transform to same proj4string
+# water_dk = spTransform(water_dk, "+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs")  
+# 
+# the_bbox = bbox(water_dk)
+# 
+# res = 500 # meters
+# resDK = res
+# long_min = the_bbox[1,1]
+# long_max = the_bbox[1,2]
+# lat_min = the_bbox[2,1]
+# lat_max = the_bbox[2,2]
+# 
+# the_gridDK = expand.grid(
+#   long = seq(from = long_min, to = long_max, by = res),
+#   lat = seq(from = lat_min, to = lat_max, by = res)
+# ) %>%
+#   mutate(cellID = 1:n()) %>%
+#   filter(
+#     long > 4189843,
+#     lat > 3400000
+#   ) %>%
+#   filter(
+#     lat < 3875000,
+#     long < 4700000
+#   ) %>%
+#   ungroup()
+# 
+# the_gridDK = SpatialPointsDataFrame(
+#   coords = the_gridDK %>% dplyr::select(long, lat),
+#   data = the_gridDK,
+#   proj4string = water_dk@proj4string
+# )
+# 
+# gc()
+# the_gridDK_land = the_gridDK %over% water_dk
+# 
+# land = ifelse(!is.na(the_gridDK_land), "water", "land")
+# 
+# the_gridDK@data = the_gridDK@data %>%
+#   mutate(land = land)
+# 
+# the_gridDK@data = the_gridDK@data %>% 
+#   mutate(land = ifelse(long < 4109843, "water", land))
+# 
+# the_gridDK@data %>%
+#   ggplot(aes(long, lat, col = land)) +
+#   geom_point() +
+#   coord_fixed()
+# 
+# 
+# # Agger isthmus
+# # Added manually in approximate location
+# the_gridDK@data = the_gridDK@data %>%
+#   mutate(
+#     Agger_Isthmus = lat < 3737500 & lat > 3732000 &
+#       long > 4212000 & long < 4214000
+#   )
+# 
+# 
+# the_gridDK@data %>%
+#   filter(
+#     lat > 3700000 & lat < 3750000 &
+#       long > 4200000 & long < 4240000
+#   ) %>%
+#   ggplot(aes(long, lat, col = paste(land, Agger_Isthmus))) +
+#   geom_point() +
+#   coord_fixed()
+# 
+# # Convert to degrees
+# the_gridDK = the_gridDK %>% spTransform("+proj=longlat +zone=32 +ellps=GRS80")
+# the_gridDK@data = the_gridDK@data %>%
+#   rename(long_m = long, lat_m = lat) %>%
+#   bind_cols(the_gridDK@coords %>% data.frame())
+# 
+# # Løgstør
+# loegstoer = matrix(c(56.935819, 9.198828, 57.000624, 9.290843), ncol = 2) %>%
+#   t() %>%
+#   data.frame() %>%
+#   rename(lat = X1, long = X2)
+# 
+# the_gridDK@data = the_gridDK@data %>%
+#   mutate(
+#     loegstoer = ifelse(
+#       lat < max(loegstoer$lat) & lat > min(loegstoer$lat) &
+#         long < max(loegstoer$long) & long > min(loegstoer$long),
+#       "yes",
+#       "no"
+#     )
+#   )
+# 
+# the_gridDK@data %>%
+#   filter(
+#     long > 9 & long < 9.5
+#   ) %>%
+#   filter(
+#     lat > 56.5 & lat < 57.25
+#   ) %>%
+#   mutate(
+#     tmp = paste(land, loegstoer)
+#   ) %>%
+#   ggplot(aes(long, lat, col = tmp)) +
+#   geom_point() +
+#   coord_fixed()
+# 
+# save(the_gridDK, file = "Data/Tmp_landwater_gridDK.Rdata")
+load("Data/Tmp_landwater_gridDK.Rdata")
 
 
