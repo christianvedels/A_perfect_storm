@@ -1,5 +1,5 @@
 # Market access
-# Date updated:   2023-04-19
+# Date updated:   2023-04-20
 # Auhtor:         Christian Vedel 
 #
 # Output:         Geo.csv containing GIS ID and market access improvements by
@@ -11,6 +11,8 @@ library(rgdal)
 source("000_Functions.R")
 library(foreach)
 library(ggspatial)
+library(raster)
+library(gdistance)
 
 # ==== Load data ====
 shape_parish = readOGR("Data/sogne_shape")
@@ -267,4 +269,58 @@ market_towns_spdf@data = market_towns_spdf@data %>%
 # save(the_gridDK, file = "Data/Tmp_landwater_gridDK.Rdata")
 load("Data/Tmp_landwater_gridDK.Rdata")
 
+# ==== Computing transition matricies and cost distances ====
+# alphas = c(1, 5, 10, 20, 50)
+# # alpha = 10 is the default parameter
+# # this correpsonds to land travel being 10 times more expensive than sea travel
+# # Transition mats
+# transmatsDK = foreach(alpha = alphas) %do% {
+#   cat("\nalpha =", alpha, "||", as.character(Sys.time()))
+#   beta = alpha
+# 
+#   the_gridDK@data = the_gridDK@data %>%
+#     mutate(
+#       cost = case_when(
+#         land == "land" ~ alpha,
+#         loegstoer == "yes" & land == "water" ~ beta,
+#         TRUE ~ 1
+#       )
+#     )
+# 
+#   r0 = matrix( # Fiddling around with transformations to make it line up
+#     the_gridDK$cost,
+#     nrow = length(unique(the_gridDK$long_m))
+#   ) %>%
+#     Thermimage::rotate90.matrix()
+#   r = raster(
+#     r0,
+#     # ncol = length(unique(the_gridDK$long_m)), nrows = length(unique(the_gridDK$lat_m)),
+#     xmn = the_gridDK@bbox[1,1],
+#     xmx = the_gridDK@bbox[1,2],
+#     ymn = the_gridDK@bbox[2,1],
+#     ymx = the_gridDK@bbox[2,2],
+#     crs = the_gridDK@proj4string
+#   )
+# 
+# 
+#   tmp = the_gridDK
+#   tmp@data = tmp@data %>% dplyr::select(cost)
+#   grid_raster = raster::rasterize(tmp, r, 'cost', fun = min)
+#   trMat = transition(r, transitionFunction = mean, directions = 8)
+# 
+#   plot(raster(trMat))
+#   return(trMat)
+# }
+# 
+# save(transmatsDK, file = "Data/Tmp_transmatsDK.Rdata")
+load("transmatsDK.Rdata")
+
+# Cost distances
+costmats = foreach(i = 1:length(transmatsDK)) %do% {
+  cat("\ni =", i, "||", as.character(Sys.time()))
+  cost_distPort = costDistance(transmatsDK[[i]], parish_spdf, sound_toll_port_spdf)
+  cost_distPort
+}
+save(costmats, file = "Data/Tmp_costmats.Rdata")
+load("Data/Tmp_costmats.Rdata")
 
