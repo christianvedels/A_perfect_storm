@@ -65,7 +65,22 @@ This contains various geographic information.
 The Limfjord regions are based on the following definitions: 
 - The parish is categorized as being a Limfjord parish, if the closest coast is the Limfjord i.e. distance_oce >= distance_lim-200
 
-### F. Market_towns.csv
+### F. LocalSoundToll.csv
+This contains summarised ship trafic from the sound toll registers. See http://www.soundtoll.nl/index.php/en/
+
+
+| Variable | Description |
+|----------|-------------|
+| Year | Year of the observed trafic |
+| port | Name of port |
+| limfjord_placement | Which part if any of the Limfjord does the port belong to? |
+| n_from | Ship trafic with that port as destination |
+| n_to | Ship trafic with that port as origin |
+| trafic | Sum of n_from and n_to |
+| decLatitude | Latitude of the port |
+| decLongitude | Longitude of the port | 
+
+### G. Market_towns.csv
 This data was manually compiled based on the following wikipedia page: https://da.wikipedia.org/wiki/K%C3%B8bst%C3%A6der_i_Danmark
 
 The data was enriched with data from Degn (1989) and www.ddb.byhistorie.dk

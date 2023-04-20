@@ -22,6 +22,9 @@ water_line = readOGR(
   "Data/water-polygons-split-4326"
 )
 
+# Sound toll
+sound_toll = read.csv2("data/LocalSoundToll.csv")
+
 # ==== Functions ====
 # marketPotential
 marketPotential = function(dist, theta = -1, weights = rep(1, length(x))){
@@ -106,6 +109,50 @@ market_towns = market_towns %>%
     X_km = degrees_to_km(lat, long)[2]
   )
 
+# ==== spdf of sound toll ports ====
+sound_toll = sound_toll %>% 
+  filter(port != "Limfjorden") %>% 
+  rename(
+    N_in = n_to,
+    N_out = n_from
+  ) %>% 
+  group_by(port) %>% 
+  mutate(
+    max_traffic = max(trafic)
+  ) %>% 
+  filter(max_traffic > 1) %>% # Filter off micelanous ports (max 1 ship in a year)
+  ungroup() %>% 
+  filter(Year >= 1750 & Year <= 1855) %>% 
+  mutate(After = as.numeric(Year >= 1834)) %>% 
+  # mutate(limfjord_placement = ifelse(port == "Viborg", "west", limfjord_placement)) %>% 
+  mutate(
+    limfjord_placement = ifelse(
+      limfjord_placement == "no", 
+      "reference", 
+      limfjord_placement
+    )
+  ) %>% 
+  mutate(
+    limfjord_placement = relevel(factor(limfjord_placement), ref = "reference")
+  ) %>% 
+  rename(
+    latitude = decLatitude,
+    longitude = decLongitude
+  ) %>% 
+  mutate(
+    byPort = ifelse(limfjord_placement == "reference", "reference", port)
+  ) %>% 
+  mutate(
+    byPort = relevel(factor(byPort), ref = "reference")
+  )
+
+sound_toll_ports = sound_toll %>% distinct(port, longitude, latitude, limfjord_placement, byPort)
+sound_toll_port_spdf = SpatialPointsDataFrame(
+  coords = sound_toll_ports %>% dplyr::select(longitude, latitude),
+  data = sound_toll_ports,
+  proj4string = CRS("+proj=longlat +zone=32 +ellps=GRS80")
+)
+
 # ==== Market towns spdf ====
 dist_mat_market_towns = foreach(
   From = market_towns$Market_townID, 
@@ -132,7 +179,7 @@ dist_mat_market_towns = foreach(
   return(res)
 }
 
-# Exclude neighbor market towns
+# Exclude neighbour market towns
 market_towns = market_towns %>% 
   filter(!(Market_townID %in% c("n2014", "n105")))
 
@@ -151,7 +198,7 @@ market_towns_spdf@data = market_towns_spdf@data %>%
   )
 
 
-# ==== >> DK Water / land grid ====
+# ==== DK Water / land grid ====
 # # DK grid 0.5km x 0.5km
 # # https://rdrr.io/cran/gdistance/f/vignettes/Overview.Rmd
 # # Make grid with land / water
@@ -313,14 +360,14 @@ load("Data/Tmp_landwater_gridDK.Rdata")
 # }
 # 
 # save(transmatsDK, file = "Data/Tmp_transmatsDK.Rdata")
-load("transmatsDK.Rdata")
+load("Data/Tmp_transmatsDK.Rdata")
 
-# Cost distances
-costmats = foreach(i = 1:length(transmatsDK)) %do% {
-  cat("\ni =", i, "||", as.character(Sys.time()))
-  cost_distPort = costDistance(transmatsDK[[i]], parish_spdf, sound_toll_port_spdf)
-  cost_distPort
-}
-save(costmats, file = "Data/Tmp_costmats.Rdata")
+# # Cost distances
+# costmats = foreach(i = 1:length(transmatsDK)) %do% {
+#   cat("\ni =", i, "||", as.character(Sys.time()))
+#   cost_distPort = costDistance(transmatsDK[[i]], parish_spdf, sound_toll_port_spdf)
+#   cost_distPort
+# }
+# save(costmats, file = "Data/Tmp_costmats.Rdata")
 load("Data/Tmp_costmats.Rdata")
 

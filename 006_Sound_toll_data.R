@@ -2,6 +2,9 @@
 # Date updated:   2023-04-20
 # Auhtor:         Christian Vedel 
 #
+# Output:         LocalSoundToll.csv
+#
+
 # ==== Libraries ====
 source("000_functions.R")
 library(tidyverse)
@@ -208,4 +211,7 @@ places_standard_dk = places_standard %>%
 
 journeys_count0 %>% 
   left_join(places_standard_dk, by = c("port" = "Stednavn")) %>% 
+  select(
+    Year, port, limfjord_placement, n_from, n_to, trafic, decLatitude, decLongitude
+  ) %>% 
   write.csv2("Data/LocalSoundToll.csv", row.names = FALSE)
