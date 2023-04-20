@@ -77,6 +77,90 @@ deg2dec = function(x){
   return(res)
 }
 
+# MAfunction
+# Parameters:
+# theta:  Distance elasticity. Defaults to 1 
+# alpha:  Relative cost of land travel (Defaults to 10). Alternative values
+#         are computationally costly.
+# portW:  Input the weight of each port. 
+
+MAfunction = function(theta = -1, alpha = 10, portW){
+  
+  addr_alpha = which(attr(costmats,"alpha")==alpha)
+  cost_distPort = costmats[[addr_alpha]]
+  
+  # Estimate MP
+  start_time = Sys.time()
+  res = foreach(i = 1:NROW(parish_spdf@data), .combine = "bind_rows") %do% {
+    GIS_ID_i = parish_spdf@data$GIS_ID[i]
+    
+    dists_i = sound_toll_port_spdf@data %>%
+      bind_cols(CostDist = cost_distPort[i,]) %>% 
+      # Avoid exploding values close to ports
+      mutate(
+        CostDist = ifelse(CostDist < 1, 1, CostDist) 
+      )
+    
+    MP = dists_i %>%
+      ungroup() %>%
+      summarise(MPbefore = marketPotential(CostDist, weights = portW, theta = theta)) %>% unlist()
+    
+    if(i %% 10 == 0){
+      report_status(i, total = NROW(parish_spdf@data), start_time = start_time)
+    }
+    
+    res = data.frame(GIS_ID = GIS_ID_i, MP = MP)
+    return(res)
+  }
+  
+  return(res)
+}
+
+# Estimate
+Calculate_and_plot = function(theta, alpha){
+  cat("\n1. Before\n")
+  MA_before = MAfunction(portW = portWs$before, theta = theta, alpha = alpha) %>% 
+    rename(MA_before = MP)
+  cat("\n2. After\n")
+  MA_after = MAfunction(portW = portWs$after, theta = theta, alpha = alpha) %>% 
+    rename(MA_after = MP)
+  
+  MAs = MA_before %>% 
+    left_join(MA_after, by = "GIS_ID") %>% 
+    mutate(
+      MA_after_before = MA_after / MA_before
+    )
+  
+  parish_spdf@data = parish_spdf@data %>%
+    left_join(MAs, by = "GIS_ID")
+  
+  shape_parish@data = shape_parish@data %>%
+    left_join(MAs, by = "GIS_ID")
+  
+  p1 = parish_spdf@data %>%
+    ggplot() +
+    layer_spatial(
+      data = shape_parish,
+      aes(fill = log(MA_after/MA_before)),
+      col = "grey"
+    ) +
+    scale_fill_distiller(palette = "Spectral") +
+    geom_point(
+      data = sound_toll_port_limfj_spdf@data,
+      aes(longitude, latitude),
+      inherit.aes = FALSE
+    ) + 
+    scale_color_distiller(palette = "RdYlBu") +
+    theme_bw()
+  
+  print(p1)
+  
+  fname = paste0("Plots/MA plots/alpha",alpha,"_theta",abs(theta),".png")
+  ggsave(fname, plot = p1, width = 10, height = 7)
+  
+  return(MAs)
+}
+
 # ==== spdf of parishes ====
 parish_spdf = SpatialPointsDataFrame(
   coords = shape_parish@data %>% dplyr::select(long, lat),
@@ -150,6 +234,19 @@ sound_toll_ports = sound_toll %>% distinct(port, longitude, latitude, limfjord_p
 sound_toll_port_spdf = SpatialPointsDataFrame(
   coords = sound_toll_ports %>% dplyr::select(longitude, latitude),
   data = sound_toll_ports,
+  proj4string = CRS("+proj=longlat +zone=32 +ellps=GRS80")
+)
+
+# ==== Limfjord ports ====
+sound_toll_limfjord = sound_toll %>%
+  distinct(latitude, longitude, byPort, port, limfjord_placement) %>%
+  filter(limfjord_placement != "reference") %>%
+  filter(limfjord_placement != "east") %>%
+  ungroup()
+
+sound_toll_port_limfj_spdf = SpatialPointsDataFrame(
+  coords = sound_toll_limfjord %>% dplyr::select(longitude, latitude),
+  data = sound_toll_limfjord,
   proj4string = CRS("+proj=longlat +zone=32 +ellps=GRS80")
 )
 
@@ -317,7 +414,7 @@ market_towns_spdf@data = market_towns_spdf@data %>%
 load("Data/Tmp_landwater_gridDK.Rdata")
 
 # ==== Computing transition matricies and cost distances ====
-# alphas = c(1, 5, 10, 20, 50)
+alphas = c(1, 5, 10, 20, 50)
 # # alpha = 10 is the default parameter
 # # this correpsonds to land travel being 10 times more expensive than sea travel
 # # Transition mats
@@ -368,6 +465,41 @@ load("Data/Tmp_transmatsDK.Rdata")
 #   cost_distPort = costDistance(transmatsDK[[i]], parish_spdf, sound_toll_port_spdf)
 #   cost_distPort
 # }
+# attr(costmats,"alpha") = alphas
 # save(costmats, file = "Data/Tmp_costmats.Rdata")
 load("Data/Tmp_costmats.Rdata")
 
+# ==== Creating portWs ====
+portWs = sound_toll %>% # Localised impact
+  filter(Year == 1800) %>%  
+  dplyr::select(port, byPort, limfjord_placement) %>% 
+  mutate(
+    before = ifelse(limfjord_placement %in% c("west", "middle"), 0, 1)
+  ) %>% 
+  mutate(
+    after = 1
+  )
+
+tmp = sound_toll_port_spdf@data %>% 
+  mutate(order_tmp = 1:n()) %>% 
+  dplyr::select(order_tmp, port)
+
+portWs = portWs %>% 
+  left_join(tmp, by = "port") %>% 
+  arrange(order_tmp)
+
+# ==== Compute MAs ====
+res = foreach(theta = -2^(0:4), .combine = "bind_rows") %do% {
+  foreach(alpha = alphas, .combine = "bind_rows") %do% {
+    cat("\nalpha =",alpha,"theta =", theta, "||||", as.character(Sys.time()))
+    res_i = Calculate_and_plot(theta, alpha)
+    res_i %>% mutate(
+      theta = theta,
+      alpha = alpha
+    )
+  }
+}
+
+
+res %>% 
+  write.csv2("Data/MA_estimates.csv", row.names = FALSE)
