@@ -65,6 +65,34 @@ This contains various geographic information.
 The Limfjord regions are based on the following definitions: 
 - The parish is categorized as being a Limfjord parish, if the closest coast is the Limfjord i.e. distance_oce >= distance_lim-200
 
+### F. Market_towns.csv
+This data was manually compiled based on the following wikipedia page: https://da.wikipedia.org/wiki/K%C3%B8bst%C3%A6der_i_Danmark
+
+The data was enriched with data from Degn (1989) and www.ddb.byhistorie.dk
+
+| Variable | Description |
+|----------|-------------|
+| Market_town         | Name of market town                                                                           |
+| Market_townID       | Unique ID for each market town                                                                 |
+| Pop1672             | Population in 1672                                                                             |
+| Pop1769             | Population in 1769                                                                             |
+| Pop1787             | Population in 1787                                                                             |
+| Pop1801             | Population in 1801                                                                             |
+| GIS_ID              | Key to use for census data and shape data. Manually added                                      |
+| Coastal             | Is the market town close to the coast?                                                         |
+| Limfjord_coast      | Is the market town on the Limfjord?                                                            |
+| Manually_added      | Not in Degn (1989). Was added from ddb.byhistorie.dk                                           |
+| wiki_ref            | Wikipedia URL                                                                                 |
+| Coord               | Latitude and longitude from wikipedia                                                          |
+| Privilege_start     | When was market town privilege given?                                                          |
+| Privilege_end       | When was market town privilege taken away?                                                     |
+| Informal_markettown | Towns that in all but official recognition acted as market town                                |
+| Approx_year         | Is the privilege given in an approximate year?                                                 |
+| Port_projects       | Years separated by ','. Year of port construction projects from Trap 3                         |
+| ddb_url             | Page on ddb.byhistorie.dk                                                                      |
+| Notes               | Notes                                                                                          |
+
+
 
 ## 2. Large or non-redistributable data:
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
@@ -97,3 +125,5 @@ This is only used in 005_Limfjord_regions.R. It is slightly too large to redistr
 
 ## References 
 Boberg-Fazlic, N., Jensen, P.S., Lampe, M. et al. ‘Getting to Denmark’: the role of agricultural elites for development. J Econ Growth (2023). https://doi.org/10.1007/s10887-023-09226-8
+
+Degn, O. (1989). Byer, byhierarkier og byudvikling. Historie/Jyske Samlinger. https://tidsskrift.dk/historiejyskesamling/article/view/40197
