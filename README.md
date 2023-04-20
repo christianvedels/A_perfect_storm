@@ -108,6 +108,32 @@ The data was enriched with data from Degn (1989) and www.ddb.byhistorie.dk
 | Notes               | Notes                                                                                          |
 
 
+### H. MA_estimates.csv
+This contains Market Access estimates before and after the channel. When the channel opened six new ports became available. The data in this file measures market access in a standard Harris (1954) inspired fashion as the sum of inverse distance to ports. This is based on ports from the sound toll register. The file contains estimates given the combination of a wide set of feasible parameters. This is stored in the long format. 
+
+The market access is computed as:
+
+$${MA}_p = \sum_{h \in H} [CostDist(p, h) + 1]^\theta$$
+
+Here $H$ is the set of all available ports (H for harbour). $h$ is a specific port and $p$ is a specific parish. $CostDist(p, h; \alpha)$ is the relative cost of travelling from parish $p$ to port $h$. Here $\alpha$ is the relative cost of travelling over sea rather than land. In the default specification $\alpha = 10$ is used. $\theta$ is the distance elasticity. In the default specification $\theta=-1$ is used (just like Harris, 1954). 
+
+The core aim of this entire exercise is to gain insights into how this measure changes with the breach namely ${MA}_p|No\:canal$ and ${MA}_p|Canal$. This comes from the change in the set of available ports $H\rightarrow H^*$. $H$ is all the consistently available ports before 1834. $H^*$ is those consistently available after 1834. The estimated conditional market access can then be expressed as
+
+$$\begin{split}
+{MA}_{p}|No\:channel &= {MA}_{p}|H \\
+{MA}_{p}|Channel &= {MA}_{p}|H^*.
+\end{split}$$
+
+| Variable | Description |
+|----------|-------------|
+| GIS_ID | GIS_ID - unique ID in the parish shape data. |
+|MA_before| Market access before the new ports became available |
+|MA_after| Market access after the new ports became available |
+|MA_after_before| Market access improvement: MA_after / MA_before |
+|theta| Assumed $\theta$ (distance elasticity) |
+|alpha| Assumed $\alpha$ (relative cost of land travel) |
+
+Maps given these MA estimates can be found in the path *Plots/MA plots*.
 
 ## 2. Large or non-redistributable data:
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
@@ -142,3 +168,5 @@ This is only used in 005_Limfjord_regions.R. It is slightly too large to redistr
 Boberg-Fazlic, N., Jensen, P.S., Lampe, M. et al. ‘Getting to Denmark’: the role of agricultural elites for development. J Econ Growth (2023). https://doi.org/10.1007/s10887-023-09226-8
 
 Degn, O. (1989). Byer, byhierarkier og byudvikling. Historie/Jyske Samlinger. https://tidsskrift.dk/historiejyskesamling/article/view/40197
+
+Harris, C. D. (1954). The Market as a Factor in the Localization of Industry in the United States. Annals of the Association of American Geographers, 44(4), 315–348.
