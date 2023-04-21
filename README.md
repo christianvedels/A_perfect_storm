@@ -70,7 +70,7 @@ The variables *main, coastal, non_limfjord_control, wo_kbh* are booleans, which 
 | wo_kbh | Copenhagen and the county just north of it (Frederiksborg) is excluded |
 
 
-The Limfjord regions are based on the following definitions: 
+The Limfjord placement is based on the following definitions: 
 - The parish is categorized as being a Limfjord parish, if the closest coast is the Limfjord i.e. distance_oce >= distance_lim-200
 
 ### F. LocalSoundToll.csv
