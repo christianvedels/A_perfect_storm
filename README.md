@@ -2,7 +2,8 @@
 
 This is the repository of the paper 'A perfect storm and the natural endowments of trade-enabling infrastructure'. The repository was created as I refactored all the code of the project to tie it up for a version to include in my thesis. A short version of the paper is enclosed in this repository as 'Paper_short_version.pdf'. This specific version of the paper won the [EHS's New Researcher Prize](https://ehs.org.uk/society/grants-prizes/new-researcher-paper-prize-winners/) in the spring of 2023.
 
-The scripts in this repository are numbered to indicate the order in which to run them. Some of the data cannot be shared in this repository either because I am not authorized to redistribute it, or because it is too large. However, I have included all the necessary information to download or obtain the data below. All scripts from "006_..." onwards require only data that is included in the repository.  
+The scripts in this repository are numbered to indicate the order in which to run them. Some of the data cannot be shared in this repository either because I am not authorized to redistribute it, or because it is too large. However, I have included all the necessary information to download or obtain the data below. All scripts from "009_..." onwards require only data that is included in the repository.  
+
 ## 1. Included data
 The following data is included in this repository
 
@@ -143,6 +144,17 @@ $$\begin{split}
 
 Maps given these MA estimates can be found in the path *Plots/MA plots*.
 
+### I. Arch.csv
+| Variable | Description |
+|----------|-------------|
+| Year | Plausible year of the finding (one row for each of 50th year within From_year:To_year) |
+| GIS_ID | GIS_ID - unique ID in the parish shape data. |
+| finding_interpretation | Finding interpretation in Danish |
+| finding_interpretation_en | Finding interpretation in English |
+| From_year | Dating range - first plausible year |
+| To_year | Dating range - last plausible year |
+| Category | Overall category of the finding: *Indicators_of_economic_activity, Buildings, State_formation, Religious, Defensive, Distress* |
+
 ## 2. Large or non-redistributable data:
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
 
@@ -171,6 +183,9 @@ This is data is available [here](https://www.dropbox.com/s/ov7ubxtqq21c6za/LL_hi
 
 ### E. Coast-line shape
 This is only used in 005_Limfjord_regions.R. It is slightly too large to redistribute. It contains coast lines, and is downloadable from: https://osmdata.openstreetmap.de/data/water-polygons.html. This was downloaded 2023-04-19.
+
+### F. Archaeological data
+The archaehological data used, can be downloaded from the website of the Danish Agency of Culture and Palaces. They maintain a database og all arhaeological sites in Denmark. This data is processed in '008_Archaeological_data.R'.
 
 ## References 
 Boberg-Fazlic, N., Jensen, P.S., Lampe, M. et al. ‘Getting to Denmark’: the role of agricultural elites for development. J Econ Growth (2023). https://doi.org/10.1007/s10887-023-09226-8

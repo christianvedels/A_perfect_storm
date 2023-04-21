@@ -191,6 +191,11 @@ the_data = the_data %>%
                                        )
   )
 
+the_data = the_data %>% 
+  rename(
+    From_year = fra_aar,
+    To_year = til_aar
+  )
 
 # ==== Save data ====
 the_data %>% 
