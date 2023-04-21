@@ -1,5 +1,5 @@
 # Limfjord regions 
-# Date updated:   2023-04-19
+# Date updated:   2023-04-21
 # Auhtor:         Christian Vedel 
 #
 # Output:         Geo.csv containing GIS ID and their Limfjord regions
