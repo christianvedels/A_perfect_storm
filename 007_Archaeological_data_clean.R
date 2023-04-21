@@ -6,10 +6,12 @@
 
 # ==== Libraries =====
 library(tidyverse)
-library(rgeos)
+library(rgdal)
+library(foreach)
+source("000_Functions.R")
 
 # ==== Load data ====
-the_data = read.csv("Data/Archeological finds/anlaeg_all_4326.csv")
+the_data = read.csv("Data/Archeological finds/anlaeg_all_4326.csv", fileEncoding = "latin1")
 shape = readOGR("Data/Archeological finds/anlaeg_all_4326_shp")
 shape_parishes = readOGR("Data/sogne_shape/sogne.shp")
 geo_data = read.csv2("Data/Geo.csv")
@@ -40,11 +42,10 @@ used_historical_periods = c(
   "Historisk Tid"
 )
 
-the_data = the_data %>% filter(datering %in% used_datering)
+the_data = the_data %>% filter(datering %in% used_historical_periods)
 
 # Filter data
 the_data = the_data %>%
-  # filter(anlaegsbetydning == "M\xf8ntfund") %>% 
   filter(
     til_aar <= 1500 | fra_aar >= 750
   )
@@ -79,6 +80,7 @@ the_data_spdf =
   )
 
 parishes = the_data_spdf %over% shape_parishes
+parishes = parishes %>% select(GIS_ID)
 the_data = bind_cols(the_data, parishes)
 
 the_data = parish_years_empty %>% 
@@ -87,49 +89,110 @@ the_data = parish_years_empty %>%
 the_data = the_data %>% 
   filter(fra_aar<Year & til_aar > Year)
 
-the_data_sum = the_data %>% 
-  group_by(Year, limfjord_placement, anlaegsbetydning) %>% 
-  summarise(
-    prob = n()/n_sogne_limfj,
-    lprob = log(n()/n_sogne_limfj)
-  )
-
-the_data_sum0 = the_data %>% 
-  group_by(Year, limfjord_placement) %>% 
-  summarise(
-    prob = n()/n_sogne_limfj,
-    lprob = log(n()/n_sogne_limfj)
-  )
-
-the_data_spdf@data %>% NROW()
-
-
-# p1 = the_data_sum %>%
-#   ggplot(aes(Year, log(prob), col = limfjord_placement)) +
-#   geom_line() +
-#   # facet_wrap(~anlaegsbetydning, scales = "free_y") +
-#   facet_wrap(~anlaegsbetydning) +
-#   theme_bw() +
-#   geom_vline(xintercept = c(1086,1200), lty = 2)
-# 
-# ggsave("Plots/Arch.png", width = 45, height = 30, plot = p1, limitsize = FALSE)
-# 
-p1 = the_data_sum0 %>%
-  ggplot(aes(Year, prob, col = limfjord_placement)) +
-  geom_line() +
-  theme_bw() +
-  geom_vline(xintercept = c(1086,1200), lty = 2)
-
-p1
-ggsave("Arch0.png", width = 10, height = 8, plot = p1)
-
-the_data %>% 
-  group_by(anlaegsbetydning, limfjord_placement) %>% 
-  summarise(
-    n = n(),
-    fra_aar = paste0(fra_aar[1:5], collapse = "; "),
-    til_aar = paste0(til_aar[1:5], collapse = "; "),
-    url = paste0(url[1:5], collapse = "; ")
+# Select vars which are used 
+the_data = the_data %>% 
+  select(
+    Year, GIS_ID, anlaegsbetydning, fra_aar, til_aar
   ) %>% 
-  filter(limfjord_placement=="west") %>% 
-  arrange(limfjord_placement, -n)# %>% View()
+  rename(
+    finding_interpretation = anlaegsbetydning
+  )
+
+# Replace scandi letters
+the_data = the_data %>% 
+  mutate(
+    finding_interpretation = sub_scandi(finding_interpretation)
+  )
+
+# ==== Define categories ====
+site_types = list(
+  Indicators_of_economic_activity = c(
+    "Coin findings" = "Moentfund",
+    "Brick" = "Tegl",
+    "Iron" = "Jern",
+    "Metal" = "Metal",
+    "Water mill" = "Vandmoelle",
+    "Mill dam" = "Moelledaemning",
+    "Bakery oven" = "Bageovn",
+    "Furnace (unspecified)" = "Ovnanlaeg (uspecificeret)",
+    "Windmill" = "Vindmoelle",
+    "Pottery" = "Keramik",
+    "Glas" = "Glas",
+    "Trade" = "Handel",
+    "Textile" = "Tekstil"
+  ),
+  Buildings = c(
+    "House (possibly with a stable)" = "Hus (evt. med stald)",
+    "Settlement, unspecified subgroup" = "Bosaettelse, uspec undergruppe",
+    "Well" = "Broend",
+    "Livestock enclosure" = "Dyrefold",
+    "Farmstead" = "Gaard",
+    "Pit-house" = "Grubehus",
+    "Hedge/fence" = "Hegn/gaerde",
+    "Stable building" = "Staldbygning",
+    "Posthole with unknown function" = "Stolpehul m. uvis funktion",
+    "Ditch (boundary)" = "Groeft (skel)",
+    "Boundary (unspecified)" = "Skel (uspecificeret)",
+    "Boundary stone (property)" = "Skelsten (ejendom)",
+    "Garden" = "Have",
+    "Barn" = "Lade",
+    "Boundary (property)" = "Skel (ejendom)",
+    "Main building" = "Hovedbygning"
+  ),
+  State_formation = c(
+    "Thing (assembly site)" = "Tingsted",
+    "Execution site" = "Rettersted",
+    "Hospital" = "Hospital",
+    "Official residence" = "Embedsbolig",
+    "Boundary stone (public administration)" = "Skelsten (offentlig administration)",
+    "Boundary (public administration)" = "Skel (offentlig administration)"
+  ),
+  Religious = c(
+    "Church" = "Kirke",
+    "Chapel" = "Kapel",
+    "Monastery complex" = "Klosteranlaeg",
+    "Burial chapel" = "Gravkapel",
+    "Cross" = "Kors",
+    "Church barn" = "Kirkelade",
+    "Church stable" = "Kirkestald"
+  ),
+  Defensive = c(
+    "Castle/motte-and-bailey" = "Borg/Voldsted", 
+    "Moat" = "Voldgrav", 
+    "Rampart" = "Forsvarsvold", 
+    "Fortification" = "Befaestning", 
+    "Military, unspecified subgroup" = "Militaervaesen, uspec undergruppe", 
+    "Redoubt" = "Skanse", 
+    "Trench" = "Skyttegrav"
+  ),
+  Distress = c(
+    "Hoard finds" = "Depotfund"
+  )
+)
+
+
+site_types_tab = foreach(i = 1:length(site_types), .combine = "bind_rows") %do% {
+  name_i = names(site_types)[i]
+  data.frame(
+    Category = name_i,
+    finding_interpretation = site_types[[i]],
+    finding_interpretation_en = names(site_types[[i]])
+  )
+}
+
+the_data = the_data %>% 
+  left_join(site_types_tab, by = "finding_interpretation") %>%
+  mutate(
+    Category = ifelse(is.na(Category),
+                      "Not categorized", Category
+                      ),
+    finding_interpretation_en = ifelse(is.na(finding_interpretation_en), 
+                                       "Not categorized", finding_interpretation_en
+                                       )
+  )
+
+
+# ==== Save data ====
+the_data %>% 
+  write_csv2("Data/Arch.csv")
+
