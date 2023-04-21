@@ -178,7 +178,24 @@ p1 = ggplot() +
 
 
 geo_data = shape_parish@data
-geo_data = geo_data %>% 
-  select(GIS_ID, limfjord_placement, distance_oce, distance_lim)
 
+geo_data = geo_data %>% 
+  select(AMT, SOGN, GIS_ID, limfjord_placement, distance_oce, distance_lim, ) %>% 
+  rename(
+    County = AMT,
+    Parish = SOGN
+  ) %>% 
+  arrange(County)
+
+# ==== Subgroups ====
+geo_data = geo_data %>%
+  mutate(
+    main = TRUE,
+    coastal = distance_oce < 5000,
+    non_limfjord_control = distance_lim > 100000 | limfjord_placement != "not",
+    wo_kbh = !County %in% c("Koebenhavn",
+                            "Frederiksborg")
+  )
+
+# ==== Save result ====
 write_csv2(geo_data, "Data/Geo.csv")

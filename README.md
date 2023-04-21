@@ -54,12 +54,20 @@ Shape file which covers the body of water known as Limfjorden. From this reposit
 
 ### E. Geo.csv
 This contains various geographic information.
+The variables *main, coastal, non_limfjord_control, wo_kbh* are booleans, which can be used to filter with to investigate sensitivity to different subgroups of the data. 
+
 | Variable | Description |
 |----------|-------------|
+| County | County of the parish |
+| Parish | Parish name |
 | GIS_ID | GIS_ID - unique ID in the parish shape data. |
 | limfjord_placement | Does the parish belong the Limfjord area of Denmark? And which part of the Limfjord? West/middle/east |
 | distance_oce | Distance to closest coast in meters |
 | distance_lim | Distance to the Limfjord in meters |
+| main | All data | 
+| coastal | Only parishes with <5km distance to a coast | 
+| non_limfjord_control | All parishes, which are not on the Limfjord are at least 100 km away from the Limfjord | 
+| wo_kbh | Copenhagen and the county just north of it (Frederiksborg) is excluded |
 
 
 The Limfjord regions are based on the following definitions: 
