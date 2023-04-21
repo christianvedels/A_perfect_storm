@@ -59,3 +59,8 @@ Data/Sound toll database/Data/y1634-1857/ladingen.csv
 Data/Sound toll database/Documentation of raw database.xlsx
 Data/Sound toll database/Source.txt
 Data/Tmp_costmats.Rdata
+Data/Archeological finds/anlaeg_all_4326.csv
+Data/Archeological finds/anlaeg_all_4326_shp/anlaeg_all_4326.dbf
+Data/Archeological finds/anlaeg_all_4326_shp/anlaeg_all_4326.prj
+Data/Archeological finds/anlaeg_all_4326_shp/anlaeg_all_4326.shp
+Data/Archeological finds/anlaeg_all_4326_shp/anlaeg_all_4326.shx
