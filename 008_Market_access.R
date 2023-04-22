@@ -16,7 +16,6 @@ library(gdistance)
 
 # ==== Load data ====
 shape_parish = readOGR("Data/sogne_shape")
-market_towns = read.csv2("Data/Market_towns.csv", fileEncoding="latin1")
 
 water_line = readOGR(
   "Data/water-polygons-split-4326"
