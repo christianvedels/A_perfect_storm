@@ -29,7 +29,7 @@ market_access = market_access %>%
   )
 
 # ==== Main_panels and save ====
-# These are the two main panels of archaeological findins used in the paper
+# These are the two main panels of archaeological findings used in the paper
 
 # The following files can be recreated with 009_Archaeological_monte_carlo.R
 # But this takes a while. They can also be donwloaded here: 
