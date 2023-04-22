@@ -129,6 +129,8 @@ construct_panel = function(arch_samples){
 # The samples GIS IDs and 
 
 arch_sampler = function(arch_samples, capB = 1000){
+  require(foreach)
+  
   # Check if geo data is loaded. Otherwise load it
   if(!"geo_data" %in% ls()){
     geo_data = read_csv2("Data/Geo.csv", guess_max = 2000)
@@ -143,18 +145,53 @@ arch_sampler = function(arch_samples, capB = 1000){
   Uniques_GIS_IDs = geo_data$GIS_ID
   max_b = arch_samples$b %>% max()
   
+  start_t = Sys.time()
+  
   panels = foreach(b = 1:capB) %do% {
     # Sample parishes
     GIS_ID_b = sample(Uniques_GIS_IDs, size = length(Uniques_GIS_IDs), replace = TRUE)
     b_b = sample(seq(1, max_b), size = max_b, replace = TRUE)
     
     # Construct samples file from sampled parishes
-    expand.grid(
+    res = expand.grid(
       GIS_ID = GIS_ID_b,
       b = b_b
     ) %>% 
       left_join(arch_samples, by = c("GIS_ID", "b")) %>% 
       # Turn this into a panel like the main reg panel
       construct_panel()
+    
+    
+    # Report status to console
+    time_t = Sys.time()
+    delta_t = time_t - start_t
+    per_step = delta_t/b
+    total_t = capB * per_step
+    remaining_t = total_t - delta_t
+    
+    message0 = paste0(
+      "\n",
+      as.character(time_t),
+      ": b = ", b,
+      " ellapsed time: ", round(delta_t, 3), " ", units(delta_t),
+      " remaining: ", round(remaining_t, 3), " ", units(remaining_t),
+      " of ", round(total_t, 3), " ", units(total_t)
+      
+    )
+    
+    cat(message0)
+    
+    return(res)
   }
+  
+  return(panels)
+}
+
+
+
+
+panels = foreach(b = 1:capB) %do% {
+  
+  # Dummy
+  Sys.sleep(0.1)
 }
