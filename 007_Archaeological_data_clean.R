@@ -50,28 +50,7 @@ the_data = the_data %>%
     til_aar <= 1500 | fra_aar >= 750
   )
 
-# Datafication 
-parish_years_empty = expand.grid(
-  Year = seq(from = 750, to = 1500, by = 50),
-  GIS_ID = unique(shape_parishes$GIS_ID)
-)
-
-all_in = function(x1, x2, y1, y2){
-  test1 = x1>=y1
-  test2 = x2<=y2
-  return(test1&test2)
-}
-
-tmp = function(x){
-  if(length(x)==1){
-    return(x)
-  } else if(length(x)==0){
-    return(NA)
-  } else {
-    stop("Too long")
-  }
-}
-
+# Over
 the_data_spdf =
   SpatialPointsDataFrame(
     coords = data.matrix(the_data %>% select(Long, Lat)),
@@ -83,16 +62,10 @@ parishes = the_data_spdf %over% shape_parishes
 parishes = parishes %>% select(GIS_ID)
 the_data = bind_cols(the_data, parishes)
 
-the_data = parish_years_empty %>% 
-  left_join(the_data, by = "GIS_ID")
-
-the_data = the_data %>% 
-  filter(fra_aar<Year & til_aar > Year)
-
 # Select vars which are used 
 the_data = the_data %>% 
   select(
-    Year, GIS_ID, anlaegsbetydning, fra_aar, til_aar
+    GIS_ID, anlaegsbetydning, fra_aar, til_aar
   ) %>% 
   rename(
     finding_interpretation = anlaegsbetydning
