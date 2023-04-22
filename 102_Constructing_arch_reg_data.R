@@ -41,7 +41,7 @@ buildings %>% write_csv2("Data/Reg_arch_buildings.csv")
 
 load("Data/Tmp_arch_samples/Coin findings.Rdata")
 coins = construct_panel(res_is$`Overall_Coin findings`$samples)
-coins %>% write_csv2("Data/Reg_arch_buildings.csv")
+coins %>% write_csv2("Data/Reg_arch_coins.csv")
 
 
 
