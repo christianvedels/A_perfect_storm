@@ -111,3 +111,39 @@ degrees_to_km = function(lat, long) {
   return(c(lat_km, long_km))
   
 }
+
+# ==== construct_panel() ====
+# This takes archaeological samples from the data from 009_Archaeological_monte_carlo.R
+# and turns them into a panel
+construct_panel = function(arch_samples){
+  arch_samples %>% 
+    group_by(GIS_ID, rYear) %>% 
+    summarise(
+      activity = mean(activity)
+    ) %>% 
+    left_join(geo_data, by = "GIS_ID") %>% 
+    left_join(market_access, by = "GIS_ID")
+}
+
+# ==== arch_sampler() ====
+# The samples GIS IDs and 
+
+arch_sampler = function(arch_samples, capB = 1000){
+  Uniques_GIS_IDs = geo_data$GIS_ID
+  max_b = arch_samples$b %>% max()
+  
+  panels = foreach(b = 1:capB) %do% {
+    # Sample parishes
+    GIS_ID_b = sample(Uniques_GIS_IDs, size = length(Uniques_GIS_IDs), replace = TRUE)
+    b_b = sample(seq(1, max_b), size = max_b, replace = TRUE)
+    
+    # Construct samples file from sampled parishes
+    expand.grid(
+      GIS_ID = GIS_ID_b,
+      b = b_b
+    ) %>% 
+      left_join(arch_samples, by = c("GIS_ID", "b")) %>% 
+      # Turn this into a panel like the main reg panel
+      construct_panel()
+  }
+}
