@@ -154,6 +154,17 @@ Maps given these MA estimates can be found in the path *Plots/MA plots*.
 | To_year | Dating range - last plausible year |
 | Category | Overall category of the finding: *Indicators_of_economic_activity, Buildings, State_formation, Religious, Defensive, Distress* |
 
+### I. Reg_arch_buildings.csv, Reg_arch_coins.csv
+Regression data for arcaehological data based on monte carlo sampling from 009_Archaeological_monte_carlo.R. Reg_arch_buildings.csv contains data for buildings. Reg_arch_coins.csv contain data from coin findings.
+
+| Variable | Description |
+|----------|-------------|
+| GIS_ID | GIS_ID - unique ID in the parish shape data. |
+| rYear | Year. The r indicates that the year is stochastic since it ultimately comes from the uncertain dating of the findings | 
+| activity | Estimated probability that there was activity (coins or buildings) in this parish at this time |
+| [geo] | Geographical data from 'Geo.csv' | 
+| delta_lMA_theta_[x]\_alpha_[y] | Difference in market access before/after channel based from MA_estimates.csv with parameters -x and y. |
+
 ## 2. Large or non-redistributable data:
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
 
