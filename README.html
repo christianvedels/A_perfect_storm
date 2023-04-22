@@ -372,10 +372,11 @@ New Researcher Prize</a> in the spring of 2023.</p>
 which to run them. Some of the data cannot be shared in this repository
 either because I am not authorized to redistribute it, or because it is
 too large. However, I have included all the necessary information to
-download or obtain the data below. All scripts from “006_…” onwards
-require only data that is included in the repository.<br />
-## 1. Included data The following data is included in this
-repository</p>
+download or obtain the data below. All scripts from “008_…” onwards
+require only data that is included in the repository.</p>
+<div id="included-data" class="section level2">
+<h2>1. Included data</h2>
+<p>The following data is included in this repository</p>
 <div id="a.-popdata.csv" class="section level3">
 <h3>A. Popdata.csv</h3>
 <p>This contains demographic data at the parish level. The data contains
@@ -536,6 +537,385 @@ above parish and below county. Roughly translates to ‘hundred’.</td>
 </tbody>
 </table>
 </div>
+<div id="d.-limfjorden" class="section level3">
+<h3>D. limfjorden</h3>
+<p>Shape file which covers the body of water known as Limfjorden. From
+this repository: <a href="https://github.com/DenAutonomePirat/shapefile" class="uri">https://github.com/DenAutonomePirat/shapefile</a></p>
+</div>
+<div id="e.-geo.csv" class="section level3">
+<h3>E. Geo.csv</h3>
+<p>This contains various geographic information. The variables <em>main,
+coastal, non_limfjord_control, wo_kbh</em> are booleans, which can be
+used to filter with to investigate sensitivity to different subgroups of
+the data.</p>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>County</td>
+<td>County of the parish</td>
+</tr>
+<tr class="even">
+<td>Parish</td>
+<td>Parish name</td>
+</tr>
+<tr class="odd">
+<td>GIS_ID</td>
+<td>GIS_ID - unique ID in the parish shape data.</td>
+</tr>
+<tr class="even">
+<td>limfjord_placement</td>
+<td>Does the parish belong the Limfjord area of Denmark? And which part
+of the Limfjord? West/middle/east</td>
+</tr>
+<tr class="odd">
+<td>distance_oce</td>
+<td>Distance to closest coast in meters</td>
+</tr>
+<tr class="even">
+<td>distance_lim</td>
+<td>Distance to the Limfjord in meters</td>
+</tr>
+<tr class="odd">
+<td>main</td>
+<td>All data</td>
+</tr>
+<tr class="even">
+<td>coastal</td>
+<td>Only parishes with &lt;5km distance to a coast</td>
+</tr>
+<tr class="odd">
+<td>non_limfjord_control</td>
+<td>All parishes, which are not on the Limfjord are at least 100 km away
+from the Limfjord</td>
+</tr>
+<tr class="even">
+<td>wo_kbh</td>
+<td>Copenhagen and the county just north of it (Frederiksborg) is
+excluded</td>
+</tr>
+</tbody>
+</table>
+<p>The Limfjord placement is based on the following definitions: - The
+parish is categorized as being a Limfjord parish, if the closest coast
+is the Limfjord i.e. distance_oce &gt;= distance_lim-200</p>
+</div>
+<div id="f.-localsoundtoll.csv" class="section level3">
+<h3>F. LocalSoundToll.csv</h3>
+<p>This contains summarised ship trafic from the sound toll registers.
+See <a href="http://www.soundtoll.nl/index.php/en/" class="uri">http://www.soundtoll.nl/index.php/en/</a></p>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Year</td>
+<td>Year of the observed trafic</td>
+</tr>
+<tr class="even">
+<td>port</td>
+<td>Name of port</td>
+</tr>
+<tr class="odd">
+<td>limfjord_placement</td>
+<td>Which part if any of the Limfjord does the port belong to?</td>
+</tr>
+<tr class="even">
+<td>n_from</td>
+<td>Ship trafic with that port as destination</td>
+</tr>
+<tr class="odd">
+<td>n_to</td>
+<td>Ship trafic with that port as origin</td>
+</tr>
+<tr class="even">
+<td>trafic</td>
+<td>Sum of n_from and n_to</td>
+</tr>
+<tr class="odd">
+<td>decLatitude</td>
+<td>Latitude of the port</td>
+</tr>
+<tr class="even">
+<td>decLongitude</td>
+<td>Longitude of the port</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="g.-market_towns.csv" class="section level3">
+<h3>G. Market_towns.csv</h3>
+<p>This data was manually compiled based on the following wikipedia
+page: <a href="https://da.wikipedia.org/wiki/K%C3%B8bst%C3%A6der_i_Danmark" class="uri">https://da.wikipedia.org/wiki/K%C3%B8bst%C3%A6der_i_Danmark</a></p>
+<p>The data was enriched with data from Degn (1989) and
+www.ddb.byhistorie.dk</p>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Market_town</td>
+<td>Name of market town</td>
+</tr>
+<tr class="even">
+<td>Market_townID</td>
+<td>Unique ID for each market town</td>
+</tr>
+<tr class="odd">
+<td>Pop1672</td>
+<td>Population in 1672</td>
+</tr>
+<tr class="even">
+<td>Pop1769</td>
+<td>Population in 1769</td>
+</tr>
+<tr class="odd">
+<td>Pop1787</td>
+<td>Population in 1787</td>
+</tr>
+<tr class="even">
+<td>Pop1801</td>
+<td>Population in 1801</td>
+</tr>
+<tr class="odd">
+<td>GIS_ID</td>
+<td>Key to use for census data and shape data. Manually added</td>
+</tr>
+<tr class="even">
+<td>Coastal</td>
+<td>Is the market town close to the coast?</td>
+</tr>
+<tr class="odd">
+<td>Limfjord_coast</td>
+<td>Is the market town on the Limfjord?</td>
+</tr>
+<tr class="even">
+<td>Manually_added</td>
+<td>Not in Degn (1989). Was added from ddb.byhistorie.dk</td>
+</tr>
+<tr class="odd">
+<td>wiki_ref</td>
+<td>Wikipedia URL</td>
+</tr>
+<tr class="even">
+<td>Coord</td>
+<td>Latitude and longitude from wikipedia</td>
+</tr>
+<tr class="odd">
+<td>Privilege_start</td>
+<td>When was market town privilege given?</td>
+</tr>
+<tr class="even">
+<td>Privilege_end</td>
+<td>When was market town privilege taken away?</td>
+</tr>
+<tr class="odd">
+<td>Informal_markettown</td>
+<td>Towns that in all but official recognition acted as market town</td>
+</tr>
+<tr class="even">
+<td>Approx_year</td>
+<td>Is the privilege given in an approximate year?</td>
+</tr>
+<tr class="odd">
+<td>Port_projects</td>
+<td>Years separated by ‘,’. Year of port construction projects from Trap
+3</td>
+</tr>
+<tr class="even">
+<td>ddb_url</td>
+<td>Page on ddb.byhistorie.dk</td>
+</tr>
+<tr class="odd">
+<td>Notes</td>
+<td>Notes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="h.-ma_estimates.csv" class="section level3">
+<h3>H. MA_estimates.csv</h3>
+<p>This contains Market Access estimates before and after the channel.
+When the channel opened six new ports became available. The data in this
+file measures market access in a standard Harris (1954) inspired fashion
+as the sum of inverse distance to ports. This is based on ports from the
+sound toll register. The file contains estimates given the combination
+of a wide set of feasible parameters. This is stored in the long
+format.</p>
+<p>The market access is computed as:</p>
+<p><span class="math display">\[{MA}_p = \sum_{h \in H} [CostDist(p, h)
++ 1]^\theta\]</span></p>
+<p>Here <span class="math inline">\(H\)</span> is the set of all
+available ports (H for harbour). <span class="math inline">\(h\)</span>
+is a specific port and <span class="math inline">\(p\)</span> is a
+specific parish. <span class="math inline">\(CostDist(p, h;
+\alpha)\)</span> is the relative cost of travelling from parish <span class="math inline">\(p\)</span> to port <span class="math inline">\(h\)</span>. Here <span class="math inline">\(\alpha\)</span> is the relative cost of travelling
+over sea rather than land. In the default specification <span class="math inline">\(\alpha = 10\)</span> is used. <span class="math inline">\(\theta\)</span> is the distance elasticity. In the
+default specification <span class="math inline">\(\theta=-1\)</span> is
+used (just like Harris, 1954).</p>
+<p>The core aim of this entire exercise is to gain insights into how
+this measure changes with the breach namely <span class="math inline">\({MA}_p|No\:canal\)</span> and <span class="math inline">\({MA}_p|Canal\)</span>. This comes from the change
+in the set of available ports <span class="math inline">\(H\rightarrow
+H^*\)</span>. <span class="math inline">\(H\)</span> is all the
+consistently available ports before 1834. <span class="math inline">\(H^*\)</span> is those consistently available after
+1834. The estimated conditional market access can then be expressed
+as</p>
+<p><span class="math display">\[\begin{split}
+{MA}_{p}|No\:channel &amp;= {MA}_{p}|H \\
+{MA}_{p}|Channel &amp;= {MA}_{p}|H^*.
+\end{split}\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GIS_ID</td>
+<td>GIS_ID - unique ID in the parish shape data.</td>
+</tr>
+<tr class="even">
+<td>MA_before</td>
+<td>Market access before the new ports became available</td>
+</tr>
+<tr class="odd">
+<td>MA_after</td>
+<td>Market access after the new ports became available</td>
+</tr>
+<tr class="even">
+<td>MA_after_before</td>
+<td>Market access improvement: MA_after / MA_before</td>
+</tr>
+<tr class="odd">
+<td>theta</td>
+<td>Assumed <span class="math inline">\(\theta\)</span> (distance
+elasticity)</td>
+</tr>
+<tr class="even">
+<td>alpha</td>
+<td>Assumed <span class="math inline">\(\alpha\)</span> (relative cost
+of land travel)</td>
+</tr>
+</tbody>
+</table>
+<p>Maps given these MA estimates can be found in the path <em>Plots/MA
+plots</em>.</p>
+</div>
+<div id="i.-arch.csv" class="section level3">
+<h3>I. Arch.csv</h3>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GIS_ID</td>
+<td>GIS_ID - unique ID in the parish shape data.</td>
+</tr>
+<tr class="even">
+<td>finding_interpretation</td>
+<td>Finding interpretation in Danish</td>
+</tr>
+<tr class="odd">
+<td>finding_interpretation_en</td>
+<td>Finding interpretation in English</td>
+</tr>
+<tr class="even">
+<td>From_year</td>
+<td>Dating range - first plausible year</td>
+</tr>
+<tr class="odd">
+<td>To_year</td>
+<td>Dating range - last plausible year</td>
+</tr>
+<tr class="even">
+<td>Category</td>
+<td>Overall category of the finding:
+<em>Indicators_of_economic_activity, Buildings, State_formation,
+Religious, Defensive, Distress</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="i.-reg_arch_buildings.csv-reg_arch_coins.csv" class="section level3">
+<h3>I. Reg_arch_buildings.csv, Reg_arch_coins.csv</h3>
+<p>Regression data for arcaehological data based on monte carlo sampling
+from 009_Archaeological_monte_carlo.R. Reg_arch_buildings.csv contains
+data for buildings. Reg_arch_coins.csv contain data from coin
+findings.</p>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GIS_ID</td>
+<td>GIS_ID - unique ID in the parish shape data.</td>
+</tr>
+<tr class="even">
+<td>rYear</td>
+<td>Year. The r indicates that the year is stochastic since it
+ultimately comes from the uncertain dating of the findings</td>
+</tr>
+<tr class="odd">
+<td>activity</td>
+<td>Estimated probability that there was activity (coins or buildings)
+in this parish at this time</td>
+</tr>
+<tr class="even">
+<td>[geo]</td>
+<td>Geographical data from ‘Geo.csv’</td>
+</tr>
+<tr class="odd">
+<td>delta_lMA_theta_[x]_alpha_[y]</td>
+<td>Difference in market access before/after channel based from
+MA_estimates.csv with parameters x and y.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div id="large-or-non-redistributable-data" class="section level2">
 <h2>2. Large or non-redistributable data:</h2>
 <p>These are not available in this repository, either because I am not
@@ -612,12 +992,30 @@ one, but a few have more than one occupation.</td>
 </tbody>
 </table>
 </div>
+<div id="e.-coast-line-shape" class="section level3">
+<h3>E. Coast-line shape</h3>
+<p>This is only used in 005_Limfjord_regions.R. It is slightly too large
+to redistribute. It contains coast lines, and is downloadable from: <a href="https://osmdata.openstreetmap.de/data/water-polygons.html" class="uri">https://osmdata.openstreetmap.de/data/water-polygons.html</a>.
+This was downloaded 2023-04-19.</p>
+</div>
+<div id="f.-archaeological-data" class="section level3">
+<h3>F. Archaeological data</h3>
+<p>The archaehological data used, can be downloaded from the website of
+the Danish Agency of Culture and Palaces. They maintain a database og
+all arhaeological sites in Denmark. This data is processed in
+‘008_Archaeological_data.R’.</p>
+</div>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>
 <p>Boberg-Fazlic, N., Jensen, P.S., Lampe, M. et al. ‘Getting to
 Denmark’: the role of agricultural elites for development. J Econ Growth
 (2023). <a href="https://doi.org/10.1007/s10887-023-09226-8" class="uri">https://doi.org/10.1007/s10887-023-09226-8</a></p>
+<p>Degn, O. (1989). Byer, byhierarkier og byudvikling. Historie/Jyske
+Samlinger. <a href="https://tidsskrift.dk/historiejyskesamling/article/view/40197" class="uri">https://tidsskrift.dk/historiejyskesamling/article/view/40197</a></p>
+<p>Harris, C. D. (1954). The Market as a Factor in the Localization of
+Industry in the United States. Annals of the Association of American
+Geographers, 44(4), 315–348.</p>
 </div>
 </div>
 
