@@ -134,6 +134,11 @@ arch_sampler = function(arch_samples, capB = 1000){
     geo_data = read_csv2("Data/Geo.csv", guess_max = 2000)
   }
   
+  # Check if market_access is loaded. Otherwise load it
+  if(!"geo_data" %in% ls()){
+    market_access = read_csv2("Data/MA_estimates.csv", guess_max = 2000) 
+  }
+  
   
   Uniques_GIS_IDs = geo_data$GIS_ID
   max_b = arch_samples$b %>% max()
