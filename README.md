@@ -6,6 +6,8 @@ The scripts in this repository are numbered to indicate the order in which to ru
 
 The numbering of the scripts indicate running order. The first digit indicate level of analysis. Everything starting with 0, e.g. 002_Linking_geo_data.R processes raw data. Everything starting with the digit 1 are scripts intended to output data which is used in the analysis. Scripts starting with 2 outputs results which are found in the paper or appendix. 
 
+![Map](Plots/Map_nobg.png)
+
 ## 1. Included data
 The following data is included in this repository
 
@@ -76,7 +78,9 @@ The variables *main, coastal, non_limfjord_control, wo_kbh* are booleans, which 
 
 
 The Limfjord placement is based on the following definitions: 
-- The parish is categorized as being a Limfjord parish, if the closest coast is the Limfjord i.e. distance_oce >= distance_lim-200
+- The parish is categorized as being a Limfjord parish, if the closest coast is the Limfjord i.e. distance_oce >= distance_lim-200 
+- The parish is categorized into west, middle or east Limfjord, depending the part of Limfjord, which it is closest to 
+- The middle Limfjord is everything within 20 km of a line defined by (57.044185 9.186837), (56.958951 9.275585). The west is west of this and vice versa for the east. 
 
 ### F. LocalSoundToll.csv
 This contains summarised ship trafic from the sound toll registers. See http://www.soundtoll.nl/index.php/en/
