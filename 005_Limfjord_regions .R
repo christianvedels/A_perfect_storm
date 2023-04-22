@@ -3,7 +3,6 @@
 # Auhtor:         Christian Vedel 
 #
 # Output:         Geo.csv containing GIS ID and their Limfjord regions
-#                 This file is further updated in the following scripts
 
 
 # ==== Libraries ====
@@ -180,9 +179,10 @@ p1 = ggplot() +
 geo_data = shape_parish@data
 
 geo_data = geo_data %>% 
-  select(AMT, SOGN, GIS_ID, limfjord_placement, distance_oce, distance_lim, ) %>% 
+  select(AMT, HERRED, SOGN, GIS_ID, limfjord_placement, distance_oce, distance_lim, ) %>% 
   rename(
     County = AMT,
+    Hundred = HERRED,
     Parish = SOGN
   ) %>% 
   arrange(County)
