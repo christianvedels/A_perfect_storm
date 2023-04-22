@@ -179,7 +179,7 @@ p1 = ggplot() +
 geo_data = shape_parish@data
 
 geo_data = geo_data %>% 
-  select(AMT, HERRED, SOGN, GIS_ID, limfjord_placement, distance_oce, distance_lim, ) %>% 
+  select(AMT, HERRED, SOGN, GIS_ID, long, lat, limfjord_placement, distance_oce, distance_lim) %>% 
   rename(
     County = AMT,
     Hundred = HERRED,
