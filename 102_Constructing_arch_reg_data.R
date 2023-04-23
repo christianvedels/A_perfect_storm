@@ -37,13 +37,14 @@ market_access = market_access %>%
 
 load("Data/Tmp_arch_samples/Buildings.Rdata")
 buildings = construct_panel(res_is$Overall_Buildings$samples)
-buildings %>% write_csv2("Data/Reg_arch_buildings.csv")
+buildings %>% 
+  left_join(geo_data, by = "GIS_ID") %>% 
+  left_join(market_access, by = "GIS_ID") %>% 
+  write_csv2("Data/Reg_arch_buildings.csv")
 
 load("Data/Tmp_arch_samples/Coin findings.Rdata")
 coins = construct_panel(res_is$`Overall_Coin findings`$samples)
-coins %>% write_csv2("Data/Reg_arch_coins.csv")
-
-
-
-
-
+coins %>% 
+  left_join(geo_data, by = "GIS_ID") %>% 
+  left_join(market_access, by = "GIS_ID") %>% 
+  write_csv2("Data/Reg_arch_coins.csv")

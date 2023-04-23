@@ -116,18 +116,17 @@ degrees_to_km = function(lat, long) {
 # This takes archaeological samples from the data from 009_Archaeological_monte_carlo.R
 # and turns them into a panel
 construct_panel = function(arch_samples){
-  arch_samples %>% 
-    group_by(GIS_ID, rYear) %>% 
-    summarise(
-      activity = mean(activity)
-    ) %>% 
-    left_join(geo_data, by = "GIS_ID") %>% 
-    left_join(market_access, by = "GIS_ID")
+  suppressMessages({
+    arch_samples %>%
+      # Add distinct ID for repeated GIS_IDs
+      group_by(GIS_ID, rYear) %>% 
+      summarise(
+        activity = mean(activity)
+      )
+  })
 }
 
 # ==== arch_sampler() ====
-# The samples GIS IDs and 
-
 arch_sampler = function(arch_samples, capB = 1000){
   require(foreach)
   
@@ -135,12 +134,6 @@ arch_sampler = function(arch_samples, capB = 1000){
   if(!"geo_data" %in% ls()){
     geo_data = read_csv2("Data/Geo.csv", guess_max = 2000)
   }
-  
-  # Check if market_access is loaded. Otherwise load it
-  if(!"geo_data" %in% ls()){
-    market_access = read_csv2("Data/MA_estimates.csv", guess_max = 2000) 
-  }
-  
   
   Uniques_GIS_IDs = geo_data$GIS_ID
   max_b = arch_samples$b %>% max()
@@ -157,7 +150,8 @@ arch_sampler = function(arch_samples, capB = 1000){
       GIS_ID = GIS_ID_b,
       b = b_b
     ) %>% 
-      left_join(arch_samples, by = c("GIS_ID", "b")) %>% 
+      distinct(GIS_ID, b) %>% 
+      left_join(arch_samples, by = c("GIS_ID", "b")) %>%
       # Turn this into a panel like the main reg panel
       construct_panel()
     
@@ -188,10 +182,3 @@ arch_sampler = function(arch_samples, capB = 1000){
 }
 
 
-
-
-panels = foreach(b = 1:capB) %do% {
-  
-  # Dummy
-  Sys.sleep(0.1)
-}
