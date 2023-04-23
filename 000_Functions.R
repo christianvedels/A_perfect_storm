@@ -121,7 +121,8 @@ construct_panel = function(arch_samples){
       # Add distinct ID for repeated GIS_IDs
       group_by(GIS_ID, rYear) %>% 
       summarise(
-        activity = mean(activity)
+        activity = mean(activity),
+        n = mean(n)
       )
   })
 }
@@ -164,13 +165,12 @@ arch_sampler = function(arch_samples, capB = 1000){
     remaining_t = total_t - delta_t
     
     message0 = paste0(
-      "\n",
       as.character(time_t),
       ": b = ", b,
       " ellapsed time: ", round(delta_t, 3), " ", units(delta_t),
       " remaining: ", round(remaining_t, 3), " ", units(remaining_t),
-      " of ", round(total_t, 3), " ", units(total_t)
-      
+      " of ", round(total_t, 3), " ", units(total_t),
+      "                \r"
     )
     
     cat(message0)
@@ -179,6 +179,58 @@ arch_sampler = function(arch_samples, capB = 1000){
   }
   
   return(panels)
+}
+
+# ==== vcov_funciton_boot ====
+# Custom vcov from samples from arch sampler
+vcov_funciton_boot = function(formula, samples, capB = 100, affected = "delta_lMA_theta_1_alpha_10"){
+  n_samples = length(samples)
+  
+  start_t = Sys.time()
+  
+  beta_samples = foreach(i = seq(1, capB), .combine = "rbind") %do% {
+    data_i = samples[[i]]
+    data_i$Affected = data_i[,affected] %>% unlist()
+    
+    mod1 = feols(
+      formula,
+      data = data_i,
+      vcov = "iid"
+    )
+    # cat(i,"         \r")
+    
+    res_i = data.frame(mod1$coefficients) %>% t()
+    
+    if(i%%10 == 0){
+      # Report status to console
+      time_t = Sys.time()
+      delta_t = time_t - start_t
+      per_step = delta_t/i
+      total_t = capB * per_step
+      remaining_t = total_t - delta_t
+      
+      message0 = paste0(
+        as.character(time_t),
+        ": i = ", i,
+        " ellapsed time: ", round(delta_t, 3), " ", units(delta_t),
+        " remaining: ", round(remaining_t, 3), " ", units(remaining_t),
+        " of ", round(total_t, 3), " ", units(total_t),
+        "                \r"
+        
+      )
+      
+      cat(message0)
+    }
+  
+    return(res_i)
+  }
+  return(
+    list(
+      vcov = cov(beta_samples),
+      beta_samples = beta_samples
+    )
+  )
+  
 }
 
 
