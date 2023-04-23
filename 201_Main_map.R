@@ -146,7 +146,7 @@ p1 = ggplot() +
   ) +
   geom_point(
     aes(long, lat, shape = "New natural harbours"), 
-    size = 1,
+    size = 2,
     data = west_middle_mts
   ) + 
   scale_shape_manual(values = c(
@@ -170,5 +170,11 @@ p2 = p1 +
 
 p1
 p2
-ggsave("Plots/Map_nobg.png", plot = p1, width = 12, height = 10)
-ggsave("Plots/Map.png", plot = p2, width = 12, height = 10)
+ggsave(
+  "Plots/Map_nobg.png", plot = p1, width = 18, height = 15,
+  units = "cm"
+)
+ggsave(
+  "Plots/Map.png", plot = p2, width = 18, height = 15,
+  units = "cm"
+)
