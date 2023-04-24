@@ -61,7 +61,7 @@ data0 = data0 %>%
 p1 = data0 %>% 
   group_by(Year, limfjord_placement) %>% 
   summarise(
-    trafic = sum(trafic)
+    traffic = sum(trafic) # Sum and correct spelling mistake
   ) %>% 
   ggplot(aes(Year, log(trafic+1), col = limfjord_placement, shape = limfjord_placement)) + 
   geom_rect(
