@@ -113,5 +113,10 @@ p1 = data0 %>%
 p1
 ggsave("Plots/Ship_trafic.png", plot = p1, width = 8, height = 5)
 
-
-
+# Average after:
+data0 %>% 
+  filter(limfjord_placement %in% c("west", "middle")) %>% 
+  group_by(Year, After) %>% 
+  summarise(trafic = sum(trafic)) %>% 
+  group_by(After) %>% 
+  summarise(mean(trafic))
