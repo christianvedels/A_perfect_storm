@@ -53,4 +53,5 @@ parish_pop = parish_pop %>%
     market_access, by = "GIS_ID"
   )
   
-
+# ==== Save result ====
+parish_pop %>% write_csv2("Data/Parish_pop.csv")

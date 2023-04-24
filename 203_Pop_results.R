@@ -3,4 +3,10 @@
 # Auhtor:         Christian Vedel 
 #
 # Purpose:        Construct the map showing the event        
-# Output:         
+# Output:     
+
+# ==== Libraries ====
+library(tidyverse)
+
+# ==== Read data ====
+reg_pop = read_csv2("Data/Popdata.csv")
