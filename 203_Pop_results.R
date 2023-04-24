@@ -7,9 +7,13 @@
 
 # ==== Libraries ====
 library(tidyverse)
+library(fixest)
+library(sandwich)
 
 # ==== Read data ====
-reg_pop = read_csv2("Data/Popdata.csv")
+reg_pop = read_csv2("Data/Popdata.csv", guess_max = 2000)
+geo_data = read_csv2("Data/Geo.csv", guess_max = 2000)
+market_access = read_csv2("Data/MA_estimates.csv", guess_max = 2000) 
 
 # ==== Functions ====
 plot_mod = function(
@@ -27,7 +31,7 @@ plot_mod = function(
   p1 = mod$coeftable %>%
     data.frame() %>%
     mutate(Var = rownames(.)) %>%
-    Rem_rnames() %>%
+    remove_rownames() %>%
     mutate(
       Year = substr(Var, 5, 8) %>% as.numeric()
     ) %>%
@@ -71,10 +75,54 @@ plot_mod = function(
       # axis.title.x = element_text(hjust = 0)
     )
   
-  fname0 = paste0("Plots/Short_paper/", fname, ".png")
-  fname1 = paste0("Plots/Short_paper/Wide_", fname, ".png")
+  fname0 = paste0("Plots/Regression_plots/", fname, ".png")
   ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
-  ggsave(fname1,  plot = p1, width = 10, height = 6, units = "cm")
   
   return(p1)
 }
+
+# ==== Small dataficiations ====
+# Reshaping MA estimates
+market_access = market_access %>% 
+  mutate(
+    delta_lMA = log(MA_after_before)
+  ) %>% 
+  select(GIS_ID, delta_lMA, theta, alpha) %>% 
+  pivot_wider(
+    names_from = c(theta, alpha),
+    values_from = delta_lMA,
+    names_glue = "delta_lMA_theta_{-theta}_alpha_{alpha}"
+  )
+
+# Adding geo and MA to samples
+reg_pop = reg_pop %>%
+  left_join(geo_data, by = "GIS_ID") %>%
+  left_join(market_access, by = "GIS_ID") %>%
+  mutate(Year = relevel(factor(Year), ref = "1801")) %>%
+  fastDummies::dummy_cols("limfjord_placement") %>% 
+  filter(consistent == 1) %>% 
+  drop_na(GIS_ID)
+
+# ==== Regressions ====
+mod1 = feols(
+  log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+p1_dummy = plot_mod(mod1, "pop_dummy", ylab = "Parameter estimate")
+
+p1_dummy
+
+mod2 = feols(
+  log(Pop) ~ Year*Affected,
+  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+
+mod2 = summary(
+  mod2,
+  vcov = vcovBS(mod2, cluster = ~GIS_ID, R = 1000, type = "wild")
+)
+p2_ma = plot_mod(mod2, "pop_MA", ylab = "Parameter estimate")
+
+p2_ma
