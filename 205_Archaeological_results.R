@@ -132,29 +132,29 @@ market_access = market_access %>%
     names_glue = "delta_lMA_theta_{-theta}_alpha_{alpha}"
   )
 
-# # Adding geo and MA to samples
-# samples_coins = lapply(samples_coins, function(x){
-#   x %>% 
-#     left_join(geo_data, by = "GIS_ID") %>% 
-#     left_join(market_access, by = "GIS_ID") %>% 
-#     mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-#     mutate(
-#       Year = relevel(factor(rYear), ref = "1000")
-#     ) %>% 
-#     fastDummies::dummy_cols("limfjord_placement")
-# })
-# 
-# # Adding geo and MA to samples
-# samples_buildings = lapply(samples_buildings, function(x){
-#   x %>% 
-#     left_join(geo_data, by = "GIS_ID") %>% 
-#     left_join(market_access, by = "GIS_ID") %>% 
-#     mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-#     mutate(
-#       Year = relevel(factor(rYear), ref = "1000")
-#     ) %>% 
-#     fastDummies::dummy_cols("limfjord_placement")
-# })
+# Adding geo and MA to samples
+samples_coins = lapply(samples_coins, function(x){
+  x %>%
+    left_join(geo_data, by = "GIS_ID") %>%
+    left_join(market_access, by = "GIS_ID") %>%
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>%
+    mutate(
+      Year = relevel(factor(rYear), ref = "1000")
+    ) %>%
+    fastDummies::dummy_cols("limfjord_placement")
+})
+
+# Adding geo and MA to samples
+samples_buildings = lapply(samples_buildings, function(x){
+  x %>%
+    left_join(geo_data, by = "GIS_ID") %>%
+    left_join(market_access, by = "GIS_ID") %>%
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>%
+    mutate(
+      Year = relevel(factor(rYear), ref = "1000")
+    ) %>%
+    fastDummies::dummy_cols("limfjord_placement")
+})
 
 # ==== Clean raw data for descriptive plot ====
 # Arch raw
