@@ -8,6 +8,7 @@
 library(tidyverse)
 source("000_Functions.R")
 library(fixest)
+library(foreach)
 
 # ==== Bootstrapped data frames ====
 # The following files can be recreated with 009_Archaeological_monte_carlo.R
@@ -28,6 +29,16 @@ coins = read_csv2("Data/Reg_arch_coins.csv", guess_max = 2000)
 buildings = read_csv2("Data/Reg_arch_buildings.csv", guess_max = 2000)
 geo_data = read_csv2("Data/Geo.csv", guess_max = 2000)
 market_access = read_csv2("Data/MA_estimates.csv", guess_max = 2000) 
+arch_raw = read_csv2("Data/Arch.csv", guess_max = 2000)
+
+# ==== Default colors ====
+# Regions:
+regions_col = c(
+  reference = "black",
+  east = "#273a8f",
+  middle = "#2c5c34",
+  west = "#b33d3d"
+)
 
 # ==== Functions ====
 
@@ -121,28 +132,103 @@ market_access = market_access %>%
     names_glue = "delta_lMA_theta_{-theta}_alpha_{alpha}"
   )
 
-# Adding geo and MA to samples
-samples_coins = lapply(samples_coins, function(x){
-  x %>% 
-    left_join(geo_data, by = "GIS_ID") %>% 
-    left_join(market_access, by = "GIS_ID") %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    mutate(
-      Year = relevel(factor(rYear), ref = "1000")
-    ) %>% 
-    fastDummies::dummy_cols("limfjord_placement")
-})
+# # Adding geo and MA to samples
+# samples_coins = lapply(samples_coins, function(x){
+#   x %>% 
+#     left_join(geo_data, by = "GIS_ID") %>% 
+#     left_join(market_access, by = "GIS_ID") %>% 
+#     mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+#     mutate(
+#       Year = relevel(factor(rYear), ref = "1000")
+#     ) %>% 
+#     fastDummies::dummy_cols("limfjord_placement")
+# })
+# 
+# # Adding geo and MA to samples
+# samples_buildings = lapply(samples_buildings, function(x){
+#   x %>% 
+#     left_join(geo_data, by = "GIS_ID") %>% 
+#     left_join(market_access, by = "GIS_ID") %>% 
+#     mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+#     mutate(
+#       Year = relevel(factor(rYear), ref = "1000")
+#     ) %>% 
+#     fastDummies::dummy_cols("limfjord_placement")
+# })
+
+# ==== Clean raw data for descriptive plot ====
+# Arch raw
+arch_raw = arch_raw %>% 
+  left_join(geo_data, by = "GIS_ID")
+
+arch_raw1 = foreach(y = seq(750, 1500, by = 50), .combine = "bind_rows") %do% {
+  res_i = arch_raw %>% 
+    filter(finding_interpretation_en == "Coin findings") %>% 
+    # Filter arch_raw by the year range
+    filter(y >= From_year) %>% 
+    filter(y <= To_year) %>% 
+    group_by(GIS_ID) %>% 
+    count() %>% 
+    mutate(Year = y)
+  
+  # Report status to console
+  cat(y, "         \r")
+  return(res_i)
+}
+
+arch_raw1 = expand.grid(
+  Year = seq(750, 1500, by = 50),
+  GIS_ID = geo_data$GIS_ID
+) %>% 
+  left_join(arch_raw1, by = c("GIS_ID", "Year")) %>% 
+  mutate(
+    n = ifelse(is.na(n), 0, n)
+  ) %>% 
+  left_join(geo_data, by = "GIS_ID")
+
+# ==== Descriptive with raw data ====
+
+p1 = arch_raw1 %>% 
+  group_by(Year, limfjord_placement) %>% 
+  # filter(limfjord_placement != "middle") %>%
+  ggplot(aes(Year, log(n+1), col = limfjord_placement, shape = limfjord_placement)) + 
+  geom_smooth(se = FALSE, lty = 5, size = 1) +
+  theme_bw() +
+  geom_vline(xintercept = c(1086, 1200), lty = 2) +
+  scale_x_continuous(breaks = seq(750, 1500, by = 50)) +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5)
+  ) + 
+  scale_color_manual(
+    
+  ) +  
+  scale_color_manual(
+    values = regions_col
+  ) + 
+  theme(
+    legend.position = "bottom"
+  ) + 
+  labs(
+    col = "Location in Limfjord:",
+    y = "log(findings + 1)"
+  )
+  
+p1
+ggsave("Plots/Arch_descriptive.png", plot = p1, width = 8, height = 5)
+  
+
 
 # ==== Regressions ====
 
 # MA approach
 mod1 = feols(
   activity ~ Year*Affected,
-  data = coins %>% mutate(Affected = delta_lMA_theta_1_alpha_10)
+  data = coins %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10)
 )
 
 set.seed(20)
-vcov1 = vcov_funciton_boot(
+vcov1 = vcov_function_boot(
   activity ~ Year*Affected, 
   samples = samples_coins, 
   capB = 1000, 
@@ -161,98 +247,114 @@ vcov1$beta_samples %>%
   data.frame() %>% 
   ggplot(aes(Year1350.Affected)) + 
   geom_histogram(bins = 50) + 
-  xlim(c(-0.3, 0)) + 
   theme_bw() + 
-  geom_vline(xintercept = 0, lty = 2) + 
+  geom_vline(xintercept = 0) + 
   geom_vline(
-    xintercept = mod1$coefficients[names(mod1$coefficients)=="Year1350:Affected"]
+    xintercept = mod1$coefficients[names(mod1$coefficients)=="Year1350:Affected"],
+    lty = 2
   )
 
 
 
 # Dummy approach
-mod1 = feols(
+mod2 = feols(
   activity ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
   data = coins %>% mutate(Affected = limfjord_placement_west)
 )
 
 set.seed(20)
-vcov1 = vcov_funciton_boot(
+vcov2 = vcov_function_boot(
   activity ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east, 
   samples = samples_coins, 
   capB = 1000, 
   affected = "limfjord_placement_west"
 )
 
-mod1 = summary(
-  mod1,
-  vcov = vcov1$vcov
+mod2 = summary(
+  mod2,
+  vcov = vcov2$vcov
 )
 
-plot_mod_arch(mod1, "arch_dummy_coins", ref_year = 1000, the_col = "#DE7500")
+plot_mod_arch(mod2, "arch_dummy_coins", ref_year = 1000, the_col = "#DE7500")
 
 # Plot of coefs in 1350
-vcov1$beta_samples %>% 
+vcov2$beta_samples %>% 
   data.frame() %>% 
   ggplot(aes(Year1350.Affected)) + 
   geom_histogram(bins = 50) + 
-  xlim(c(-0.05, 0)) + 
   theme_bw() + 
-  geom_vline(xintercept = 0, lty = 2) + 
+  geom_vline(xintercept = 0) + 
   geom_vline(
-    xintercept = mod1$coefficients[names(mod1$coefficients)=="Year1350:Affected"]
+    xintercept = mod2$coefficients[names(mod2$coefficients)=="Year1350:Affected"],
+    lty = 2
   )
 
 
-
-
-# N 
+# Buildings
 # MA approach
-mod1 = feols(
-  log(n+1) ~ Year*Affected,
-  data = coins %>% mutate(Affected = delta_lMA_theta_1_alpha_10)
-)
-
-set.seed(20)
-vcov1 = vcov_funciton_boot(
-  log(n+1) ~ Year*Affected, 
-  samples = samples_coins, 
-  capB = 1000, 
-  affected = "delta_lMA_theta_1_alpha_10"
-)
-
-mod1 = summary(
-  mod1,
-  vcov = vcov1$vcov
-)
-
-plot_mod_arch(mod1, "arch_MA_coins", ref_year = 1000, the_col = "#DE7500")
-
-# Plot of coefs in 1350
-vcov1$beta_samples %>% 
-  data.frame() %>% 
-  ggplot(aes(Year1350.Affected)) + 
-  geom_histogram(bins = 50) + 
-  # xlim(c(-0.3, 0)) + 
-  theme_bw() + 
-  geom_vline(xintercept = 0, lty = 2) + 
-  geom_vline(
-    xintercept = mod1$coefficients[names(mod1$coefficients)=="Year1350:Affected"]
-  )
-
-
-
-
-
-
-
-
-
-
-mod1 = feols(
+mod3 = feols(
   activity ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
   data = buildings %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
   cluster = ~ GIS_ID
 )
 
-plot_mod_arch(mod1, "arch_dummy_buildings", ref_year = 1000, the_col = "#DE7500")
+set.seed(20)
+vcov3 = vcov_function_boot(
+  activity ~ Year*Affected, 
+  samples = samples_buildings, 
+  capB = 1000, 
+  affected = "delta_lMA_theta_1_alpha_10"
+)
+
+mod3 = summary(
+  mod3,
+  vcov = vcov3$vcov
+)
+
+plot_mod_arch(mod3, "arch_MA_buildings", ref_year = 1000, the_col = "#273a8f")
+
+# Plot of coefs in 1350
+vcov3$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod3$coefficients[names(mod3$coefficients)=="Year1350:Affected"],
+    lty = 2
+  )
+
+# Dummy approach
+mod4 = feols(
+  activity ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = buildings %>% mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+
+set.seed(20)
+vcov4 = vcov_function_boot(
+  activity ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east, 
+  samples = samples_buildings, 
+  capB = 1000, 
+  affected = "limfjord_placement_west"
+)
+
+mod4 = summary(
+  mod4,
+  vcov = vcov4$vcov
+)
+
+plot_mod_arch(mod4, "arch_dummy_buildings", ref_year = 1000, the_col = "#273a8f")
+
+# Plot of coefs in 1350
+vcov4$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod4$coefficients[names(mod4$coefficients)=="Year1350:Affected"],
+    lty = 2
+  )
