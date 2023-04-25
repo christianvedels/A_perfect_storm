@@ -79,7 +79,7 @@ The variables *main, coastal, non_limfjord_control, wo_kbh* are booleans, which 
 
 The Limfjord placement is based on the following definitions: 
 - The parish is categorized as being a Limfjord parish, if the closest coast is the Limfjord i.e. distance_oce >= distance_lim-200 
-- The parish is categorized into west, middle or east Limfjord, depending the part of Limfjord, which it is closest to 
+- The parish is categorized into west, middle or east Limfjord, depending on whether it is generally west or east of the middle Limfjord.   
 - The middle Limfjord is everything within 20 km of a line defined by (57.044185 9.186837), (56.958951 9.275585). The west is west of this and vice versa for the east. 
 
 ### F. LocalSoundToll.csv

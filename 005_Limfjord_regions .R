@@ -131,7 +131,7 @@ dist2line0 = function(x){
 shape_parish@data = shape_parish@data %>% 
   rowwise() %>% 
   mutate(
-    dist_east_west = dist2line0(c(lat_lim, lon_lim))
+    dist_east_west = dist2line0(c(lat, long))
   )
 
 # Check on plot 
