@@ -49,7 +49,6 @@ hisco %>%
     NA_both = sum(is.na(Occupation) & is.na(Household_position))
   )
 
-
 # ==== Occupational categories ====
 # Interesting occupations from top 100 occ: 
 occ_cats = list(
