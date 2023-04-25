@@ -34,6 +34,22 @@ hisco = hisco %>%
 # Check uniqueness of ids
 # hisco %>% group_by(Year, pa_id) %>% count() %>% filter(n>1)
 
+# Check data quality in 1000 random subsamples
+set.seed(20)
+hisco %>% 
+  sample_n(1000) %>% 
+  write_csv2("Data/HISCO_to_check.csv")
+
+# Check occupational observations
+hisco %>% 
+  group_by(Year) %>% 
+  summarise(
+    NA_Occupation = sum(is.na(Occupation)),
+    NA_Household_position = sum(is.na(Household_position)),
+    NA_both = sum(is.na(Occupation) & is.na(Household_position))
+  )
+
+
 # ==== Occupational categories ====
 # Interesting occupations from top 100 occ: 
 occ_cats = list(
