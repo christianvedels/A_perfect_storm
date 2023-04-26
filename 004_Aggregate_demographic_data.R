@@ -44,9 +44,11 @@ agg_data = merged_data %>%
     Age_45_54 = Age_cats(age, 45, 55),
     Age_55_64 = Age_cats(age, 55, 65),
     Age_65_125 = Age_cats(age, 65, 125),
-    Fishing = sum(Fishing),
-    Manufacturing = sum(Manufacturing),
-    Farmer = sum(Farmer),
+    Fishing = sum(Fishing, na.rm = TRUE),
+    Manufacturing = sum(Manufacturing, na.rm = TRUE),
+    Farming = sum(Farming, na.rm = TRUE),
+    Building = sum(Building, na.rm = TRUE),
+    Merchants = sum(Merchants, na.rm = TRUE),
     Born_different_county = sum(Born_different_county, na.rm = TRUE),
     hisco_1st_digit0 = sum(hisco_1st_digit0),
     hisco_1st_digit1 = sum(hisco_1st_digit1),
@@ -83,9 +85,11 @@ agg_data_m = merged_data %>%
     Age_45_54 = Age_cats(age, 45, 55),
     Age_55_64 = Age_cats(age, 55, 65),
     Age_65_125 = Age_cats(age, 65, 125),
-    Fishing = sum(Fishing),
-    Manufacturing = sum(Manufacturing),
-    Farmer = sum(Farmer),
+    Fishing = sum(Fishing, na.rm = TRUE),
+    Manufacturing = sum(Manufacturing, na.rm = TRUE),
+    Farming = sum(Farming, na.rm = TRUE),
+    Building = sum(Building, na.rm = TRUE),
+    Merchants = sum(Merchants, na.rm = TRUE),
     Born_different_county = sum(Born_different_county, na.rm = TRUE),
     hisco_1st_digit0 = sum(hisco_1st_digit0),
     hisco_1st_digit1 = sum(hisco_1st_digit1),
@@ -122,9 +126,11 @@ agg_data_f = merged_data %>%
     Age_45_54 = Age_cats(age, 45, 55),
     Age_55_64 = Age_cats(age, 55, 65),
     Age_65_125 = Age_cats(age, 65, 125),
-    Fishing = sum(Fishing),
-    Manufacturing = sum(Manufacturing),
-    Farmer = sum(Farmer),
+    Fishing = sum(Fishing, na.rm = TRUE),
+    Manufacturing = sum(Manufacturing, na.rm = TRUE),
+    Farming = sum(Farming, na.rm = TRUE),
+    Building = sum(Building, na.rm = TRUE),
+    Merchants = sum(Merchants, na.rm = TRUE),
     Born_different_county = sum(Born_different_county, na.rm = TRUE),
     hisco_1st_digit0 = sum(hisco_1st_digit0),
     hisco_1st_digit1 = sum(hisco_1st_digit1),
@@ -158,8 +164,8 @@ agg_data %>%
   pivot_longer(Age_0_1:Age_65_125) %>% 
   group_by(Year, name) %>% 
   summarise(
-    Pop = sum(Pop),
-    value = sum(value)
+    Pop = sum(Pop, na.rm = TRUE),
+    value = sum(value, na.rm = TRUE)
   ) %>% 
   mutate(
     share = value / Pop
@@ -173,8 +179,8 @@ agg_data_m %>%
   pivot_longer(Age_0_1:Age_65_125) %>% 
   group_by(Year, name) %>% 
   summarise(
-    Pop = sum(Pop),
-    value = sum(value)
+    Pop = sum(Pop, na.rm = TRUE),
+    value = sum(value, na.rm = TRUE)
   ) %>% 
   mutate(
     share = value / Pop
@@ -188,8 +194,8 @@ agg_data_f %>%
   pivot_longer(Age_0_1:Age_65_125) %>% 
   group_by(Year, name) %>% 
   summarise(
-    Pop = sum(Pop),
-    value = sum(value)
+    Pop = sum(Pop, na.rm = TRUE),
+    value = sum(value, na.rm = TRUE)
   ) %>% 
   mutate(
     share = value / Pop
