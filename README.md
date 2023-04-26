@@ -185,6 +185,9 @@ Regression data for arcaehological data based on monte carlo sampling from 009_A
 | [geo] | Geographical data from 'Geo.csv' | 
 | delta_lMA_theta_[x]\_alpha_[y] | Difference in market access before/after channel based from MA_estimates.csv with parameters -x and y. |
 
+### M. HISCO_sample_checked.csv
+1000 random observations of occupational descriptions and HISCO codes checked.
+
 ## 2. Large or non-redistributable data
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
 
