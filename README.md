@@ -82,6 +82,16 @@ The Limfjord placement is based on the following definitions:
 - The parish is categorized into west, middle or east Limfjord, depending on whether it is generally west or east of the middle Limfjord.   
 - The middle Limfjord is everything within 20 km of a line defined by (57.044185 9.186837), (56.958951 9.275585). The west is west of this and vice versa for the east. 
 
+### F. Top100_HISCO.csv
+Top 100 HISCO codes with categories
+
+| Variable | Description |
+|----------|-------------|
+| hisco | HISCO codes |
+| n | Number of people with that occupation across 1787-1901 |
+| en_hisco_text | English description |
+| Category | Manual category of the occupation |
+
 ### F. LocalSoundToll.csv
 This contains summarised ship trafic from the sound toll registers. See http://www.soundtoll.nl/index.php/en/
 
