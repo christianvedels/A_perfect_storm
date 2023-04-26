@@ -158,6 +158,7 @@ merged_data0 %>%
     Farming = sum(Farming, na.rm = TRUE)/n(),
     Building = sum(Building, na.rm = TRUE)/n(),
     Merchants = sum(Merchants, na.rm = TRUE)/n(),
+    Seamen = sum(Seamen, na.rm = TRUE)/n(),
     n = n()
   )
 
