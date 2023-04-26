@@ -22,7 +22,9 @@ This contains demographic data at the parish level. The data contains the follow
 | Age_[x]_[y] | People in age group x <= age <= y |
 | Fishing | Fishermen in parish |
 | Manufacturing | People working in manufacturing |
-| Farmer | Farmers and farm workers in the parish |
+| Farming | Farmers and farm workers in the parish |
+| Building | Building workers in the parish |
+| Merchants | Merchants in the parish |
 | Born_different_county | Number of people born in a different county |
 | hisco_1st_digit[x] | Number of people with first digit of their HISCO code [x]. See https://historyofwork.iisg.nl/major.php |
 | prime_labor_age | Number of people of prime working age (between 25 to 54 years) |
@@ -92,7 +94,7 @@ Top 100 HISCO codes with categories
 | en_hisco_text | English description |
 | Category | Manual category of the occupation |
 
-### F. LocalSoundToll.csv
+### G. LocalSoundToll.csv
 This contains summarised ship trafic from the sound toll registers. See http://www.soundtoll.nl/index.php/en/
 
 
@@ -107,7 +109,7 @@ This contains summarised ship trafic from the sound toll registers. See http://w
 | decLatitude | Latitude of the port |
 | decLongitude | Longitude of the port | 
 
-### G. Market_towns.csv
+### H. Market_towns.csv
 This data was manually compiled based on the following wikipedia page: https://da.wikipedia.org/wiki/K%C3%B8bst%C3%A6der_i_Danmark
 
 The data was enriched with data from Degn (1989) and www.ddb.byhistorie.dk
@@ -135,7 +137,7 @@ The data was enriched with data from Degn (1989) and www.ddb.byhistorie.dk
 | Notes               | Notes                                                                                          |
 
 
-### H. MA_estimates.csv
+### I. MA_estimates.csv
 This contains Market Access estimates before and after the channel. When the channel opened six new ports became available. The data in this file measures market access in a standard Harris (1954) inspired fashion as the sum of inverse distance to ports. This is based on ports from the sound toll register. The file contains estimates given the combination of a wide set of feasible parameters. This is stored in the long format. 
 
 The market access is computed as:
@@ -162,7 +164,7 @@ $$\begin{split}
 
 Maps given these MA estimates can be found in the path *Plots/MA plots*.
 
-### I. Arch.csv
+### J. Arch.csv
 | Variable | Description |
 |----------|-------------|
 | GIS_ID | GIS_ID - unique ID in the parish shape data. |
@@ -172,7 +174,7 @@ Maps given these MA estimates can be found in the path *Plots/MA plots*.
 | To_year | Dating range - last plausible year |
 | Category | Overall category of the finding: *Indicators_of_economic_activity, Buildings, State_formation, Religious, Defensive, Distress* |
 
-### I. Reg_arch_buildings.csv, Reg_arch_coins.csv
+### K. Reg_arch_buildings.csv, Reg_arch_coins.csv
 Regression data for arcaehological data based on monte carlo sampling from 009_Archaeological_monte_carlo.R. Reg_arch_buildings.csv contains data for buildings. Reg_arch_coins.csv contain data from coin findings.
 
 | Variable | Description |
@@ -183,7 +185,7 @@ Regression data for arcaehological data based on monte carlo sampling from 009_A
 | [geo] | Geographical data from 'Geo.csv' | 
 | delta_lMA_theta_[x]\_alpha_[y] | Difference in market access before/after channel based from MA_estimates.csv with parameters -x and y. |
 
-## 2. Large or non-redistributable data:
+## 2. Large or non-redistributable data
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
 
 ### A. Danish census data from Link Lives 
@@ -200,7 +202,7 @@ This is data is available [here](https://www.dropbox.com/s/ov7ubxtqq21c6za/LL_hi
 
 | Variable | Description |
 |----------|-------------|
-| pa_id | ID, which is unique for every year, which links to the rest of [links lives](https://link-lives.dk/en/link-lives-a-research-project/) data |
+| pa_id | ID, which is unique for every year, which links to the rest of [links lives'](https://link-lives.dk/en/link-lives-a-research-project/) data |
 | Kilde | Source of the the data |
 | Year | Census year |
 | Erhverv | Occupational description (in Danish) |
