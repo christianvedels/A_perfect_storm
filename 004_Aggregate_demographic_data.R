@@ -1,6 +1,6 @@
 # Aggregate demographic data
 #
-# Date updated:   2023-04-19
+# Date updated:   2023-04-26
 # Auhtor:         Christian Vedel 
 # Purpose:        Aggregate data to parish level
 #
