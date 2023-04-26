@@ -1,6 +1,6 @@
 # Adding occupations
 #
-# Date updated:   2023-04-17
+# Date updated:   2023-04-26
 # Auhtor:         Christian Vedel 
 # Purpose:        Join on data on HISCO codes and categories
 #
@@ -35,10 +35,10 @@ hisco = hisco %>%
 # hisco %>% group_by(Year, pa_id) %>% count() %>% filter(n>1)
 
 # Check data quality in 1000 random subsamples
-set.seed(20)
-hisco %>% 
-  sample_n(1000) %>% 
-  write_csv2("Data/HISCO_to_check.csv")
+# set.seed(20)
+# hisco %>% 
+#   sample_n(1000) %>% 
+#   write_csv2("Data/HISCO_to_check.csv")
 
 # Check occupational observations
 hisco %>% 
@@ -50,135 +50,99 @@ hisco %>%
   )
 
 # ==== Occupational categories ====
-# Interesting occupations from top 100 occ: 
-occ_cats = list(
-  Fishing = c(
-    "64100" # 17522	Fisherman, DeepSea or Inland and Coastal Water
-  ), 
-  
-  Manufacturing = c(
-    "75400", # 30211	Weaver, Specialisation Unknown
-    "83110", # 28464	Blacksmith, General
-    "79100", # 27631	Tailor, Specialisation Unknown
-    "79510", # 27555	Hand and Machine Sewer, General
-    "80110", # 22888	Shoemaker, General
-    "81000", # 22412	Woodworker, Specialisation Unknown
-    "77120", # 14526	Grain Miller
-    "75000", # 11277	Spinners, Weavers, Knitters, Dyers and Related Workers, Specialisation Unknown
-    "81990", # 10542	Other Cabinetmakers and Related Woodworkers
-    "75220", # 9758	Spinner, Thread and Yarn
-    "81925", # 6996	Cartwright
-    "77610", # 6994	Baker, General
-    "77310", # 6580	Butcher, General
-    "81930", # 6257	Cooper
-    "80320", # 4208	Saddler and Harness Maker
-    "84222", # 2782	Watch and Clock Assembler or Repairer
-    "77510", # 2603	Dairy Product Processor, General
-    "75500", # 2334	Knitter, Specialisation Unknown
-    "81230", # 2250	Wood Turner
-    "89240", # 2041	Brick and Tile Moulder (Hand)
-    "75710", # 1962	Rope Maker, General
-    "89210", # 1648	Potter, General
-    "87340", # 1524	Tinsmith
-    "77810", # 1516	Brewer, General
-    "96930", # 1355	Boiler Fireman (Fyrbøder)
-    "92110", # 1343	Printer, General
-    "76145", # 1285	Tanner
-    "72550", # 1211	Coremaker (Hand)
-    "17140", # 1051	Instrumentalist
-    "84970", # 942 Plant Maintenance Mechanic
-    "79475", # 939 Glove Cutter, Leather or Other Material
-    "74490", # 932	Other Still and Reactor Operators
-    "56070", # 902	Presser (Hand)
-    "92625", # 885	Bookbinder (Hand or Machine)
-    "78200", # 823	Cigar Maker, Specialisation Unknown
-    "21220", # 805	Production Manager (except Farm)
-    "83990", # 793	Other Blacksmiths, Toolmakers and MachineTool Operators Not Elsewhere Classified
-    "88050" # 784	Goldsmith and Silversmith
-  ),
-  
-  Farmer = c(
-    "62120", # 612195	Farm Servant
-    "61100", # 337582 General Farmer
-    "62105", # 158442	FarmWorker, General
-    "61115", # 62854 Small Subsistence Farmer (Husbandman)
-    "62450", # 6888	FurBearing Animal Farm Worker
-    "62400", # 2392	Livestock Workers
-    "63220", # 2280	Forest Supervisor
-    "63110", # 2094	Logger (General)
-    "62510" # 2071	Dairy Farm Worker, General
-  )
-)
+# Top 100 extracted
+tmp = hisco %>%
+  select(hisco1:hisco5) %>%
+  pivot_longer(hisco1:hisco5) %>%
+  drop_na(value)
 
+hisco_desc = hisco::hisco %>%
+  distinct(hisco, en_hisco_text)
+   
+tmp = tmp %>%
+  select(value) %>%
+  rename(hisco = value) %>%
+  group_by(hisco) %>%
+  count()
 
-hisco0 = hisco
-occ_cats = foreach(i = 1:length(occ_cats), .combine = "bind_rows") %do% {
-  name_i = names(occ_cats)[i]
-  tmp_i = data.frame(
-    Category = name_i,
-    hisco = occ_cats[[i]]
+all_occs = tmp$n %>% sum()
+# tmp %>% 
+#   left_join(hisco_desc, by = "hisco") %>% 
+#   arrange(-n) %>% 
+#   ungroup() %>% 
+#   top_n(100) %>% 
+#   write_csv2("Data/Tmp_top100_hiscos.csv")
+
+top100 = read_csv2("Data/Top100_HISCO.csv")
+
+# How much is covered by these categories?
+top100 %>% 
+  mutate(pct = n/all_occs) %>% 
+  group_by(Category) %>% 
+  summarise(pct = sum(pct))
+
+# # A tibble: 7 × 2
+# Category          pct
+# <chr>           <dbl>
+#   1 building      0.0259 
+# 2 farming       0.551  
+# 3 fishing       0.00579
+# 4 manufacturing 0.149  
+# 5 merchant      0.0255 
+# 6 seamen        0.0188 
+# 7 NA            0.198 
+
+top100 = top100 %>% 
+  select(hisco, Category)
+
+hisco = hisco %>% 
+  left_join(top100, by = c(hisco1 = "hisco")) %>% 
+  rename(
+    Category1 = Category
+  ) %>% 
+  left_join(top100, by = c(hisco2 = "hisco")) %>% 
+  rename(
+    Category2 = Category
+  ) %>% 
+  left_join(top100, by = c(hisco3 = "hisco")) %>% 
+  rename(
+    Category3 = Category
+  ) %>% 
+  left_join(top100, by = c(hisco4 = "hisco")) %>% 
+  rename(
+    Category4 = Category
+  ) %>% 
+  left_join(top100, by = c(hisco5 = "hisco")) %>% 
+  rename(
+    Category5 = Category
   )
 
-  # Is this category in the actual HISCO codes in census?
-  # There are up to 5 HISCO codes for each individual
-  # A dataframe containing dummies for all 5 potential HISCOs is created
-  # Next it is coerced into one dataframe
-  category_dummies = data.frame(
-    cat1 = hisco %>%
-      mutate(hisco1 = as.character(hisco1)) %>%
-      left_join(tmp_i, by = c("hisco1"="hisco")) %>%
-      select(Category) %>%
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
-      unlist(),
 
-    cat2 = hisco %>%
-      mutate(hisco2 = as.character(hisco2)) %>%
-      left_join(tmp_i, by = c("hisco2"="hisco")) %>%
-      select(Category) %>%
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
-      unlist(),
-
-    cat3 = hisco %>%
-      mutate(hisco3 = as.character(hisco3)) %>%
-      left_join(tmp_i, by = c("hisco3"="hisco")) %>%
-      select(Category) %>%
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
-      unlist(),
-
-    cat4 = hisco %>%
-      mutate(hisco4 = as.character(hisco4)) %>%
-      left_join(tmp_i, by = c("hisco4"="hisco")) %>%
-      select(Category) %>%
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
-      unlist(),
-
-    cat5 = hisco %>%
-      mutate(hisco4 = as.character(hisco5)) %>%
-      left_join(tmp_i, by = c("hisco5"="hisco")) %>%
-      select(Category) %>%
-      mutate(Category = ifelse(is.na(Category), 0, 1)) %>%
-      unlist()
-  )
-
-  # Coerce into one dummy indicating whether the category is present or not
-  category_dummies = category_dummies %>%
-    transmute(dummy = cat1 + cat2 + cat3 + cat4 + cat5) %>%
-    mutate(
-      dummy = ifelse(dummy>0, 1, 0)
+hisco = hisco %>% 
+  rowwise() %>% 
+  mutate(
+    Farming = ifelse(
+      "farming" %in% c(Category1, Category2, Category3, Category4, Category5), 1, 0
+    ),
+    Manufacturing = ifelse(
+      "manufacturing" %in% c(Category1, Category2, Category3, Category4, Category5), 1, 0
+    ),
+    Seamen = ifelse(
+      "seamen" %in% c(Category1, Category2, Category3, Category4, Category5), 1, 0
+    ),
+    Fishing = ifelse(
+      "fishing" %in% c(Category1, Category2, Category3, Category4, Category5), 1, 0
+    ),
+    Building = ifelse(
+      "building" %in% c(Category1, Category2, Category3, Category4, Category5), 1, 0
+    ),
+    Merchants = ifelse(
+      "merchant" %in% c(Category1, Category2, Category3, Category4, Category5), 1, 0
     )
+  )
 
-  names(category_dummies) = name_i
-  cat("\n", name_i)
 
-  # Store results to dataframe
-  hisco0 = hisco0 %>%
-    bind_cols(category_dummies)
-
-}
-
-hisco = hisco0
-rm(hisco0)
-rm(category_dummies)
+hisco = hisco %>% select(-c(Category1:Category5))
 
 # ==== Merge on HISCO codes and categories ====
 # Merge on HISCO codes
@@ -191,7 +155,9 @@ merged_data0 %>%
   summarise(
     Fishing = sum(Fishing, na.rm = TRUE)/n(),
     Manufacturing = sum(Manufacturing, na.rm = TRUE)/n(),
-    Farmer = sum(Farmer, na.rm = TRUE)/n(),
+    Farming = sum(Farming, na.rm = TRUE)/n(),
+    Building = sum(Building, na.rm = TRUE)/n(),
+    Merchants = sum(Merchants, na.rm = TRUE)/n(),
     n = n()
   )
 
