@@ -222,7 +222,7 @@ p1 = mult_dummy %>%
   ) + 
   labs(
     y = "",
-    x = "Estimate 1901"
+    x = "Parameter estimate 1901"
   ) + 
   theme(legend.position = "none")
 
@@ -310,7 +310,7 @@ p1 = mult_MA %>%
   ) + 
   labs(
     y = "",
-    x = "Estimate 1901"
+    x = "Parameter estimate 1901"
   ) + 
   theme(legend.position = "none")
 
@@ -323,6 +323,8 @@ sub_groups = reg_pop %>% select(delta_lMA_theta_1_alpha_1:delta_lMA_theta_16_alp
 
 mult_MA2 = foreach(g = 1:NCOL(sub_groups), .combine = "bind_rows") %do% {
   MA_g = sub_groups[,g] %>% unlist() %>% unname()
+  # Standardize
+  MA_g = (MA_g - mean(MA_g, na.rm = TRUE))/sd(MA_g, na.rm = TRUE)
   
   group = names(sub_groups)[g]
   theta = strsplit(group, "_")[[1]][4]
@@ -354,28 +356,26 @@ p1 = mult_MA2 %>%
     the_col = ifelse(theta == 1 & alpha == 10, "Yes", "No")
   ) %>% 
   mutate(
-    Alt = paste0("(", "α = ", alpha, ")"),
-    theta = paste0("θ = ", theta)
+    Alt = paste0("(", "α = ", alpha,", θ = ", theta, ")")
   ) %>% 
   mutate(
-    Alt = factor(Alt, levels = unique(Alt)),
-    theta = factor(theta, levels = unique(theta))
+    Alt = factor(Alt, levels = unique(Alt))
   ) %>% 
   ggplot(aes(Estimate, Alt)) +
   geom_point() + 
   geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
   geom_vline(xintercept = default, lty = 2) + 
-  xlim(0, NA) + 
   theme_bw() + 
   scale_color_manual(
     values = c("No" = "black", "Yes" = "#b33d3d")
   ) + 
   labs(
-    y = ""
+    y = "",
+    x = "Parameter estimate 1901"
   ) + 
-  theme(legend.position = "none") + 
-  facet_wrap(~theta)
+  theme(legend.position = "none")
 
+p1
 fname0 = paste0("Plots/Regression_plots/", "Multiverse_MA_param", ".png")
 ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 
