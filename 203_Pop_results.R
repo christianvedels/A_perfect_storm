@@ -118,7 +118,7 @@ mod1 = feols(
   cluster = ~ GIS_ID
 )
 
-p1_dummy = plot_mod(mod1, "pop_dummy", ylab = "Parameter estimate")
+p1_dummy = plot_mod(mod1, "pop_dummy", ylab = "Parameter estimate", corner_text = "Control group: Non-Limfjord parishes")
 
 p1_dummy
 
@@ -128,11 +128,256 @@ mod2 = feols(
   cluster = ~ GIS_ID
 )
 
-p2_ma = plot_mod(mod2, "pop_MA", ylab = "Parameter estimate")
+p2_ma = plot_mod(mod2, "pop_MA", ylab = "Parameter estimate", vadj = 1, corner_text = "Control group: Less Market Access improvement")
 
 p2_ma
 
+# Regression table
+mods = list(
+  mod1,
+  mod2
+)
 
+mods %>% 
+  etable(tex = TRUE)
+
+# Multiverse dummy
+sub_groups = expand.grid(
+  coastal = unique(reg_pop$coastal),
+  wo_kbh = unique(reg_pop$wo_kbh),
+  non_limfjord_control = unique(reg_pop$non_limfjord_control)
+)
+
+mult_dummy = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
+  groups_g = sub_groups[g,]
+  reg_pop_g = reg_pop
+  
+  group = ""
+  
+  if(groups_g$coastal){
+    reg_pop_g = reg_pop_g %>% 
+      filter(coastal)
+    
+    if(group == ""){
+      group = "A"
+    } else {
+      group = paste(group, "A", sep = ", ")
+    }
+    
+  }
+  
+  if(groups_g$wo_kbh){
+    reg_pop_g = reg_pop_g %>% 
+      filter(wo_kbh)
+    
+    if(group == ""){
+      group = "B"
+    } else {
+      group = paste(group, "B", sep = ", ")
+    }
+  }
+  
+  if(groups_g$non_limfjord_control){
+    reg_pop_g = reg_pop_g %>% 
+      filter(non_limfjord_control)
+    
+    if(group == ""){
+      group = "C"
+    } else {
+      group = paste(group, "C", sep = ", ")
+    }
+  }
+  
+  mod_g = feols(
+    log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop_g %>% mutate(Affected = limfjord_placement_west),
+    cluster = ~ GIS_ID
+  )
+  
+  # Extract data
+  plot_mod(mod_g, return_data = TRUE) %>% mutate(group = group)
+}
+
+default = mult_dummy %>% 
+  filter(group == "") %>% 
+  filter(Year == 1901) %>% 
+  select(Estimate) %>% unlist()
+
+p1 = mult_dummy %>% 
+  filter(Year == 1901) %>%
+  arrange(Estimate) %>% 
+  mutate(
+    group = ifelse(group == "", "Default", group),
+    the_col = ifelse(group == "Default", "Yes", "No")
+  ) %>% 
+  mutate(group = factor(group, levels = group)) %>% 
+  ggplot(aes(Estimate, group)) +
+  geom_point() + 
+  geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
+  geom_vline(xintercept = default, lty = 2) + 
+  xlim(0, NA) + 
+  theme_bw() + 
+  scale_color_manual(
+    values = c("No" = "black", "Yes" = "#b33d3d")
+  ) + 
+  labs(
+    y = "",
+    x = "Estimate 1901"
+  ) + 
+  theme(legend.position = "none")
+
+fname0 = paste0("Plots/Regression_plots/", "Multiverse_dummy", ".png")
+ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
+
+# Multiverse market access
+sub_groups = expand.grid(
+  coastal = unique(reg_pop$coastal),
+  wo_kbh = unique(reg_pop$wo_kbh),
+  non_limfjord_control = unique(reg_pop$non_limfjord_control)
+)
+
+mult_MA = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
+  groups_g = sub_groups[g,]
+  reg_pop_g = reg_pop
+  
+  group = ""
+  
+  if(groups_g$coastal){
+    reg_pop_g = reg_pop_g %>% 
+      filter(coastal)
+    
+    if(group == ""){
+      group = "A"
+    } else {
+      group = paste(group, "A", sep = ", ")
+    }
+    
+  }
+  
+  if(groups_g$wo_kbh){
+    reg_pop_g = reg_pop_g %>% 
+      filter(wo_kbh)
+    
+    if(group == ""){
+      group = "B"
+    } else {
+      group = paste(group, "B", sep = ", ")
+    }
+  }
+  
+  if(groups_g$non_limfjord_control){
+    reg_pop_g = reg_pop_g %>% 
+      filter(non_limfjord_control)
+    
+    if(group == ""){
+      group = "C"
+    } else {
+      group = paste(group, "C", sep = ", ")
+    }
+  }
+  
+  mod_g = feols(
+    log(Pop) ~ Year*Affected,
+    data = reg_pop_g %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+    cluster = ~ GIS_ID
+  )
+  
+  # Extract data
+  plot_mod(mod_g, return_data = TRUE) %>% mutate(group = group)
+}
+
+default = mult_MA %>% 
+  filter(group == "") %>% 
+  filter(Year == 1901) %>% 
+  select(Estimate) %>% unlist()
+
+p1 = mult_MA %>% 
+  filter(Year == 1901) %>%
+  arrange(Estimate) %>% 
+  mutate(
+    group = ifelse(group == "", "Default", group),
+    the_col = ifelse(group == "Default", "Yes", "No")
+  ) %>% 
+  mutate(group = factor(group, levels = group)) %>% 
+  ggplot(aes(Estimate, group)) +
+  geom_point() + 
+  geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
+  geom_vline(xintercept = default, lty = 2) + 
+  xlim(0, NA) + 
+  theme_bw() + 
+  scale_color_manual(
+    values = c("No" = "black", "Yes" = "#b33d3d")
+  ) + 
+  labs(
+    y = "",
+    x = "Estimate 1901"
+  ) + 
+  theme(legend.position = "none")
+
+fname0 = paste0("Plots/Regression_plots/", "Multiverse_MA", ".png")
+ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
+
+
+# Multiverse market access parameters
+sub_groups = reg_pop %>% select(delta_lMA_theta_1_alpha_1:delta_lMA_theta_16_alpha_50)
+
+mult_MA2 = foreach(g = 1:NCOL(sub_groups), .combine = "bind_rows") %do% {
+  MA_g = sub_groups[,g] %>% unlist() %>% unname()
+  
+  group = names(sub_groups)[g]
+  theta = strsplit(group, "_")[[1]][4]
+  alpha = strsplit(group, "_")[[1]][6]
+  
+  mod_g = feols(
+    log(Pop) ~ Year*Affected,
+    data = reg_pop %>% mutate(Affected = MA_g),
+    cluster = ~ GIS_ID
+  )
+  
+  # Extract data
+  plot_mod(mod_g, return_data = TRUE) %>% 
+    mutate(
+      theta = theta,
+      alpha = alpha
+    )
+}
+
+default = mult_MA2 %>% 
+  filter(theta == 1, alpha == 10) %>% 
+  filter(Year == 1901) %>% 
+  select(Estimate) %>% unlist()
+
+p1 = mult_MA2 %>% 
+  filter(Year == 1901) %>%
+  arrange(Estimate) %>% 
+  mutate(
+    the_col = ifelse(theta == 1 & alpha == 10, "Yes", "No")
+  ) %>% 
+  mutate(
+    Alt = paste0("(", "α = ", alpha, ")"),
+    theta = paste0("θ = ", theta)
+  ) %>% 
+  mutate(
+    Alt = factor(Alt, levels = unique(Alt)),
+    theta = factor(theta, levels = unique(theta))
+  ) %>% 
+  ggplot(aes(Estimate, Alt)) +
+  geom_point() + 
+  geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
+  geom_vline(xintercept = default, lty = 2) + 
+  xlim(0, NA) + 
+  theme_bw() + 
+  scale_color_manual(
+    values = c("No" = "black", "Yes" = "#b33d3d")
+  ) + 
+  labs(
+    y = ""
+  ) + 
+  theme(legend.position = "none") + 
+  facet_wrap(~theta)
+
+fname0 = paste0("Plots/Regression_plots/", "Multiverse_MA_param", ".png")
+ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 
 # ==== Mechanism occupation ====
 # Breach --> Fishing
