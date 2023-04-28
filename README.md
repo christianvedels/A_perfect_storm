@@ -8,7 +8,7 @@ The numbering of the scripts indicate running order. The first digit indicate le
 
 ![Map](Plots/Map_manual_edits.png)
 
-## 1. Included data
+## 2. Included data
 The following data is included in this repository
 
 ### A. Popdata.csv
@@ -187,6 +187,13 @@ Regression data for arcaehological data based on monte carlo sampling from 009_A
 
 ### M. HISCO_sample_checked.csv
 1000 random observations of occupational descriptions and HISCO codes checked.
+
+### N. Distance_to_market_town.csv
+| Variable | Description |
+|----------|-------------|
+| GIS_ID | GIS_ID - unique ID for the paris. |
+| Distance_market_town | Distance to the closest market town centroid | 
+| Closest_market_town | Which marktet town is closest? Represented by GIS_ID |
 
 ## 2. Large or non-redistributable data
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 

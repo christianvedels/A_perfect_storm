@@ -15,6 +15,8 @@ library(foreach)
 reg_pop = read_csv2("Data/Popdata.csv", guess_max = 2000)
 geo_data = read_csv2("Data/Geo.csv", guess_max = 2000)
 market_access = read_csv2("Data/MA_estimates.csv", guess_max = 2000) 
+market_towns = read_csv2("Data/Market_towns.csv")
+dist_mt = read_csv2("Data/Distance_to_market_town.csv", guess_max = 2000)
 
 # ==== Functions ====
 plot_mod = function(
@@ -39,6 +41,9 @@ plot_mod = function(
     ) %>%
     filter(
       grepl("Affected",Var)
+    ) %>%
+    filter(
+      !grepl("log",Var)
     ) %>%
     mutate(
       Upper = Estimate + 1.96*Std..Error,
@@ -111,6 +116,24 @@ reg_pop = reg_pop %>%
   filter(consistent == 1) %>% 
   drop_na(GIS_ID)
 
+# Adding market town dummmy
+mt = market_towns %>% 
+  distinct(GIS_ID) %>% 
+  mutate(Market_town = 1)
+
+reg_pop = reg_pop %>% 
+  left_join(mt, by = "GIS_ID") %>% 
+  mutate(
+    Market_town = ifelse(is.na(Market_town), 0, Market_town)
+  )
+
+# Adding distance to market town and indicator of within 5 km of market town
+reg_pop = reg_pop %>% 
+  left_join(dist_mt, by = "GIS_ID") %>% 
+  mutate(
+    Within_5km_of_mt = Distance_market_town < 5
+  )
+
 # ==== Regressions ====
 mod1 = feols(
   log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
@@ -145,7 +168,8 @@ mods %>%
 sub_groups = expand.grid(
   coastal = unique(reg_pop$coastal),
   wo_kbh = unique(reg_pop$wo_kbh),
-  non_limfjord_control = unique(reg_pop$non_limfjord_control)
+  non_limfjord_control = unique(reg_pop$non_limfjord_control),
+  Within_5km_of_mt = unique(reg_pop$Within_5km_of_mt)
 )
 
 mult_dummy = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
@@ -188,6 +212,17 @@ mult_dummy = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
     }
   }
   
+  if(groups_g$Within_5km_of_mt){
+    reg_pop_g = reg_pop_g %>% 
+      filter(non_limfjord_control)
+    
+    if(group == ""){
+      group = "D"
+    } else {
+      group = paste(group, "D", sep = ", ")
+    }
+  }
+  
   mod_g = feols(
     log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
     data = reg_pop_g %>% mutate(Affected = limfjord_placement_west),
@@ -226,6 +261,7 @@ p1 = mult_dummy %>%
   ) + 
   theme(legend.position = "none")
 
+p1
 fname0 = paste0("Plots/Regression_plots/", "Multiverse_dummy", ".png")
 ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 
@@ -233,7 +269,8 @@ ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 sub_groups = expand.grid(
   coastal = unique(reg_pop$coastal),
   wo_kbh = unique(reg_pop$wo_kbh),
-  non_limfjord_control = unique(reg_pop$non_limfjord_control)
+  non_limfjord_control = unique(reg_pop$non_limfjord_control),
+  Within_5km_of_mt = unique(reg_pop$Within_5km_of_mt)
 )
 
 mult_MA = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
@@ -276,6 +313,17 @@ mult_MA = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
     }
   }
   
+  if(groups_g$Within_5km_of_mt){
+    reg_pop_g = reg_pop_g %>% 
+      filter(non_limfjord_control)
+    
+    if(group == ""){
+      group = "D"
+    } else {
+      group = paste(group, "D", sep = ", ")
+    }
+  }
+  
   mod_g = feols(
     log(Pop) ~ Year*Affected,
     data = reg_pop_g %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
@@ -314,6 +362,7 @@ p1 = mult_MA %>%
   ) + 
   theme(legend.position = "none")
 
+p1
 fname0 = paste0("Plots/Regression_plots/", "Multiverse_MA", ".png")
 ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 
@@ -382,24 +431,23 @@ ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 # ==== Mechanism occupation ====
 # Breach --> Fishing
 fish = feols(
-  log(Fishing+1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  log(Fishing + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
   data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west) %>% 
-    filter(wo_kbh),
+    mutate(Affected = limfjord_placement_west),
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish", ylab = "Parameter estimate", vadj = 0.15, the_col = "#2c5c34"
+  fish, "fish", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
 
 # Breach --> Manufacturing
 manu = feols(
-  log(Manufacturing+1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  log(Manufacturing + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
   data = reg_pop %>% mutate(Affected = limfjord_placement_west),
   cluster = ~ GIS_ID
 )
 plot_mod(
-  manu, "manu", ylab = "Parameter estimate", vadj = 0.15, the_col = "#2c5c34"
+  manu, "manu", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
 
 # ==== Mechanism internal migration ====
@@ -425,7 +473,7 @@ fertility = feols(
   log(Small_children_per_woman) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
   data = reg_pop %>% 
     mutate(Affected = limfjord_placement_west) %>% 
-    mutate(Small_children_per_woman = (Age_1_4) / Pop_f),
+    mutate(Small_children_per_woman = (Age_1_4) / (Age_15_24_f + Age_25_34_f + Age_35_44_f)),
   cluster = ~ GIS_ID
 )
 plot_mod(
@@ -489,7 +537,7 @@ p1 = res_g %>%
   ) %>% 
   mutate(
     group = sub("_", " to ", group)
-  ) %>% 
+  ) %>%
   mutate(
     group = factor(
       group,
