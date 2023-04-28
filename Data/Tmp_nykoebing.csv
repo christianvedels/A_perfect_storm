@@ -1,0 +1,1802 @@
+"";"Year";"pa_id";"name";"sex";"age";"Occupation";"Household_position";"hisco1";"en_hisco_text1";"hisco2";"en_hisco_text2"
+"1";"1787";"674718";"poul tøttrup";"m";"53";"proprietair";"hosbonde";"61110";"General Farmer";NA;NA
+"2";"1787";"674719";"anders tøttrup";"m";"23";NA;"hans søn";NA;NA;NA;NA
+"3";"1787";"674720";"kristen fransen";"m";"51";NA;"tjenestekarl";"62120";"Farm Servant";NA;NA
+"4";"1787";"674721";"kristen josefsen";"m";"42";NA;"tjenestekarl";"62120";"Farm Servant";NA;NA
+"5";"1787";"674722";"anders kristensen";"m";"30";NA;"tjenestekarl";"62120";"Farm Servant";NA;NA
+"6";"1787";"674723";"mikkel laursen";"m";"20";NA;"tjenestekarl";"62120";"Farm Servant";NA;NA
+"7";"1787";"674724";"mikkel mortensen";"m";"14";NA;"tjenestedreng";"62120";"Farm Servant";NA;NA
+"8";"1787";"674725";"tomas hansen";"m";"15";NA;"tjenestedreng";"62120";"Farm Servant";NA;NA
+"9";"1787";"674726";"kristen kristensen";"m";"15";NA;"tjenestedreng";"62120";"Farm Servant";NA;NA
+"10";"1787";"674727";"sejer pedersen";"m";"14";NA;"tjenestedreng";"62120";"Farm Servant";NA;NA
+"11";"1787";"674728";"benjamin kristensen";"m";"7";"et fattig barn som er uden næringsvej og gives føde og klæde";"uægte";"62120";"Farm Servant";NA;NA
+"12";"1787";"674729";"maren sejersdatter";"f";"44";NA;"tjenestepige";"62120";"Farm Servant";NA;NA
+"13";"1787";"674730";"maren mikkelsdatter";"f";"32";NA;"tjenestepige";"62120";"Farm Servant";NA;NA
+"14";"1787";"674731";"anne marie mikkelsdatter";"f";"33";NA;"tjenestepige";"62120";"Farm Servant";NA;NA
+"15";"1787";"674732";"karen andersdatter";"f";"24";NA;"tjenestepige";"62120";"Farm Servant";NA;NA
+"16";"1787";"674733";"anne kirstine hansdatter";"f";"10";NA;"tjenestepige";"62120";"Farm Servant";NA;NA
+"17";"1787";"674734";"peder jensen";"m";"50";"nærer sig ved fiskeri afbyggerhuus paa hovedgaardens jord";"mand";NA;NA;NA;NA
+"18";"1787";"674735";"valborg kristensdatter";"f";"51";NA;"hans kone";NA;NA;NA;NA
+"19";"1787";"674736";"søren pedersen";"m";"22";NA;"deres barn";NA;NA;NA;NA
+"20";"1787";"674737";"jens pedersen";"m";"12";NA;"deres barn";NA;NA;NA;NA
+"21";"1787";"674738";"valborg pedersdatter";"f";"16";NA;"deres barn";NA;NA;NA;NA
+"22";"1787";"674739";"maren pedersdatter";"f";"9";NA;"deres barn";NA;NA;NA;NA
+"23";"1787";"674740";"josef nielsen";"m";"28";"nærer sig ved fiskeri";"mand";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"24";"1787";"674741";"maren ovesdatter";"f";"33";NA;"hans kone";NA;NA;NA;NA
+"25";"1787";"674742";"anne marie josefsdatter";"f";"1";NA;"deres datter";NA;NA;NA;NA
+"26";"1787";"674743";"jens møller";"m";"46";"bonde og gaardbeboer";"hosbonde";"61110";"General Farmer";NA;NA
+"27";"1787";"674744";"maren pedersdatter";"f";"38";NA;"madmoder";"61110";"General Farmer";NA;NA
+"28";"1787";"674745";"kirsten jensdatter";"f";"7";NA;"deres barn";NA;NA;NA;NA
+"29";"1787";"674746";"sidsel jensdatter";"f";"5";NA;"deres barn";NA;NA;NA;NA
+"30";"1787";"674747";"peder jensen";"m";"3";NA;"deres barn";NA;NA;NA;NA
+"31";"1787";"674748";"morten mortensen";"m";"28";"Landsoldat";"tjenestefolk";"58340";"Other Military Ranks";NA;NA
+"32";"1787";"674749";"kristen madsen";"m";"15";NA;"tjenestefolk";"62120";"Farm Servant";NA;NA
+"33";"1787";"674750";"anne kristensdatter";"f";"27";NA;"tjenestefolk";"62120";"Farm Servant";NA;NA
+"34";"1787";"674751";"morten jensen";"m";"48";"bonde og gaardbeboer";"hosbonde";"61110";"General Farmer";NA;NA
+"35";"1787";"674752";"maren kristensdatter";"f";"34";NA;"madmoder";"61110";"General Farmer";NA;NA
+"36";"1787";"674753";"johanne mortensdatter";"f";"6";NA;"deres barn";NA;NA;NA;NA
+"37";"1787";"674754";"kristen mortensen";"m";"4";NA;"deres barn";NA;NA;NA;NA
+"38";"1787";"674755";"jens mortensen";"m";"2";NA;"deres barn";NA;NA;NA;NA
+"39";"1787";"674756";"tomas hunnerup";"m";"32";NA;"tjenestefolk";"62120";"Farm Servant";NA;NA
+"40";"1787";"674757";"arent kristensen";"m";"16";NA;"tjenestefolk";"62120";"Farm Servant";NA;NA
+"41";"1787";"674758";"karen mouritsdatter";"f";"24";NA;"tjenestefolk";"62120";"Farm Servant";NA;NA
+"42";"1801";"746103";"anders tøttrup";"m";"36";"Regimentsqvarteermester ved det Oldenborgske Regiment i Rendsborg, samt Godseier";"Husbonde";"58340";"Other Military Ranks";"61110";"General Farmer"
+"43";"1801";"746142";"frederikke charlotte kirstine erlandsen";"f";"24";NA;"Hans Kone";NA;NA;NA;NA
+"44";"1801";"746104";"poul ulrik ernst tøttrup";"m";"3";NA;"Deres Søn";NA;NA;NA;NA
+"45";"1801";"746143";"charlotte kristiane sofie erlandsen";"f";"26";NA;"Konens Systre";NA;NA;NA;NA
+"46";"1801";"746105";"filipine dorte johanne amalie erlandsen";"f";"25";NA;"Konens Systre";NA;NA;NA;NA
+"47";"1801";"746144";"birgitte sejersen";"f";"32";"Som Selskabs Jomfrue";"Opholdende";"54040";"Companion";NA;NA
+"48";"1801";"746109";"jens kristensen";"m";"30";"Ladefoged";"Tienestefolk";"22520";"Farm Supervisor";NA;NA
+"49";"1801";"746146";"tomas hansen";"m";"29";"Kudsk";"Tienestefolk";"98620";"AnimalDrawn Vehicle Driver (Road)";NA;NA
+"50";"1801";"746112";"peder mortensen";"m";"23";"Tærskere";"Tienestefolk";"62120";"Farm Servant";NA;NA
+"51";"1801";"746151";"ole kristensen";"m";"28";"Tærskere";"Tienestefolk";"62120";"Farm Servant";NA;NA
+"52";"1801";"746113";"hans henriksen holm";"m";"24";"Tærskere";"Tienestefolk";"62120";"Farm Servant";NA;NA
+"53";"1801";"746152";"niels kristensen";"m";"23";"Rygtere";"Tienestefolk";"62450";"FurBearing Animal Farm Worker";NA;NA
+"54";"1801";"747361";"tomas kristensen";"m";"69";"Rygtere";"Tienestefolk";"62450";"FurBearing Animal Farm Worker";NA;NA
+"55";"1801";"747479";"ernst lærke";"m";"15";"Stalddreng";"Tienestefolk";"62120";"Farm Servant";NA;NA
+"56";"1801";"747362";"peder damkær andersen";"m";"14";"Faaredrenge";"Tienestefolk";"62430";"Sheep Farm Worker";NA;NA
+"57";"1801";"747481";"søren kristian andersen";"m";"13";"Faaredrenge";"Tienestefolk";"62430";"Sheep Farm Worker";NA;NA
+"58";"1801";"747363";"inger jensdatter";"f";"40";"Stuepige";"Tienestefolk";"54020";"House Servant";NA;NA
+"59";"1801";"747482";"else kristensdatter";"f";"24";"Kokkepige";"Tienestefolk";"53140";"Cook, Private Service";NA;NA
+"60";"1801";"747364";"anne pedersdatter";"f";"24";"Bryggerpige";"Tienestefolk";"77810";"Brewer, General";NA;NA
+"61";"1801";"747484";"maren pedersdatter";"f";"18";"Malkepige";"Tienestefolk";"62120";"Farm Servant";NA;NA
+"62";"1801";"747365";"josef nielsen";"m";"44";"Enroull. Matros, nærer sig ved Fiskerie";"Mand";"64100";"Fisherman, DeepSea or Inland and Coastal Water";"98135";"Seaman, Able or Ordinary"
+"63";"1801";"747485";"maren ovesdatter";"f";"47";NA;"Hans Kone";NA;NA;NA;NA
+"64";"1801";"747366";"niels kristian josefsen";"m";"7";NA;"Deres Børn";NA;NA;NA;NA
+"65";"1801";"747504";"anne marie josefsdatter";"f";"15";NA;"Deres Børn";NA;NA;NA;NA
+"66";"1801";"747367";"maren josefsdatter";"f";"13";NA;"Deres Børn";NA;NA;NA;NA
+"67";"1801";"747505";"karen josefsdatter";"f";"11";NA;"Deres Børn";NA;NA;NA;NA
+"68";"1801";"747368";"jes andersen";"m";"57";"Nærer sig ved Fiskerie";"Mand";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"69";"1801";"747506";"anne poulsdatter";"f";"60";NA;"Hans Kone";NA;NA;NA;NA
+"70";"1801";"747369";"anne katrine jesdatter";"f";"22";"Er ganske Blind";"Deres Datter";NA;NA;NA;NA
+"71";"1801";"747507";"mikkel sørensen";"m";"56";"Møller";"Mand";"77120";"Grain Miller";NA;NA
+"72";"1801";"747386";"dorte olesdatter";"f";"66";NA;"Hans Kone";NA;NA;NA;NA
+"73";"1801";"747508";"dorte andersdatter";"f";"36";NA;"Tienestepige";"62120";"Farm Servant";NA;NA
+"74";"1801";"747388";"morten jensen";"m";"63";"Bonde og Gaardbeboer";"Husbonde";"61110";"General Farmer";NA;NA
+"75";"1801";"747509";"johanne mortensdatter";"f";"21";NA;"Hans Døttre";NA;NA;NA;NA
+"76";"1801";"747389";"inger marie mortensdatter";"f";"9";NA;"Hans Døttre";NA;NA;NA;NA
+"77";"1801";"747510";"kristen klausen";"m";"31";NA;"Tienestefolk";"62120";"Farm Servant";NA;NA
+"78";"1801";"747391";"hans jensen";"m";"15";NA;"Tienestefolk";"62120";"Farm Servant";NA;NA
+"79";"1801";"747511";"birte nielsdatter";"f";"30";NA;"Tienestefolk";"62120";"Farm Servant";NA;NA
+"80";"1801";"747392";"poul kristensen";"m";"39";"Bonde og Gaardbeboer";"Husbonde";"61110";"General Farmer";NA;NA
+"81";"1801";"747513";"anne nielsdatter";"f";"35";NA;"Hans Kone";NA;NA;NA;NA
+"82";"1801";"747394";"peder jensen";"m";"16";NA;"Deres Stedbørn";"62120";"Farm Servant";NA;NA
+"83";"1801";"747514";"kirsten jensdatter";"f";"20";NA;"Deres Stedbørn";"62120";"Farm Servant";NA;NA
+"84";"1801";"747395";"peder poulsen";"m";"23";NA;"Tienestekarl";"62120";"Farm Servant";NA;NA
+"85";"1834";"876546";"andreas tøttrup";"m";"70";"Captain og eier af hovedgaarden";NA;"58320";"Officer";"61110";"General Farmer"
+"86";"1834";"876547";"frederikke charlotte kirstine erlandsen";"f";"57";"hans kone";NA;NA;NA;NA;NA
+"87";"1834";"876548";"torvald kristian tøttrup";"m";"11";"deres sønnesøn";NA;NA;NA;NA;NA
+"88";"1834";"876549";"bartoline jakobine brix";"f";"21";"Huusjomfrue";NA;"54020";"House Servant";NA;NA
+"89";"1834";"876550";"jens sørensen";"m";"24";"Forvalter ved godset";NA;"22520";"Farm Supervisor";NA;NA
+"90";"1834";"876551";"anders josefsen";"m";"28";"Ladefoged paa gaarden";NA;"22520";"Farm Supervisor";NA;NA
+"91";"1834";"876552";"anders kristian jensen";"m";"24";"Avlskarl";NA;"62120";"Farm Servant";NA;NA
+"92";"1834";"876574";"peder kristensen";"m";"36";"Tærskere";NA;"62120";"Farm Servant";NA;NA
+"93";"1834";"876685";"mads pedersen";"m";"44";"Tærskere";NA;"62120";"Farm Servant";NA;NA
+"94";"1834";"876686";"jens kristensen dal";"m";"30";"Tærskere";NA;"62120";"Farm Servant";NA;NA
+"95";"1834";"876687";"anders kristensen";"m";"53";"Tærskere";NA;"62120";"Farm Servant";NA;NA
+"96";"1834";"876689";"peder jensen";"m";"27";"Røgtere";NA;"62450";"FurBearing Animal Farm Worker";NA;NA
+"97";"1834";"876690";"morten jensen";"m";"23";"Røgtere";NA;"62450";"FurBearing Animal Farm Worker";NA;NA
+"98";"1834";"876691";"kristen pedersen";"m";"58";"Røgtere";NA;"62450";"FurBearing Animal Farm Worker";NA;NA
+"99";"1834";"876693";"niels jensen";"m";"65";"Røgtere";NA;"62450";"FurBearing Animal Farm Worker";NA;NA
+"100";"1834";"876694";"morten kristensen";"m";"20";"Drenge";NA;"62120";"Farm Servant";NA;NA
+"101";"1834";"876697";"kristen kristensen";"m";"17";"Drenge";NA;"62120";"Farm Servant";NA;NA
+"102";"1834";"876698";"kristen jensen";"m";"16";"Drenge";NA;"62120";"Farm Servant";NA;NA
+"103";"1834";"876699";"marianne kristensdatter";"f";"21";"Tjenestepiger";NA;"62120";"Farm Servant";NA;NA
+"104";"1834";"876700";"birte jensdatter";"f";"21";"Tjenestepiger";NA;"62120";"Farm Servant";NA;NA
+"105";"1834";"876701";"karen madsdatter";"f";"28";"Tjenestepiger";NA;"62120";"Farm Servant";NA;NA
+"106";"1834";"876702";"marie katrine laursdatter";"f";"21";"Tjenestepiger";NA;"62120";"Farm Servant";NA;NA
+"107";"1834";"876703";"anders kristian jeppesen";"m";"37";"Forpagter af møllen";NA;"61110";"General Farmer";NA;NA
+"108";"1834";"876704";"margrete marie laursdatter";"f";"37";"hans kone";NA;NA;NA;NA;NA
+"109";"1834";"876706";"jeppe andersen";"m";"11";"deres børn";NA;NA;NA;NA;NA
+"110";"1834";"876707";"laurs andersen";"m";"8";"deres børn";NA;NA;NA;NA;NA
+"111";"1834";"876864";"jens andersen";"m";"6";"deres børn";NA;NA;NA;NA;NA
+"112";"1834";"876895";"anne kirstine andersdatter";"f";"1";"deres børn";NA;NA;NA;NA;NA
+"113";"1834";"876896";"kristen kristensen";"m";"25";"Møllersvende";NA;"77120";"Grain Miller";NA;NA
+"114";"1834";"876897";"niels peter espersen";"m";"26";"Møllersvende";NA;"77120";"Grain Miller";NA;NA
+"115";"1834";"876898";"maren kirstine espersdatter";"f";"24";"forpagterens tjenestepige";NA;"61110";"General Farmer";NA;NA
+"116";"1834";"876899";"kristen tomassen";"m";"45";"Eier af huset og tømmermand";NA;"61110";"General Farmer";"95410";"Carpenter, General"
+"117";"1834";"876900";"karen pedersdatter";"f";"60";"hans kone";NA;NA;NA;NA;NA
+"118";"1834";"876901";"else nielsdatter";"f";"20";"deres tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"119";"1834";"876902";"jens kristian tomassen";"m";"39";"Fæster af huset";NA;"61110";"General Farmer";NA;NA
+"120";"1834";"876903";"maren jørgensdatter";"f";"40";"hans kone";NA;NA;NA;NA;NA
+"121";"1834";"876904";"niels andersen";"m";"11";"deres pleiebarn";NA;NA;NA;NA;NA
+"122";"1834";"876905";"søren jensen";"m";"48";"Fæster af huset";NA;"61110";"General Farmer";NA;NA
+"123";"1834";"877145";"dorte kirstine laursdatter";"f";"38";"hans kone";NA;NA;NA;NA;NA
+"124";"1834";"877164";"kirsten sørensdatter";"f";"10";"deres børn";NA;NA;NA;NA;NA
+"125";"1834";"877165";"anne sørensdatter";"f";"6";"deres børn";NA;NA;NA;NA;NA
+"126";"1834";"877166";"jens sørensen";"m";"2";"deres børn";NA;NA;NA;NA;NA
+"127";"1834";"877167";"jens kristensen";"m";"74";"Aftægtsmand";NA;NA;NA;NA;NA
+"128";"1834";"877168";"bodil poulsdatter";"f";"70";"hans kone";NA;NA;NA;NA;NA
+"129";"1834";"877169";"else jensdatter";"f";"30";"deres datter";NA;NA;NA;NA;NA
+"130";"1834";"877170";"anders nielsen";"m";"51";"Fisker og fæster af huset";NA;"61110";"General Farmer";"64100";"Fisherman, DeepSea or Inland and Coastal Water"
+"131";"1834";"877171";"else kristensdatter";"f";"43";"hans kone";NA;NA;NA;NA;NA
+"132";"1834";"877172";"tøger andersen";"m";"18";"deres børn";NA;NA;NA;NA;NA
+"133";"1834";"877173";"niels andersen";"m";"16";"deres børn";NA;NA;NA;NA;NA
+"134";"1834";"877174";"ove andersen";"m";"14";"deres børn";NA;NA;NA;NA;NA
+"135";"1834";"877175";"anne katrine andersdatter";"f";"12";"deres børn";NA;NA;NA;NA;NA
+"136";"1834";"877176";"kristen andersen";"m";"10";"deres børn";NA;NA;NA;NA;NA
+"137";"1834";"877296";"johan andersen";"m";"7";"deres børn";NA;NA;NA;NA;NA
+"138";"1834";"877353";"jens peter andersen";"m";"3";"deres børn";NA;NA;NA;NA;NA
+"139";"1834";"877354";"peder pedersen toft";"m";"53";"Fisker og fæster af huset";NA;"61110";"General Farmer";"64100";"Fisherman, DeepSea or Inland and Coastal Water"
+"140";"1834";"877355";"sidsel pedersdatter";"f";"51";"hans kone";NA;NA;NA;NA;NA
+"141";"1834";"877356";"peder pedersen";"m";"21";"deres børn, medhjælper ved fiskeriet";NA;"41030";"Working Proprietor (Retail Trade)";NA;NA
+"142";"1834";"877357";"sidsel marie pedersdatter";"f";"16";"deres børn";NA;NA;NA;NA;NA
+"143";"1834";"877358";"karen marie pedersdatter";"f";"10";"deres børn";NA;NA;NA;NA;NA
+"144";"1834";"877359";"ole pedersen";"m";"14";"deres børn";NA;NA;NA;NA;NA
+"145";"1845";"1129122";"frode hjalmar holstein";"m";"38";"Toldinspecteur";NA;"31040";"Customs officer";NA;NA
+"146";"1845";"1137332";"marie augusta karø";"f";"30";"hans Kone";NA;NA;NA;NA;NA
+"147";"1845";"1129386";"herman kristoffer holstein";"m";"9";"hans Barn";NA;NA;NA;NA;NA
+"148";"1845";"1129123";"frode otto julius holstein";"m";"7";"hans Barn";NA;NA;NA;NA;NA
+"149";"1845";"1138921";"frederik emil holstein";"m";"4";"hans Barn";NA;NA;NA;NA;NA
+"150";"1845";"1129205";"kristian frederik holstein";"m";"2";"hans Barn";NA;NA;NA;NA;NA
+"151";"1845";"1136277";"marianne kristensdatter";"f";"24";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"152";"1845";"1133330";"mette sofie glistrup";"f";"20";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"153";"1845";"1130562";"poul ulrik tøttrup";"m";"47";"Godseier";NA;"61110";"General Farmer";NA;NA
+"154";"1845";"1129553";"hede tora tøttrup";"f";"16";"hans Barn";NA;NA;NA;NA;NA
+"155";"1845";"1134273";"ferdinand andreas tøttrup";"m";"7";"hans Barn";NA;NA;NA;NA;NA
+"156";"1845";"1135890";"flora marie tøttrup";"f";"5";"hans Barn";NA;NA;NA;NA;NA
+"157";"1845";"1131463";"kristiane frederikke pris";"f";"47";"Frøken, Lærerinde";NA;"13020";"Teacher, Level and Subject Unknown, Not University and Higher Education Level";NA;NA
+"158";"1845";"1138997";"kristiane marie rasmussen";"f";"34";"Huusjomfrue";NA;"54020";"House Servant";NA;NA
+"159";"1845";"1137883";"emilie sinnet";"f";"25";"Meierske";NA;"77510";"Dairy Product Processor, General";NA;NA
+"160";"1845";"1132102";"georg johan pris";"m";"26";"Forvalter";NA;"22520";"Farm Supervisor";NA;NA
+"161";"1845";"1131596";"jens balle";"m";"40";"Ladefoged";NA;"22520";"Farm Supervisor";NA;NA
+"162";"1845";"1136604";"peder sejersen";"m";"30";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"163";"1845";"1130871";"karl jonassen";"m";"26";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"164";"1845";"1137913";"laurs pedersen nygård";"m";"34";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"165";"1845";"1134995";"morten troelsen";"m";"28";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"166";"1845";"1130863";"mikkel klausen";"m";"22";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"167";"1845";"1139610";"jens jensen";"m";"28";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"168";"1845";"1129522";"laurs tørslev";"m";"60";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"169";"1845";"1135708";"kristen madsen";"m";"21";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"170";"1845";"1132589";"søren mortensen";"m";"40";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"171";"1845";"1132909";"niels møller";"m";"37";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"172";"1845";"1129770";"poul kristensen";"m";"22";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"173";"1845";"1130603";"svenning villadsen";"m";"37";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"174";"1845";"1130703";"tomas laursen";"m";"24";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"175";"1845";"1134109";"kristen jeppesen";"m";"22";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"176";"1845";"1135866";"amalie matilde pedersen";"f";"24";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"177";"1845";"1131765";"louise fransiska pedersen";"f";"22";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"178";"1845";"1134362";"kirstine pedersdatter";"f";"34";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"179";"1845";"1140287";"karen mikkelsdatter";"f";"62";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"180";"1845";"1139758";"anne rømer";"f";"48";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"181";"1845";"1129262";"mette fjelsted";"f";"18";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"182";"1845";"1135746";"anne eskesdatter";"f";"22";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"183";"1845";"1133736";"anne kirstine jensdatter";"f";"20";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"184";"1845";"1134283";"laurs pedersen";"m";"27";"Fisker";NA;"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"185";"1845";"1132170";"sidsel jensdatter";"f";"38";"hans Kone";NA;NA;NA;NA;NA
+"186";"1845";"1129291";"anders kristian pedersen";"m";"6";"deres Barn";NA;NA;NA;NA;NA
+"187";"1845";"1130219";"jens andreas pedersen";"m";"4";"deres Barn";NA;NA;NA;NA;NA
+"188";"1845";"1139101";"marianne pedersdatter";"f";"1";"deres Barn";NA;NA;NA;NA;NA
+"189";"1845";"1136945";"anders nielsen";"m";"62";"Fisker";NA;"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"190";"1845";"1137096";"else kristensdatter";"f";"56";"hans Kone";NA;NA;NA;NA;NA
+"191";"1845";"1131102";"niels andersen";"m";"27";"deres Barn";NA;NA;NA;NA;NA
+"192";"1845";"1137340";"ove andersen";"m";"25";"deres Barn";NA;NA;NA;NA;NA
+"193";"1845";"1129428";"jens peder andersen";"m";"14";"deres Barn";NA;NA;NA;NA;NA
+"194";"1845";"1134017";"anne katrine andersdatter";"f";"23";"deres Barn";NA;NA;NA;NA;NA
+"195";"1845";"1129873";"niels fjelsted";"m";"54";"Arbeidsmand og Jordbruger";NA;"61110";"General Farmer";"99900";"Worker, No Further Information"
+"196";"1845";"1134202";"marianne margrete";"f";"46";"hans Kone";NA;NA;NA;NA;NA
+"197";"1845";"1135858";"johanne marie nielsdatter";"f";"18";"deres Barn";NA;NA;NA;NA;NA
+"198";"1845";"1132905";"nikoline nielsdatter";"f";"13";"deres Barn";NA;NA;NA;NA;NA
+"199";"1845";"1137231";"tomine nielsdatter";"f";"11";"deres Barn";NA;NA;NA;NA;NA
+"200";"1845";"1137320";"anne cecilie nielsdatter";"f";"8";"deres Barn";NA;NA;NA;NA;NA
+"201";"1845";"1133965";"søren kristian nielsen";"m";"6";"deres Barn";NA;NA;NA;NA;NA
+"202";"1845";"1137380";"anne katrine pedersdatter";"f";"34";"Indsidderske";NA;NA;NA;NA;NA
+"203";"1845";"1136247";"cecilie sørensdatter";"f";"3";"hendes Barn";NA;NA;NA;NA;NA
+"204";"1845";"1132459";"anine sørensdatter";"f";"3";"hendes Barn";NA;NA;NA;NA;NA
+"205";"1845";"1138432";"niels holger";"m";"47";"Arbeidsmand";NA;"99900";"Worker, No Further Information";NA;NA
+"206";"1845";"1132330";"mette katrine";"f";"51";"hans Kone";NA;NA;NA;NA;NA
+"207";"1845";"1136129";"anne kirstine nielsdatter";"f";"25";"deres Barn";NA;NA;NA;NA;NA
+"208";"1845";"1130198";"mette johanne nielsdatter";"f";"3";"deres Barn";NA;NA;NA;NA;NA
+"209";"1845";"1136940";"laurs svenningsen";"m";"27";"Muurmester";NA;"95120";"Bricklayer (Construction)";NA;NA
+"210";"1845";"1134560";"karen marie";"f";"22";"hans Kone";NA;NA;NA;NA;NA
+"211";"1845";"1130214";"svenning kristian";"m";"2";"deres Søn";NA;NA;NA;NA;NA
+"212";"1845";"1138237";"kristen jensen";"m";"31";"Arbeidsmand og Jordbruger";NA;"61110";"General Farmer";"99900";"Worker, No Further Information"
+"213";"1845";"1133567";"else jensdatter";"f";"31";"hans Kone";NA;NA;NA;NA;NA
+"214";"1845";"1133658";"anne kirstine jensdatter";"f";"7";"deres Barn";NA;NA;NA;NA;NA
+"215";"1845";"1137658";"hans kristian jensen";"m";"4";"deres Barn";NA;NA;NA;NA;NA
+"216";"1845";"1130343";"jens peder jensen";"m";"2";"deres Barn";NA;NA;NA;NA;NA
+"217";"1845";"1139866";"matias ostenfelt mulvad";"m";"40";"Eier af Rolstrup";NA;"61110";"General Farmer";NA;NA
+"218";"1845";"1134802";"olav tøttrup";"f";"23";"hans Kone";NA;NA;NA;NA;NA
+"219";"1845";"1132623";"frederikke stenberg";"f";"18";"Huusjomfrue";NA;"54020";"House Servant";NA;NA
+"220";"1845";"1140291";"kirstine pedersdatter";"f";"27";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"221";"1845";"1130761";"hans jensen";"m";"22";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"222";"1845";"1133467";"klemen laursen";"m";"20";"Tjenestefolk";NA;"62120";"Farm Servant";NA;NA
+"223";"1845";"1139468";"hans kristian laursen";"m";"35";"residerende Capellan";NA;"14120";"Minister of Religion";NA;NA
+"224";"1845";"1135042";"nielsine eli poulsen";"f";"19";"hans Kone";NA;NA;NA;NA;NA
+"225";"1845";"1130820";"nikoline poulsdatter";"f";"29";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"226";"1845";"1139979";"maren mikkelsen";"f";"36";"Forpagter";NA;"61110";"General Farmer";NA;NA
+"227";"1845";"1134625";"marie pedersdatter";"f";"47";"Huusholderske";NA;"22430";"Housekeeper (Private Service)";NA;NA
+"228";"1845";"1130830";"peder kær";"m";"26";"Møllersvend";NA;"77120";"Grain Miller";NA;NA
+"229";"1845";"1139318";"jens iversen lund";"m";"25";"Møllersvend";NA;"77120";"Grain Miller";NA;NA
+"230";"1845";"1134976";"hans blåbjerg";"m";"21";"Kudsk";NA;"98620";"AnimalDrawn Vehicle Driver (Road)";NA;NA
+"231";"1845";"1134215";"peder toft";"m";"64";"Fisker";NA;"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"232";"1845";"1133439";"edel pedersdatter";"f";"62";"hans Kone";NA;NA;NA;NA;NA
+"233";"1845";"1137594";"peder pedersen";"m";"32";"deres Barn";NA;NA;NA;NA;NA
+"234";"1845";"1139873";"ole pedersen";"m";"25";"deres Barn";NA;NA;NA;NA;NA
+"235";"1845";"1132171";"sidsel marie pedersen";"f";"27";"deres Barn";NA;NA;NA;NA;NA
+"236";"1845";"1131348";"jens peder nielsen";"m";"8";"deres Dattersøn";NA;NA;NA;NA;NA
+"237";"1845";"1134957";"kristen nielsen";"m";"66";"Fæstebonde";NA;"61110";"General Farmer";NA;NA
+"238";"1845";"1132642";"maren laursdatter";"f";"62";"hans Kone";NA;NA;NA;NA;NA
+"239";"1845";"1135609";"morten kristensen";"m";"29";"hans Barn";NA;NA;NA;NA;NA
+"240";"1845";"1136780";"johanne kristensdatter";"f";"26";"hans Barn";NA;NA;NA;NA;NA
+"241";"1845";"1138388";"niels kristensen";"m";"22";"hans Barn";NA;NA;NA;NA;NA
+"242";"1845";"1133268";"kristen kristensen";"m";"21";"hans Barn";NA;NA;NA;NA;NA
+"243";"1845";"1132923";"johan adolf andersen kær";"m";"53";"Tømmermand";NA;"95410";"Carpenter, General";NA;NA
+"244";"1845";"1133271";"kristiane iversdatter";"f";"55";"hans Kone";NA;NA;NA;NA;NA
+"245";"1845";"1140116";"iver johansen kær";"m";"28";"deres Søn";NA;NA;NA;NA;NA
+"246";"1845";"1137713";"karen matilde kær";"f";"2";"deres Sønnedatter";NA;NA;NA;NA;NA
+"247";"1850";"1108179";"kristen nielsen";"m";"28";"Fisker, husfader";NA;"41030";"Working Proprietor (Retail Trade)";NA;NA
+"248";"1850";"1121324";"anne katrine andersdatter";"f";"28";"Hans kone";NA;NA;NA;NA;NA
+"249";"1850";"1112683";"matias ostenfelt mulvad";"m";"45";"Ejer af gården, husfader";NA;"61110";"General Farmer";NA;NA
+"250";"1850";"1112684";"olavia charlotte vilhelmine tøttrup";"f";"28";"Hans kone";NA;NA;NA;NA;NA
+"251";"1850";"1112685";"kirstine marie mulvad";"f";"7";"Plejedatter";NA;NA;NA;NA;NA
+"252";"1850";"1112686";"frederikke louise laursdatter";"f";"29";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"253";"1850";"1108715";"else marie laursdatter";"f";"20";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"254";"1850";"1108716";"niels knudsen";"m";"35";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"255";"1850";"1108717";"villads pedersen";"m";"26";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"256";"1850";"1108718";"niels mikkelsen";"m";"50";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"257";"1850";"1108999";"gotlib peders";"m";"37";"Ejer af gården, husfader";NA;"61110";"General Farmer";NA;NA
+"258";"1850";"1109000";"peter johan smit";"m";"25";"Forvalter på gården";NA;"22520";"Farm Supervisor";NA;NA
+"259";"1850";"1109001";"frederikke vilhelmine møller";"f";"32";"Husjomfru";NA;"54020";"House Servant";NA;NA
+"260";"1850";"1109002";"laurette jensine kirstine petersen";"f";"25";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"261";"1850";"1109003";"marie madsen";"f";"23";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"262";"1850";"1109004";"anne andersdatter";"f";"50";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"263";"1850";"1109005";"anders kristensen";"m";"36";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"264";"1850";"1109006";"jens kristian andersen";"m";"30";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"265";"1850";"1109007";"jens kristian sørensen";"m";"25";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"266";"1850";"1109008";"anders jensen";"m";"21";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"267";"1850";"1109009";"poul kristensen";"m";"26";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"268";"1850";"1109010";"niels andersen";"m";"55";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"269";"1850";"1109011";"peder jensen";"m";"47";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"270";"1850";"1109012";"mads pedersen kilberg";"m";"59";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"271";"1850";"1109013";"laurs kristian sørensen";"m";"45";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"272";"1850";"1109014";"jens møller svenningsen";"m";"32";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"273";"1850";"1109015";"søren jensen";"m";"46";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"274";"1850";"1109016";"peder villadsen";"m";"59";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"275";"1850";"1109017";"peder kristian kristensen";"m";"18";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"276";"1850";"1109018";"heinrich berent";"m";"45";"Mejeriforpagter, husfader";NA;"61110";"General Farmer";NA;NA
+"277";"1850";"1109019";"karoline elers";"f";"47";"Hans kone";NA;NA;NA;NA;NA
+"278";"1850";"1121286";"julie jokumsen";"f";"71";"Hans moder, der forsørges af ham";NA;NA;NA;NA;NA
+"279";"1850";"1121287";"karoline berent";"f";"18";"Forpagterens børn";NA;"61110";"General Farmer";NA;NA
+"280";"1850";"1121288";"vilhelm berent";"m";"14";"Forpagterens børn";NA;"61110";"General Farmer";NA;NA
+"281";"1850";"1121289";"ludvig berent";"m";"12";"Forpagterens børn";NA;"61110";"General Farmer";NA;NA
+"282";"1850";"1121290";"augusta berent";"f";"10";"Forpagterens børn";NA;"61110";"General Farmer";NA;NA
+"283";"1850";"1121291";"kristian berent";"m";"7";"Forpagterens børn";NA;"61110";"General Farmer";NA;NA
+"284";"1850";"1121292";"karen andersdatter";"f";"28";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"285";"1850";"1121293";"charlotte amalie sørensdatter";"f";"24";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"286";"1850";"1121294";"maren pedersdatter";"f";"22";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"287";"1850";"1121295";"anne katrine madsdatter";"f";"20";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"288";"1850";"1121296";"bodil kirstine jensdatter";"f";"15";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"289";"1850";"1121297";"mikkel tobine";"m";"21";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"290";"1850";"1121366";"niels sørensen";"m";"57";"Arbejdsmand, husfader";NA;"99900";"Worker, No Further Information";NA;NA
+"291";"1850";"1121367";"margrete nielsdatter";"f";"51";"Hans kone";NA;NA;NA;NA;NA
+"292";"1850";"1112655";"anne cecilie nielsdatter";"f";"13";"Deres børn";NA;NA;NA;NA;NA
+"293";"1850";"1112656";"søren kristian nielsen";"m";"11";"Deres børn";NA;NA;NA;NA;NA
+"294";"1850";"1112657";"poul kristensen";"m";"40";"Tømmermand, Husfader";NA;"95410";"Carpenter, General";NA;NA
+"295";"1850";"1112658";"johanne pedersdatter";"f";"28";"Hans kone";NA;NA;NA;NA;NA
+"296";"1850";"1112659";"peder gade poulsen";"m";"4";"Deres børn";NA;NA;NA;NA;NA
+"297";"1850";"1112660";"kirsten poulsdatter";"f";"3";"Deres børn";NA;NA;NA;NA;NA
+"298";"1850";"1112661";"anne poulsdatter";"f";"1";"Deres børn";NA;NA;NA;NA;NA
+"299";"1850";"1112662";"karl martinus laursen";"m";"35";"Arbejdsmand, husfader";NA;"99900";"Worker, No Further Information";NA;NA
+"300";"1850";"1112663";"stine pedersdatter";"f";"34";"Hans kone";NA;NA;NA;NA;NA
+"301";"1850";"1112664";"kirsten marie karlsen";"f";"9";"Deres børn";NA;NA;NA;NA;NA
+"302";"1850";"1112665";"charlotte marie karlsen";"f";"5";"Deres børn";NA;NA;NA;NA;NA
+"303";"1850";"1112666";"kristen jensen";"m";"38";"Arbejdsmand, husfader";NA;"99900";"Worker, No Further Information";NA;NA
+"304";"1850";"1112667";"else jensdatter";"f";"38";"Hans kone";NA;NA;NA;NA;NA
+"305";"1850";"1112668";"anne kirstine kristensdatter";"f";"11";"Deres børn";NA;NA;NA;NA;NA
+"306";"1850";"1112669";"jens kristian kristensen";"m";"9";"Deres børn";NA;NA;NA;NA;NA
+"307";"1850";"1112670";"jens peter kristensen";"m";"6";"Deres børn";NA;NA;NA;NA;NA
+"308";"1850";"1112671";"anne elisabet kristensdatter";"f";"4";"Deres børn";NA;NA;NA;NA;NA
+"309";"1850";"1112672";"johanne kristensdatter";"f";"2";"Deres børn";NA;NA;NA;NA;NA
+"310";"1850";"1112673";"sidsel olesdatter";"f";"34";"Indsidderske";NA;NA;NA;NA;NA
+"311";"1850";"1112674";"kristen laursen";"m";"8";"Hendes børn";NA;NA;NA;NA;NA
+"312";"1850";"1112675";"nielsine kirstine nielsen";"f";"1";"Hendes børn";NA;NA;NA;NA;NA
+"313";"1850";"1112676";"johan kær";"m";"64";"Tømmermand, Husfader";NA;"95410";"Carpenter, General";NA;NA
+"314";"1850";"1112677";"kristiane iversdatter";"f";"67";"Hans kone";NA;NA;NA;NA;NA
+"315";"1850";"1112678";"iver kær";"m";"36";"Tømmermand";NA;"95410";"Carpenter, General";NA;NA
+"316";"1850";"1112679";"maren kirstine jeppesdatter";"f";"37";"Hans kone";NA;NA;NA;NA;NA
+"317";"1850";"1112680";"karen matilde kær";"f";"7";"Deres børn";NA;NA;NA;NA;NA
+"318";"1850";"1112681";"johan adolf kær";"m";"5";"Deres børn";NA;NA;NA;NA;NA
+"319";"1850";"1112682";"kristiane kær";"f";"2";"Deres børn";NA;NA;NA;NA;NA
+"320";"1850";"1121323";"peder toft";"m";"69";"Fisker, husfader";NA;"41030";"Working Proprietor (Retail Trade)";NA;NA
+"321";"1850";"1112687";"sidsel pedersdatter";"f";"67";"Hans kone";NA;NA;NA;NA;NA
+"322";"1850";"1112688";"sidsel marie pedersdatter";"f";"32";"Deres datter, væverske";NA;"75400";"Weaver, Specialisation Unknown";NA;NA
+"323";"1850";"1112689";"ole pedersen";"m";"30";"Fisker, husfader";NA;"41030";"Working Proprietor (Retail Trade)";NA;NA
+"324";"1850";"1112690";"mette kirstine andersdatter";"f";"32";"Hans kone";NA;NA;NA;NA;NA
+"325";"1850";"1112691";"sidsel marie olesdatter";"f";"1";"Deres datter";NA;NA;NA;NA;NA
+"326";"1850";"1112692";"jens peter nielsen";"m";"14";"Plejebarn";NA;NA;NA;NA;NA
+"327";"1850";"1112693";"jens kristian andersen";"m";"27";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"328";"1850";"1112694";"anders nielsen";"m";"68";"Fisker, husfader";NA;"41030";"Working Proprietor (Retail Trade)";NA;NA
+"329";"1850";"1112695";"else kristensdatter";"f";"61";"Hans kone";NA;NA;NA;NA;NA
+"330";"1850";"1112696";"johan andersen";"m";"23";"Deres søn, fisker";NA;"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"331";"1850";"1112697";"jens peter andersen";"m";"18";"Deres søn, fisker";NA;"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"332";"1850";"1112698";"niels andersen";"m";"32";"Fisker, husfader";NA;"41030";"Working Proprietor (Retail Trade)";NA;NA
+"333";"1850";"1112699";"johanne kristensdatter";"f";"25";"Hans kone";NA;NA;NA;NA;NA
+"334";"1850";"1121298";"frits sanne";"m";"42";"Regimentschirurg og ejer af møllen";NA;"77120";"Grain Miller";NA;NA
+"335";"1850";"1121299";"albertine charlotte henriette emilie hummel";"f";"36";"Hans kone";NA;NA;NA;NA;NA
+"336";"1850";"1121300";"marie pouline sanne";"f";"13";"Deres børn";NA;NA;NA;NA;NA
+"337";"1850";"1121301";"charlotte amalie sanne";"f";"4";"Deres børn";NA;NA;NA;NA;NA
+"338";"1850";"1121302";"johan kristoffer henrik hummel sanne";"m";"1";"Deres børn";NA;NA;NA;NA;NA
+"339";"1850";"1121303";"margrete kirstine loman";"f";"58";"Husjomfru";NA;"54020";"House Servant";NA;NA
+"340";"1850";"1121304";"else marie tøgersdatter";"f";"23";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"341";"1850";"1121305";"katrine poulsen";"f";"20";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"342";"1850";"1121306";"anders johansen brønnum";"m";"57";"Møllersvend";NA;"77120";"Grain Miller";NA;NA
+"343";"1850";"1121307";"jens jensen";"m";"35";"Møllekarl";NA;"77120";"Grain Miller";NA;NA
+"344";"1850";"1121308";"poul nielsen";"m";"60";"Tjenestekarl";NA;"62120";"Farm Servant";NA;NA
+"345";"1850";"1121309";"edvard teodor brask";"m";"29";"Candidatus theologiæ og Institutbestyrer";NA;"22520";"Farm Supervisor";NA;NA
+"346";"1850";"1121310";"gustav skak";"m";"41";"Toldkontrollør, husfader";NA;"31040";"Customs officer";NA;NA
+"347";"1850";"1121311";"florentine frederikke fabricius";"f";"33";"Hans kone";NA;NA;NA;NA;NA
+"348";"1850";"1121312";"frederik bernhard gros skak";"m";"1";"Deres søn";NA;NA;NA;NA;NA
+"349";"1850";"1121313";"jensine karoline pedersdatter";"f";"19";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"350";"1850";"1121314";"kirstine elvine bos";"f";"20";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"351";"1850";"1121315";"hans kristian laursen";"m";"40";"Residerende capellan til Nykøbing, Lødderup og Elsø, husfader";NA;"14120";"Minister of Religion";NA;NA
+"352";"1850";"1121316";"nielsine andrea elisabet poulsen";"f";"23";"Hans kone";NA;NA;NA;NA;NA
+"353";"1850";"1121317";"pouline marie laursen";"f";"5";"Deres børn";NA;NA;NA;NA;NA
+"354";"1850";"1121318";"niels keldgård poulsen laursen";"m";"3";"Deres børn";NA;NA;NA;NA;NA
+"355";"1850";"1121319";"jens kraft vogelius stenstrup";"m";"12";"Elev";NA;NA;NA;NA;NA
+"356";"1850";"1121320";"mette marie vestergård";"f";"54";"Syerske";NA;"79510";"Hand and Machine Sewer, General";NA;NA
+"357";"1850";"1121321";"nielsine marie louise lærke";"f";"19";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"358";"1850";"1121322";"anne kirstine herlufsen";"f";"15";"Tjenestepige";NA;"62120";"Farm Servant";NA;NA
+"359";"1850";"1121325";"niels kristensen dal";"m";"33";"Murer, husfader";NA;"95120";"Bricklayer (Construction)";NA;NA
+"360";"1850";"1121326";"maren mikkelsdatter";"f";"39";"Hans kone";NA;NA;NA;NA;NA
+"361";"1850";"1121327";"niels kristian nielsen";"m";"2";"Deres søn";NA;NA;NA;NA;NA
+"362";"1850";"1121328";"ove andersen";"m";"30";"Fisker, husfader";NA;"41030";"Working Proprietor (Retail Trade)";NA;NA
+"363";"1850";"1121329";"larsine marie frederiksdatter";"f";"33";"Hans kone";NA;NA;NA;NA;NA
+"364";"1850";"1121330";"anders ovesen";"m";"2";"Deres børn";NA;NA;NA;NA;NA
+"365";"1850";"1121331";"else marie ovesdatter";"f";"3";"Deres børn";NA;NA;NA;NA;NA
+"366";"1850";"1121332";"laurs svenningsen";"m";"32";"Murer, husfader";NA;"95120";"Bricklayer (Construction)";NA;NA
+"367";"1850";"1121333";"karen marie nielsdatter";"f";"27";"Hans kone";NA;NA;NA;NA;NA
+"368";"1850";"1121334";"svenning kristian laursen";"m";"7";"Deres børn";NA;NA;NA;NA;NA
+"369";"1850";"1121335";"kirsten laursen";"f";"4";"Deres børn";NA;NA;NA;NA;NA
+"370";"1850";"1121336";"anders jensen";"m";"37";"Arbejdsmand, husfader";NA;"99900";"Worker, No Further Information";NA;NA
+"371";"1850";"1121337";"mette kirstine kristensdatter";"f";"36";"Hans kone";NA;NA;NA;NA;NA
+"372";"1850";"1121338";"søren kristian andersen";"m";"10";"Deres børn";NA;NA;NA;NA;NA
+"373";"1850";"1121339";"salomon kristian andersen";"m";"7";"Deres børn";NA;NA;NA;NA;NA
+"374";"1850";"1121340";"marie jensine andersen";"f";"6";"Deres børn";NA;NA;NA;NA;NA
+"375";"1850";"1121341";"mikkel kristian andersen";"m";"2";"Deres børn";NA;NA;NA;NA;NA
+"376";"1850";"1121342";"ole kristian poulsen";"m";"34";"Arbejdsmand, husfader";NA;"99900";"Worker, No Further Information";NA;NA
+"377";"1850";"1121343";"edel marie pedersdatter";"f";"34";"Hans kone";NA;NA;NA;NA;NA
+"378";"1850";"1121344";"hans kristian olesen";"m";"8";"Deres børn";NA;NA;NA;NA;NA
+"379";"1850";"1121345";"maren olesen";"f";"5";"Deres børn";NA;NA;NA;NA;NA
+"380";"1850";"1121346";"pouline olesen";"f";"1";"Deres børn";NA;NA;NA;NA;NA
+"381";"1850";"1121347";"niels nyholm petersen";"m";"36";"Arbejdsmand, husfader";NA;"99900";"Worker, No Further Information";NA;NA
+"382";"1850";"1121348";"anne kirstine nielsdatter";"f";"30";"Hans kone";NA;NA;NA;NA;NA
+"383";"1850";"1121349";"mette johanne nielsdatter";"f";"7";"Deres børn";NA;NA;NA;NA;NA
+"384";"1850";"1121350";"karen kirstine nielsdatter";"f";"5";"Deres børn";NA;NA;NA;NA;NA
+"385";"1850";"1121351";"peder kristian nielsen";"m";"3";"Deres børn";NA;NA;NA;NA;NA
+"386";"1850";"1121352";"mette katrine nielsdatter";"f";"54";"Husfaderens svigermoder, der af ham forsørges";NA;NA;NA;NA;NA
+"387";"1850";"1121353";"laurs pedersen";"m";"32";"Fisker, husfader";NA;"41030";"Working Proprietor (Retail Trade)";NA;NA
+"388";"1850";"1121354";"sidsel jensdatter";"f";"43";"Hans kone";NA;NA;NA;NA;NA
+"389";"1850";"1121355";"anders kristian jensen";"m";"11";"Deres børn";NA;NA;NA;NA;NA
+"390";"1850";"1121356";"jens andreas jensen";"m";"9";"Deres børn";NA;NA;NA;NA;NA
+"391";"1850";"1121357";"marianne laursdatter";"f";"6";"Deres børn";NA;NA;NA;NA;NA
+"392";"1850";"1121358";"maren laursdatter";"f";"4";"Deres børn";NA;NA;NA;NA;NA
+"393";"1850";"1121359";"else marie laursdatter";"f";"2";"Deres børn";NA;NA;NA;NA;NA
+"394";"1850";"1121360";"kristen kristensen";"m";"38";"Arbejdsmand, husfader";NA;"99900";"Worker, No Further Information";NA;NA
+"395";"1850";"1121361";"anne dorte jensdatter";"f";"35";"Hans kone";NA;NA;NA;NA;NA
+"396";"1850";"1121362";"karen marie kristensdatter";"f";"9";"Deres børn";NA;NA;NA;NA;NA
+"397";"1850";"1121363";"jens kristian kristensen";"m";"7";"Deres børn";NA;NA;NA;NA;NA
+"398";"1850";"1121364";"jens mark kristensen";"m";"4";"Deres børn";NA;NA;NA;NA;NA
+"399";"1850";"1121365";"anne marie kristensen";"f";"1";"Deres børn";NA;NA;NA;NA;NA
+"400";"1860";"1353556";"gotlib peders";"m";"47";NA;"Proprietair, huusfader";"61110";"General Farmer";NA;NA
+"401";"1860";"1353557";"kirstine danielsdatter";"f";"72";NA;"Fruetimmer, huusfaderens halvsøster";NA;NA;NA;NA
+"402";"1860";"1353558";"marie kjeldsen";"f";"39";NA;"Huusjomfru";"54020";"House Servant";NA;NA
+"403";"1860";"1353559";"else kirstine fjelsted";"f";"35";NA;"Tjenestepiger";"62120";"Farm Servant";NA;NA
+"404";"1860";"1353569";"anne kirstine sørensen";"f";"26";NA;"Tjenestepiger";"62120";"Farm Servant";NA;NA
+"405";"1860";"1353570";"laurs herbert";"m";"29";NA;"Avlsforvalter";"22520";"Farm Supervisor";NA;NA
+"406";"1860";"1353571";"kristian kristensen";"m";"30";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"407";"1860";"1353572";"frans sørensen";"m";"20";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"408";"1860";"1353573";"niels mikkelsen";"m";"65";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"409";"1860";"1353574";"anders espersen";"m";"50";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"410";"1860";"1353575";"kristen andersen";"m";"23";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"411";"1860";"1353576";"jens peder nielsen";"m";"23";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"412";"1860";"1353577";"poul kristensen";"m";"56";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"413";"1860";"1353578";"laurs kristian jensen";"m";"22";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"414";"1860";"1353579";"søren justesen";"m";"27";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"415";"1860";"1353580";"johan pedersen";"m";"42";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"416";"1860";"1353581";"klaus jørgen harms";"m";"46";NA;"Meieriforpagter, huusfader";"61110";"General Farmer";NA;NA
+"417";"1860";"1353582";"sofie dorte født loft";"f";"52";NA;"hans kone";NA;NA;NA;NA
+"418";"1860";"1353583";"katrine johanne loft";"f";"21";NA;"hans pleiedatter";NA;NA;NA;NA
+"419";"1860";"1353584";"frederik ferdinand loft";"m";"15";NA;"hans pleiesøn";NA;NA;NA;NA
+"420";"1860";"1353585";"elise sofie marie loft";"f";"11";NA;"hans pleiedatter";NA;NA;NA;NA
+"421";"1860";"1353586";"søren kristian jensen";"m";"20";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"422";"1860";"1353587";"maren pedersen";"f";"30";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"423";"1860";"1353588";"juliane marie sørensen";"f";"19";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"424";"1860";"1353589";"else katrine sørensen";"f";"20";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"425";"1860";"1353590";"anne marie andersen";"f";"20";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"426";"1860";"1353779";"ole pedersen toft";"m";"40";NA;"Fisker";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"427";"1860";"1353780";"mette kirstine andersdatter";"f";"41";NA;"hans hustru";NA;NA;NA;NA
+"428";"1860";"1353781";"sidsel marie olesen";"f";"11";NA;NA;NA;NA;NA;NA
+"429";"1860";"1353782";"mette katrine olesen";"f";"9";NA;NA;NA;NA;NA;NA
+"430";"1860";"1353783";"peder olesen";"m";"7";NA;NA;NA;NA;NA;NA
+"431";"1860";"1353560";"magdalene marie olesen";"f";"4";NA;NA;NA;NA;NA;NA
+"432";"1860";"1353561";"peder pedersen toft";"m";"80";NA;"Fisker, aftægtsmand";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"433";"1860";"1353562";"sidsel pedersdatter";"f";"78";NA;"hans hustru";NA;NA;NA;NA
+"434";"1860";"1353563";"vilhelmine petrine nielsen";"f";"3";NA;"deres pleiedatter";NA;NA;NA;NA
+"435";"1860";"1353564";"laurs peter pedersen dam";"m";"30";NA;"Huusmand";"62105";"FarmWorker, General";NA;NA
+"436";"1860";"1353565";"maren jensdatter";"f";"30";NA;"hans hustru";NA;NA;NA;NA
+"437";"1860";"1353566";"else kirstine pedersen";"f";"4";NA;"deres børn";NA;NA;NA;NA
+"438";"1860";"1353567";"peder dam pedersen";"m";"1";NA;"deres børn";NA;NA;NA;NA
+"439";"1860";"1353568";"jens kristensen";"m";"30";NA;"Gaardmand, huusfader";"61110";"General Farmer";NA;NA
+"440";"1860";"1353591";"hans barner lillelund olesen";"m";"33";NA;"Proprietair, huusfader";"61110";"General Farmer";NA;NA
+"441";"1860";"1353592";"charlotte marie født votman";"f";"20";NA;"hans kone";NA;NA;NA;NA
+"442";"1860";"1353593";"kirstine marie olesen";"f";"2";NA;"hans datter";NA;NA;NA;NA
+"443";"1860";"1353594";"anders graversen";"m";"24";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"444";"1860";"1353595";"jens jensen dalgård";"m";"31";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"445";"1860";"1353596";"peder jeppesen";"m";"19";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"446";"1860";"1353597";"poul kristian pedersen";"m";"16";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"447";"1860";"1353598";"ingeborg laursdatter";"f";"24";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"448";"1860";"1353599";"marie sørensdatter";"f";"29";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"449";"1860";"1353600";"kristiane andersdatter";"f";"23";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"450";"1860";"1353601";"maren katrine jensen";"f";"24";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"451";"1860";"1353602";"emil julius klaudius hennings";"m";"46";NA;"Læge, huusfader";"06100";"Medical Doctor, Specialisation Unknown";NA;NA
+"452";"1860";"1353603";"louise augusta født kristensen";"f";"47";NA;"hans kone";NA;NA;NA;NA
+"453";"1860";"1353604";"sofie kirstine kristensen";"f";"49";NA;"hans svigerinde";NA;NA;NA;NA
+"454";"1860";"1353605";"meta louise olivia sivertsen";"f";"28";NA;"Selskabsdame";"54040";"Companion";NA;NA
+"455";"1860";"1353606";"kirstine marie mikkelsen";"f";"24";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"456";"1860";"1353607";"jens matias birk paludan";"m";"62";NA;"Procurator, huusfader";"39310";"Office Clerk, General";NA;NA
+"457";"1860";"1353608";"anine maren elin diderikke paludan";"f";"22";NA;"hans datter";NA;NA;NA;NA
+"458";"1860";"1353609";"karen kirstine jensen";"f";"19";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"459";"1860";"1353610";"peder kristian bendix";"m";"30";NA;"Gaardeier, huusfader";"61110";"General Farmer";NA;NA
+"460";"1860";"1353611";"marie frederikke sonne";"f";"22";NA;"hans hustru";NA;NA;NA;NA
+"461";"1860";"1353612";"petra kirstine bendix";"f";"1";NA;"deres datter";NA;NA;NA;NA
+"462";"1860";"1353613";"mikkel andersen";"m";"31";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"463";"1860";"1353614";"peder nielsen";"m";"61";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"464";"1860";"1353615";"maren jensen";"f";"18";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"465";"1860";"1353616";"kristiane kristensen";"f";"18";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"466";"1860";"1353617";"jørgen madsen";"m";"40";NA;"Møller, huusfader";"77120";"Grain Miller";NA;NA
+"467";"1860";"1353618";"marie nielsen";"f";"28";NA;"hans hustru";NA;NA;NA;NA
+"468";"1860";"1353619";"niels nielsen";"m";"15";NA;"deres pleiesøn";NA;NA;NA;NA
+"469";"1860";"1353620";"peter herbst";"m";"25";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"470";"1860";"1353621";"tomas mads pedersen";"m";"27";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"471";"1860";"1353622";"jens krog";"m";"56";NA;"Fisker, huusfader";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"472";"1860";"1353623";"sidsel jensdatter";"f";"53";NA;"hans hustru";NA;NA;NA;NA
+"473";"1860";"1353624";"kristian krog";"m";"22";NA;"deres søn, sadelmagersvend i Venedig";"80320";"Saddler and Harness Maker";NA;NA
+"474";"1860";"1353625";"poul andersen";"m";"33";NA;"Arbeidsmand, huusfader";"99900";"Worker, No Further Information";NA;NA
+"475";"1860";"1353626";"charlotte amalie sørensen";"f";"35";NA;"hans hustru";NA;NA;NA;NA
+"476";"1860";"1353627";"poul kristian andersen";"m";"2";NA;"deres søn";NA;NA;NA;NA
+"477";"1860";"1353628";"jens kristian nielsen";"m";"56";NA;"Skomager, huusfader";"80110";"Shoemaker, General";NA;NA
+"478";"1860";"1353629";"johan ditlev nielsen";"m";"21";NA;"hans søn, skomagersvend";"80110";"Shoemaker, General";NA;NA
+"479";"1860";"1353630";"kristian frederiksen";"m";"44";NA;"Smed";"83110";"Blacksmith, General";NA;NA
+"480";"1860";"1353631";"anne dorte katrine frederiksdatter";"f";"44";NA;"hans hustru";NA;NA;NA;NA
+"481";"1860";"1353632";"peder laursen";"m";"29";NA;"Arbeidsmand, huusfader";"99900";"Worker, No Further Information";NA;NA
+"482";"1860";"1353633";"anne jensine madsen";"f";"35";NA;"hans hustru";NA;NA;NA;NA
+"483";"1860";"1353634";"kristen laursen";"m";"33";NA;"Arbeidsmand, huusfader";"99900";"Worker, No Further Information";NA;NA
+"484";"1860";"1353635";"maren kirstine madsen";"f";"36";NA;"hans hustru";NA;NA;NA;NA
+"485";"1860";"1353636";"mads laursen";"m";"10";NA;"deres børn";NA;NA;NA;NA
+"486";"1860";"1353637";"anne johanne laursen";"f";"4";NA;"deres børn";NA;NA;NA;NA
+"487";"1860";"1353638";"laurs kristian laursen";"m";"1";NA;"deres børn";NA;NA;NA;NA
+"488";"1860";"1353639";"andreas peter ostenfelt holm";"m";"42";NA;"Skomager, huusfader";"80110";"Shoemaker, General";NA;NA
+"489";"1860";"1353640";"kristian holm";"m";"12";NA;"hans søn";NA;NA;NA;NA
+"490";"1860";"1353641";"dorte marie pedersen";"f";"33";NA;"Huusholderske";"22430";"Housekeeper (Private Service)";NA;NA
+"491";"1860";"1353642";"anders nielsen";"m";"7";NA;"hendes søn";NA;NA;NA;NA
+"492";"1860";"1353643";"laurs kristian andersen";"m";"33";NA;"Arbeidsmand, huusfader";"99900";"Worker, No Further Information";NA;NA
+"493";"1860";"1353644";"karen johansen";"f";"41";NA;"hans hustru";NA;NA;NA;NA
+"494";"1860";"1353645";"søren andersen kærgård";"m";"4";NA;"deres pleiebarn";NA;NA;NA;NA
+"495";"1860";"1353646";"karen marie nielsdatter";"f";"37";NA;"Huusmandskone lever af sin jordlod";"62105";"FarmWorker, General";NA;NA
+"496";"1860";"1353647";"svenning kristian laursen";"m";"16";NA;"hendes børn";NA;NA;NA;NA
+"497";"1860";"1353648";"kirstine laursen";"f";"14";NA;"hendes børn";NA;NA;NA;NA
+"498";"1860";"1353649";"larsine jensen";"f";"6";NA;"hendes børn";NA;NA;NA;NA
+"499";"1860";"1353650";"mette kirstine johansdatter";"f";"2";NA;"hendes børn";NA;NA;NA;NA
+"500";"1860";"1353651";"mette kirstine kristensen";"f";"47";NA;"Huusmandsenke lever af sin jordlod";"61115";"Small Subsistence Farmer (Husbandman)";NA;NA
+"501";"1860";"1353652";"salomon kristian nielsen";"m";"17";NA;"hendes børn";NA;NA;NA;NA
+"502";"1860";"1353653";"mikkel kristian andersen";"m";"12";NA;"hendes børn";NA;NA;NA;NA
+"503";"1860";"1353654";"niels severin andersen";"m";"7";NA;"hendes børn";NA;NA;NA;NA
+"504";"1860";"1353655";"johanne anine marie andersen";"f";"4";NA;"hendes børn";NA;NA;NA;NA
+"505";"1860";"1353656";"anders pedersen";"m";"47";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"506";"1860";"1353657";"johanne katrine nielsen";"f";"44";NA;"hans hustru";NA;NA;NA;NA
+"507";"1860";"1353658";"peder andersen";"m";"26";NA;"deres søn";NA;NA;NA;NA
+"508";"1860";"1353659";"anne pedersdatter";"f";"78";NA;"Huusfaderens moder der af ham forsørges";NA;NA;NA;NA
+"509";"1860";"1353660";"niels nyholm";"m";"46";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"510";"1860";"1353661";"anne kirstine nielsdatter";"f";"40";NA;"hans hustru";NA;NA;NA;NA
+"511";"1860";"1353662";"peder kristian nielsen";"m";"13";NA;"deres børn";NA;NA;NA;NA
+"512";"1860";"1353663";"mette nielsen";"f";"10";NA;"deres børn";NA;NA;NA;NA
+"513";"1860";"1353664";"charlotte henriette emilie nielsen";"f";"4";NA;"deres børn";NA;NA;NA;NA
+"514";"1860";"1353665";"johanne nielsen";"f";"1";NA;"deres børn";NA;NA;NA;NA
+"515";"1860";"1353666";"mette katrine nielsdatter";"f";"66";NA;"Huusmoderens moder";NA;NA;NA;NA
+"516";"1860";"1353667";"peder pedersen toft";"m";"47";NA;"Huusmand og fisker, huusfader";"62105";"FarmWorker, General";"64100";"Fisherman, DeepSea or Inland and Coastal Water"
+"517";"1860";"1353668";"anne marie laursdatter";"f";"38";NA;"hans hustru";NA;NA;NA;NA
+"518";"1860";"1353669";"sidsel toft";"f";"12";NA;"deres børn";NA;NA;NA;NA
+"519";"1860";"1353670";"petrine toft";"f";"9";NA;"deres børn";NA;NA;NA;NA
+"520";"1860";"1353671";"laurs toft";"m";"7";NA;"deres børn";NA;NA;NA;NA
+"521";"1860";"1353672";"peter toft";"m";"5";NA;"deres børn";NA;NA;NA;NA
+"522";"1860";"1353673";"anders toft";"m";"2";NA;"deres børn";NA;NA;NA;NA
+"523";"1860";"1353674";"johanne kirstine toft";"f";"1";NA;"deres børn";NA;NA;NA;NA
+"524";"1860";"1353675";"niels sørensen fjelsted";"m";"68";NA;"Aftægtsmand, huusfader";NA;NA;NA;NA
+"525";"1860";"1353676";"margrete nielsdatter";"f";"61";NA;"hans hustru";NA;NA;NA;NA
+"526";"1860";"1353677";"laurs pedersen";"m";"29";NA;"Huusmand og fisker, huusfader";"62105";"FarmWorker, General";"64100";"Fisherman, DeepSea or Inland and Coastal Water"
+"527";"1860";"1353678";"inger katrine markusdatter";"f";"33";NA;"hans hustru";NA;NA;NA;NA
+"528";"1860";"1353679";"maren jensdatter";"f";"71";NA;"Huusfaderens moder der af ham forsørges";NA;NA;NA;NA
+"529";"1860";"1353680";"laurs pedersen";"m";"41";NA;"Huusmand og fisker, huusfader";"62105";"FarmWorker, General";"64100";"Fisherman, DeepSea or Inland and Coastal Water"
+"530";"1860";"1353681";"sidsel jensdatter";"f";"53";NA;"hans hustru";NA;NA;NA;NA
+"531";"1860";"1353682";"anders kristian jensen";"m";"21";NA;"deres børn";NA;NA;NA;NA
+"532";"1860";"1353683";"jens andreas jensen";"m";"19";NA;"deres børn";NA;NA;NA;NA
+"533";"1860";"1353684";"marianne laursen";"f";"16";NA;"deres børn";NA;NA;NA;NA
+"534";"1860";"1353685";"maren laursen";"f";"14";NA;"deres børn";NA;NA;NA;NA
+"535";"1860";"1353686";"anne dorte jensdatter";"f";"44";NA;"Huusmandsenke";"62105";"FarmWorker, General";NA;NA
+"536";"1860";"1353687";"jens mark kristensen";"m";"13";NA;"hendes børn";NA;NA;NA;NA
+"537";"1860";"1353688";"niels vestergård kristensen";"m";"7";NA;"hendes børn";NA;NA;NA;NA
+"538";"1860";"1353689";"anne marie kristensen";"f";"4";NA;"hendes børn";NA;NA;NA;NA
+"539";"1860";"1353690";"kristen troensegård";"m";"49";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"540";"1860";"1353691";"else jensdatter";"f";"49";NA;"hans hustru";NA;NA;NA;NA
+"541";"1860";"1353692";"jens kristian kristensen";"m";"19";NA;"deres børn";NA;NA;NA;NA
+"542";"1860";"1353693";"johanne kristensen";"f";"12";NA;"deres børn";NA;NA;NA;NA
+"543";"1860";"1353694";"mads kristian kristensen";"m";"10";NA;"deres børn";NA;NA;NA;NA
+"544";"1860";"1353695";"jens majgård kristensen";"m";"7";NA;"deres børn";NA;NA;NA;NA
+"545";"1860";"1353696";"otto kristensen";"m";"5";NA;"deres børn";NA;NA;NA;NA
+"546";"1860";"1353697";"karl johnson";"m";"45";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"547";"1860";"1353698";"karen kirstine pedersdatter";"f";"45";NA;"hans hustru";NA;NA;NA;NA
+"548";"1860";"1353699";"charlotte marie karlsen";"f";"15";NA;"deres datter";NA;NA;NA;NA
+"549";"1860";"1353700";"johan kær";"m";"74";NA;"Tømrer, almisselem";"95410";"Carpenter, General";NA;NA
+"550";"1860";"1353701";"ole sørensen";"m";"39";NA;"Fisker, huusfader";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"551";"1860";"1353702";"maren laursdatter";"f";"34";NA;"hans hustru";NA;NA;NA;NA
+"552";"1860";"1353703";"søren olesen";"m";"9";NA;"deres børn";NA;NA;NA;NA
+"553";"1860";"1353704";"maren olesen";"f";"7";NA;"deres børn";NA;NA;NA;NA
+"554";"1860";"1353705";"laurette kirstine olesen";"f";"6";NA;"deres børn";NA;NA;NA;NA
+"555";"1860";"1353706";"josef olesen";"m";"5";NA;"deres børn";NA;NA;NA;NA
+"556";"1860";"1353707";"kristen olesen";"m";"3";NA;"deres børn";NA;NA;NA;NA
+"557";"1860";"1353708";"otto olesen";"m";"2";NA;"deres børn";NA;NA;NA;NA
+"558";"1860";"1353709";"jens kristian jensen";"m";"34";NA;"Gaardmand, huusfader";"61110";"General Farmer";NA;NA
+"559";"1860";"1353710";"katrine pedersen";"f";"22";NA;"hans hustru";NA;NA;NA;NA
+"560";"1860";"1353711";"maren johanne jensen";"f";"3";NA;"deres barn";NA;NA;NA;NA
+"561";"1860";"1353712";"kristen jensen";"m";"32";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"562";"1860";"1353713";"mette katrine laursdatter";"f";"36";NA;"hans hustru";NA;NA;NA;NA
+"563";"1860";"1353714";"anne marie kristensen";"f";"4";NA;"deres barn";NA;NA;NA;NA
+"564";"1860";"1353715";"mads kristian kristensen";"m";"33";NA;"Huusmand, gartner, huusfader";"62105";"FarmWorker, General";"62700";"Nursery Workers and Gardeners"
+"565";"1860";"1353716";"karen marie svenningsen";"f";"26";NA;"hans hustru";NA;NA;NA;NA
+"566";"1860";"1353717";"else kirstine kristensen";"f";"1";NA;"deres barn";NA;NA;NA;NA
+"567";"1860";"1353718";"anders jensen";"m";"31";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"568";"1860";"1353719";"marianne sejersdatter";"f";"37";NA;"hans hustru";NA;NA;NA;NA
+"569";"1860";"1353720";"sejer peter andersen";"m";"3";NA;"deres børn";NA;NA;NA;NA
+"570";"1860";"1353721";"mette marie andersen";"f";"1";NA;"deres børn";NA;NA;NA;NA
+"571";"1860";"1353722";"ole eriksen";"m";"43";NA;"Fisker, huusfader";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"572";"1860";"1353723";"anne kristensen";"f";"44";NA;"hans hustru";NA;NA;NA;NA
+"573";"1860";"1353724";"marianne olesen";"f";"14";NA;"deres børn";NA;NA;NA;NA
+"574";"1860";"1353725";"maren olesen";"f";"11";NA;"deres børn";NA;NA;NA;NA
+"575";"1860";"1353726";"jens kristian olesen";"m";"7";NA;"deres børn";NA;NA;NA;NA
+"576";"1860";"1353727";"karen marie olesen";"f";"5";NA;"deres børn";NA;NA;NA;NA
+"577";"1860";"1353728";"ole eriksen vang";"m";"53";NA;"Fisker, huusfader";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"578";"1860";"1353729";"inger pedersen";"f";"53";NA;"hans hustru";NA;NA;NA;NA
+"579";"1860";"1353730";"peter olesen";"m";"24";NA;"deres børn";NA;NA;NA;NA
+"580";"1860";"1353731";"marie katrine olesen";"f";"16";NA;"deres børn";NA;NA;NA;NA
+"581";"1860";"1353732";"peder olesen";"m";"20";NA;"deres børn";NA;NA;NA;NA
+"582";"1860";"1353733";"poul møller";"m";"50";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"583";"1860";"1353734";"johanne pedersdatter";"f";"37";NA;"hans hustru";NA;NA;NA;NA
+"584";"1860";"1353735";"peter gade møller";"m";"14";NA;"deres børn";NA;NA;NA;NA
+"585";"1860";"1353736";"kirsten møller";"f";"13";NA;"deres børn";NA;NA;NA;NA
+"586";"1860";"1353737";"kristen møller";"m";"9";NA;"deres børn";NA;NA;NA;NA
+"587";"1860";"1353738";"anne møller";"f";"11";NA;"deres børn";NA;NA;NA;NA
+"588";"1860";"1353739";"niels andreas møller";"m";"6";NA;"deres børn";NA;NA;NA;NA
+"589";"1860";"1353740";"jens peter møller";"m";"1";NA;"deres børn";NA;NA;NA;NA
+"590";"1860";"1353741";"laurs kristian møller";"m";"4";NA;"deres børn";NA;NA;NA;NA
+"591";"1860";"1353742";"ove andersen";"m";"39";NA;"Fisker, huusfader";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"592";"1860";"1353743";"larsine marie frederiksen";"f";"42";NA;"hans hustru";NA;NA;NA;NA
+"593";"1860";"1353744";"else marie ovesen";"f";"13";NA;"deres børn";NA;NA;NA;NA
+"594";"1860";"1353745";"anders ovesen";"m";"12";NA;"deres børn";NA;NA;NA;NA
+"595";"1860";"1353746";"jens kristian ovesen";"m";"11";NA;"deres børn";NA;NA;NA;NA
+"596";"1860";"1353747";"vilhelm ovesen";"m";"8";NA;"deres børn";NA;NA;NA;NA
+"597";"1860";"1353748";"kirstine ovesen";"f";"5";NA;"deres børn";NA;NA;NA;NA
+"598";"1860";"1353749";"kristiane ovesen";"f";"3";NA;"deres børn";NA;NA;NA;NA
+"599";"1860";"1353750";"niels dal";"m";"43";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"600";"1860";"1353751";"maren mikkelsdatter";"f";"49";NA;"hans hustru";NA;NA;NA;NA
+"601";"1860";"1353752";"karen marie nielsen";"f";"8";NA;"deres datter";NA;NA;NA;NA
+"602";"1860";"1353753";"niels eskesen";"m";"34";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"603";"1860";"1353754";"karen nielsdatter";"f";"28";NA;"hans hustru";NA;NA;NA;NA
+"604";"1860";"1353755";"marianne eskesen";"f";"6";NA;"deres datter";NA;NA;NA;NA
+"605";"1860";"1353756";"mikkel eskesen";"m";"5";NA;"deres børn";NA;NA;NA;NA
+"606";"1860";"1353757";"marta eskesen";"f";"3";NA;"deres børn";NA;NA;NA;NA
+"607";"1860";"1353758";"marta sørensdatter";"f";"59";NA;"Huusmoderens moder der af ham forsørges";NA;NA;NA;NA
+"608";"1860";"1353759";"hans majgård";"m";"43";NA;"Huusmand, huusfader";"62105";"FarmWorker, General";NA;NA
+"609";"1860";"1353760";"anne laursdatter";"f";"45";NA;"hans hustru";NA;NA;NA;NA
+"610";"1860";"1353761";"jens andreas majgård";"m";"15";NA;"deres børn";NA;NA;NA;NA
+"611";"1860";"1353762";"mads kristian majgård";"m";"11";NA;"deres børn";NA;NA;NA;NA
+"612";"1860";"1353763";"martinus majgård";"m";"7";NA;"deres børn";NA;NA;NA;NA
+"613";"1860";"1353764";"kristen nielsen";"m";"37";NA;"Fisker";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"614";"1860";"1353765";"anne katrine andersen";"f";"37";NA;"hans hustru";NA;NA;NA;NA
+"615";"1860";"1353766";"mette johanne nielsen";"f";"8";NA;"deres børn";NA;NA;NA;NA
+"616";"1860";"1353767";"anne elise marie nielsen";"f";"3";NA;"deres børn";NA;NA;NA;NA
+"617";"1860";"1353768";"marie katrine nielsen";"f";"1";NA;"deres børn";NA;NA;NA;NA
+"618";"1860";"1353769";"ole peter markussen";"m";"54";NA;"Fisker";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"619";"1860";"1353770";"mette pedersdatter";"f";"73";NA;"hans hustru";NA;NA;NA;NA
+"620";"1860";"1353771";"anne nielsdatter";"f";"44";NA;"deres pleiedatter";NA;NA;NA;NA
+"621";"1860";"1353772";"niels madsen";"m";"8";NA;"hendes søn";NA;NA;NA;NA
+"622";"1860";"1353773";"niels andersen";"m";"43";NA;"Fisker";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"623";"1860";"1353774";"johanne kristensdatter";"f";"37";NA;"hans hustru";NA;NA;NA;NA
+"624";"1860";"1353775";"maren kirstine nielsen";"f";"8";NA;"deres børn";NA;NA;NA;NA
+"625";"1860";"1353776";"kristen nielsen";"m";"5";NA;"deres børn";NA;NA;NA;NA
+"626";"1860";"1353777";"anders nielsen";"m";"3";NA;"deres børn";NA;NA;NA;NA
+"627";"1860";"1353778";"else kristensdatter";"f";"70";NA;"Huusfaderens moder";NA;NA;NA;NA
+"628";"1880";"1606426";"karl brink";"m";"49";NA;"Tømrer Husfader";"95410";"Carpenter, General";NA;NA
+"629";"1880";"1605367";"anne dorte født kristensen";"f";"46";NA;"hans Hustru";NA;NA;NA;NA
+"630";"1880";"1605368";"anne kirstine brink";"f";"15";NA;"Deres Børn";NA;NA;NA;NA
+"631";"1880";"1570277";"else marie brink";"f";"13";NA;"Deres Børn";NA;NA;NA;NA
+"632";"1880";"1571558";"kristen andersen brink";"m";"11";NA;"Deres Børn";NA;NA;NA;NA
+"633";"1880";"1571583";"laurs peter pedersen dam";"m";"49";NA;"Husfader Boelsmand Sognefoged";"20210";"Government Administrator";"61110";"General Farmer"
+"634";"1880";"1570311";"maren jensen";"f";"49";NA;"Husmoder";NA;NA;NA;NA
+"635";"1880";"1570312";"else kirstine pedersen";"f";"23";NA;"Barn";NA;NA;NA;NA
+"636";"1880";"1570313";"jens kristian pedersen";"m";"17";NA;"Barn";NA;NA;NA;NA
+"637";"1880";"1571559";"jens jensen";"m";"73";NA;"Partikulier Husfader";NA;NA;NA;NA
+"638";"1880";"1571560";"sidsel marie jensen";"f";"64";NA;"hans Hustru";NA;NA;NA;NA
+"639";"1880";"1571561";"morten pedersen";"m";"52";NA;"Murer Husfader";"95120";"Bricklayer (Construction)";NA;NA
+"640";"1880";"1571562";"maren kristensen";"f";"49";NA;"hans Hustru";NA;NA;NA;NA
+"641";"1880";"1571563";"niels vestergård kristensen";"m";"27";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"642";"1880";"1571564";"maren kirstine født jensen";"f";"24";NA;"hans Hustru";NA;NA;NA;NA
+"643";"1880";"1571565";"kirstine marie kristensen";"f";"1";NA;"Deres Børn";NA;NA;NA;NA
+"644";"1880";"1571566";"henrik kristian kristensen";"m";NA;NA;"Deres Børn";NA;NA;NA;NA
+"645";"1880";"1571567";"søren jensen bak";"m";"45";NA;"Former Husfader";"72550";"Coremaker (Hand)";NA;NA
+"646";"1880";"1571568";"anne marie født nyby";"f";"28";NA;"hans Hustru";NA;NA;NA;NA
+"647";"1880";"1571569";"karl marinus jensen bak";"m";"5";NA;"Deres Børn";NA;NA;NA;NA
+"648";"1880";"1571570";"else marie nikoline bak";"f";"3";NA;"Deres Børn";NA;NA;NA;NA
+"649";"1880";"1571571";"peder kristian øland";"m";"36";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"650";"1880";"1571572";"marie katrine olesen";"f";"35";NA;"hans Hustru";NA;NA;NA;NA
+"651";"1880";"1571573";"ole tomassen øland";"m";"4";NA;"Deres Barn";NA;NA;NA;NA
+"652";"1880";"1571574";"inger pedersen";"f";"72";NA;"Mandens Svigermoder Aftægtskone";NA;NA;NA;NA
+"653";"1880";"1571575";"henrik nielsen";"m";"39";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"654";"1880";"1571576";"karen født nielsen";"f";"39";NA;"hans Hustru";NA;NA;NA;NA
+"655";"1880";"1571577";"anne johanne nielsen";"f";"10";NA;"Deres Børn";NA;NA;NA;NA
+"656";"1880";"1571578";"niels kristian andreas nielsen";"m";"7";NA;"Deres Børn";NA;NA;NA;NA
+"657";"1880";"1571579";"søren brun";"m";"34";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"658";"1880";"1571580";"karen marie født nielsen";"f";"27";NA;"hans Hustru";NA;NA;NA;NA
+"659";"1880";"1571581";"marie poulsen brun";"f";"4";NA;"Deres Børn";NA;NA;NA;NA
+"660";"1880";"1571582";"maren poulsen brun";"f";"3";NA;"Deres Børn";NA;NA;NA;NA
+"661";"1880";"1588141";"peder andersen";"m";"64";NA;"Husfader Indsider Arbejdsmand";"99900";"Worker, No Further Information";NA;NA
+"662";"1880";"1588634";"maja jensen";"f";"59";NA;"Husmoder";NA;NA;NA;NA
+"663";"1880";"1588635";"anne kristen";"f";"63";NA;"Indsider";NA;NA;NA;NA
+"664";"1880";"1588636";"ove andersen";"m";"59";NA;"Indsider Fersker?? [Fisker]";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"665";"1880";"1588637";"engberg jensen";"f";"52";NA;"Tjenestetyende";"62120";"Farm Servant";NA;NA
+"666";"1880";"1588638";"hans andersen østergård";"m";"63";NA;"Husmand Husfader Arbejdsmand";"62105";"FarmWorker, General";"99900";"Worker, No Further Information"
+"667";"1880";"1588639";"marinus østergård";"m";"9";NA;"Barn";NA;NA;NA;NA
+"668";"1880";"1588640";"stine damborg";"f";"56";NA;"Tjenestetyende";"62120";"Farm Servant";NA;NA
+"669";"1880";"1588641";"niels kristian eskesen";"m";"54";NA;"Husfader Husmand Fersker?? [Fisker]";"41030";"Working Proprietor (Retail Trade)";"64100";"Fisherman, DeepSea or Inland and Coastal Water"
+"670";"1880";"1588642";"karen nielsen";"f";"48";NA;"Husmoder";NA;NA;NA;NA
+"671";"1880";"1588643";"marta nielsen";"f";"22";NA;"Barn";NA;NA;NA;NA
+"672";"1880";"1588644";"marianne nielsen";"f";"13";NA;"Barn";NA;NA;NA;NA
+"673";"1880";"1588645";"mette nielsen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"674";"1880";"1588646";"mads kristen andersen";"m";"56";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"675";"1880";"1588647";"kirsten olesen";"f";"55";NA;"hans Hustru";NA;NA;NA;NA
+"676";"1880";"1588648";"anders kristian madsen";"m";"24";NA;"Deres Børn";NA;NA;NA;NA
+"677";"1880";"1588649";"kirstine cecilie madsen";"f";"12";NA;"Deres Børn";NA;NA;NA;NA
+"678";"1880";"1588650";"poul kristian nielsen kappel";"m";"29";NA;"Fisker Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"679";"1880";"1588651";"mette johanne kristensen";"f";"28";NA;"hans Hustru";NA;NA;NA;NA
+"680";"1880";"1588652";"anne katrine margrete nielsen";"f";"2";NA;"Deres Barn";NA;NA;NA;NA
+"681";"1880";"1597763";"hans berner lillelund olesen";"m";"52";NA;"Huusfader Gaardeier";"61110";"General Farmer";NA;NA
+"682";"1880";"1597764";"anne cecilie kirstine olesen født lund";"f";"41";NA;"hans Hustrue";NA;NA;NA;NA
+"683";"1880";"1597765";"andrea pouline frederikke olesen";"f";"18";NA;"Datter";NA;NA;NA;NA
+"684";"1880";"1597766";"dagmar olesen";"f";"13";NA;"Datter";NA;NA;NA;NA
+"685";"1880";"1597767";"peder lund olesen";"m";"7";NA;"Søn";NA;NA;NA;NA
+"686";"1880";"1597768";"anne jonsen";"f";"20";NA;"Lærerinde";"13020";"Teacher, Level and Subject Unknown, Not University and Higher Education Level";NA;NA
+"687";"1880";"1597769";"maren svenningsen";"f";"20";NA;"Sypige";"79510";"Hand and Machine Sewer, General";NA;NA
+"688";"1880";"1597770";"jensine marie hansen";"f";"22";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"689";"1880";"1597771";"else kirstine nielsen";"f";"24";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"690";"1880";"1597772";"søren nielsen";"m";"22";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"691";"1880";"1597773";"kristen andersen";"m";"27";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"692";"1880";"1597774";"anders kristensen jensen";"m";"22";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"693";"1880";"1597775";"kristian jensen";"m";"14";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"694";"1880";"1597776";"markus pedersen";"m";"17";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"695";"1880";"1597777";"gravers tomassen jensen";"m";"15";NA;"Tjenestefolk";"62120";"Farm Servant";NA;NA
+"696";"1880";"1597778";"ernst emil hedeman";"m";"36";NA;"Husfader Kammerjunker Landeiendomsbesidder";"61110";"General Farmer";NA;NA
+"697";"1880";"1597779";"frederikke jakobe vise";"f";"43";NA;"Selskabsdame";"54040";"Companion";NA;NA
+"698";"1880";"1597780";"fritse henny margrete hedeman";"f";"5";NA;"Klosterfrøken i Hiemmet efter adelige Kloster Husfaderens Datter";NA;NA;NA;NA
+"699";"1880";"1597781";"niels henning ernst hollen";"m";"26";NA;"Forvalter";"22520";"Farm Supervisor";NA;NA
+"700";"1880";"1597782";"margrete sørensen";"f";"31";NA;"Husbestyrerinde";"22430";"Housekeeper (Private Service)";NA;NA
+"701";"1880";"1597783";"louise teodora hansen";"f";"19";NA;"Husholdningselev";"22430";"Housekeeper (Private Service)";NA;NA
+"702";"1880";"1597784";"alvilda petersen";"f";"22";NA;"Husholdningselev";"22430";"Housekeeper (Private Service)";NA;NA
+"703";"1880";"1597785";"pouline poulsen";"f";"19";NA;"Stuepige";"54020";"House Servant";NA;NA
+"704";"1880";"1597786";"johanne jensen";"f";"21";NA;"Meierske";"77510";"Dairy Product Processor, General";NA;NA
+"705";"1880";"1597787";"karen nielsen";"f";"20";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"706";"1880";"1597788";"marianne andersen";"f";"20";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"707";"1880";"1597789";"peter kristensen";"m";"38";NA;"Forkarl";"62120";"Farm Servant";NA;NA
+"708";"1880";"1597790";"niels petersen";"m";"64";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"709";"1880";"1597791";"peter nielsen";"m";"22";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"710";"1880";"1597792";"peter petersen";"m";"18";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"711";"1880";"1597793";"lund";"m";"14";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"712";"1880";"1597794";"peter jensen";"m";"57";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"713";"1880";"1597795";"søren petersen";"m";"16";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"714";"1880";"1597796";"peter jensen";"m";"49";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"715";"1880";"1599910";"elna charlotte margrete hedeman";"f";"37";NA;"Husmoder";NA;NA;NA;NA
+"716";"1880";"1598815";"mikkel andersen";"m";"31";NA;"Husfader Fisker";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"717";"1880";"1599285";"maren kirstine nielsen";"f";"27";NA;"Husmoder";NA;NA;NA;NA
+"718";"1880";"1599286";"johanne kirstine andersen";"f";"6";NA;"Deres Børn";NA;NA;NA;NA
+"719";"1880";"1599287";"else marie andersen";"f";"4";NA;"Deres Børn";NA;NA;NA;NA
+"720";"1880";"1599288";"anine marie andersen";"f";"1";NA;"Deres Børn";NA;NA;NA;NA
+"721";"1880";"1599289";"ole petersen toft";"m";"59";NA;"Husfader Fæster og Fisker";"61110";"General Farmer";"64100";"Fisherman, DeepSea or Inland and Coastal Water"
+"722";"1880";"1599290";"mette kirstine andersen";"f";"61";NA;"Husmoder";NA;NA;NA;NA
+"723";"1880";"1599291";"sevel marie olesen";"f";"30";NA;"Deres Barn";NA;NA;NA;NA
+"724";"1880";"1599292";"anine jensen";"f";"9";NA;"Forældreløst Barn forsørges af Lød[d]erup Fattigvæsen";NA;NA;NA;NA
+"725";"1880";"1599293";"niels andersen";"m";"61";NA;"Husfader Huseier og Fisker";"41030";"Working Proprietor (Retail Trade)";"62105";"FarmWorker, General"
+"726";"1880";"1599294";"johanne kristensen";"f";"55";NA;"Husmoder";NA;NA;NA;NA
+"727";"1880";"1599295";"jens nielsen";"m";"20";NA;"Fisker Deres Børn";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"728";"1880";"1599296";"peder nielsen";"m";"12";NA;"Deres Børn";NA;NA;NA;NA
+"729";"1880";"1599297";"peder olesen";"m";"26";NA;"Husfader Lærer Fisker";"13020";"Teacher, Level and Subject Unknown, Not University and Higher Education Level";NA;NA
+"730";"1880";"1599298";"maren sørensen";"f";"22";NA;"Husmoder";NA;NA;NA;NA
+"731";"1880";"1599299";"ole olesen";"m";NA;NA;"Deres Barn";NA;NA;NA;NA
+"732";"1880";"1599300";"peter madsen";"m";"43";NA;"Husfader og Huseier Karetmager";"81925";"Cartwright";NA;NA
+"733";"1880";"1599301";"anne marie andersen";"f";"48";NA;"Husmoder";NA;NA;NA;NA
+"734";"1880";"1599302";"nielsen";"m";"56";NA;"Husfader og Fisker";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"735";"1880";"1599303";"nikoline nielsen";"f";"17";NA;"Husfaderens Datter";NA;NA;NA;NA
+"736";"1880";"1599304";"ole peder markussen";"m";"74";NA;"Husfader og Fisker";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"737";"1880";"1599305";"anne nielsdatter";"f";"63";NA;"Husfaderens Steddatter";NA;NA;NA;NA
+"738";"1880";"1599306";"jens peter andersen";"m";"49";NA;"Husfader Huseier Fisker";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"739";"1880";"1599307";"anne jakobsen";"f";"36";NA;"Husmoder";NA;NA;NA;NA
+"740";"1880";"1599308";"niels jensen";"m";"11";NA;"Husfaderens Barn";NA;NA;NA;NA
+"741";"1880";"1599309";"anine oline olesen";"f";"3";NA;"Uægte Barn forsørges af Faderen";NA;NA;NA;NA
+"742";"1880";"1599310";"niels severin andersen";"m";"26";NA;"Husfader Huseier og Fisker";"41030";"Working Proprietor (Retail Trade)";"62105";"FarmWorker, General"
+"743";"1880";"1599311";"else kirstine elisabet madsen";"f";"24";NA;"Husmoder";NA;NA;NA;NA
+"744";"1880";"1599312";"johanne marie sofie andersen";"f";NA;NA;"Deres Barn";NA;NA;NA;NA
+"745";"1880";"1599313";"jørgen madsen";"m";"59";NA;"Husfader Mølleeier";"77120";"Grain Miller";NA;NA
+"746";"1880";"1599314";"anne marie madsen født nielsen";"f";"48";NA;"Husmoder";NA;NA;NA;NA
+"747";"1880";"1599315";"frits edvard julius kristiansen";"m";"69";NA;"Agfskediget Toldassistent med Pension";NA;NA;NA;NA
+"748";"1880";"1599316";"nielsine karoline andersen";"f";"27";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"749";"1880";"1599317";"hans hansen";"m";"26";NA;"Møllersvend";"77120";"Grain Miller";NA;NA
+"750";"1880";"1599318";"mads kristensen";"m";"19";NA;"Møllerkudsk";"98620";"AnimalDrawn Vehicle Driver (Road)";NA;NA
+"751";"1880";"1599319";"laurs petersen berg";"m";"48";NA;"Husfader Fisker";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"752";"1880";"1599320";"martine magdalene berg";"f";"32";NA;"Husmoder";NA;NA;NA;NA
+"753";"1880";"1599321";"petra marie petersen berg";"f";"9";NA;"Deres Børn";NA;NA;NA;NA
+"754";"1880";"1599322";"peter petersen berg";"m";"6";NA;"Deres Børn";NA;NA;NA;NA
+"755";"1880";"1599323";"hans peter petersen berg";"m";"4";NA;"Deres Børn";NA;NA;NA;NA
+"756";"1880";"1599812";"inger katrine petersen berg";"f";"2";NA;"Deres Børn";NA;NA;NA;NA
+"757";"1880";"1599363";"johan sø";"m";"38";NA;"Mejeribestyrer Husfader";"21220";"Production Manager (except Farm)";NA;NA
+"758";"1880";"1599364";"severin bentsen";"f";"35";NA;"hans Hustru";NA;NA;NA;NA
+"759";"1880";"1599365";"anders bernhard sø";"m";"5";NA;"Deres Børn";NA;NA;NA;NA
+"760";"1880";"1599366";"johan henrik sø";"m";"3";NA;"Deres Børn";NA;NA;NA;NA
+"761";"1880";"1600863";"amanda louise sø";"f";"1";NA;"Deres Børn";NA;NA;NA;NA
+"762";"1880";"1599894";"mourits laursen";"m";"74";NA;"Logerende";NA;NA;NA;NA
+"763";"1880";"1599895";"marta kristensen";"f";"59";NA;"Leierinde af Huset";"62105";"FarmWorker, General";NA;NA
+"764";"1880";"1599896";"marianne falk";"f";"54";NA;"Eierinde af Huset Husmoder";"62105";"FarmWorker, General";NA;NA
+"765";"1880";"1599897";"falk";"m";"22";NA;"Hendes Barn Fisker";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"766";"1880";"1599898";"søren jensen";"m";"39";NA;"Husfader Arbeidsmand";"99900";"Worker, No Further Information";NA;NA
+"767";"1880";"1599899";"anne kirstine jensen";"f";"30";NA;"Husmoder";NA;NA;NA;NA
+"768";"1880";"1599900";"sofie elise johanne jensen";"f";"7";NA;"Deres Børn";NA;NA;NA;NA
+"769";"1880";"1599901";"kirstine marie jensen";"f";"4";NA;"Deres Børn";NA;NA;NA;NA
+"770";"1880";"1599902";"salomon jensen";"m";"2";NA;"Deres Børn";NA;NA;NA;NA
+"771";"1880";"1599903";"mette kirstine jensen";"f";"64";NA;"Husfæsterinde";"62105";"FarmWorker, General";NA;NA
+"772";"1880";"1599904";"andrea johanne anine marie andersen";"f";"23";NA;"Sypige Datter";"79510";"Hand and Machine Sewer, General";NA;NA
+"773";"1880";"1599905";"ole jensen";"m";"26";NA;"Husfader Husmand og Fisker";"41030";"Working Proprietor (Retail Trade)";"62105";"FarmWorker, General"
+"774";"1880";"1599906";"else kirstine jensen";"f";"25";NA;"Husmoder";NA;NA;NA;NA
+"775";"1880";"1599907";"jensen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"776";"1880";"1599908";"poul jensen";"m";"16";NA;"Tjenestedreng";"62120";"Farm Servant";NA;NA
+"777";"1880";"1599909";"johanne marie sofie madsen";"f";"58";NA;"Væverpige";"75400";"Weaver, Specialisation Unknown";NA;NA
+"778";"1880";"1599911";"mette katrine olesen";"f";"28";NA;"Sypige";"79510";"Hand and Machine Sewer, General";NA;NA
+"779";"1880";"1599912";"magdalene marie olesen";"f";"25";NA;"Sypige";"79510";"Hand and Machine Sewer, General";NA;NA
+"780";"1880";"1599913";"peder kristian bendix";"m";"50";NA;"Husfader Prokurator Gaardeier";"61110";"General Farmer";NA;NA
+"781";"1880";"1599914";"marie frederikke bendix";"f";NA;NA;"Husmoder";NA;NA;NA;NA
+"782";"1880";"1599915";"petra kirstine bendix";"f";"20";NA;"Datter eller Barn";NA;NA;NA;NA
+"783";"1880";"1599916";"emma magdalene bendix";"f";"15";NA;"Datter eller Barn";NA;NA;NA;NA
+"784";"1880";"1599917";"sofie dorte bendix";"f";"10";NA;"Datter eller Barn";NA;NA;NA;NA
+"785";"1880";"1599918";"niels ebbesen bendix";"m";"8";NA;"Søn eller Barn";NA;NA;NA;NA
+"786";"1880";"1599919";"ida marie bendix";"f";"5";NA;"Datter eller Barn";NA;NA;NA;NA
+"787";"1880";"1599920";"abelone katrine bendix";"f";"3";NA;"Datter eller Barn";NA;NA;NA;NA
+"788";"1880";"1599921";"antonette marie futtrup";"f";"15";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"789";"1880";"1599922";"anne katrine josefsen";"f";"22";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"790";"1880";"1599923";"laurs severin kibsgård andersen";"m";"25";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"791";"1880";"1599924";"gustav adolf jensen";"m";"16";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"792";"1880";"1599925";"niels pedersen";"m";"62";NA;"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"793";"1880";"1599926";"niels kristensen dal";"m";"63";NA;"Murer Husfader";"95120";"Bricklayer (Construction)";NA;NA
+"794";"1880";"1599927";"karen mikkelsdatter";"f";"69";NA;"hans Hustru";NA;NA;NA;NA
+"795";"1880";"1599928";"kristen jensen tang";"m";"33";NA;"Øltapper Husfader";"97152";"Packer, Hand or Machine";NA;NA
+"796";"1880";"1599929";"karen nielsen født ravn";"f";"21";NA;"hans Hustru";NA;NA;NA;NA
+"797";"1880";"1599930";"jens peter niels pedersen";"m";"29";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"798";"1880";"1599931";"nielsine født knudsen";"f";"25";NA;"hans Hustru";NA;NA;NA;NA
+"799";"1880";"1599932";"niels peter nielsen pedersen";"m";"1";NA;"deres Barn";NA;NA;NA;NA
+"800";"1880";"1601198";"jeppe kristian sørensen";"m";"24";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"801";"1880";"1601199";"dorte kirstine andersen";"f";"34";NA;"hans Hustru";NA;NA;NA;NA
+"802";"1880";"1601200";"poul kristian peter jensen";"m";"10";NA;"deres Børn";NA;NA;NA;NA
+"803";"1880";"1601201";"anders jensen";"m";"8";NA;"deres Børn";NA;NA;NA;NA
+"804";"1880";"1601202";"niels kristian nielsen";"m";"27";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"805";"1880";"1601203";"johanne født nielsen";"f";"23";NA;"hans Hustru";NA;NA;NA;NA
+"806";"1880";"1601204";"jens peter nielsen";"m";NA;NA;"deres Barn";NA;NA;NA;NA
+"807";"1880";"1601205";"morten peter pedersen egholm";"m";"48";NA;"Væver Husfader";"75400";"Weaver, Specialisation Unknown";NA;NA
+"808";"1880";"1601206";"inger marie egholm født laursen";"f";"40";NA;"Hans Hustru";NA;NA;NA;NA
+"809";"1880";"1601207";"frederikke nikoline jensine egholm";"f";"11";NA;"deres Børn";NA;NA;NA;NA
+"810";"1880";"1601208";"johan kristian egholm";"m";"7";NA;"deres Børn";NA;NA;NA;NA
+"811";"1880";"1601209";"peter elen egholm";"m";"3";NA;"deres Børn";NA;NA;NA;NA
+"812";"1880";"1601210";"karoline egholm";"f";"10";NA;"deres Børn";NA;NA;NA;NA
+"813";"1880";"1601211";"larsine kirstine egholm";"f";"2";NA;"deres Børn";NA;NA;NA;NA
+"814";"1880";"1601212";"søren laursen";"m";"43";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"815";"1880";"1601213";"stine laursen poulsen";"f";"49";NA;"hans Hustru";NA;NA;NA;NA
+"816";"1880";"1601214";"kirstine laursen";"f";"13";NA;"deres Børn";NA;NA;NA;NA
+"817";"1880";"1601215";"anne johanne laursen";"f";"9";NA;"deres Børn";NA;NA;NA;NA
+"818";"1880";"1601216";"kristen laursen";"m";"53";NA;"Husfader";NA;NA;NA;NA
+"819";"1880";"1601217";"maren kirstine madsen";"f";"56";NA;"hans Hustru";NA;NA;NA;NA
+"820";"1880";"1601218";"laurs kristian laursen";"m";"19";NA;"Skomagersvend deres Søn";"80110";"Shoemaker, General";NA;NA
+"821";"1880";"1601219";"anne cecilie knudsen";"f";"6";NA;"deres Plejebarn";NA;NA;NA;NA
+"822";"1880";"1601220";"jens peter nielsen";"m";"30";NA;"Apoteker Husfader";"06710";"Pharmacist";NA;NA
+"823";"1880";"1601221";"anne johanne født laursen";"f";"23";NA;"hans Hustru";NA;NA;NA;NA
+"824";"1880";"1601222";"kirstine marie nielsen";"f";"3";NA;"deres Børn";NA;NA;NA;NA
+"825";"1880";"1601223";"poul kristian nielsen";"m";NA;NA;"deres Børn";NA;NA;NA;NA
+"826";"1880";"1601224";"johanne pedersdatter";"f";"57";NA;"Spinderske Husmoder";"75220";"Spinner, Thread and Yarn";NA;NA
+"827";"1880";"1601225";"kirsten poulsen";"f";"32";NA;"hendes Datter";NA;NA;NA;NA
+"828";"1880";"1601226";"laura katrine kristensen";"f";"7";NA;"dennes Børn";NA;NA;NA;NA
+"829";"1880";"1601227";"anne andersen";"f";NA;NA;"dennes Børn";NA;NA;NA;NA
+"830";"1880";"1601228";"niels mikkelsen";"m";"50";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"831";"1880";"1601229";"karen marie nielsen";"f";"50";NA;"hans Hustru";NA;NA;NA;NA
+"832";"1880";"1601230";"peder jensen skive";"m";"66";NA;"Snedker Husfader";"81000";"Woodworker, Specialisation Unknown";NA;NA
+"833";"1880";"1601231";"anne født pedersen";"f";"65";NA;"hans Hustru";NA;NA;NA;NA
+"834";"1880";"1601232";"mikkel pedersen bak";"m";"34";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"835";"1880";"1601233";"anne margrete pedersen";"f";"29";NA;"hans Hustru";NA;NA;NA;NA
+"836";"1880";"1601234";"jens peter pedersen bak";"m";"7";NA;"deres Børn";NA;NA;NA;NA
+"837";"1880";"1601235";"peder pedersen bak";"m";"3";NA;"deres Børn";NA;NA;NA;NA
+"838";"1880";"1601236";"martin pedersen bak";"m";NA;NA;"deres Børn";NA;NA;NA;NA
+"839";"1880";"1601237";"søren andersen kærgård";"m";"23";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"840";"1880";"1601764";"mette marie andersen";"f";"20";NA;"hans Hustru";NA;NA;NA;NA
+"841";"1880";"1602101";"marie kirstine andersen";"f";"1";NA;"deres Barn";NA;NA;NA;NA
+"842";"1880";"1602137";"jens nielsen";"m";"31";NA;"Husfader Fisker";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"843";"1880";"1602138";"marianne laursen nielsen";"f";"35";NA;"Husmoder";NA;NA;NA;NA
+"844";"1880";"1602139";"laurs peter petersen";"m";"14";NA;"Stedbarn??";NA;NA;NA;NA
+"845";"1880";"1602140";"jens jensen nielsen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"846";"1880";"1602141";"jens jensen nielsen";"m";"7";NA;"Barn";NA;NA;NA;NA
+"847";"1880";"1602142";"maren nielsen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"848";"1880";"1602062";"anne cecilie nielsen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"849";"1880";"1604863";"else marie nielsen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"850";"1880";"1605324";"hans petersen rossing";"m";"61";NA;"Svigerfader";NA;NA;NA;NA
+"851";"1880";"1605325";"sidsel petersen rossing";"f";"74";NA;"Svigermoder";NA;NA;NA;NA
+"852";"1880";"1602102";"anton kristian jensen";"m";"41";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"853";"1880";"1602103";"edel marie poulsen";"f";"39";NA;"hans Hustru";NA;NA;NA;NA
+"854";"1880";"1602104";"poul jensen";"m";"9";NA;"deres Børn";NA;NA;NA;NA
+"855";"1880";"1602105";"cecilie marie jensen";"f";"4";NA;"deres Børn";NA;NA;NA;NA
+"856";"1880";"1602106";"maren kirstine jensen";"f";"2";NA;"deres Børn";NA;NA;NA;NA
+"857";"1880";"1602107";"tofte kristian jensen";"m";"27";NA;"Ringer Husfader";NA;NA;NA;NA
+"858";"1880";"1602108";"anne kirstine marie cecilie nielsen";"f";"31";NA;"hans Hustru";NA;NA;NA;NA
+"859";"1880";"1602109";"jens peter jensen";"m";NA;NA;"deres Barn";NA;NA;NA;NA
+"860";"1880";"1602110";"anders jensen";"m";"51";NA;"Husfader Husmand";"62105";"FarmWorker, General";NA;NA
+"861";"1880";"1602111";"marianne jensen";"f";"57";NA;"Logerende";NA;NA;NA;NA
+"862";"1880";"1602112";"anne elisabet tomassen";"f";"2";NA;"Pleiebarn";NA;NA;NA;NA
+"863";"1880";"1602113";"andersen bak";"m";"52";NA;"Familiefader Boelsmand";"61110";"General Farmer";"61115";"Small Subsistence Farmer (Husbandman)"
+"864";"1880";"1602114";"sidsel bak";"f";"43";NA;"Husmoder";NA;NA;NA;NA
+"865";"1880";"1602115";"marie andersen bak";"f";"10";NA;"Barn";NA;NA;NA;NA
+"866";"1880";"1602116";"anders andersen bak";"m";"7";NA;"Barn";NA;NA;NA;NA
+"867";"1880";"1602117";"maren andersen bak";"f";"5";NA;"Barn";NA;NA;NA;NA
+"868";"1880";"1602118";"jensine andersen bak";"f";"2";NA;"Barn";NA;NA;NA;NA
+"869";"1880";"1602119";"marie josefsen";"f";"14";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"870";"1880";"1602120";"kristen jensen";"m";"52";NA;"Husfader Husmand";"62105";"FarmWorker, General";NA;NA
+"871";"1880";"1602121";"anne marie jensen";"f";"22";NA;"Datter";NA;NA;NA;NA
+"872";"1880";"1602122";"knud kristensen";"m";"45";NA;"Husfader Gaardmand";"61110";"General Farmer";NA;NA
+"873";"1880";"1602123";"anne dorte kristensen";"f";"54";NA;"Husmoder";NA;NA;NA;NA
+"874";"1880";"1602124";"kirstine anine knudsen";"f";"12";NA;"Datter";NA;NA;NA;NA
+"875";"1880";"1602125";"jens andersen";"m";"31";NA;"Husfader Boelsmand";"61110";"General Farmer";NA;NA
+"876";"1880";"1602126";"inger marie andersen";"f";"34";NA;"Husmoder";NA;NA;NA;NA
+"877";"1880";"1602127";"anders andersen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"878";"1880";"1602128";"maren kirstine andersen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"879";"1880";"1602129";"jens andersen";"m";"49";NA;"Husfader Boelsmand";"61110";"General Farmer";NA;NA
+"880";"1880";"1602130";"kirstine andersen";"f";"37";NA;"Husmoder";NA;NA;NA;NA
+"881";"1880";"1602131";"kirstine marie andersen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"882";"1880";"1602132";"karl andreas andersen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"883";"1880";"1602133";"karl jonassen";"m";"67";NA;"Husfader Aftægtsmand";NA;NA;NA;NA
+"884";"1880";"1602134";"stine jonassen";"f";"67";NA;"Husmoder";NA;NA;NA;NA
+"885";"1880";"1602135";"kristen smed mikkelsen";"m";"30";NA;"Husfader";NA;NA;NA;NA
+"886";"1880";"1602136";"maren cecilie mikkelsen";"f";"25";NA;"Husmoder";NA;NA;NA;NA
+"887";"1880";"1605326";"niels peter laursen";"m";"37";NA;"Husfader Gartner";"62700";"Nursery Workers and Gardeners";NA;NA
+"888";"1880";"1605327";"charlotte marie laursen";"f";"35";NA;"Husmoder";NA;NA;NA;NA
+"889";"1880";"1605328";"karl laurs laursen";"m";"10";NA;"Barn";NA;NA;NA;NA
+"890";"1880";"1605329";"johan laursen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"891";"1880";"1605330";"kristian laursen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"892";"1880";"1605331";"anton laursen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"893";"1880";"1605332";"martin laursen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"894";"1880";"1605333";"niels melsen";"m";"45";NA;"Husfader";NA;NA;NA;NA
+"895";"1880";"1605334";"anne marie melsen";"f";"41";NA;"Husmoder";NA;NA;NA;NA
+"896";"1880";"1605335";"niels jensen";"m";"14";NA;"Stedbarn";NA;NA;NA;NA
+"897";"1880";"1605336";"kirstine nielsen";"f";"10";NA;"Stedbarn";NA;NA;NA;NA
+"898";"1880";"1605337";"maren nielsen kristensen";"f";"7";NA;"Stedbarn";NA;NA;NA;NA
+"899";"1880";"1605338";"else marie kristensen";"f";"4";NA;"Pleiebarn";NA;NA;NA;NA
+"900";"1880";"1605339";"kristen sander kristensen";"m";"1";NA;"Pleiebarn";NA;NA;NA;NA
+"901";"1880";"1605340";"jens andersen keller";"m";"36";NA;"Husfader Boelsmand";"61110";"General Farmer";NA;NA
+"902";"1880";"1605341";"else andersen";"f";"33";NA;"Husmoder";NA;NA;NA;NA
+"903";"1880";"1605342";"jens andersen";"m";"9";NA;"Barn";NA;NA;NA;NA
+"904";"1880";"1605343";"anders andersen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"905";"1880";"1605344";"martin andersen";"m";"5";NA;"Barn";NA;NA;NA;NA
+"906";"1880";"1605345";"anne andersen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"907";"1880";"1605346";"anne dorte jensen";"f";"66";NA;"Indsidderske";NA;NA;NA;NA
+"908";"1880";"1605347";"peder jensen";"m";"35";NA;"Husmand Murer Fader";"62105";"FarmWorker, General";"95120";"Bricklayer (Construction)"
+"909";"1880";"1605348";"anne kirstine jensen";"f";"34";NA;"Husmoder";NA;NA;NA;NA
+"910";"1880";"1605349";"frans jensen";"m";"12";NA;"Barn";NA;NA;NA;NA
+"911";"1880";"1605350";"jens jensen";"m";"9";NA;"Barn";NA;NA;NA;NA
+"912";"1880";"1605351";"anine kirstine jensen";"f";"7";NA;"Barn";NA;NA;NA;NA
+"913";"1880";"1605352";"søren jensen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"914";"1880";"1605353";"mette katrine jensen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"915";"1880";"1605354";"peter toft";"m";"66";NA;"Husfader Fisker";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"916";"1880";"1605355";"anne marie toft";"f";"58";NA;"Husmoder";NA;NA;NA;NA
+"917";"1880";"1605356";"andrea petersen";"f";"21";NA;"Barn";NA;NA;NA;NA
+"918";"1880";"1605357";"karl petersen";"m";"16";NA;"Barn";NA;NA;NA;NA
+"919";"1880";"1605358";"anne kirstine petersen";"f";"60";NA;"Husmoder";NA;NA;NA;NA
+"920";"1880";"1605359";"mette johanne nielsen";"f";"38";NA;"Barn";NA;NA;NA;NA
+"921";"1880";"1605360";"laurs kristian nielsen";"m";"4";NA;"Barnebarn";NA;NA;NA;NA
+"922";"1880";"1605361";"karl vistisen";"m";"49";NA;"Husfader";NA;NA;NA;NA
+"923";"1880";"1605362";"else vistisen";"f";"37";NA;"Husmoder";NA;NA;NA;NA
+"924";"1880";"1605363";"peder karlsen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"925";"1880";"1605364";"berta kirstine karlsen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"926";"1880";"1605365";"knud jensen krak knudsen";"m";"63";NA;"Garver Husfader";"76145";"Tanner";NA;NA
+"927";"1880";"1605366";"ellen kirstine mikkeline født jørgensen";"f";"59";NA;"hans Hustru Husmoder";NA;NA;NA;NA
+"928";"1880";"1606387";"else marie hansen";"f";"19";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"929";"1880";"1606388";"hans teodor lorentsen";"m";"17";NA;"Lærling";"99900";"Worker, No Further Information";NA;NA
+"930";"1880";"1606389";"ruben dybdal";"m";"18";NA;"Garversvend";"76145";"Tanner";NA;NA
+"931";"1880";"1606390";"ferdinand alfred jørgensen";"m";"30";NA;"Former Husfader";"72550";"Coremaker (Hand)";NA;NA
+"932";"1880";"1606391";"maren martine født strand";"f";"25";NA;"hans Hustru Husmoder";NA;NA;NA;NA
+"933";"1880";"1606392";"anne sofie karoline jørgensen";"f";"3";NA;"Deres Børn";NA;NA;NA;NA
+"934";"1880";"1606393";"karl valdemar jørgensen";"m";"1";NA;"Deres Børn";NA;NA;NA;NA
+"935";"1880";"1606394";"hans andersen starup";"m";"54";NA;"Pensioneret Lærer Husfader";"13020";"Teacher, Level and Subject Unknown, Not University and Higher Education Level";NA;NA
+"936";"1880";"1606395";"johanne margrete født nielsen";"f";"54";NA;"hans Hustru Husmoder";NA;NA;NA;NA
+"937";"1880";"1606396";"johanne kirstine starup";"f";"25";NA;"Deres Børn";NA;NA;NA;NA
+"938";"1880";"1606397";"doris jakobine starup";"f";"19";NA;"Deres Børn";NA;NA;NA;NA
+"939";"1880";"1606398";"niels olesen";"m";"53";NA;"Former Husfader";"72550";"Coremaker (Hand)";NA;NA
+"940";"1880";"1606399";"kirstine marie født sørensen";"f";"50";NA;"hans Hustru";NA;NA;NA;NA
+"941";"1880";"1606400";"anne katrine olesen";"f";"14";NA;"Deres Børn";NA;NA;NA;NA
+"942";"1880";"1606401";"matilde marie frederikke olesen";"f";"10";NA;"Deres Børn";NA;NA;NA;NA
+"943";"1880";"1606402";"laurs";"m";"26";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"944";"1880";"1606403";"maren";"f";"30";NA;"hans Hustru";NA;NA;NA;NA
+"945";"1880";"1606404";"marie";"f";"3";NA;NA;NA;NA;NA;NA
+"946";"1880";"1606405";"else";"f";NA;NA;NA;NA;NA;NA;NA
+"947";"1880";"1606406";"søren kristian bak";"m";"29";NA;"Former Husfader";"72550";"Coremaker (Hand)";NA;NA
+"948";"1880";"1606407";"johanne født bisgård";"f";"29";NA;"hans Hustru";NA;NA;NA;NA
+"949";"1880";"1606408";"anne kirstine bak";"f";"7";NA;"Deres Børn";NA;NA;NA;NA
+"950";"1880";"1606409";"ellen marie bak";"f";"3";NA;"Deres Børn";NA;NA;NA;NA
+"951";"1880";"1606410";"asta terese bak";"f";NA;NA;"Deres Børn";NA;NA;NA;NA
+"952";"1880";"1606411";"laurs møller skov";"m";"55";NA;"Skomager Husfader";"80110";"Shoemaker, General";NA;NA
+"953";"1880";"1606412";"kirstine marie født holm";"f";"43";NA;"hans Hustru";NA;NA;NA;NA
+"954";"1880";"1606413";"jens kristian holm skov";"m";"13";NA;"Deres Søn";NA;NA;NA;NA
+"955";"1880";"1606414";"peder kristian pedersen";"m";"46";NA;"Arbejdsmand Husfader";"99900";"Worker, No Further Information";NA;NA
+"956";"1880";"1606415";"kirsten marie født mikkelsen";"f";"45";NA;"hans Hustru";NA;NA;NA;NA
+"957";"1880";"1606416";"maren pedersen";"f";"12";NA;"Deres Børn";NA;NA;NA;NA
+"958";"1880";"1606417";"petra nikoline pedersen";"f";"9";NA;"Deres Børn";NA;NA;NA;NA
+"959";"1880";"1606418";"mikkel peter pedersen";"m";"7";NA;"Deres Børn";NA;NA;NA;NA
+"960";"1880";"1606419";"else marie sofie frederikke pedersen";"f";"5";NA;"Deres Børn";NA;NA;NA;NA
+"961";"1880";"1606420";"mette marie pedersen";"f";"52";NA;"Logerende";NA;NA;NA;NA
+"962";"1880";"1606421";"mette katrine født nielsen";"f";"65";NA;"Husmoder Manden tjener paa Frydsbrønd";"62120";"Farm Servant";NA;NA
+"963";"1880";"1606422";"anne kirstine pedersen";"f";"43";NA;"Husmoder";NA;NA;NA;NA
+"964";"1880";"1606423";"ove ludvig kristensen";"m";"6";NA;"Hendes Børn";NA;NA;NA;NA
+"965";"1880";"1606424";"karen marie kristensen";"f";"5";NA;"Hendes Børn";NA;NA;NA;NA
+"966";"1880";"1606425";"kristen kristensen";"m";NA;NA;"Hendes Børn";NA;NA;NA;NA
+"967";"1901";"1956416";"hans frederik hansen";"m";"33";"Lagerexpedient ...?? tobaksfabrik";"Husfader";NA;NA;NA;NA
+"968";"1901";"1956417";"marta kirstine født andreassen";"f";"37";NA;"Husmoder";NA;NA;NA;NA
+"969";"1901";"1956418";"gustav andreas høg hansen";"m";"9";NA;"Barn";NA;NA;NA;NA
+"970";"1901";"1956419";"hans karl hjort hansen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"971";"1901";"1956420";"vilhelm kristian knudsen";"m";"26";"Former";"Husfader";"72550";"Coremaker (Hand)";NA;NA
+"972";"1901";"1951411";"mette kirstine født blåbjerg";"f";"24";NA;"Husmoder";NA;NA;NA;NA
+"973";"1901";"1951412";"harry georg knudsen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"974";"1901";"1951413";"nielsine ottomine blåbjerg";"f";"21";"Væverske";"Pensionær";"75400";"Weaver, Specialisation Unknown";NA;NA
+"975";"1901";"1951414";"konrad johannes petersen";"m";"28";"Maskinarbejder";"Husfader";"99930";"Factory Worker";NA;NA
+"976";"1901";"1951415";"sofie louise augusta født brun";"f";"22";NA;"Husmoder";NA;NA;NA;NA
+"977";"1901";"1951416";"karla louise petersen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"978";"1901";"1951417";"henry konrad petersen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"979";"1901";"1951418";"hans kristian frederik wilson";"m";"33";"Forpagter";"Husfader";"61110";"General Farmer";NA;NA
+"980";"1901";"1951419";"gudrun wilson født hovman";"f";"24";NA;"Husmoder";NA;NA;NA;NA
+"981";"1901";"1951420";"svend wilson";"m";"2";NA;"Barn";NA;NA;NA;NA
+"982";"1901";"1951421";"louise vinding";"f";"19";NA;"Frøken";"54020";"House Servant";NA;NA
+"983";"1901";"1951422";"peder pedersen";"m";"29";"Købmand og Fabrikant??";"Husfader";"21110";"General Manager";"41025";"Working Proprietor (Wholesale or Retail Trade)"
+"984";"1901";"1951423";"elisabet pedersen";"f";"30";NA;"Husmoder";NA;NA;NA;NA
+"985";"1901";"1951424";"helga tomassen";"f";"17";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"986";"1901";"1951425";"kristian frederik poulsen";"m";"27";"By og Herreds fuldmægtig??";NA;"39310";"Office Clerk, General";NA;NA
+"987";"1901";"1951426";"karoline matilde pedersen";"f";"35";"Husgjerning";"Husmoder";"22430";"Housekeeper (Private Service)";NA;NA
+"988";"1901";"1951427";"poul frederik pedersen";"m";"9";NA;"Barn";NA;NA;NA;NA
+"989";"1901";"1951428";"tyra pedersen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"990";"1901";"1951429";"dagny pedersen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"991";"1901";"1951430";"anne dorte kirstine pedersen";"f";"19";"Husgjerning";"Pige";"22430";"Housekeeper (Private Service)";NA;NA
+"992";"1901";"1951431";"jens andreas johannes pedersen";"m";"40";"Handelsagent";"Husfader";"41020";"Working Proprietor (Wholesale Trade)";NA;NA
+"993";"1901";"1951432";"jakob sørensen";"m";"61";"Sagfører Brend...ekt....??";"Husfader";"12110";"Lawyer";NA;NA
+"994";"1901";"1951433";"karoline frederikke sørensen";"f";"56";NA;"Husmoder";NA;NA;NA;NA
+"995";"1901";"1951434";"len sørensen";"f";"18";NA;"Adoptivdatter??";NA;NA;NA;NA
+"996";"1901";"1951435";"anne helvig skade";"f";"26";"Bankassistent";"Pensionær";"33135";"Cashier, Office or Cash Desk";NA;NA
+"997";"1901";"1951436";"elisabet pedersen";"f";"17";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"998";"1901";"1951437";"jensine dorte fritjof";"f";"74";NA;"Husmoder";NA;NA;NA;NA
+"999";"1901";"1951438";"peter laurs rasmussen";"m";"43";"Lokomotivfører ved Statsbanen??";"Husfader";"98320";"Railway Engine Driver";NA;NA
+"1000";"1901";"1951439";"marie antonette ragnhild rasmussen";"f";"33";NA;"Husmoder";NA;NA;NA;NA
+"1001";"1901";"1951440";"henry kristian rasmussen";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1002";"1901";"1951441";"johan sofus rasmussen";"m";"12";NA;"Barn";NA;NA;NA;NA
+"1003";"1901";"1951442";"ejner laurs rasmussen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1004";"1901";"1951443";"elise matilde rasmussen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1005";"1901";"1951444";"jens mikkelsen";"m";"51";"Arbeidsmand ved Landbrug";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1006";"1901";"1951445";"mette mikkelsen";"f";"46";NA;"Husmoder";NA;NA;NA;NA
+"1007";"1901";"1951446";"magnus mikkelsen";"m";"24";"Fisker og Dagleier ved Landbruget";"Logerende";"64100";"Fisherman, DeepSea or Inland and Coastal Water";"99920";"DayLabourer"
+"1008";"1901";"1951447";"jensine mikkelsen";"f";"19";"Sypige";"Datter";"79510";"Hand and Machine Sewer, General";NA;NA
+"1009";"1901";"1951448";"peter mikkelsen";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1010";"1901";"1951449";"else marie mikkelsen";"f";"12";NA;"Barn";NA;NA;NA;NA
+"1011";"1901";"1951450";"hilda nikoline mikkelsen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1012";"1901";"1951451";"frederik mortensen sørensen";"m";"44";"Fyrbøder";"Husfader";"96930";"Boiler Fireman";NA;NA
+"1013";"1901";"1951452";"kirstine sørensen";"f";"40";NA;"Husmoder";NA;NA;NA;NA
+"1014";"1901";"1951453";"vilhelmine sørensen";"f";"15";NA;"Barn";NA;NA;NA;NA
+"1015";"1901";"1951454";"anne elisabet sørensen";"f";"14";NA;"Barn";NA;NA;NA;NA
+"1016";"1901";"1951455";"marie bernhardine sørensen";"f";"7";NA;"Barn";NA;NA;NA;NA
+"1017";"1901";"1951456";"anne elisabet kristensen";"f";"22";"Privat Formue";"Frøken";"62120";"Farm Servant";NA;NA
+"1018";"1901";"1951457";"karen sofie laursen";"f";"45";"Smauhanleeke??";"Husmoder";NA;NA;NA;NA
+"1019";"1901";"1951458";"erna marie kristensen";"f";"19";"Syerske";NA;"79510";"Hand and Machine Sewer, General";NA;NA
+"1020";"1901";"1951459";"peter olesen";"m";"65";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1021";"1901";"1951460";"mette marie markussen";"f";"72";NA;"Husmoder";NA;NA;NA;NA
+"1022";"1901";"1951461";"søren kibsgård";"m";"44";"Landarbejder";"Husfader";"62120";"Farm Servant";NA;NA
+"1023";"1901";"1951462";"sine kibsgård";"f";"50";"Arbejderske??";"Husmoder";"99900";"Worker, No Further Information";NA;NA
+"1024";"1901";"1951463";"katrine kibsgård";"m";"15";NA;"Barn";NA;NA;NA;NA
+"1025";"1901";"1951464";"anton kibsgård";"m";"12";"Tobaksarbejder";"Barn";"78220";"Cigar Maker (Hand)";NA;NA
+"1026";"1901";"1951465";"jens olesen";"m";"37";"Slagter Kreaturhandler Landmand";"Husfader";"61110";"General Farmer";"77310";"Butcher, General"
+"1027";"1901";"1951466";"anne katrine olesen";"f";"34";NA;"Husmoder";NA;NA;NA;NA
+"1028";"1901";"1951467";"anne olesen";"f";"13";NA;"Barn";NA;NA;NA;NA
+"1029";"1901";"1951468";"tora olesen";"f";"11";NA;"Barn";NA;NA;NA;NA
+"1030";"1901";"1951469";"olga olesen";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1031";"1901";"1951470";"ella olesen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1032";"1901";"1951471";"magda olesen";"f";"4";NA;"Barn";NA;NA;NA;NA
+"1033";"1901";"1951472";"klara olesen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1034";"1901";"1951473";"kirsten marie mikkelsen";"f";"25";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"1035";"1901";"1951474";"andreas petersen";"m";"64";"Værkfører";"Husfader";"22000";"Supervisor, Foreman or Inspector, Specialisation Unknown";NA;NA
+"1036";"1901";"1951475";"kirstine petersen";"f";"48";NA;"Husmoder";NA;NA;NA;NA
+"1037";"1901";"1951476";"ludvig torvald petersen";"m";"18";"I Lære Hos Karetmager Sørensen";"Barn";"81925";"Cartwright";NA;NA
+"1038";"1901";"1951477";"emil jens petersen";"m";"15";"I Lære Hos Snedkerm Jensen";"Barn";"81000";"Woodworker, Specialisation Unknown";NA;NA
+"1039";"1901";"1951478";"frederik holger petersen";"m";"13";"Hjemme";"Barn";NA;NA;NA;NA
+"1040";"1901";"1951479";"tomas tomassen";"m";"27";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1041";"1901";"1951480";"kirstine tomassen";"f";"24";NA;"Husmoder";NA;NA;NA;NA
+"1042";"1901";"1951481";"andrea jensine tomassen";"f";"4";NA;"Barn";NA;NA;NA;NA
+"1043";"1901";"1951482";"anne elise tomine tomassen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1044";"1901";"1951483";"jensen";"m";"31";"Arbejdsmand (forskelligt)??";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1045";"1901";"1951484";"kirstine jensen";"f";"33";NA;"Husmoder";NA;NA;NA;NA
+"1046";"1901";"1951485";"teodor jensen";"m";"7";NA;"Barn";NA;NA;NA;NA
+"1047";"1901";"1951486";"agnes tomassen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1048";"1901";"1951487";"magnus tomassen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1049";"1901";"1951488";"kaj tomassen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"1050";"1901";"1951489";NA;"m";NA;NA;"Barn";NA;NA;NA;NA
+"1051";"1901";"1951490";"niels tomassen nielsen";"m";"30";"Fyrbøder paa Glasværket";"Husfader";"96930";"Boiler Fireman";NA;NA
+"1052";"1901";"1951491";"anne marie nielsen";"f";"30";NA;"Husmoder";NA;NA;NA;NA
+"1053";"1901";"1951492";"anine marie nielsen";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1054";"1901";"1951493";"olga ulrikke antonette nielsen";"f";"7";NA;"Barn";NA;NA;NA;NA
+"1055";"1901";"1951494";"kirstine jørgine helga nielsen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1056";"1901";"1951495";"tomas torvald nielsen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"1057";"1901";"1951496";"johanne storgård";"f";"27";"Sypige - Fattig Hjælp";NA;"79510";"Hand and Machine Sewer, General";NA;NA
+"1058";"1901";"1951497";"martin andersen";"m";"59";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1059";"1901";"1951498";"kirstine marie andersen";"f";"57";NA;"Husmoder";NA;NA;NA;NA
+"1060";"1901";"1951499";"peter poulsen andersen";"m";"24";"Maler";"Barn";"93120";"Building Painter";NA;NA
+"1061";"1901";"1951500";"anders årestrup";"m";"36";"Fiskehandler";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1062";"1901";"1951501";"marie årestrup";"f";"37";NA;"Husmoder";NA;NA;NA;NA
+"1063";"1901";"1951502";"jens peter årestrup";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1064";"1901";"1951503";"anne karoline årestrup";"f";"10";NA;"Barn";NA;NA;NA;NA
+"1065";"1901";"1951504";"karen cecilie årestrup";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1066";"1901";"1951505";"johannes årestrup";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1067";"1901";"1951506";"magdalene årestrup";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1068";"1901";"1951507";"kristen madsen";"m";"29";"Fisker";"Husafader";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"1069";"1901";"1951508";"anne marie madsen";"f";"26";NA;"Husmoder";NA;NA;NA;NA
+"1070";"1901";"1951509";"anne kirstine madsen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1071";"1901";"1951510";"niels jens madsen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1072";"1901";"1951511";"kirsten marie madsen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1073";"1901";"1951512";"jeppe poulsen";"m";"36";"Fyrbøder";"Husfader";"96930";"Boiler Fireman";NA;NA
+"1074";"1901";"1951513";"nikoline poulsen";"f";"36";"Rullekone";"Husmoder";"56065";"Presser (Hand or Machine)";NA;NA
+"1075";"1901";"1951514";"cecilie marie poulsen";"f";"14";NA;"Barn";NA;NA;NA;NA
+"1076";"1901";"1951515";"hans poulsen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1077";"1901";"1951516";"johanne kirstine poulsen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1078";"1901";"1951517";"pouline poulsen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1079";"1901";"1951518";"frederik johannes poulsen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1080";"1901";"1951519";"hansine kirstine marie nielsen";"f";"29";"Vaskepige";"Husmoder";"56010";"Launderer,  General";NA;NA
+"1081";"1901";"1951520";"kristian torvald nielsen";"m";"5";NA;"Barn";NA;NA;NA;NA
+"1082";"1901";"1951521";"frederik frederiksen";"m";"33";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1083";"1901";"1951522";"katrine marie kirstine frederiksen";"f";"31";NA;"Husmoder";NA;NA;NA;NA
+"1084";"1901";"1951523";"sidsel marie petersen";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1085";"1901";"1951524";"anders frederiksen";"m";"5";NA;"Barn";NA;NA;NA;NA
+"1086";"1901";"1951525";"jensine kirstine frederiksen";"f";"4";NA;"Barn";NA;NA;NA;NA
+"1087";"1901";"1951526";"anne marie margrete frederiksen";"f";"2";NA;NA;NA;NA;NA;NA
+"1088";"1901";"1951527";"bent frederiksen";"m";"23";"Arbejdsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1089";"1901";"1951528";"anne kirstine katrine frederiksen";"f";"22";NA;"Husmoder";NA;NA;NA;NA
+"1090";"1901";"1951529";"frederik emil frederiksen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1091";"1901";"1951530";"hans ravnkilde jensen";"m";"25";"Blikkenslager";"Husfader";"87340";"Tinsmith";NA;NA
+"1092";"1901";"1951531";"karen andrea jensen";"f";"23";NA;"Husmoder";NA;NA;NA;NA
+"1093";"1901";"1951532";"klara jensen";"f";"4";NA;"Barn";NA;NA;NA;NA
+"1094";"1901";"1951533";"dagmar jensen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1095";"1901";"1951534";"karen kristensen";"f";"81";"Forsørges af Familien med Alderdomsunderstøttelse";NA;NA;NA;NA;NA
+"1096";"1901";"1951535";"johannes kristensen børglum";"m";"36";"Former";"Husfader";"72550";"Coremaker (Hand)";NA;NA
+"1097";"1901";"1951536";"karen johanne børglum";"f";"40";NA;"Husmoder";NA;NA;NA;NA
+"1098";"1901";"1951537";"maren kirstine børglum";"f";"11";NA;"Barn";NA;NA;NA;NA
+"1099";"1901";"1951538";"anne margrete børglum";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1100";"1901";"1951539";"anne marie børglum";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1101";"1901";"1951540";"abrahamsen";"m";"30";"Tømrersvend";"Husfader";"95410";"Carpenter, General";NA;NA
+"1102";"1901";"1951541";"mette kirstine dorte abrahamsen";"f";"24";NA;"Husmoder";NA;NA;NA;NA
+"1103";"1901";"1951542";"hans peter højgård abrahamsen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"1104";"1901";"1951543";"peter hinberg";"m";"32";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1105";"1901";"1951544";"maren katrine hinberg";"f";"28";NA;"Husmoder";NA;NA;NA;NA
+"1106";"1901";"1951545";"senius johannes marinus hinberg";"m";"5";NA;NA;NA;NA;NA;NA
+"1107";"1901";"1951546";"ejner peter hinberg";"m";"1";NA;NA;NA;NA;NA;NA
+"1108";"1901";"1951547";"peter jensen";"m";"37";"Arbeismand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1109";"1901";"1951548";"anne kirstine laursen";"f";"30";NA;"Husmoder";NA;NA;NA;NA
+"1110";"1901";"1951549";"helberg jensen";"m";"5";NA;"Barn";NA;NA;NA;NA
+"1111";"1901";"1951550";"johan johan marinus helberg jensen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1112";"1901";"1951551";"karen marie hansen";"f";"87";"Alderdomsunderstøttelse";NA;NA;NA;NA;NA
+"1113";"1901";"1951552";"peter henriksen";"m";"36";"Arbeismand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1114";"1901";"1951553";"kirstine andersen";"f";"36";NA;"Husmoder";NA;NA;NA;NA
+"1115";"1901";"1951554";"niels andreas henriksen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"1116";"1901";"1951555";"sejer peter andersen";"m";"44";"Smed";"Husfader";"83110";"Blacksmith, General";NA;NA
+"1117";"1901";"1951556";"frederikke dorte andersen";"f";"39";NA;"Husmoder";NA;NA;NA;NA
+"1118";"1901";"1951557";"marie jensine andersen";"f";"14";NA;"Barn";NA;NA;NA;NA
+"1119";"1901";"1951558";"jens andersen";"m";"12";"Arbeider paa Tobaksfabrikken";"Barn";"99900";"Worker, No Further Information";NA;NA
+"1120";"1901";"1951559";"sejer peter andersen";"m";"12";NA;"Barn";NA;NA;NA;NA
+"1121";"1901";"1951560";"otilia frederikke andersen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1122";"1901";"1951561";"niels andersen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"1123";"1901";"1951562";"alfred johannes andersen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1124";"1901";"1951563";"andreas julius helm";"m";"45";"Skibsbygger";"Husfader";"95440";"Wood Shipwright";NA;NA
+"1125";"1901";"1951564";"johanne helm";"f";"47";NA;"Husmoder";NA;NA;NA;NA
+"1126";"1901";"1951565";"laura helm";"f";"22";NA;"Barn";NA;NA;NA;NA
+"1127";"1901";"1951566";"robert helm";"m";"16";NA;"Barn";NA;NA;NA;NA
+"1128";"1901";"1951567";"gunner helm";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1129";"1901";"1951568";"gørts helm";"m";"12";NA;"Barn";NA;NA;NA;NA
+"1130";"1901";"1951569";"rosa helm";"f";NA;NA;"Barn";NA;NA;NA;NA
+"1131";"1901";"1951570";"talia helm";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1132";"1901";"1951571";"katrine jensen";"f";"38";NA;"Husmoder";NA;NA;NA;NA
+"1133";"1901";"1951572";"johanne kirstine marie jensen";"f";"13";NA;"Barn";NA;NA;NA;NA
+"1134";"1901";"1951573";"elna kirstine jensen";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1135";"1901";"1951574";"ulrik andreas jensen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1136";"1901";"1951575";"jensen";"m";"37";"Musikdiriktør og Murersvend";"Husfader";"17140";"Instrumentalist";"95120";"Bricklayer (Construction)"
+"1137";"1901";"1951576";"niels tomassen jensen";"m";"35";"Smed";"Husfader";"83110";"Blacksmith, General";NA;NA
+"1138";"1901";"1951577";"karen marie jensen";"f";"33";NA;"Husmoder";NA;NA;NA;NA
+"1139";"1901";"1951578";"jens jensen";"m";"13";"På tobaksfabrikken";"Barn";"21110";"General Manager";"78220";"Cigar Maker (Hand)"
+"1140";"1901";"1951579";"alfred martinus jensen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1141";"1901";"1951580";"else margrete jensen";"f";"10";NA;"Barn";NA;NA;NA;NA
+"1142";"1901";"1951581";"robert johannes jensen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"1143";"1901";"1951582";"rebekka marie jensen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1144";"1901";"1951583";"henry emanuel jensen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1145";"1901";"1951584";"kirstine nielsen";"f";NA;"Sypige";NA;"79510";"Hand and Machine Sewer, General";NA;NA
+"1146";"1901";"1951585";"anne kirstine jensen";"f";"36";NA;"Husmoder";NA;NA;NA;NA
+"1147";"1901";"1951586";"mette marie jensen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1148";"1901";"1951587";"jensine matilde jensen";"f";"4";NA;"Barn";NA;NA;NA;NA
+"1149";"1901";"1951588";"otto jensen";"m";NA;"Fabrik Arbeismand";"Husfader";"99930";"Factory Worker";NA;NA
+"1150";"1901";"1951589";"andreas andersen";"m";"33";"Arbeismand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1151";"1901";"1951590";"maren katrine andersen";"f";"33";NA;"Husmoder";NA;NA;NA;NA
+"1152";"1901";"1951591";"jens kristensen";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1153";"1901";"1951592";"andersen";"m";"10";NA;"Barn";NA;NA;NA;NA
+"1154";"1901";"1951593";"august andreas andersen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1155";"1901";"1951594";"cecilie katrine andersen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1156";"1901";"1951595";"ejner hedegård andersen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1157";"1901";"1951596";"helene andersen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1158";"1901";"1951597";"henry andersen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1159";"1901";"1951598";"niels madsen jensen";"m";"33";"Arbeismand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1160";"1901";"1951599";"anne marie jensen";"f";"35";NA;"Husmoder";NA;NA;NA;NA
+"1161";"1901";"1951600";"poul madsen jensen";"m";"9";NA;"Barn";NA;NA;NA;NA
+"1162";"1901";"1951601";"jens madsen jensen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1163";"1901";"1951602";"johanne marie madsen jensen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1164";"1901";"1951603";"johannes madsen jensen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"1165";"1901";"1951604";"kristian tomassen";"m";"43";"Brødkusk";"Husfader";"98620";"AnimalDrawn Vehicle Driver (Road)";NA;NA
+"1166";"1901";"1951605";"else tomassen";"f";"43";NA;"Husmoder";NA;NA;NA;NA
+"1167";"1901";"1951606";"tomas tomassen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1168";"1901";"1951607";"helvig petrea tomassen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1169";"1901";"1951608";"niels johan nielsen";"m";"38";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1170";"1901";"1951609";"anne nielsen";"f";"39";NA;"Husmoder";NA;NA;NA;NA
+"1171";"1901";"1951610";"johan nielsen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"1172";"1901";"1951611";"jens jensen nielsen";"m";"23";"Dykker";"Husfader";NA;NA;NA;NA
+"1173";"1901";"1951612";"karoline knudsen";"f";"25";NA;"Husmoder";NA;NA;NA;NA
+"1174";"1901";"1951613";"dagny nielsen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1175";"1901";"1951614";"charles herman nielsen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"1176";"1901";"1951615";"jens buk";"m";"62";"Slagter Mester";"Husfader";"77310";"Butcher, General";NA;NA
+"1177";"1901";"1951616";"severin buk";"f";"59";NA;"Husmoder";NA;NA;NA;NA
+"1178";"1901";"1951617";"karl buk";"m";"22";"Formersvend";"Logerende";"72550";"Coremaker (Hand)";NA;NA
+"1179";"1901";"1951618";"tomas nielsen";"m";"58";"Arbeidsmand (Forskgelligt)";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1180";"1901";"1951619";"kirsten jensen";"f";"56";NA;"Husmoder";NA;NA;NA;NA
+"1181";"1901";"1951620";"julius olesen";"m";"42";"Former på Jernstøberi";"Husfader";"72550";"Coremaker (Hand)";NA;NA
+"1182";"1901";"1951621";"kirstine olesen";"f";"43";NA;"Husmoder";NA;NA;NA;NA
+"1183";"1901";"1951622";"marie olesen";"f";"16";NA;"Barn";NA;NA;NA;NA
+"1184";"1901";"1951623";"niels olesen";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1185";"1901";"1951624";"amalie olesen";"f";"11";NA;"Barn";NA;NA;NA;NA
+"1186";"1901";"1951625";"elisabet olesen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1187";"1901";"1951626";"poula olesen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1188";"1901";"1951627";"anne olesen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1189";"1901";"1951628";"frederik olesen";"m";"23";"Skomagersvend";"Husfader";"80110";"Shoemaker, General";NA;NA
+"1190";"1901";"1951629";"mette olesen";"f";"26";"Syerske";"Husmoder";"79510";"Hand and Machine Sewer, General";NA;NA
+"1191";"1901";"1951630";NA;"f";NA;NA;"Barn";NA;NA;NA;NA
+"1192";"1901";"1951631";"peder terkelsen";"m";"66";"Arbejsmand Formue??";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1193";"1901";"1951632";"helvig lyng";"f";"75";NA;"Husmoder";NA;NA;NA;NA
+"1194";"1901";"1951633";"jens jensen";"m";"36";"Murersvend";"Husfader";"95120";"Bricklayer (Construction)";NA;NA
+"1195";"1901";"1951634";"kirsten jensen";"f";"32";NA;"Husmoder";NA;NA;NA;NA
+"1196";"1901";"1951635";"søren laursen";"m";"49";"Bagermester";"Husfader";"77610";"Baker, General";NA;NA
+"1197";"1901";"1951636";"anne kirstine kristensen";"f";"51";NA;"Husmoder";NA;NA;NA;NA
+"1198";"1901";"1951637";"laurs kristian laursen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1199";"1901";"1951638";"søren pedersen";"m";"25";"Arbejdsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1200";"1901";"1951639";"mette marie pedersen";"f";"20";NA;"Husmoder";NA;NA;NA;NA
+"1201";"1901";"1951640";"frans nielsen knap";"m";"27";"Slagter";"Husfader";"77310";"Butcher, General";NA;NA
+"1202";"1901";"1951641";"laura kirstine elisabet laursen";"f";"27";NA;"Husmoder";NA;NA;NA;NA
+"1203";"1901";"1951642";"lorents august svendsen";"m";NA;"Smede Svend";"Husfader";"83110";"Blacksmith, General";NA;NA
+"1204";"1901";"1951643";"amine marie svendsen";"f";"59";NA;"Husmoder";NA;NA;NA;NA
+"1205";"1901";"1951644";"peder kristian nielsen";"m";"44";"Sliber";"Husfader";"83540";"Cutting Instruments Sharpener";NA;NA
+"1206";"1901";"1951645";"kirstine nielsen";"f";"38";NA;"Husmoder";NA;NA;NA;NA
+"1207";"1901";"1951646";"jens sine nielsen";"m";"10";NA;"Barn";NA;NA;NA;NA
+"1208";"1901";"1951647";"andrea nielsen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1209";"1901";"1951648";"magda lene nielsen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1210";"1901";"1951649";"marta marie nielsen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1211";"1901";"1951650";"hans hansen";"m";"37";"Rebslager Svend og Livsforsikrings Ag";"Husfader";"75710";"Rope Maker, General";NA;NA
+"1212";"1901";"1951651";"johanne hansen";"f";"36";NA;"Husmoder";NA;NA;NA;NA
+"1213";"1901";"1951652";"alfrida hansen";"f";"12";NA;"Barn";NA;NA;NA;NA
+"1214";"1901";"1951653";"frode hansen";"m";"10";NA;"Barn";NA;NA;NA;NA
+"1215";"1901";"1951654";"torvald august hansen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"1216";"1901";"1951655";"elma frederikke hansen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1217";"1901";"1951656";"anne andersen";"f";"64";"Ejndomsbesidder";"Husmoder";"61110";"General Farmer";NA;NA
+"1218";"1901";"1951657";"søren kristian bak";"m";"51";"Former paa Jernstøberiets Fab";"Husfader";"72550";"Coremaker (Hand)";NA;NA
+"1219";"1901";"1951658";"anne kirstine bak";"f";"29";NA;"Barn";NA;NA;NA;NA
+"1220";"1901";"1951659";"laurs skov bak";"m";"9";NA;"Barn";NA;NA;NA;NA
+"1221";"1901";"1951660";"sine tomassen";"f";"53";NA;"Husmoder";NA;NA;NA;NA
+"1222";"1901";"1951661";"andreas tomassen";"m";"19";"Tobaks Arbeider";"Loserende";"78220";"Cigar Maker (Hand)";NA;NA
+"1223";"1901";"1951662";"søren peter sørensen";"m";"46";"Arbeidsmand ...??";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1224";"1901";"1951663";"petra pedersen sørensen";"f";"37";NA;"Husmoder";NA;NA;NA;NA
+"1225";"1901";"1951664";"peter pedersen";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1226";"1901";"1951665";"niels pedersen";"m";"10";NA;"Barn";NA;NA;NA;NA
+"1227";"1901";"1951666";"meta pedersen";"f";"7";NA;"Barn";NA;NA;NA;NA
+"1228";"1901";"1951667";"marie olesen";"f";"72";"Alderdomsunderstøttelse";"Husmoder";NA;NA;NA;NA
+"1229";"1901";"1951668";"martin hansen";"m";"29";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1230";"1901";"1951669";"else marie hansen";"f";"26";NA;"Husmoder";NA;NA;NA;NA
+"1231";"1901";"1951670";"elna hansen";"f";"3";NA;NA;NA;NA;NA;NA
+"1232";"1901";"1951671";"margrete starup";"f";"76";"Pension";"Husmoder";NA;NA;NA;NA
+"1233";"1901";"1951672";"jakobine starup";"f";"40";"Haandarbejde";NA;"75000";"Spinners, Weavers, Knitters, Dyers and Related Workers, Specialisation Unknown";NA;NA
+"1234";"1901";"1951673";"peder andersen møller";"m";"56";"Arbejdsmand (ud...?? Gaardskarl)";"Fader";"99900";"Worker, No Further Information";NA;NA
+"1235";"1901";"1951674";"johanne andersen";"f";"20";"Husbestyrerinde";"Barn";"22430";"Housekeeper (Private Service)";NA;NA
+"1236";"1901";"1951675";"laurs andersen";"m";"17";"Handelslærliong (Læderh) ??";"Barn";"41020";"Working Proprietor (Wholesale Trade)";NA;NA
+"1237";"1901";"1951676";"niels kærgård eriksen";"m";"32";"Arbejdsmand";"Fader";"99900";"Worker, No Further Information";NA;NA
+"1238";"1901";"1951677";"birte marie eriksen";"f";"34";NA;"Moder";NA;NA;NA;NA
+"1239";"1901";"1951678";"jens marinus sørensen";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1240";"1901";"1951679";"anne marie johanne eriksen";"f";"10";NA;"Barn";NA;NA;NA;NA
+"1241";"1901";"1951680";"jenny tomine eriksen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1242";"1901";"1951681";"harald eriksen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1243";"1901";"1951682";"niels kristensen";"m";"83";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1244";"1901";"1951683";"anne kirstine kristensen";"f";"46";NA;"Husmoder";NA;NA;NA;NA
+"1245";"1901";"1951684";"kristen kristensen";"m";"22";"Skomager Svend";"Logerende";"80110";"Shoemaker, General";NA;NA
+"1246";"1901";"1951685";"ejler martin kristensen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1247";"1901";"1951686";"amalie kirstine kristensen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1248";"1901";"1951687";"maren nielsdatter";"f";"71";"Alderdomsunderstøttelse";"Husmoder";NA;NA;NA;NA
+"1249";"1901";"1951688";"karen møller";"f";"80";"Alderdomsunderstøttelse";"Husmoder";NA;NA;NA;NA
+"1250";"1901";"1951689";"vilhelm ferdinand ruth";"m";"58";"Smedesvend";"Husfader";"83110";"Blacksmith, General";NA;NA
+"1251";"1901";"1951690";"johannes ruth";"m";"15";NA;"Barn";NA;NA;NA;NA
+"1252";"1901";"1951691";"poul ruth";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1253";"1901";"1951692";"laurs kristian laursen";"m";"42";"Arbeidsmand ved Sta Banen";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1254";"1901";"1955401";"petrine laursen";"f";"42";NA;"Husmoder";NA;NA;NA;NA
+"1255";"1901";"1955402";"gustav valdemar laursen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1256";"1901";"1955403";"andreas kristian laursen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"1257";"1901";"1955404";"johannes laursen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1258";"1901";"1955405";"peter laursen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1259";"1901";"1955406";"jens kristian andersen";"m";"49";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1260";"1901";"1955407";"karen jonsen";"f";"49";NA;"Husmoder";NA;NA;NA;NA
+"1261";"1901";"1955408";"dorte andersen";"f";"8";NA;NA;NA;NA;NA;NA
+"1262";"1901";"1955418";"morten egholm";"m";"70";"Alderdomsunderstøttelse";"Husfader";NA;NA;NA;NA
+"1263";"1901";"1955419";"marie egholm";"f";"62";NA;"Husmoder";NA;NA;NA;NA
+"1264";"1901";"1955420";"johan egholm";"m";"28";"Fabriksarbeider";"Lejer ...??";"99930";"Factory Worker";NA;NA
+"1265";"1901";"1955421";"karoline egholm";"f";"25";NA;"Husmoder";NA;NA;NA;NA
+"1266";"1901";"1951693";"johanne egholm";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1267";"1901";"1951694";"oline egholm";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1268";"1901";"1951695";"alfred egholm";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1269";"1901";"1951696";"brus";"m";"81";"Alderdomsunderstøttelse";"Husfader";NA;NA;NA;NA
+"1270";"1901";"1951697";"marianne brus";"f";"71";"Alæderdomsunderstøttelse";"Husmoder";NA;NA;NA;NA
+"1271";"1901";"1951698";"maren laursen";"f";"38";NA;"Vaskepige";"56010";"Launderer,  General";NA;NA
+"1272";"1901";"1951699";"jens kok";"m";"66";"Karetmager Alderdomsunderstøttelse";"Husfader";"81925";"Cartwright";NA;NA
+"1273";"1901";"1951700";"laursen";"m";"74";"Fiskehandler";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1274";"1901";"1951701";"maren kirstine laursen";"f";"77";NA;"Husmoder";NA;NA;NA;NA
+"1275";"1901";"1951702";"søren vestergård";"m";"33";"Fabriksarbeider";"Husfader";"99930";"Factory Worker";NA;NA
+"1276";"1901";"1951703";"kirstine vestergård";"f";"26";NA;"Husmoder";NA;NA;NA;NA
+"1277";"1901";"1951704";"søren laursen";"m";"65";"Arbeider";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1278";"1901";"1951705";"mette marie laursen";"f";"47";NA;"Husmoder";NA;NA;NA;NA
+"1279";"1901";"1951706";"anne kirstine andersen";"f";"18";NA;"Sypige";"79510";"Hand and Machine Sewer, General";NA;NA
+"1280";"1901";"1951707";"poul laursen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1281";"1901";"1951708";"anders melkiorsen";"m";"48";"Fattighjælpen";"Husfader";NA;NA;NA;NA
+"1282";"1901";"1951709";"inger melkiorsen";"f";"11";"Fattighjælpen";"Husmoder";NA;NA;NA;NA
+"1283";"1901";"1951710";"frederik petersen";"m";"28";"Tømrersvend";"Husfader";"95410";"Carpenter, General";NA;NA
+"1284";"1901";"1951711";"karen petersen";"f";"30";"Husmoder";"1900";NA;NA;NA;NA
+"1285";"1901";"1951712";"søren petersen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"1286";"1901";"1951713";"poul petersen";"m";"7";NA;"Barn";NA;NA;NA;NA
+"1287";"1901";"1951714";"anne katrine petersen";"f";"57";NA;"Husmoder";NA;NA;NA;NA
+"1288";"1901";"1951715";"amine kondrup";"f";"35";NA;"Husmoder";NA;NA;NA;NA
+"1289";"1901";"1951716";"vilhelmine kondrup";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1290";"1901";"1951717";"frits kondrup";"m";"7";NA;"Barn";NA;NA;NA;NA
+"1291";"1901";"1951718";"søren poulsen brun";"m";"56";"Fyrbøder";"Husfader";"96930";"Boiler Fireman";NA;NA
+"1292";"1901";"1951719";"marianne nielsen";"f";"55";NA;"Husmoder";NA;NA;NA;NA
+"1293";"1901";"1951720";"anne ulriksen";"f";"22";"Alderdomsundersatøttelse";"Husmoder";NA;NA;NA;NA
+"1294";"1901";"1951721";"jens mark jensen";"m";"47";"Skomager";"Husfader";"80110";"Shoemaker, General";NA;NA
+"1295";"1901";"1951722";"anne katrine jensen";"f";"37";NA;"Husmoder";NA;NA;NA;NA
+"1296";"1901";"1951723";"anders jensen";"m";"12";NA;"Barn";NA;NA;NA;NA
+"1297";"1901";"1951724";"elise jensen";"f";"10";NA;"Barn";NA;NA;NA;NA
+"1298";"1901";"1951725";"frik jensen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1299";"1901";"1951726";"johanne marie jensen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1300";"1901";"1951727";"anne dorte jensen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1301";"1901";"1951728";"elise poulsdatter";"f";"76";NA;"Aftægtskone";NA;NA;NA;NA
+"1302";"1901";"1951729";"anders balle andersen";"m";"53";"Fabriksarbeider";"Husfader";"99930";"Factory Worker";NA;NA
+"1303";"1901";"1951730";"mette kirstine andersen";"f";"52";NA;"Husmoder";NA;NA;NA;NA
+"1304";"1901";"1951731";"peter andersen";"m";"21";"Fabriksarbeider";NA;"99930";"Factory Worker";NA;NA
+"1305";"1901";"1951732";"marie andersen";"f";"18";NA;"Pige";"62120";"Farm Servant";NA;NA
+"1306";"1901";"1951733";"søren andersen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1307";"1901";"1951734";"søren jensen bak";"m";"67";NA;"Husfader";NA;NA;NA;NA
+"1308";"1901";"1951735";"anne marie bak";"f";"51";NA;"Husmoder";NA;NA;NA;NA
+"1309";"1901";"1951736";"else bak";"f";"25";NA;"Datter";NA;NA;NA;NA
+"1310";"1901";"1951737";"alfred bak";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1311";"1901";"1951738";"laura petersen";"f";"25";NA;"Strygejomfru";"56070";"Presser (Hand)";NA;NA
+"1312";"1901";"1951739";"anders andersen";"m";"46";"Smed";"Husfader";"83110";"Blacksmith, General";NA;NA
+"1313";"1901";"1951740";"tora andersen";"f";"44";NA;"Husmoder";NA;NA;NA;NA
+"1314";"1901";"1951741";"poul andersen";"m";"18";NA;"Barn";NA;NA;NA;NA
+"1315";"1901";"1951742";"morten andersen";"m";"15";NA;"Barn";NA;NA;NA;NA
+"1316";"1901";"1951743";"karl andersen";"m";"13";NA;"Barn";NA;NA;NA;NA
+"1317";"1901";"1951744";"peter andersen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1318";"1901";"1951745";"katrine andersen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1319";"1901";"1951746";"peter tygesen";"m";"76";"Alderdomsunderstøttelse";"Husfader";NA;NA;NA;NA
+"1320";"1901";"1951747";"villesen";"m";"63";"Alderdomsunderstøttelse";"Husfader";NA;NA;NA;NA
+"1321";"1901";"1951748";"anne marie sillesen";"f";"62";NA;"Husmoder";NA;NA;NA;NA
+"1322";"1901";"1951749";"hans kristensen skive";"m";"43";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1323";"1901";"1951750";"johanne skive";"f";"41";NA;NA;NA;NA;NA;NA
+"1324";"1901";"1951751";"marie skive";"f";"16";NA;"Barn";NA;NA;NA;NA
+"1325";"1901";"1951752";"kristian skive";"m";"15";NA;"Barn";NA;NA;NA;NA
+"1326";"1901";"1951753";"anne skive";"f";"13";NA;"Barn";NA;NA;NA;NA
+"1327";"1901";"1951754";"alma skive";"f";"10";NA;"Barn";NA;NA;NA;NA
+"1328";"1901";"1951755";"ejner skive";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1329";"1901";"1951756";"valdemar skive";"m";"5";NA;"Barn";NA;NA;NA;NA
+"1330";"1901";"1951757";"amine skive";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1331";"1901";"1951758";"vilhelm skive";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1332";"1901";"1951759";"karl brink";"m";"74";"Alderdomswunderstøttelse Tømrer";"Husfader";"95410";"Carpenter, General";NA;NA
+"1333";"1901";"1951760";"dorte brink";"f";"68";"Rullekone";"Husmoder";"56065";"Presser (Hand or Machine)";NA;NA
+"1334";"1901";"1951761";"nielsen";"m";"35";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1335";"1901";"1951762";"else marie nielsen";"f";"29";NA;"Husmoder";NA;NA;NA;NA
+"1336";"1901";"1951763";"amine nielsen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1337";"1901";"1951764";"tine kristensdatter";"f";"74";"Væverske Nyder Alderdomsunderstøttelse";"Husmoder";"75400";"Weaver, Specialisation Unknown";NA;NA
+"1338";"1901";"1951765";"kristen nielsen";"m";"58";"Arbeidsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1339";"1901";"1951766";"else marie nielsen";"f";"61";NA;"Husmoder";NA;NA;NA;NA
+"1340";"1901";"1951767";"anne margrete pedersen bak";"f";"51";NA;"Husmoder";NA;NA;NA;NA
+"1341";"1901";"1951768";"petersen bak";"m";"29";"Smedesvend";"Søn";"83110";"Blacksmith, General";NA;NA
+"1342";"1901";"1951769";"serine sandholt";"m";"15";NA;"PÅlejebarn";NA;NA;NA;NA
+"1343";"1901";"1951770";"martin kristensen";"m";"38";"Fabriksarbejder";"Husfader";"99930";"Factory Worker";NA;NA
+"1344";"1901";"1951771";"mette marie kristensen";"f";"48";NA;"Husmoder";NA;NA;NA;NA
+"1345";"1901";"1951772";"niels bodil kristensen";"m";"15";NA;"Barn";NA;NA;NA;NA
+"1346";"1901";"1951773";"ester katrine kristensen";"f";"10";NA;"Barn";NA;NA;NA;NA
+"1347";"1901";"1951774";"peter andersen";"m";"40";"Fabriksarbeider";"Husfader";"99930";"Factory Worker";NA;NA
+"1348";"1901";"1951775";"elise andersen";"f";"44";NA;"Husmoder";NA;NA;NA;NA
+"1349";"1901";"1951776";"andersen";"m";"18";"Former Lærling";NA;"72550";"Coremaker (Hand)";NA;NA
+"1350";"1901";"1951777";"anton andersen";"m";"13";NA;"Barn";NA;NA;NA;NA
+"1351";"1901";"1952049";"agner andersen";"m";"10";"½";"Barn";NA;NA;NA;NA
+"1352";"1901";"1952050";"elvine andersen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1353";"1901";"1952051";"ester de borre andersen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1354";"1901";"1952052";"henrik emil strunge";"m";"59";"Pasliklier?? Forhenværende Farver";"Husfader";NA;NA;NA;NA
+"1355";"1901";"1952053";"elise martine strunge";"f";"30";"Husbestyrerinde";"Barn";"22430";"Housekeeper (Private Service)";NA;NA
+"1356";"1901";"1952054";"helga emilie strunge";"f";"21";NA;"Barn";NA;NA;NA;NA
+"1357";"1901";"1952055";"elise marie kristensen";"f";"17";"Enepige i Husgjerning";"Tjenestetyende";"62120";"Farm Servant";NA;NA
+"1358";"1901";"1952056";"niels jensen";"m";"53";"Kontorist paa Nykjøbing Byfopgedkontor. Sognefoged?? i l...?? (...?? kandidat)";"Husfader";"20210";"Government Administrator";NA;NA
+"1359";"1901";"1952057";"ellen marie pedersen";"f";"49";NA;"Husmoder";NA;NA;NA;NA
+"1360";"1901";"1952058";"anne kirstine jensen";"f";"14";NA;"Barn";NA;NA;NA;NA
+"1361";"1901";"1952059";"peter georg julius jensen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1362";"1901";"1952060";"kristian vilhelm valdemar jensen";"m";"9";NA;"Barn";NA;NA;NA;NA
+"1363";"1901";"1952061";"niels frederik valdemar jensen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1364";"1901";"1952062";"dorte marie jensen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1365";"1901";"1952063";"sofie jensen";"f";"13";NA;"Barn";NA;NA;NA;NA
+"1366";"1901";"1952064";"sofie jensen";"f";"13";NA;"Barn";NA;NA;NA;NA
+"1367";"1901";"1952065";"johannes jensen";"m";"39";"Modelsnedker";"Husfader";"81000";"Woodworker, Specialisation Unknown";NA;NA
+"1368";"1901";"1952066";"kirstine jensen";"f";"36";NA;"Husmoder";NA;NA;NA;NA
+"1369";"1901";"1952067";"jens rasmus jensen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1370";"1901";"1952068";"anne dorte jensen";"f";"10";NA;"Barn";NA;NA;NA;NA
+"1371";"1901";"1952069";"martine kirstine jensen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1372";"1901";"1952070";"gerda sofie jensen";"f";"4";NA;"Barn";NA;NA;NA;NA
+"1373";"1901";"1952071";"harald emil jensen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1374";"1901";"1952072";"meren blåbjerg";"m";"27";"Tobaksaarbejder";"Husfader";"78220";"Cigar Maker (Hand)";NA;NA
+"1375";"1901";"1952073";"maren blåbjerg";"f";"29";NA;"Husmoder";NA;NA;NA;NA
+"1376";"1901";"1952074";"anne katrine blåbjerg";"f";"4";NA;"Barn";NA;NA;NA;NA
+"1377";"1901";"1952075";"hilda petrine blåbjerg";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1378";"1901";"1960911";"anders bro rabæk";"m";"36";"Roerskarl ved Fiskerikontrollen";"Husfader";"98190";"Other Ships' Deck Ratings, Barge Crews and Boatmen";NA;NA
+"1379";"1901";"1952076";"anne kirstine rabæk";"f";"30";NA;"Husmoder";NA;NA;NA;NA
+"1380";"1901";"1952077";"hansine katrine birgitte rabæk";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1381";"1901";"1952078";"hansine margrete rabæk";"f";"7";NA;"Barn";NA;NA;NA;NA
+"1382";"1901";"1952079";"niels kristian laursen rabæk";"m";"5";NA;"Barn";NA;NA;NA;NA
+"1383";"1901";"1952080";"justine rabæk";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1384";"1901";"1952081";"niels poulsen";"m";"32";"Fisker og Dykker";"Husfader";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"1385";"1901";"1952082";"kirsten marie nielsen";"f";"32";NA;"Husmoder";NA;NA;NA;NA
+"1386";"1901";"1952083";"anders kristian poulsen";"m";"6";NA;"Barn";NA;NA;NA;NA
+"1387";"1901";"1952084";"anne margrete poulsen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1388";"1901";"1952085";"johannes poulsen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1389";"1901";"1952086";"peter kristian poulsen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1390";"1901";"1952087";"niels kristian poulsen";"m";"40";"R...rver??";"Husfader";NA;NA;NA;NA
+"1391";"1901";"1952088";"anne katrine pedersen";"f";"40";NA;"Husmoder";NA;NA;NA;NA
+"1392";"1901";"1952089";"poul poulsen";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1393";"1901";"1952090";"amine bolene poulsen";"f";"13";NA;"Barn";NA;NA;NA;NA
+"1394";"1901";"1952091";"dagmar poulsen";"f";"11";NA;"Barn";NA;NA;NA;NA
+"1395";"1901";"1952092";"anne marie poulsen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1396";"1901";"1952093";"else marie poulsen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1397";"1901";"1952094";"elisabet poulsen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1398";"1901";"1952095";"jens jensen poulsen";"m";"29";"Fisker Arbejdsmand";"Husfader";"64100";"Fisherman, DeepSea or Inland and Coastal Water";"99900";"Worker, No Further Information"
+"1399";"1901";"1952096";"gerda marie kristensen";"f";"28";NA;"Husmoder";NA;NA;NA;NA
+"1400";"1901";"1952097";"jens poulsen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1401";"1901";"1952098";"else marie poulsen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1402";"1901";"1952099";"mette marie poulsen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1403";"1901";"1952100";"kristen jensen";"m";"46";NA;"Husfader";NA;NA;NA;NA
+"1404";"1901";"1952101";"anne mikkelsen dal";"f";"44";NA;"Husmoder";NA;NA;NA;NA
+"1405";"1901";"1952102";"kristen poulsen";"m";"46";"Murer Svend";"Husfader";"95120";"Bricklayer (Construction)";NA;NA
+"1406";"1901";"1952103";"inger marie poulsen";"f";"40";"Syerske";"Husmoder";"79510";"Hand and Machine Sewer, General";NA;NA
+"1407";"1901";"1952104";"robert poulsen";"m";"16";"Skreder Lærling";"Barn";"79100";"Tailor, Specialisation Unknown";NA;NA
+"1408";"1901";"1952105";"marie klaudine poulsen";"f";"14";NA;"Barn";NA;NA;NA;NA
+"1409";"1901";"1952106";"holger johannes poulsen";"m";"7";NA;"Barn";NA;NA;NA;NA
+"1410";"1901";"1952107";"karen kirstine svendsen";"f";"80";"Fattighjælp";"Husmoder";NA;NA;NA;NA
+"1411";"1901";"1952108";"søren andersen";"m";"45";"Arbejdsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1412";"1901";"1952109";"mette marie andersen";"f";"40";NA;"Husmoder";NA;NA;NA;NA
+"1413";"1901";"1952110";"marianne marie andersen";"f";"17";NA;"Barn";NA;NA;NA;NA
+"1414";"1901";"1952111";"alfred emil andersen";"m";"10";NA;"Barn";NA;NA;NA;NA
+"1415";"1901";"1952112";"martin laursen";"m";"27";"Portør";"Husfader";"07210";"Auxiliary Nurse";NA;NA
+"1416";"1901";"1952113";"kirstine severin kristensen";"f";"29";NA;"Husmoder";NA;NA;NA;NA
+"1417";"1901";"1952114";"jens kristian laursen klingberg";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1418";"1901";"1952115";"mikael kristian klingberg laursen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"1419";"1901";"1952116";"rudolf teodor jensen";"m";"42";"Portør";"Husfader";"07210";"Auxiliary Nurse";NA;NA
+"1420";"1901";"1952117";"anne marie sørensen";"f";"37";NA;"Husmoder";NA;NA;NA;NA
+"1421";"1901";"1952118";"hans teodor otto jensen";"m";"13";NA;"Barn";NA;NA;NA;NA
+"1422";"1901";"1952119";"alvilda augusta emilie jensen";"f";"10";NA;"Barn";NA;NA;NA;NA
+"1423";"1901";"1952120";"helmut august rudolf jensen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1424";"1901";"1952121";"dagmar teodora charlotte jensen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1425";"1901";"1952122";"henning rikard jensen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1426";"1901";"1952123";"harriet emilie jensen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1427";"1901";"1952124";"laurs just laursen";"m";"35";"Pladsformand paa et tømmerlager";"Husfader";NA;NA;NA;NA
+"1428";"1901";"1952125";"nikoline marie nielsen gedde";"f";"40";NA;"Husmoder";NA;NA;NA;NA
+"1429";"1901";"1952126";"emilie marie laursen";"f";"11";NA;"Barn";NA;NA;NA;NA
+"1430";"1901";"1952127";"olga sigrid laursen";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1431";"1901";"1952128";"ragnhild johanne laursen";"f";"7";NA;"Barn";NA;NA;NA;NA
+"1432";"1901";"1952129";"hilda frederikke laursen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1433";"1901";"1952130";"ejner laursen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1434";"1901";"1952131";"dagny margrete laursen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1435";"1901";"1952132";"jens nielsen petersen";"m";"51";"Avlsbruger, Fyrbøder";"Husfader";"61110";"General Farmer";NA;NA
+"1436";"1901";"1952133";"anne elisabet petersen";"f";"53";NA;"Husmoder";NA;NA;NA;NA
+"1437";"1901";"1952134";"jens peter petersen";"m";"15";NA;"Barn";NA;NA;NA;NA
+"1438";"1901";"1952135";"mads ditlev ludvig berent";"m";"63";"Partikulier, fh. Kjøbmand";"Husfader";"41025";"Working Proprietor (Wholesale or Retail Trade)";NA;NA
+"1439";"1901";"1952136";"kirstine katrine charlotte berent";"f";"69";"Husbestyrerinde";"Søster";"22430";"Housekeeper (Private Service)";NA;NA
+"1440";"1901";"1952137";"anders kjeld andersen";"m";"29";"Former";"Husfader";"72550";"Coremaker (Hand)";NA;NA
+"1441";"1901";"1952138";"sidsel marie pedersen";"f";"27";NA;"Husmoder";NA;NA;NA;NA
+"1442";"1901";"1952139";"niels peter pedersen";"m";"52";"Daglejer arbejdsmand (??)";"Husfader";"99900";"Worker, No Further Information";"99920";"DayLabourer"
+"1443";"1901";"1952140";"johanne sørensen";"f";"46";"Syerske";"Husmoder";"79510";"Hand and Machine Sewer, General";NA;NA
+"1444";"1901";"1952141";"kirstine sørine pedersen";"f";"13";NA;"Barn";NA;NA;NA;NA
+"1445";"1901";"1952142";"ottomine pedersen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1446";"1901";"1952143";"laura marie pedersen";"f";"4";NA;"Barn";NA;NA;NA;NA
+"1447";"1901";"1952144";"peder kristian pedersen";"m";"53";"Smed";"Husfader";"83110";"Blacksmith, General";NA;NA
+"1448";"1901";"1952145";"mette marie marken";"f";"53";NA;"Husmoder";NA;NA;NA;NA
+"1449";"1901";"1952146";"mads kristian østergård pedersen";"m";"13";NA;"Barn";NA;NA;NA;NA
+"1450";"1901";"1952147";"johanne jensine nielsen";"f";"7";NA;"Plejebarn";NA;NA;NA;NA
+"1451";"1901";"1952148";"anders jørgen andersen";"m";"30";"Cigarmager";"Husfader";"78200";"Cigar Maker, Specialisation Unknown";NA;NA
+"1452";"1901";"1952149";"anne katrine hal";"f";"25";NA;"Husmoder";NA;NA;NA;NA
+"1453";"1901";"1952150";"maren inger sofie andersen";"f";"7";NA;"Barn";NA;NA;NA;NA
+"1454";"1901";"1952151";"vilhelm charles andersen";"m";"5";NA;"Barn";NA;NA;NA;NA
+"1455";"1901";"1952152";"kristian martinus andersen";"m";"3";NA;NA;NA;NA;NA;NA
+"1456";"1901";"1952153";"laura andrea andersen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1457";"1901";"1952154";"anne marie martine andersen kjeld";"f";"20";"Syjomfru";"Ungpige";"79510";"Hand and Machine Sewer, General";NA;NA
+"1458";"1901";"1952155";"mads kristian abrahamsen";"m";"55";"Tømrer og Snedker";"Husfader";"81000";"Woodworker, Specialisation Unknown";"95410";"Carpenter, General"
+"1459";"1901";"1952156";"kirsten pedersen";"f";"54";NA;"Husmoder";NA;NA;NA;NA
+"1460";"1901";"1952157";"jens kristian abrahamsen";"m";"24";"Tømresvend";"Barn";"95410";"Carpenter, General";NA;NA
+"1461";"1901";"1952158";"kristiane abrahamsen";"f";"15";NA;"Barn";NA;NA;NA;NA
+"1462";"1901";"1952159";"niels peter abrahamsen";"m";"12";NA;"Barn";NA;NA;NA;NA
+"1463";"1901";"1952160";"kristian nielsen bak";"m";"17";"Tømrelærling";"Lærling";"95410";"Carpenter, General";NA;NA
+"1464";"1901";"1952161";"konrad rasmussen høj";"m";"45";"Pakmester";"Husfader";"39140";"Storeroom Clerk";"97130";"Railway and Road Vehicle Loader"
+"1465";"1901";"1952162";"lorentse marie kallesen";"f";"42";NA;"Husmoder";NA;NA;NA;NA
+"1466";"1901";"1952163";"olga dorte høj";"f";"13";NA;"Barn";NA;NA;NA;NA
+"1467";"1901";"1952164";"margrete høj";"f";"15";NA;"Barn";NA;NA;NA;NA
+"1468";"1901";"1952165";"otto valdemar rasmus høj";"m";"10";NA;"Barn";NA;NA;NA;NA
+"1469";"1901";"1952166";"tage høj";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1470";"1901";"1952167";"josef severin sager høj";"m";"6";NA;"Barn";NA;NA;NA;NA
+"1471";"1901";"1952168";"gerda høj";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1472";"1901";"1952169";"hans peter tomassen villadsen";"m";"19";"Formerlærling";"Ungkarl";"72550";"Coremaker (Hand)";NA;NA
+"1473";"1901";"1952170";"peder jensen rostrup";"m";"64";"Murer og Arbejdsmand";"Husfader";"95120";"Bricklayer (Construction)";"99900";"Worker, No Further Information"
+"1474";"1901";"1952171";"anne cecilie andersen";"f";"63";NA;"Husmoder";NA;NA;NA;NA
+"1475";"1901";"1952172";"søren josefsen";"m";"25";"Maler";"Husfader";"93120";"Building Painter";NA;NA
+"1476";"1901";"1952173";"kirstine jakobsen";"f";"25";NA;"Husmoder";NA;NA;NA;NA
+"1477";"1901";"1952174";"henry josefsen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1478";"1901";"1952175";"frida johanne kirstine josefsen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1479";"1901";"1952176";"ole peter madsen";"m";"45";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1480";"1901";"1952177";"anne marie jensen pedersen";"f";"33";NA;"Husmoder";NA;NA;NA;NA
+"1481";"1901";"1952178";"henny kirstine cecilie madsen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1482";"1901";"1952179";"jens kristian pedersen";"m";"65";"Tømrer. Alderdomsunderstøt.";"Husfader";"95410";"Carpenter, General";NA;NA
+"1483";"1901";"1952180";"sidsel marie mikkelsen";"f";"66";"...??";"Husmoder";NA;NA;NA;NA
+"1484";"1901";"1952181";"salomon kristian jensen";"m";"28";"Typograf";"Husfader";"92110";"Printer, General";NA;NA
+"1485";"1901";"1952182";"nikoline nielsen boberg";"f";"24";NA;"Husmoder";NA;NA;NA;NA
+"1486";"1901";"1952183";"svend åge boberg jensen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1487";"1901";"1952184";"bernhard petersen";"m";"22";"Slagtersvend";"Husfader";"77310";"Butcher, General";NA;NA
+"1488";"1901";"1952185";"marianne nielsen";"f";"23";NA;"Husmoder";NA;NA;NA;NA
+"1489";"1901";"1952186";"else jensdatter";"f";"79";"Formue";"Husmoder";NA;NA;NA;NA
+"1490";"1901";"1952187";"kristian hansen";"m";NA;"Arbejdsmand Daglejer (F...jdigt??)";"Husfader";"99900";"Worker, No Further Information";"99920";"DayLabourer"
+"1491";"1901";"1952188";"mette kirstine kristensen";"f";"28";NA;"Husmoder";NA;NA;NA;NA
+"1492";"1901";"1952189";"niels kristian nielsen";"m";"42";"Arbejdsmand";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1493";"1901";"1952190";"karen østergård";"f";"38";NA;"Husmoder";NA;NA;NA;NA
+"1494";"1901";"1952191";"jens peter østergård nielsen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1495";"1901";"1952192";"anton marinus nielsen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1496";"1901";"1952193";"johanne marie nielsen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1497";"1901";"1952194";"agnes sørine nielsen";"f";"4";NA;"Barn";NA;NA;NA;NA
+"1498";"1901";"1952195";"elvira jensine nielsen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1499";"1901";"1952196";"niels peter laursen";"m";"59";"Gartner og Jordbruger";"Husfader";"61110";"General Farmer";"62700";"Nursery Workers and Gardeners"
+"1500";"1901";"1952197";"charlotte marie laursen";"f";"57";NA;"Husmoder";NA;NA;NA;NA
+"1501";"1901";"1952198";"kirstine marie laursen";"f";"16";NA;"Datter";NA;NA;NA;NA
+"1502";"1901";"1952199";"laurs laursen";"m";NA;NA;"Søn";NA;NA;NA;NA
+"1503";"1901";"1952200";"stine pedersen";"f";"89";"Aftægt";"Slægtning";NA;NA;NA;NA
+"1504";"1901";"1952201";"jens andersen dissing";"m";"71";"Landbruger";"Husfader";"61110";"General Farmer";NA;NA
+"1505";"1901";"1952202";"kirstine andersen";"f";"59";NA;"Husmoder";NA;NA;NA;NA
+"1506";"1901";"1952203";"niels kristian knudsen";"m";"37";"Jordbruger";"Husfader";"61110";"General Farmer";NA;NA
+"1507";"1901";"1952204";"inger kirstine knudsen";"f";"43";NA;"Husmoder";NA;NA;NA;NA
+"1508";"1901";"1952205";"knud kristensen knudsen";"m";"16";NA;"Søn";NA;NA;NA;NA
+"1509";"1901";"1952206";"marianne dorte knudsen";"f";"14";NA;"Datter";NA;NA;NA;NA
+"1510";"1901";"1952207";"anders kristian knudsen";"m";"10";NA;"Søn";NA;NA;NA;NA
+"1511";"1901";"1952208";"anders hansen";"m";"31";"Jordbruger";"Husfader";"61110";"General Farmer";NA;NA
+"1512";"1901";"1952209";"maren jensen";"f";"40";NA;"Barn";NA;NA;NA;NA
+"1513";"1901";"1952210";"jens kristian hansen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"1514";"1901";"1952211";"petra marie hansen";"f";"1";NA;"Barn";NA;NA;NA;NA
+"1515";"1901";"1952212";"anders jensen";"m";"73";"Jordbruger";"Husfader";"61110";"General Farmer";NA;NA
+"1516";"1901";"1952213";"kirsten marie tobiassen";"f";"57";NA;"Husmoder";NA;NA;NA;NA
+"1517";"1901";"1952214";"mads cecilius poulsen";"m";"79";"Forhv. Vejopsynsmand. Statsbane - Espedient mm Pensionist";"Husfader";NA;NA;NA;NA
+"1518";"1901";"1952215";"anne dorte magdalene poulsen født velling";"f";"75";NA;"Husmoder";NA;NA;NA;NA
+"1519";"1901";"1952216";"jensine marie andersen";"f";"24";"Almindelig Husgjerning";"Ung Pige";NA;NA;NA;NA
+"1520";"1901";"1952217";"søren kristian madsen";"m";"39";"Jordbruger";"Husfader";"61110";"General Farmer";NA;NA
+"1521";"1901";"1952218";"maren mikkelsen";"f";"33";NA;"Husmoder";NA;NA;NA;NA
+"1522";"1901";"1952219";"karen marie poulsen";"f";"63";NA;"Slægtn.";NA;NA;NA;NA
+"1523";"1901";"1952220";"ole jensen";"m";"49";"Arbejdsmand og Jordb.";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1524";"1901";"1952221";"else kirstine jensen";"f";"48";NA;"Husmoder";NA;NA;NA;NA
+"1525";"1901";"1952222";"else kirstine jensen";"f";"48";NA;"Husmoder";NA;NA;NA;NA
+"1526";"1901";"1952223";"dagmar jensen";"f";"11";NA;"Datter";NA;NA;NA;NA
+"1527";"1901";"1952224";"andrea jensen";"f";"8";NA;"Datter";NA;NA;NA;NA
+"1528";"1901";"1952225";"søren kristian jensen";"m";"6";NA;"Søn";NA;NA;NA;NA
+"1529";"1901";"1952226";"jens kristian jensen";"m";"23";"Arbejdsmand";"Søn";"99900";"Worker, No Further Information";NA;NA
+"1530";"1901";"1952227";"niels nielsen ris";"m";"31";"Handelsgartner";"Husfader";"62700";"Nursery Workers and Gardeners";NA;NA
+"1531";"1901";"1952228";"augusta poulsen ris";"f";"36";NA;"Husmoder";NA;NA;NA;NA
+"1532";"1901";"1952229";"johan nielsen ris";"m";"33";"Handelsgartner";"Kompanjon";"62700";"Nursery Workers and Gardeners";NA;NA
+"1533";"1901";"1952230";"marie kristensen";"f";"19";NA;"Slægtning";NA;NA;NA;NA
+"1534";"1901";"1952231";"laurs knakkegård";"m";"17";NA;"Gartnerelev";"62700";"Nursery Workers and Gardeners";NA;NA
+"1535";"1901";"1952232";"martin nielsen";"m";"15";NA;"Gartnerelev";"62700";"Nursery Workers and Gardeners";NA;NA
+"1536";"1901";"1952233";"maren tomassen";"f";"23";NA;"Gæst??";NA;NA;NA;NA
+"1537";"1901";"1952234";"niels ovesen";"m";"37";"Sagfører";"Husbonde";"12110";"Lawyer";NA;NA
+"1538";"1901";"1952235";"kristen madsen kristensen";"m";"28";"Fast tjenende ved jordbr.";"Tjænestekarl";"62120";"Farm Servant";NA;NA
+"1539";"1901";"1952236";"poul kristian andersen";"m";"40";"Arbejdsmand og Jordbr.";"Husfader";"99900";"Worker, No Further Information";NA;NA
+"1540";"1901";"1952237";"petrine andersen";"f";"36";NA;"Husmoder";NA;NA;NA;NA
+"1541";"1901";"1952238";"anders andersen";"m";"14";"Tobaksarbejder";"Søn";"78220";"Cigar Maker (Hand)";NA;NA
+"1542";"1901";"1952239";"anne marie andersen";"f";"12";NA;"Datter";NA;NA;NA;NA
+"1543";"1901";"1952240";"niels hansen andersen";"m";"9";NA;"Søn";NA;NA;NA;NA
+"1544";"1901";"1952241";"marianne andersen";"f";"7";NA;"Datter";NA;NA;NA;NA
+"1545";"1901";"1952242";"maren kirstine andersen";"f";"5";NA;"Datter";NA;NA;NA;NA
+"1546";"1901";"1952243";"jensine nikoline andersen";"f";"3";NA;"Datter";NA;NA;NA;NA
+"1547";"1901";"1952244";"johanne katrine andersen";"f";"1";NA;"Datter";NA;NA;NA;NA
+"1548";"1901";"1952245";"jens andersen kjeld";"m";"59";"Jordbruger og landarbeider";"Husfader";"61110";"General Farmer";NA;NA
+"1549";"1901";"1952246";"else andersen kjeld";"f";"54";NA;"Husmoder";NA;NA;NA;NA
+"1550";"1901";"1952247";"katrine andersen kjeld";"f";"13";NA;"Datter";NA;NA;NA;NA
+"1551";"1901";"1952248";"peder kristian pedersen";"m";"35";"Jordbruger Husm";"Husfader";"61110";"General Farmer";"62105";"FarmWorker, General"
+"1552";"1901";"1952249";"jensine katrine pedersen";"f";"35";"½";"Husmoder";NA;NA;NA;NA
+"1553";"1901";"1952250";"karen marie pedersen";"f";"1";NA;"Datter";NA;NA;NA;NA
+"1554";"1901";"1952251";"jens jensen allerup";"m";"40";"Tømrer Landbruger";"Husfader";"95410";"Carpenter, General";NA;NA
+"1555";"1901";"1952252";"cecilie nyby";"f";"54";"Husbestyrerinde";"Husmoder";"22430";"Housekeeper (Private Service)";NA;NA
+"1556";"1901";"1952253";"kristen andersen allerup";"m";"13";NA;"Barn";NA;NA;NA;NA
+"1557";"1901";"1952254";"peder kristian nygård jensen";"m";"47";"Arbejdsløs";"Logerende Slægtning";NA;NA;NA;NA
+"1558";"1901";"1952255";"niels mikkelsen hansen";"m";"40";"Landmand";"Husfader";"61110";"General Farmer";NA;NA
+"1559";"1901";"1952256";"inger marie hansen";"f";"43";NA;"Husmoder";NA;NA;NA;NA
+"1560";"1901";"1952257";"anders mikkelsen hansen";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1561";"1901";"1952258";"kirsten marie hansen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1562";"1901";"1952259";"karen marie hansen";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1563";"1901";"1952260";"margrete hansen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1564";"1901";"1952261";"jens hangård";"m";"53";"Jordbruger";"Husfader";"61110";"General Farmer";NA;NA
+"1565";"1901";"1952262";"inger marie jensen hangård";"f";"17";NA;"Husmoder";NA;NA;NA;NA
+"1566";"1901";"1952263";"marie hangård";"f";"18";NA;"Datter";NA;NA;NA;NA
+"1567";"1901";"1952264";"kristen frostholm svendsen";"m";"28";"Tømrermester";"Husfader";"95410";"Carpenter, General";NA;NA
+"1568";"1901";"1952265";"agnete jensen svendsen";"f";"20";NA;"Husmoder";NA;NA;NA;NA
+"1569";"1901";"1952266";"svenning jensen frostholm svend";"m";"2";NA;"Barn";NA;NA;NA;NA
+"1570";"1901";"1952267";"marie jensen flade";"f";"22";"Sypige";"Slægtning";"79510";"Hand and Machine Sewer, General";NA;NA
+"1571";"1901";"1952268";"anders nielsen pedersen";"m";"23";"Tømresvend";NA;"95410";"Carpenter, General";NA;NA
+"1572";"1901";"1952269";"tomas pedersen";"m";"18";"Tømrerlærling";"Lærling";"95410";"Carpenter, General";NA;NA
+"1573";"1901";"1952270";"axel hagensen";"m";"18";"Tømrerlærling";"Lærling";"95410";"Carpenter, General";NA;NA
+"1574";"1901";"1952271";"niels nielsen";"m";"20";"Maskinarbejder";NA;"99930";"Factory Worker";NA;NA
+"1575";"1901";"1952272";"peter laursen";"m";"44";"Landbruger Støberiarbejder";"Husfader";"72420";"Metal Pourer";NA;NA
+"1576";"1901";"1952273";"anne jakobsen";"f";"42";NA;"Husmoder";NA;NA;NA;NA
+"1577";"1901";"1952274";"johanne marie laursen";"f";"13";NA;"Datter";NA;NA;NA;NA
+"1578";"1901";"1952275";"viggo alfred laursen";"m";"6";NA;"Søn";NA;NA;NA;NA
+"1579";"1901";"1952276";"erik kristian laursen";"m";"4";NA;"Søn";NA;NA;NA;NA
+"1580";"1901";"1952277";"martinus laursen";"m";"1";NA;"Søn";NA;NA;NA;NA
+"1581";"1901";"1952278";"jens pedersen nielsen";"m";"41";"Jordbruger og Daglejer";"Husfader";"61110";"General Farmer";"99920";"DayLabourer"
+"1582";"1901";"1952279";"karen marie nielsen";"f";"40";NA;"Husmoder";NA;NA;NA;NA
+"1583";"1901";"1952280";"niels jensen nielsen";"m";"12";NA;"Søn";NA;NA;NA;NA
+"1584";"1901";"1952281";"anne henriette nielsen";"f";"8";NA;"Datter";NA;NA;NA;NA
+"1585";"1901";"1952282";"sidsel nielsen";"f";"4";NA;"Datter";NA;NA;NA;NA
+"1586";"1901";"1952283";"knud kristensen";"m";"67";"Husmand";"Husfader";"62105";"FarmWorker, General";NA;NA
+"1587";"1901";"1952284";"anne cecilie jørgensen";"f";"69";NA;"Husmoder";NA;NA;NA;NA
+"1588";"1901";"1952285";"niels andersen";"m";"44";"Husejer Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1589";"1901";"1952286";"kirsten jensen";"f";"48";NA;"Husmoder";NA;NA;NA;NA
+"1590";"1901";"1952287";"anders andersen";"m";"12";NA;"Datter";NA;NA;NA;NA
+"1591";"1901";"1952288";"karl andersen";"m";"10";NA;"Barn";NA;NA;NA;NA
+"1592";"1901";"1952289";"åge peter andersen";"m";"7";NA;"Barn";NA;NA;NA;NA
+"1593";"1901";"1952290";"jens hjort";"m";"57";"Husejer Murer";"Husfader";"62105";"FarmWorker, General";"95120";"Bricklayer (Construction)"
+"1594";"1901";"1952291";"jenny johanne pedersen";"f";"14";NA;"Barn";NA;NA;NA;NA
+"1595";"1901";"1952292";"jens kristian nielsen";"m";"55";"Husejer Jordbruger Vejmand";"Husfader";"62105";"FarmWorker, General";NA;NA
+"1596";"1901";"1952293";"marianne laursen";"f";"57";"Husmoder";"Husmoder";NA;NA;NA;NA
+"1597";"1901";"1952294";"anders kristian nielsen";"m";"15";"Formerlærling";"Barn";"72550";"Coremaker (Hand)";NA;NA
+"1598";"1901";"1952295";"anders nielsen";"m";"40";"Boelsmand Jordbruger";"Husfader";"61110";"General Farmer";"61115";"Small Subsistence Farmer (Husbandman)"
+"1599";"1901";"1952296";"elisabet kristensen";"f";"31";"Husmoder";"Husmoder";NA;NA;NA;NA
+"1600";"1901";"1952297";"nikolaj nielsen";"m";"7";NA;"Barn";NA;NA;NA;NA
+"1601";"1901";"1952298";"martin laursen";"m";"23";NA;"Husfader";NA;NA;NA;NA
+"1602";"1901";"1952299";"dorte laursen";"f";"14";"Husmoder";"Husmoder";NA;NA;NA;NA
+"1603";"1901";"1952300";"anders laursen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1604";"1901";"1952301";"martine berg";"f";"53";"Husejer Jordbruger";"Husmoder";"61110";"General Farmer";"62105";"FarmWorker, General"
+"1605";"1901";"1952302";"niels sø";"m";"86";"Husejer Jordbruger Alderdo...??";"Husfader";"62105";"FarmWorker, General";NA;NA
+"1606";"1901";"1952303";"anne kirstine nielsen";"f";"81";"Husmoder alderdoms...??";"Husmoder";NA;NA;NA;NA
+"1607";"1901";"1952304";"peder mark nielsen";"m";"37";"Jordbruger Arbejsdmand";"Husfader";"61110";"General Farmer";"99900";"Worker, No Further Information"
+"1608";"1901";"1952305";"inger marie nielsen";"f";"30";"Husmoder";"Husmoder";NA;NA;NA;NA
+"1609";"1901";"1952306";"johanne nielsen";"f";"7";NA;"Barn";NA;NA;NA;NA
+"1610";"1901";"1952307";"helga nielsen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1611";"1901";"1952308";"ingeborg nielsen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1612";"1901";"1952309";NA;"f";NA;NA;"Barn";NA;NA;NA;NA
+"1613";"1901";"1952310";"kristian henriksen";"m";"74";"Husejer Jordbruger";"Husfader";"61110";"General Farmer";"62105";"FarmWorker, General"
+"1614";"1901";"1952311";"marianne svenningsen";"f";"69";"Husmoder";"Husmoder";NA;NA;NA;NA
+"1615";"1901";"1952312";"søren kristensen";"m";"78";"Alderdomsunderstøttelse";"Indsider";NA;NA;NA;NA
+"1616";"1901";"1952313";"marianne jensdatter";"f";"81";"Alderdomsunderstøttelse";"Indsider";NA;NA;NA;NA
+"1617";"1901";"1952314";"martin laursen";"m";"27";"Husejer Bager";"Husfader";"62105";"FarmWorker, General";"77610";"Baker, General"
+"1618";"1901";"1952315";"anne kirstine jensen";"f";"26";"Husmoder";"Husmoder";NA;NA;NA;NA
+"1619";"1901";"1952316";"jens kristian pedersen dam";"m";"39";"Gaardmand Gartner";"Husfader";"61110";"General Farmer";"62700";"Nursery Workers and Gardeners"
+"1620";"1901";"1952317";"anne margrete mikkelsen";"f";"43";NA;"Husmoder";NA;NA;NA;NA
+"1621";"1901";"1952318";"kirsten marie dam";"f";"18";NA;"Barn";NA;NA;NA;NA
+"1622";"1901";"1952319";"marie madsen";"f";"12";NA;"Plejebarn";NA;NA;NA;NA
+"1623";"1901";"1952320";"laurs peter pedersen dam";"m";"16";"Gar...??";"Barn";NA;NA;NA;NA
+"1624";"1901";"1952321";"laurs peter pedersen dam";"m";"71";"Husejer Jordbruger";"Husfader";"61110";"General Farmer";"62105";"FarmWorker, General"
+"1625";"1901";"1952322";"maren jensdatter";"f";"71";"Husmoder";"Husmoder";NA;NA;NA;NA
+"1626";"1901";"1952323";"ole peter mortensen";"m";"47";"Landbruger Arbejdsmand";"Husfader";"61110";"General Farmer";"99900";"Worker, No Further Information"
+"1627";"1901";"1952324";"johanne nielsen";"f";"45";NA;"Husmoder";NA;NA;NA;NA
+"1628";"1901";"1952325";"søren anders mortensen";"m";"12";NA;"Barn";NA;NA;NA;NA
+"1629";"1901";"1952326";"martin kristian mortensen";"m";"10";NA;"Barn";NA;NA;NA;NA
+"1630";"1901";"1952327";"karen nielsdatter";"f";"70";"Alderdomsunderstøttelse";"Husmoder";NA;NA;NA;NA
+"1631";"1901";"1952328";"peder kristian bendix";"m";"72";"Lever af sin?? Formue";"Husfader";NA;NA;NA;NA
+"1632";"1901";"1952329";"eleonora kirstine kristensen";"f";"19";"??... tyende";"Enepige??";"62120";"Farm Servant";NA;NA
+"1633";"1901";"1952330";"marie frederikke bendix født strunge";"f";"64";NA;NA;NA;NA;NA;NA
+"1634";"1901";"1952331";"hans hansen";"m";"28";"Landmand Forpagter";"Husfader";"61110";"General Farmer";NA;NA
+"1635";"1901";"1952332";"julie severin hansen";"f";"29";NA;"Husmoder";NA;NA;NA;NA
+"1636";"1901";"1952333";"kaj severin hansen";"m";"2";NA;"Barn";NA;NA;NA;NA
+"1637";"1901";"1952334";NA;"m";"1";NA;"Barn";NA;NA;NA;NA
+"1638";"1901";"1952335";"jens dalgård hansen";"m";"21";"Snedkerlærling";"Slægtning";"81000";"Woodworker, Specialisation Unknown";NA;NA
+"1639";"1901";"1952336";"jens jokumsen bank";"m";"21";"Forvalter";"Forvalter";"22520";"Farm Supervisor";NA;NA
+"1640";"1901";"1952337";"kristen andersen vorm";"m";"29";"Fodermester";"Tjenestetyende";"22520";"Farm Supervisor";NA;NA
+"1641";"1901";"1952338";"kristian hansen";"m";"18";"Arbejda karl";"Tjenestetyende";"99900";"Worker, No Further Information";NA;NA
+"1642";"1901";"1952339";"laurs kristian nielsen";"m";"15";"Mælkekusk";"Tjenestetyende";"98620";"AnimalDrawn Vehicle Driver (Road)";NA;NA
+"1643";"1901";"1952340";"anne kirstine madsen";"f";"20";"Mejerske";"Mejerske";"77510";"Dairy Product Processor, General";NA;NA
+"1644";"1901";"1952341";"laurine nielsen";"f";"18";"Pige";"Tyende";"62120";"Farm Servant";NA;NA
+"1645";"1901";"1952342";"augusta olesen";"f";"16";"Pige";"Tyende";"62120";"Farm Servant";NA;NA
+"1646";"1901";"1952343";"jeppe kristensen";"m";"46";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1647";"1901";"1952344";"dorte kirstine nielsen";"f";"40";"Husbestyrerinde";"Husbestyrerinde";"22430";"Housekeeper (Private Service)";NA;NA
+"1648";"1901";"1952345";"maren marie nielsen";"f";"15";"Tjenestepige";"Barn";"62120";"Farm Servant";NA;NA
+"1649";"1901";"1952346";"niels peter jensen";"m";"52";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1650";"1901";"1952347";"andrea jensen";"f";"45";NA;"Husmoder";NA;NA;NA;NA
+"1651";"1901";"1952348";"anders jensen";"m";"20";"Herregaardsgartner";"Logerende";"62700";"Nursery Workers and Gardeners";NA;NA
+"1652";"1901";"1952349";"jens jensen";"m";"18";"Tømrelærling";"Logerende";"95410";"Carpenter, General";NA;NA
+"1653";"1901";"1952350";"johanne jensen";"f";"14";"Sypige??";"Barn";"79510";"Hand and Machine Sewer, General";NA;NA
+"1654";"1901";"1952351";"kirstine jensen";"f";"12";NA;"Barn";NA;NA;NA;NA
+"1655";"1901";"1952352";"anders jensen";"m";"14";"Tobaksarbejder";"Plejebarn";"78220";"Cigar Maker (Hand)";NA;NA
+"1656";"1901";"1952353";"teodor jensen";"m";"10";NA;"Barn";NA;NA;NA;NA
+"1657";"1901";"1952354";"ingrid jensen";"f";"7";NA;"Barn";NA;NA;NA;NA
+"1658";"1901";"1952355";"ejner jensen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1659";"1901";"1952356";"peder olesen";"m";"48";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1660";"1901";"1952357";"maren olesen";"f";"43";NA;"Husmoder";NA;NA;NA;NA
+"1661";"1901";"1952358";"ole olesen";"m";"22";"Forhenværende Tjenestemand?? Fisker";"Søn";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"1662";"1901";"1952359";"søren olesen";"m";"19";"Formerlærling";"Barn";"72550";"Coremaker (Hand)";NA;NA
+"1663";"1901";"1952360";"kristian marinus olesen";"m";"15";"Tobaksarbejderlærling";"Barn";"78220";"Cigar Maker (Hand)";NA;NA
+"1664";"1901";"1952361";"alfred valdemar olesen";"m";"13";"Tobaksarbejderlærling";"Barn";"78220";"Cigar Maker (Hand)";NA;NA
+"1665";"1901";"1952362";"mette marie olesen";"f";"10";NA;"Barn";NA;NA;NA;NA
+"1666";"1901";"1952363";"ottomine olesen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1667";"1901";"1952364";"elisabet magdalene olesen";"f";"6";NA;"Barn";NA;NA;NA;NA
+"1668";"1901";"1952365";"jakobine helene olesen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1669";"1901";"1952366";NA;"f";NA;NA;"Barn";NA;NA;NA;NA
+"1670";"1901";"1952367";"kristian andersen";"m";"56";"Daglejer";"Husfader";"99920";"DayLabourer";NA;NA
+"1671";"1901";"1952368";"marie andersen";"f";"51";NA;"Husmoder";NA;NA;NA;NA
+"1672";"1901";"1952369";"torvald andersen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1673";"1901";"1952370";"jens kristian kristensen";"m";"37";"Juindrejer??";"Husfader";"81230";"Wood Turner";NA;NA
+"1674";"1901";"1952371";"mette kristensen";"f";"40";NA;"Husmoder";NA;NA;NA;NA
+"1675";"1901";"1952372";"anne kristensen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1676";"1901";"1952373";"elna kirstine kristensen";"f";"5";NA;NA;NA;NA;NA;NA
+"1677";"1901";"1952374";"søren jensen";"m";"38";"Østers Dykker";"Husfader";NA;NA;NA;NA
+"1678";"1901";"1952375";"johanne jensen";"f";"41";NA;"Husmoder";NA;NA;NA;NA
+"1679";"1901";"1952376";"alfred vilhelm holm";"m";"12";NA;"Plejebarn";NA;NA;NA;NA
+"1680";"1901";"1952377";"sidsel marie bak";"f";"52";"Væverske";"Husmoder";"75400";"Weaver, Specialisation Unknown";NA;NA
+"1681";"1901";"1952378";"johanne nielsen bak";"f";"13";NA;"Barn";NA;NA;NA;NA
+"1682";"1901";"1952379";"mette katrine nielsen bak";"f";"11";NA;"Barn";NA;NA;NA;NA
+"1683";"1901";"1952380";"ole pedersen";"m";"81";"Alderdomsunderstøttelse";"Pensioner";NA;NA;NA;NA
+"1684";"1901";"1952381";"kristen jensen nielsen";"m";"46";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1685";"1901";"1952382";"mette nielsen";"f";"44";"Forhenværende Syerske";"Husmoder";"79510";"Hand and Machine Sewer, General";NA;NA
+"1686";"1901";"1952383";"edvard kristen nielsen";"m";"13";"Tobaksarbejder";"Søn";"78220";"Cigar Maker (Hand)";NA;NA
+"1687";"1901";"1952384";"jens kristen nielsen";"m";"10";NA;"Søn";NA;NA;NA;NA
+"1688";"1901";"1952385";"johanne nielsen";"f";"8";NA;"Datter";NA;NA;NA;NA
+"1689";"1901";"1952386";"laura nielsen";"f";"5";NA;"Datter";NA;NA;NA;NA
+"1690";"1901";"1952387";"niels madsen";"m";"49";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1691";"1901";"1952388";"johanne madsen";"f";"43";NA;"Husmoder";NA;NA;NA;NA
+"1692";"1901";"1952389";"amine nielsen";"f";"14";NA;"Datter";NA;NA;NA;NA
+"1693";"1901";"1952390";"frederik nielsen";"m";"12";NA;"Søn";NA;NA;NA;NA
+"1694";"1901";"1952391";"martin madsen";"m";"8";NA;"Søn";NA;NA;NA;NA
+"1695";"1901";"1952392";"peter nielsen";"m";"33";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1696";"1901";"1952393";"anne kirstine nielsen";"f";"39";NA;"Husmoder";NA;NA;NA;NA
+"1697";"1901";"1952394";"johanne nielsen";"f";"14";NA;"Barn";NA;NA;NA;NA
+"1698";"1901";"1952395";"jens poulsen nielsen";"m";"13";NA;"Barn";NA;NA;NA;NA
+"1699";"1901";"1952396";"kristen andersen hede";"m";"58";"Fabriksarbejder";"Husfader";"99930";"Factory Worker";NA;NA
+"1700";"1901";"1952397";"cecilie katrine andersen";"f";"59";NA;"Husmoder";NA;NA;NA;NA
+"1701";"1901";"1952398";"kristian andersen";"m";"17";"Formerlærling";"Søn";"72550";"Coremaker (Hand)";NA;NA
+"1702";"1901";"1952399";"dagmar jensen";"f";"12";NA;"Plejebarn";NA;NA;NA;NA
+"1703";"1901";"1952400";"hans jensen";"m";"15";"Thybograflærling";"Plejebarn";"92110";"Printer, General";NA;NA
+"1704";"1901";"1952401";"anders nielsen";"m";"44";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1705";"1901";"1952402";"magdalene marie nielsen";"f";"46";"Forhenværende Syerske";"Husmoder";"79510";"Hand and Machine Sewer, General";NA;NA
+"1706";"1901";"1952403";"ingvard nielsen";"m";"14";"Tobaksarbejder";"Søn";"78220";"Cigar Maker (Hand)";NA;NA
+"1707";"1901";"1952404";"mette kirstine nielsen";"f";"10";NA;"Datter";NA;NA;NA;NA
+"1708";"1901";"1952405";"anne johanne nielsen";"f";"7";NA;"Datter";NA;NA;NA;NA
+"1709";"1901";"1952406";"else marie nielsen";"f";"4";NA;"Datter";NA;NA;NA;NA
+"1710";"1901";"1952407";"matias poulsen";"m";"30";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1711";"1901";"1952408";"jensine poulsen";"f";"25";NA;"Husmoder";NA;NA;NA;NA
+"1712";"1901";"1952409";"gustav adolf poulsen";"m";"6";NA;"Søn";NA;NA;NA;NA
+"1713";"1901";"1952410";"ansgar marinus poulsen";"m";"5";NA;"Søn";NA;NA;NA;NA
+"1714";"1901";"1952411";"poul poulsen";"m";"3";NA;"Søn";NA;NA;NA;NA
+"1715";"1901";"1952412";"teodor marinus poulsen";"m";"1";NA;"Søn";NA;NA;NA;NA
+"1716";"1901";"1952413";"dorte marie hunnerup";"f";"53";"Forhenværende Væverske";"Pensionær";"75400";"Weaver, Specialisation Unknown";NA;NA
+"1717";"1901";"1952414";"anton andersen";"m";"30";"Fabriksarbejder";"Husfader";"99930";"Factory Worker";NA;NA
+"1718";"1901";"1952415";"maren andersen";"f";"29";NA;"Husmoder";NA;NA;NA;NA
+"1719";"1901";"1952416";"kristen andersen";"m";"7";NA;"Barn";NA;NA;NA;NA
+"1720";"1901";"1952417";"agnes andersen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1721";"1901";"1952418";"karl hedegård andersen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1722";"1901";"1952419";"peter andersen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1723";"1901";"1952420";"mikkel kristian andersen";"m";"53";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1724";"1901";"1952421";"maren kirstine andersen";"f";"49";"Forhenværende Væverske";"Husmoder";"75400";"Weaver, Specialisation Unknown";NA;NA
+"1725";"1901";"1952422";"matilde kirstine andersen";"f";"14";NA;"Barn";NA;NA;NA;NA
+"1726";"1901";"1952423";"amalie andersen";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1727";"1901";"1952424";"elisabet katrine andersen";"f";"5";NA;"Barn";NA;NA;NA;NA
+"1728";"1901";"1952425";"niels severin andersen";"m";"48";NA;"Husfader";NA;NA;NA;NA
+"1729";"1901";"1952426";"else kirstine andersen";"f";"46";NA;"Husmoder";NA;NA;NA;NA
+"1730";"1901";"1952427";"matilde kirstine andersen";"f";"20";"Syerske";"Datter";"79510";"Hand and Machine Sewer, General";NA;NA
+"1731";"1901";"1952428";"agnes jensine andersen";"f";"14";NA;"Datter";NA;NA;NA;NA
+"1732";"1901";"1952429";"poul kristians andersen";"m";"12";NA;"Barn";NA;NA;NA;NA
+"1733";"1901";"1952430";"karoline andersen";"f";"9";NA;"Barn";NA;NA;NA;NA
+"1734";"1901";"1952431";"julie andersen";"f";"7";NA;"Barn";NA;NA;NA;NA
+"1735";"1901";"1952432";"søren kristian andersen";"m";"4";NA;"Barn";NA;NA;NA;NA
+"1736";"1901";"1955409";"jensen";"m";"67";"Tømrersvend";"Husfader";"95410";"Carpenter, General";NA;NA
+"1737";"1901";"1955410";"sine jensen";"f";"58";NA;"Husmoder";NA;NA;NA;NA
+"1738";"1901";"1955411";"matias matiassen";"m";"20";"Tømmersvend";"Llogerende??";"95410";"Carpenter, General";NA;NA
+"1739";"1901";"1955412";"valter jensen";"m";"13";NA;"Barn";NA;NA;NA;NA
+"1740";"1901";"1955413";"valter laursen";"m";"15";"Tømre Lærling";NA;"95410";"Carpenter, General";NA;NA
+"1741";"1901";"1955414";"hans hansen";"m";"48";"Møller";"Husfader";"77120";"Grain Miller";NA;NA
+"1742";"1901";"1955415";"marie madsen";"f";"70";NA;"Berstrerinde";NA;NA;NA;NA
+"1743";"1901";"1955416";"martin andersen";"m";"19";NA;"Karl";"99900";"Worker, No Further Information";NA;NA
+"1744";"1901";"1955417";"anne marie kristensen";"f";"15";NA;"Pige";"62120";"Farm Servant";NA;NA
+"1745";"1901";"1956385";"morten pedersen";"m";"37";"Kommunelærer";"Husfader";"13020";"Teacher, Level and Subject Unknown, Not University and Higher Education Level";NA;NA
+"1746";"1901";"1956386";"johanne elisabet koppel";"f";"28";"Intet erhverv";"Husmoder";NA;NA;NA;NA
+"1747";"1901";"1956387";"gudrun elise marie pedersen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1748";"1901";"1956388";"magnus koppel pedersen";"m";"3";NA;"Barn";NA;NA;NA;NA
+"1749";"1901";"1956389";"karen margrete koppel pedersen";"f";"2";NA;"Barn";NA;NA;NA;NA
+"1750";"1901";"1956390";"tomine marie katrine kirstine tomassen";"f";"15";"Husgjerning";"Tjænestepige";"22430";"Housekeeper (Private Service)";NA;NA
+"1751";"1901";"1956391";"jørgen sørensen";"m";"52";"Landmand";"Husfader ...??";"61110";"General Farmer";NA;NA
+"1752";"1901";"1956392";"mata katrine rasmine sørensen født rasmussen";"f";"41";NA;"Husmoder";NA;NA;NA;NA
+"1753";"1901";"1956393";"marie katrine rasmussen født andersen";"f";"67";"Formue";"Pensionist";NA;NA;NA;NA
+"1754";"1901";"1956394";"anne elisabet pedersen";"f";"18";NA;"Tjenestepige";"62120";"Farm Servant";NA;NA
+"1755";"1901";"1956395";"kristian ingvard nybro smit";"m";"66";"Landmand";"Husfader";"61110";"General Farmer";NA;NA
+"1756";"1901";"1956396";"anne katrine elisabet smit";"f";"43";"...??";"Husmoder";NA;NA;NA;NA
+"1757";"1901";"1956397";"emil kirstine smit";"f";"40";"Husjomfru??";"Slægtning";"54020";"House Servant";NA;NA
+"1758";"1901";"1956398";"nikoline johanne jensen";"f";"22";"Tjenestepige";"Tjenestetyende";"62120";"Farm Servant";NA;NA
+"1759";"1901";"1956399";"sine jensen";"m";"16";"Tjenestepige";"Tjenestetyende";"62120";"Farm Servant";NA;NA
+"1760";"1901";"1956400";"poul terkelsen poulsen";"m";"18";"Røgter";"Røgter";"62450";"FurBearing Animal Farm Worker";NA;NA
+"1761";"1901";"1956401";"no østergård kristensen";"f";"22";"Tjenestekarl";"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"1762";"1901";"1956402";"morten mortensen";"m";"23";"Tjenestekarl";"Tjenestekarl";"62120";"Farm Servant";NA;NA
+"1763";"1901";"1956403";"agnes smit";"f";"16";"Realskoleelev";"Barn";"62120";"Farm Servant";NA;NA
+"1764";"1901";"1956404";"jens henrik peder jeppesen";"m";"35";"Jordbruger";"Husfader";"61110";"General Farmer";NA;NA
+"1765";"1901";"1956405";"kirstine dagmar uldal";"f";"28";"Husmoder";"Husmoder";NA;NA;NA;NA
+"1766";"1901";"1956406";"petra elisabet kristensen";"f";"25";"Kokkepige";"Tjenestetyende";"53140";"Cook, Private Service";NA;NA
+"1767";"1901";"1956407";"madsine madsen";"f";"21";"Stuepige";NA;"54020";"House Servant";NA;NA
+"1768";"1901";"1956408";"anton kristiansen bak";"m";"23";"Avlskarl ved landbruget";NA;"62120";"Farm Servant";NA;NA
+"1769";"1901";"1956409";"anders peter laursen kibsgård andersen";"m";"23";"Arbejdskarl ved Landbruget";NA;"99900";"Worker, No Further Information";NA;NA
+"1770";"1901";"1956410";"niels kristian svenningsen";"m";"42";"Røgter Kreaturer";NA;"62450";"FurBearing Animal Farm Worker";NA;NA
+"1771";"1901";"1956411";"hans peter antonsen marinus hansen";"m";"17";"Røgter Kreaturer";NA;"62450";"FurBearing Animal Farm Worker";NA;NA
+"1772";"1901";"1956412";"johannes uldal jeppesen";"m";"7";NA;"Barn";NA;NA;NA;NA
+"1773";"1901";"1956413";"marius uldal jeppesen";"m";"5";NA;"Barn";NA;NA;NA;NA
+"1774";"1901";"1956414";"ejner uldal jeppesen";"m";"3";NA;NA;NA;NA;NA;NA
+"1775";"1901";"1956415";"maren uldal jeppesen";"f";"8";NA;"Barn";NA;NA;NA;NA
+"1776";"1901";"1960885";"kristian nielsen";"m";"46";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1777";"1901";"1960886";"kristiane pedersen";"f";"48";NA;"Husmoder";NA;NA;NA;NA
+"1778";"1901";"1960887";"mette marie pedersen";"f";"27";"Tjenestepige. A.";"Datter";"62120";"Farm Servant";NA;NA
+"1779";"1901";"1960888";"laurs kristian laursen";"m";"28";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1780";"1901";"1960889";"petrine marie pedersen";"f";"28";NA;"Husmoder";NA;NA;NA;NA
+"1781";"1901";"1960890";"kurt kristian laursen";"m";"5";NA;"Barn";NA;NA;NA;NA
+"1782";"1901";"1960891";"mary kirstine laursen";"f";"3";NA;"Barn";NA;NA;NA;NA
+"1783";"1901";"1960892";"niels kristian laursen";"m";"1";NA;"Barn";NA;NA;NA;NA
+"1784";"1901";"1960893";"anders kristian jensen";"m";"62";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1785";"1901";"1960894";"edel marie poulsen";"f";"61";NA;"Husmoder";NA;NA;NA;NA
+"1786";"1901";"1960895";"laurs jensen";"m";"21";"Arbejdsmand";"Søn";"99900";"Worker, No Further Information";NA;NA
+"1787";"1901";"1960896";"anne madsen";"f";"62";NA;"Husmoder";NA;NA;NA;NA
+"1788";"1901";"1960897";"kirstine jensen";"f";"21";"Syerske";"Datter";"79510";"Hand and Machine Sewer, General";NA;NA
+"1789";"1901";"1960898";"jens kristian olesen";"m";"48";"Fisker";"Husfader";"41030";"Working Proprietor (Retail Trade)";NA;NA
+"1790";"1901";"1960899";"elise marie sørensdatter";"f";"55";NA;"Husmoder";NA;NA;NA;NA
+"1791";"1901";"1960900";"julius jensen";"m";"26";"Tobaksarbejder";"Barn";"78220";"Cigar Maker (Hand)";NA;NA
+"1792";"1901";"1960901";"ole kristian jensen olesen";"m";"21";"Tømresvend A.";"Barn";"95410";"Carpenter, General";NA;NA
+"1793";"1901";"1960902";"kristian børgesen olesen";"m";"37";"Fisker";"Ungkarl";"64100";"Fisherman, DeepSea or Inland and Coastal Water";NA;NA
+"1794";"1901";"1960903";"laurs kristian josefsen";"m";"52";"Brolægger Arbejdsmand";"Husfader";"95160";"Paviour";NA;NA
+"1795";"1901";"1960904";"pouline kristensen";"f";"49";NA;"Husmoder";NA;NA;NA;NA
+"1796";"1901";"1960905";"marius kristian josefsen";"m";"16";NA;"Barn";NA;NA;NA;NA
+"1797";"1901";"1960906";"valdemar josefsen";"m";"14";NA;"Barn";NA;NA;NA;NA
+"1798";"1901";"1960907";"ingvard kristian josefsen";"m";"11";NA;"Barn";NA;NA;NA;NA
+"1799";"1901";"1960908";"otto teodor josefsen";"m";"8";NA;"Barn";NA;NA;NA;NA
+"1800";"1901";"1960909";"kristian poulsen vestergård";"m";"73";"Partikulier?? fhv Landmand";"Husfader";"61110";"General Farmer";NA;NA
+"1801";"1901";"1960910";"helene poulsdatter";"f";"72";NA;"Husmoder";NA;NA;NA;NA

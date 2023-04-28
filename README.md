@@ -191,9 +191,9 @@ Regression data for arcaehological data based on monte carlo sampling from 009_A
 ### N. Distance_to_market_town.csv
 | Variable | Description |
 |----------|-------------|
-| GIS_ID | GIS_ID - unique ID for the paris. |
+| GIS_ID | GIS_ID - unique ID for the parish. |
 | Distance_market_town | Distance to the closest market town centroid | 
-| Closest_market_town | Which marktet town is closest? Represented by GIS_ID |
+| Closest_market_town | Which market town is closest? Represented by GIS_ID |
 
 ## 2. Large or non-redistributable data
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 

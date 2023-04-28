@@ -19,6 +19,10 @@ merged_data = read_fst("Data/tmp_census.fst")
 hisco = read_csv2("Data/LL_hisco_codes_clean.csv") # Available here: 
 # https://www.dropbox.com/s/ov7ubxtqq21c6za/LL_hisco_codes_clean.csv?dl=0
 
+# Deleter occ cols if any, to be able to rerun this multiple times:
+merged_data = merged_data %>% 
+  select(pa_id:Born_different_county)
+
 # ==== Data cleaning ====
 hisco = hisco %>% 
   select(pa_id, Year, Erhverv, Stilling_i_husstanden, hisco1:en_hisco_text5) %>% 

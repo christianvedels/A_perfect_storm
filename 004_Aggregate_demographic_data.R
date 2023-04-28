@@ -14,6 +14,12 @@ library(fst)
 # ==== Load data ====
 merged_data = read_fst("Data/tmp_census.fst") 
 
+# # Check Nykoebing - one of the affected market towns
+# merged_data %>% 
+#   filter(GIS_ID == "691") %>% 
+#   select(Year, pa_id, name, sex, age, Occupation, Household_position, hisco1, en_hisco_text1, hisco2, en_hisco_text2) %>% 
+#   write.csv2("Data/Tmp_nykoebing.csv", fileEncoding="latin1")
+
 # ==== Misc functions ====
 # Small functions used in this script in particular
 Age_cats = function(age, lower, upper){
