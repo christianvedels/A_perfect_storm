@@ -12,6 +12,15 @@ library(foreach)
 the_data = read_csv2("Data/Arch.csv")
 geo_data = read.csv2("Data/Geo.csv")
 
+# ==== Descriptive for paper ====
+the_data %>% 
+  group_by(finding_interpretation_en) %>% 
+  count() %>% arrange(-n)
+
+the_data %>% 
+  group_by(Category) %>% 
+  count() %>% arrange(-n)
+
 # ===== Monte Carlo function ====
 # Monte Carlo
 # For i in 1:B:
