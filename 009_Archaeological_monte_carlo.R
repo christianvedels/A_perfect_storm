@@ -25,7 +25,6 @@ the_data %>%
 # Monte Carlo
 # For i in 1:B:
 #   1. Sample Year from unif(min, max)
-# Uncertainty given by percentiles
 
 # monteCarlo
 # Arguments:
