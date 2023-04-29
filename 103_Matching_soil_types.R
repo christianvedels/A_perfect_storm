@@ -61,7 +61,7 @@ ctrl = trainControl(method = "cv", number = 5, verboseIter = TRUE)
 Model = train(
   x = reg_data %>% select(-GIS_ID, -limfjord_placement_west) %>% data.frame(), 
   y = reg_data %>% select(limfjord_placement_west) %>% unlist(),
-  method = "pls", 
+  method = "xgbTree", 
   trControl = ctrl,  # Cross-validation control
   verbose = TRUE
   )

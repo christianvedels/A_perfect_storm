@@ -30,6 +30,7 @@ buildings = read_csv2("Data/Reg_arch_buildings.csv", guess_max = 2000)
 geo_data = read_csv2("Data/Geo.csv", guess_max = 2000)
 market_access = read_csv2("Data/MA_estimates.csv", guess_max = 2000) 
 arch_raw = read_csv2("Data/Arch.csv", guess_max = 2000)
+matched_parishes = read_csv2("Data/Matched_parishes.csv")
 
 # ==== Default colors ====
 # Regions:
@@ -216,10 +217,7 @@ p1 = arch_raw1 %>%
 p1
 ggsave("Plots/Arch_descriptive.png", plot = p1, width = 8, height = 5)
   
-
-
-# ==== Regressions ====
-
+# ==== Regressions full samples ====
 # MA approach
 mod1 = feols(
   activity ~ Year*Affected,
@@ -346,6 +344,163 @@ mod4 = summary(
 )
 
 plot_mod_arch(mod4, "arch_dummy_buildings", ref_year = 1000, the_col = "#273a8f")
+
+# Plot of coefs in 1350
+vcov4$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod4$coefficients[names(mod4$coefficients)=="Year1350:Affected"],
+    lty = 2
+  )
+
+
+# ==== Regressions matched sample ====
+samples_buildings_matched = lapply(samples_buildings, function(x) {
+  x %>% 
+    filter(GIS_ID %in% matched_parishes$GIS_ID)
+})
+samples_coins_matched = lapply(samples_coins, function(x) {
+  x %>% 
+    filter(GIS_ID %in% matched_parishes$GIS_ID)
+})
+
+# MA approach
+mod1 = feols(
+  activity ~ Year*Affected,
+  data = coins %>% 
+    filter(GIS_ID %in% matched_parishes$GIS_ID) %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10)
+)
+
+set.seed(20)
+vcov1 = vcov_function_boot(
+  activity ~ Year*Affected, 
+  samples = samples_coins_matched, 
+  capB = 1000, 
+  affected = "delta_lMA_theta_1_alpha_10",
+)
+
+mod1 = summary(
+  mod1,
+  vcov = vcov1$vcov
+)
+
+plot_mod_arch(mod1, "arch_MA_coins_matched", ref_year = 1000, the_col = "#DE7500")
+
+# Plot of coefs in 1350
+vcov1$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod1$coefficients[names(mod1$coefficients)=="Year1350:Affected"],
+    lty = 2
+  )
+
+
+
+# Dummy approach
+mod2 = feols(
+  activity ~ Year*Affected,
+  data = coins %>% 
+    filter(GIS_ID %in% matched_parishes$GIS_ID) %>%  
+    mutate(Affected = limfjord_placement_west)
+)
+
+set.seed(20)
+vcov2 = vcov_function_boot(
+  activity ~ Year*Affected, 
+  samples = samples_coins_matched, 
+  capB = 1000, 
+  affected = "limfjord_placement_west"
+)
+
+mod2 = summary(
+  mod2,
+  vcov = vcov2$vcov
+)
+
+plot_mod_arch(mod2, "arch_dummy_coins_matched", ref_year = 1000, the_col = "#DE7500")
+
+# Plot of coefs in 1350
+vcov2$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod2$coefficients[names(mod2$coefficients)=="Year1350:Affected"],
+    lty = 2
+  )
+
+
+# Buildings
+# MA approach
+mod3 = feols(
+  activity ~ Year*Affected,
+  data = buildings %>% 
+    filter(GIS_ID %in% matched_parishes$GIS_ID) %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+
+set.seed(20)
+vcov3 = vcov_function_boot(
+  activity ~ Year*Affected, 
+  samples = samples_buildings_matched, 
+  capB = 1000, 
+  affected = "delta_lMA_theta_1_alpha_10"
+)
+
+mod3 = summary(
+  mod3,
+  vcov = vcov3$vcov
+)
+
+plot_mod_arch(mod3, "arch_MA_buildings_matched", ref_year = 1000, the_col = "#273a8f")
+
+# Plot of coefs in 1350
+vcov3$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod3$coefficients[names(mod3$coefficients)=="Year1350:Affected"],
+    lty = 2
+  )
+
+# Dummy approach
+mod4 = feols(
+  activity ~ Year*Affected,
+  data = buildings %>% 
+    filter(GIS_ID %in% matched_parishes$GIS_ID) %>% 
+    mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+
+set.seed(20)
+vcov4 = vcov_function_boot(
+  activity ~ Year*Affected, 
+  samples = samples_buildings_matched, 
+  capB = 1000, 
+  affected = "limfjord_placement_west"
+)
+
+mod4 = summary(
+  mod4,
+  vcov = vcov4$vcov
+)
+
+plot_mod_arch(mod4, "arch_dummy_buildings_matched", ref_year = 1000, the_col = "#273a8f")
 
 # Plot of coefs in 1350
 vcov4$beta_samples %>% 

@@ -183,7 +183,7 @@ arch_sampler = function(arch_samples, capB = 1000){
 
 # ==== vcov_funciton_boot ====
 # Custom vcov from samples from arch sampler
-vcov_function_boot = function(formula, samples, capB = 100, affected = "delta_lMA_theta_1_alpha_10"){
+vcov_function_boot = function(formula, samples, capB = 100, affected = "delta_lMA_theta_1_alpha_10", Uniques_GIS_IDs = NA){
   
   start_t = Sys.time()
   
