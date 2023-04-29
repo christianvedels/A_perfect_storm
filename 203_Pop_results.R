@@ -428,6 +428,14 @@ p1
 fname0 = paste0("Plots/Regression_plots/", "Multiverse_MA_param", ".png")
 ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 
+# APE
+Pop_avg_midpoint = reg_pop %>% 
+  filter(Year %in% c(1801, 1901), limfjord_placement == "west") %>% 
+  summarise(Pop = mean(Pop)) %>% unlist()
+
+APE1 = Pop_avg_midpoint * mod1$coefficients["Year1901:Affected"]
+APE2 = Pop_avg_midpoint * mod2$coefficients["Year1901:Affected"]
+
 # ==== Mechanism occupation ====
 # Breach --> Fishing
 fish = feols(
@@ -449,6 +457,20 @@ manu = feols(
 plot_mod(
   manu, "manu", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
+
+
+# APE
+Fish_avg_midpoint = reg_pop %>% 
+  filter(Year %in% c(1801, 1901), limfjord_placement == "west") %>% 
+  summarise(Fishing = mean(Fishing)) %>% unlist()
+
+Manu_avg_midpoint = reg_pop %>% 
+  filter(Year %in% c(1801, 1901), limfjord_placement == "west") %>% 
+  summarise(Manufacturing = mean(Manufacturing)) %>% unlist()
+
+APE_fish = Fish_avg_midpoint * fish$coefficients["Year1901:Affected"]
+APE_fish = Manu_avg_midpoint * manu$coefficients["Year1901:Affected"]
+
 
 # ==== Mechanism internal migration ====
 # Breach --> Migration
@@ -480,6 +502,9 @@ plot_mod(
   fertility, "fertility", ylab = "Parameter estimate", 
   vadj = 0.15, the_col = "#2c5c34"
 )
+
+migr$coefficients["Year1901:Affected"]
+fertility$coefficients["Year1901:Affected"]
 
 # Young men
 mf = feols(
