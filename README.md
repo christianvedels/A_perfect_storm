@@ -195,6 +195,14 @@ Regression data for arcaehological data based on monte carlo sampling from 009_A
 | Distance_market_town | Distance to the closest market town centroid | 
 | Closest_market_town | Which market town is closest? Represented by GIS_ID |
 
+### O. Parish_soil.csv
+| Variable | Description |
+|----------|-------------|
+| GIS_ID | GIS_ID - unique ID for the parish. |
+| SOIL_TYPE | Soil type from Pedersen et al (2019) | 
+| area_parish | Area of the parish in m^2 |
+| pct | How much of this parish is this particular soil type |
+
 ## 2. Large or non-redistributable data
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
 
@@ -227,9 +235,14 @@ This is only used in 005_Limfjord_regions.R. It is slightly too large to redistr
 ### F. Archaeological data
 The archaehological data used, can be downloaded from the website of the Danish Agency of Culture and Palaces. They maintain a database og all arhaeological sites in Denmark. This data is processed in '008_Archaeological_data.R'.
 
+### G. Soil types shape
+This contains the soil types of modern day Denmark, which was largely determined in the last ice age. See Pedersen et al (2019). It can be downloaded from: https://www.geus.dk/produkter-ydelser-og-faciliteter/data-og-kort/danske-kort/download-jordartskort
+
 ## References 
 Boberg-Fazlic, N., Jensen, P.S., Lampe, M. et al. ‘Getting to Denmark’: the role of agricultural elites for development. J Econ Growth (2023). https://doi.org/10.1007/s10887-023-09226-8
 
 Degn, O. (1989). Byer, byhierarkier og byudvikling. Historie/Jyske Samlinger. https://tidsskrift.dk/historiejyskesamling/article/view/40197
 
 Harris, C. D. (1954). The Market as a Factor in the Localization of Industry in the United States. Annals of the Association of American Geographers, 44(4), 315–348.
+
+Pedersen, S., Hermansen, B., Nathan, C., & Tougaard, L. (2019). Surface geology map of Denmark 1:200 000, version 2. GEUS. https://eng.geus.dk/products-services-facilities/data-and-maps/maps-of-denmark

@@ -4,180 +4,106 @@
 #
 # Output:         'Parish_soil.csv'
 
+# This script is based on the following prompt to chatGPT:
+# "I have two shape files:
+#   shape_parishes
+# shape_soil
+# 
+# Shape parishes contains the borders of parishes. Shape soil contain patches of different soil types.
+# I want to use an R script to check the how much of each soil type is in each parish. "
+
+
+# I repeatedly fed the error and used its response until the present script was generated
+# this was then adapted slightly.
+
 
 # ==== Libraries ====
 library(tidyverse)
-library(rgdal)
+library(sf)
+library(ggspatial)
 
-# ==== Soil type for parishes ====
+# ==== Read in shapefiles ====
+shape_parishes = st_read("Data/sogne_shape", check_ring_dir = TRUE)
+shape_soil = st_read("Data/Jordart_200000_Shape/jordart_200000.shp", check_ring_dir = TRUE)
 
-# # Soil type shares
-# soil = readOGR("Data/Jordart_200000_Shape/jordart_200000.shp")
-# soil = soil %>%
-#   spTransform("+proj=longlat +zone=32 +ellps=GRS80")
-# 
-# # Strategy
-# # 1. Create grid
-# # 2. Sample from grid
-# # 3. Use grid to estimate values in shape data
-shape_parishes = readOGR("Data/sogne_shape")
-# shape_parishes = shape_parishes %>% 
-#   spTransform("+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs")
-# the_bbox = bbox(shape_parishes)
-# 
-# res = 100 # meters
-# 
-# long_min = the_bbox[1,1]
-# long_max = the_bbox[1,2]
-# lat_min = the_bbox[2,1]
-# lat_max = the_bbox[2,2]
-# 
-# the_grid = expand.grid(
-#   long = seq(from = long_min, to = long_max, by = res),
-#   lat = seq(from = lat_min, to = lat_max, by = res)
-# )
-# 
-# the_grid = SpatialPoints(
-#   coords = the_grid,
-#   proj4string = shape_parishes@proj4string
-# )
-# 
-# the_grid = rgeos::gIntersection(the_grid, shape_parishes, checkValidity = 2)
-# 
-# the_grid = the_grid %>%
-#   spTransform(soil@proj4string)
-# 
-# attr(the_grid@coords, "dimnames")[[1]] = 1:NROW(the_grid@coords)
-# soil_grid = the_grid %over% soil
-# soil_grid = the_grid@coords %>%
-#   data.frame() %>%
-#   bind_cols(soil_grid) %>%
-#   rename(
-#     long = x,
-#     lat = y
-#   )
-# save(soil_grid, file = "Data/Tmp_soil_grid.Rdata")
-load("Data/Tmp_soil_grid.Rdata")
 
-soil_grid_spdf = SpatialPointsDataFrame(
-  coords = soil_grid %>% select(long, lat),
-  proj4string = shape_parishes@proj4string,
-  data = soil_grid
+# ==== Find area of each soil type in each parish ====
+# Confirm that the CRS (coordinate reference system) is the same for both shapefiles
+if (st_crs(shape_parishes) != st_crs(shape_soil)) {
+  shape_soil = st_transform(shape_soil, st_crs(shape_parishes))
+}
+
+# Transform the data to a suitable projected coordinate system for Denmark
+shape_parishes = st_transform(shape_parishes, "+proj=utm +zone=32 +datum=WGS84")
+shape_soil = st_transform(shape_soil, "+proj=utm +zone=32 +datum=WGS84")
+
+# Use the st_buffer function to create a small buffer around each geometry
+shape_parishes_buff = st_buffer(shape_parishes, dist = 0.0001)
+shape_soil_buff = st_buffer(shape_soil, dist = 0.0001)
+
+# Use the st_intersection function to find the intersection of the two shapefiles
+parish_soil_intersection = st_intersection(shape_parishes_buff, shape_soil_buff)
+
+# Use the st_area function to calculate the area of each soil type within each parish
+parish_soil_area = st_area(parish_soil_intersection)
+
+area_parish = data.frame(
+  GIS_ID = shape_parishes_buff$GIS_ID,
+  AREA_PARISH = st_area(shape_parishes_buff)
 )
-parish_soils = soil_grid_spdf %over% shape_parishes
-parish_soils = bind_cols(parish_soils %>% select(-long, -lat), soil_grid_spdf@data)
 
-parish_mean_soils = parish_soils %>%
-  group_by(GIS_ID, TSYM) %>%
-  count() %>%
-  group_by(GIS_ID) %>%
-  mutate(pct = n/sum(n))
+# Convert to a data frame and add columns for the parish name and soil type
+parish_soil_area_df = data.frame(
+  GIS_ID = parish_soil_intersection$GIS_ID,
+  SOIL_TYPE = parish_soil_intersection$TSYM, 
+  AREA = parish_soil_area
+) %>% 
+  group_by(GIS_ID, SOIL_TYPE) %>% 
+  summarise(AREA = sum(AREA)) %>% 
+  left_join(area_parish, by = "GIS_ID")
 
-parish_mean_soils = expand.grid(
-  TSYM = unique(soil@data$TSYM),
-  GIS_ID = unique(parish_soils$GIS_ID)
-) %>%
-  left_join(
-    parish_mean_soils, by = c("GIS_ID","TSYM")
-  ) %>%
+# Calculate pct and check for sanity
+parish_soil = parish_soil_area_df %>% 
   mutate(
-    n = ifelse(is.na(n), 0, n),
+    AREA = as.numeric(AREA),
+    AREA_PARISH = as.numeric(AREA_PARISH)
+  ) %>% 
+  mutate(pct = AREA / AREA_PARISH)
+
+parish_soil %>% ggplot(aes(pct)) + geom_histogram()
+
+parish_soil %>% group_by(GIS_ID) %>% 
+  summarise(pct = sum(pct)) %>%
+  ggplot(aes(pct)) + geom_histogram()
+
+parish_soil = parish_soil %>% 
+  rename(area_parish = AREA_PARISH) %>% 
+  select(GIS_ID, SOIL_TYPE, area_parish, pct)
+
+# Make full grid: Each GIS_ID and soil type represented. NA is 0.
+parish_soil = expand.grid(
+  GIS_ID = unique(parish_soil$GIS_ID) ,
+  SOIL_TYPE = unique(parish_soil$SOIL_TYPE) 
+) %>% 
+  left_join(parish_soil %>% select(-area_parish), by = c("GIS_ID", "SOIL_TYPE")) %>% 
+  mutate(
     pct = ifelse(is.na(pct), 0, pct)
-  )
+  ) %>% 
+  select(GIS_ID, SOIL_TYPE, pct) %>% 
+  left_join(area_parish, by = "GIS_ID") %>% 
+  rename(area_parish = AREA_PARISH) %>% 
+  mutate(area_parish = as.numeric(area_parish))
 
-parish_mean_soils %>%
-  group_by(TSYM) %>%
-  summarise(n = sum(n)) %>%
-  ungroup() %>%
-  mutate(pct = n/sum(n)) %>% arrange(-pct)
+tmp = shape_parishes %>% 
+  left_join(parish_soil %>% filter(SOIL_TYPE == "ML"), by = "GIS_ID")
 
-sub_scandi = function(x){
-  scandi_letters = c("Æ",
-                     "æ",
-                     "Ø",
-                     "ø",
-                     "Å",
-                     "å")
-
-  replacement = c("Ae",
-                  "ae",
-                  "Oe",
-                  "oe",
-                  "Aa",
-                  "aa")
-
-  for(i in 1:length(scandi_letters)){
-    x = gsub(
-      scandi_letters[i],
-      replacement[i],
-      x
+ggplot() + 
+  layer_spatial(
+    data = tmp, 
+    aes(
+      fill = pct
     )
-  }
-
-  return(x)
-
-}
-
-sub_scandi_mis = function(x){
-  scandi_letters = c(
-    "Ã¸",
-    "Ã¥",
-    "Ã¦",
-    "Ã˜",
-    "Ã…",
-    "Ã†"
   )
 
-  replacement = c(
-    "ø",
-    "å",
-    "æ",
-    "Ø",
-    "Å",
-    "Ø"
-  )
-
-  for(i in 1:length(scandi_letters)){
-    x = gsub(
-      scandi_letters[i],
-      replacement[i],
-      x
-    )
-  }
-
-  return(x)
-}
-
-soil_pct = parish_mean_soils %>%
-  mutate(TSYM = sub_scandi_mis(TSYM)) %>%
-  mutate(TSYM = sub_scandi(TSYM)) %>%
-  rename(Soil_type = TSYM) %>%
-  pivot_wider(
-    names_from = Soil_type,
-    id_cols = "GIS_ID",
-    values_from = pct,
-    names_prefix = "Soil_pct_"
-  )
-
-soil_count = parish_mean_soils %>%
-  mutate(TSYM = sub_scandi_mis(TSYM)) %>%
-  mutate(TSYM = sub_scandi(TSYM)) %>%
-  rename(Soil_type = TSYM) %>%
-  pivot_wider(
-    names_from = Soil_type,
-    id_cols = "GIS_ID",
-    values_from = n,
-    names_prefix = "Soil_count_"
-  )
-
-points_in_parish = parish_mean_soils %>%
-  group_by(GIS_ID) %>%
-  summarise(
-    Area = sum(n)
-  )
-
-parish_soil = points_in_parish %>%
-  full_join(soil_pct, by = "GIS_ID") %>%
-  full_join(soil_count, by = "GIS_ID")
-
-save(parish_soil, file = "Parish_soil.Rdata")
+# ==== Save results ====
+parish_soil %>% write_csv2("Data/Parish_soil.csv")
