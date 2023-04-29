@@ -203,6 +203,15 @@ Regression data for arcaehological data based on monte carlo sampling from 009_A
 | area_parish | Area of the parish in m^2 |
 | pct | How much of this parish is this particular soil type |
 
+### P. Matched_parishes.csv
+This contains a data frame of parishes matched on propensity score. The propensity is for the being in the west Limfjord, which is estimated based on PLS propensity scores.
+
+| Variable | Description |
+|----------|-------------|
+| GIS_ID | All GIS_IDs which have been matched |
+| propensity | Propensity score for these parishes. The predicted probability that they belong to the west Limfjord based on soil type alone | 
+| limfjord_placement | Position in the Limfjord - 'west' or 'not' |
+
 ## 2. Large or non-redistributable data
 These are not available in this repository, either because I am not allowed to redistribute them, or because they are too large. 
 
