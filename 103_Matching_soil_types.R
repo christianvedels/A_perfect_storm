@@ -77,8 +77,29 @@ propensity = Model %>% predict(
 # ==== Matching ====
 reg_data$propensity = propensity[,2]
 
-reg_data %>% 
-  ggplot(aes(propensity, fill = limfjord_placement_west)) + geom_density(alpha = 0.5)
+p1 = reg_data %>% 
+  mutate(
+    limfjord_placement_west = ifelse(
+      limfjord_placement_west == 1, "west",
+      "reference"
+    )
+  ) %>% 
+  ggplot(aes(propensity, fill = limfjord_placement_west)) + 
+  geom_density(alpha = 0.5, lty = 2) + 
+  theme_bw() +
+  scale_fill_manual(
+    values = c(reference = "grey", west = "#b33d3d")
+  ) + 
+  labs(
+    fill = "Location in Limfjord:",
+  ) +
+  theme(
+    legend.position = "bottom"
+  ) + 
+  labs(x = "Propensity")
+
+p1
+ggsave("Plots/Propensity_before.png",  plot = p1, width = 10, height = 8, units = "cm")
 
 set.seed(20)
 west_GIS_ID = reg_data %>% 
@@ -110,10 +131,30 @@ matches = foreach(i = west_GIS_ID$GIS_ID, .combine = "bind_rows") %do% {
 }
 
 # Check new propensity score distribution
-matches %>% 
-  ggplot(aes(propensity, fill = "1")) + 
-  geom_density(alpha = 0.5) + 
-  geom_density(aes(propensity_match, fill = "0"), alpha = 0.5)
+p1 = matches %>% 
+  pivot_longer(c("propensity", "propensity_match")) %>% 
+  mutate(
+    limfjord_placement_west = ifelse(
+      name == "propensity", "west",
+      "reference"
+    )
+  ) %>% 
+  ggplot(aes(value, fill = limfjord_placement_west)) + 
+  geom_density(alpha = 0.5, lty = 2) + 
+  theme_bw() +
+  scale_fill_manual(
+    values = c(reference = "grey", west = "#b33d3d")
+  ) + 
+  labs(
+    fill = "Location in Limfjord:",
+  ) +
+  theme(
+    legend.position = "bottom"
+  ) + 
+  labs(x = "Propensity")
+
+p1
+ggsave("Plots/Propensity_after.png",  plot = p1, width = 10, height = 8, units = "cm")
 
 
 matched_ids = matches %>% 
