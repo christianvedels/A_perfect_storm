@@ -1,4 +1,4 @@
-# Replication files for "A perfect storm and the natural endowments of trade-enabling infrastructure"
+# Replication files for "A perfect storm and the natural endowments of infrastructure"
 
 This is the repository of the paper 'A perfect storm and the natural endowments of trade-enabling infrastructure'. The repository was created as I refactored all the code of the project to tie it up for a version to include in my thesis. A short version of the paper is enclosed in this repository as 'Paper_short_version.pdf'. This specific version of the paper won the [EHS's New Researcher Prize](https://ehs.org.uk/society/grants-prizes/new-researcher-paper-prize-winners/) in the spring of 2023.
 
