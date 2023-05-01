@@ -134,6 +134,30 @@ reg_pop = reg_pop %>%
     Within_5km_of_mt = Distance_market_town < 5
   )
 
+# ==== Summary table ====
+reg_pop %>% 
+  mutate(
+    Small_children_per_woman = (Age_1_4) / (Age_15_24_f + Age_25_34_f + Age_35_44_f)
+  ) %>% 
+  mutate(
+    Small_children_per_woman = ifelse(
+      is.finite(Small_children_per_woman), Small_children_per_woman, NA
+    )
+  ) %>% 
+  select(
+    Pop,
+    limfjord_placement_west,
+    delta_lMA_theta_1_alpha_10,
+    Fishing,
+    Manufacturing,
+    Born_different_county,
+    Small_children_per_woman
+  ) %>% 
+  psych::describe(quant = c(0.25, 0.75)) %>% 
+  mutate_all(round, 2) %>% 
+  select(n, mean, sd, min, Q0.25, median, Q0.75, max) %>% 
+  knitr::kable("latex", booktabs = TRUE, align = "c")
+
 # ==== Regressions ====
 mod1 = feols(
   log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
@@ -164,6 +188,15 @@ mods = list(
 mods %>% 
   etable(tex = TRUE)
 
+# ==== APE ====
+Pop_avg_midpoint = reg_pop %>% 
+  filter(Year %in% c(1801, 1901), limfjord_placement == "west") %>% 
+  summarise(Pop = mean(Pop)) %>% unlist()
+
+APE1 = Pop_avg_midpoint * mod1$coefficients["Year1901:Affected"]
+APE2 = Pop_avg_midpoint * mod2$coefficients["Year1901:Affected"]
+
+# ==== Multiverse ====
 # Multiverse dummy
 sub_groups = expand.grid(
   coastal = unique(reg_pop$coastal),
@@ -428,13 +461,113 @@ p1
 fname0 = paste0("Plots/Regression_plots/", "Multiverse_MA_param", ".png")
 ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 
-# APE
-Pop_avg_midpoint = reg_pop %>% 
-  filter(Year %in% c(1801, 1901), limfjord_placement == "west") %>% 
-  summarise(Pop = mean(Pop)) %>% unlist()
+# ==== Multiverse 1787 ====
+# Make plots for 1787 to check for pretrends
 
-APE1 = Pop_avg_midpoint * mod1$coefficients["Year1901:Affected"]
-APE2 = Pop_avg_midpoint * mod2$coefficients["Year1901:Affected"]
+# Multiverse dummy
+default = mult_dummy %>% 
+  filter(group == "") %>% 
+  filter(Year == 1787) %>% 
+  select(Estimate) %>% unlist()
+
+p1 = mult_dummy %>% 
+  filter(Year == 1787) %>%
+  arrange(Estimate) %>% 
+  mutate(
+    group = ifelse(group == "", "Default", group),
+    the_col = ifelse(group == "Default", "Yes", "No")
+  ) %>% 
+  mutate(group = factor(group, levels = group)) %>% 
+  ggplot(aes(Estimate, group)) +
+  geom_point() + 
+  geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
+  geom_vline(xintercept = default, lty = 2) + 
+  geom_vline(xintercept = 0) + 
+  theme_bw() + 
+  scale_color_manual(
+    values = c("No" = "black", "Yes" = "#b33d3d")
+  ) + 
+  labs(
+    y = "",
+    x = "Parameter estimate 1787"
+  ) + 
+  theme(legend.position = "none")
+
+p1
+fname0 = paste0("Plots/Regression_plots/", "Multiverse_dummy_1787", ".png")
+ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
+
+# Multiverse market access
+default = mult_MA %>% 
+  filter(group == "") %>% 
+  filter(Year == 1787) %>% 
+  select(Estimate) %>% unlist()
+
+p1 = mult_MA %>% 
+  filter(Year == 1787) %>%
+  arrange(Estimate) %>% 
+  mutate(
+    group = ifelse(group == "", "Default", group),
+    the_col = ifelse(group == "Default", "Yes", "No")
+  ) %>% 
+  mutate(group = factor(group, levels = group)) %>% 
+  ggplot(aes(Estimate, group)) +
+  geom_point() + 
+  geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
+  geom_vline(xintercept = default, lty = 2) + 
+  geom_vline(xintercept = 0) + 
+  theme_bw() + 
+  scale_color_manual(
+    values = c("No" = "black", "Yes" = "#b33d3d")
+  ) + 
+  labs(
+    y = "",
+    x = "Parameter estimate 1787"
+  ) + 
+  theme(legend.position = "none")
+
+p1
+fname0 = paste0("Plots/Regression_plots/", "Multiverse_MA_1787", ".png")
+ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
+
+
+# Multiverse market access parameters
+default = mult_MA2 %>% 
+  filter(theta == 1, alpha == 10) %>% 
+  filter(Year == 1787) %>% 
+  select(Estimate) %>% unlist()
+
+p1 = mult_MA2 %>% 
+  filter(Year == 1787) %>%
+  arrange(Estimate) %>% 
+  mutate(
+    the_col = ifelse(theta == 1 & alpha == 10, "Yes", "No")
+  ) %>% 
+  mutate(
+    Alt = paste0("(", "α = ", alpha,", θ = ", theta, ")")
+  ) %>% 
+  mutate(
+    Alt = factor(Alt, levels = unique(Alt))
+  ) %>% 
+  ggplot(aes(Estimate, Alt)) +
+  geom_point() + 
+  geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
+  geom_vline(xintercept = default, lty = 2) + 
+  geom_vline(xintercept = 0) + 
+  theme_bw() + 
+  scale_color_manual(
+    values = c("No" = "black", "Yes" = "#b33d3d")
+  ) + 
+  labs(
+    y = "",
+    x = "Parameter estimate 1787"
+  ) + 
+  theme(legend.position = "none")
+
+p1
+fname0 = paste0("Plots/Regression_plots/", "Multiverse_MA_param_1787", ".png")
+ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
+
 
 # ==== Mechanism occupation ====
 # Breach --> Fishing
