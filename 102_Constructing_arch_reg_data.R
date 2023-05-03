@@ -48,3 +48,19 @@ coins %>%
   left_join(geo_data, by = "GIS_ID") %>% 
   left_join(market_access, by = "GIS_ID") %>% 
   write_csv2("Data/Reg_arch_coins.csv")
+
+
+# ==== Based on normal distribution ====
+load("Data/Tmp_arch_samples_norm/Buildings.Rdata")
+buildings = construct_panel(res_is$Overall_Buildings$samples)
+buildings %>% 
+  left_join(geo_data, by = "GIS_ID") %>% 
+  left_join(market_access, by = "GIS_ID") %>% 
+  write_csv2("Data/Reg_arch_buildings_norm.csv")
+
+load("Data/Tmp_arch_samples_norm/Coin findings.Rdata")
+coins = construct_panel(res_is$`Overall_Coin findings`$samples)
+coins %>% 
+  left_join(geo_data, by = "GIS_ID") %>% 
+  left_join(market_access, by = "GIS_ID") %>% 
+  write_csv2("Data/Reg_arch_coins_norm.csv")
