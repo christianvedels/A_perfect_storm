@@ -6,7 +6,7 @@
 
 # ==== Libraries ====
 library(tidyverse)
-
+library(fixest)
 
 # ==== Load data ====
 data0 = read_csv2("Data/LocalSoundToll.csv")
@@ -63,7 +63,7 @@ p1 = data0 %>%
   summarise(
     traffic = sum(trafic) # Sum and correct spelling mistake
   ) %>% 
-  ggplot(aes(Year, log(trafic+1), col = limfjord_placement, shape = limfjord_placement)) + 
+  ggplot(aes(Year, log(traffic+1), col = limfjord_placement, shape = limfjord_placement)) + 
   geom_rect(
     fill = "lightgrey", 
     alpha = 0.75, 
@@ -120,3 +120,39 @@ data0 %>%
   summarise(trafic = sum(trafic)) %>% 
   group_by(After) %>% 
   summarise(mean(trafic))
+
+
+# ==== Regressions for appendix ====
+mod0 = fepois(
+  trafic ~ After*limfjord_placement,
+  data = data0,
+  cluster = ~port
+)
+
+mod1 = fepois(
+  trafic ~ After*limfjord_placement,
+  data = data0 %>% filter(!Year %in% c(1807:1814, 1825:1833)),
+  cluster = ~port
+)
+
+mod2 = feols(
+  log(trafic+1) ~ After*limfjord_placement, 
+  data = data0,
+  cluster = ~port
+)
+
+mod3 = feols(
+  asinh(trafic) ~ After*limfjord_placement, 
+  data = data0,
+  cluster = ~port
+)
+
+mod4 = feols(
+  trafic ~ After*limfjord_placement, 
+  data = data0 %>% mutate(trafic = trafic>0),
+  cluster = ~port
+)
+
+mods = list(mod0, mod1, mod2, mod3, mod4)
+
+etable(mods, tex = TRUE)
