@@ -8,7 +8,7 @@ The numbering of the scripts indicate running order. The first digit indicate le
 
 ![Map](Plots/Map_manual_edits.png)
 
-## 2. Included data
+## 1. Included data
 The following data is included in this repository
 
 ### A. Popdata.csv
@@ -57,7 +57,7 @@ Key linking the census data to the shape data.
 | GIS_ID | GIS_ID - unique ID in the shape data. |
 
 ### D. limfjorden
-Shape file which covers the body of water known as Limfjorden. From this repository: https://github.com/DenAutonomePirat/shapefile
+Shape file which covers the body of water known as Limfjorden. Copied from this repository: https://github.com/DenAutonomePirat/shapefile
 
 ### E. Geo.csv
 This contains various geographic information.
@@ -95,7 +95,7 @@ Top 100 HISCO codes with categories
 | Category | Manual category of the occupation |
 
 ### G. LocalSoundToll.csv
-This contains summarised ship trafic from the sound toll registers. See http://www.soundtoll.nl/index.php/en/
+This contains summarised ship traffic from the sound toll registers. See http://www.soundtoll.nl/index.php/en/
 
 
 | Variable | Description |
@@ -105,7 +105,7 @@ This contains summarised ship trafic from the sound toll registers. See http://w
 | limfjord_placement | Which part if any of the Limfjord does the port belong to? |
 | n_from | Ship trafic with that port as destination |
 | n_to | Ship trafic with that port as origin |
-| trafic | Sum of n_from and n_to |
+| traffic | Sum of n_from and n_to |
 | decLatitude | Latitude of the port |
 | decLongitude | Longitude of the port | 
 
