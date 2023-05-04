@@ -577,3 +577,220 @@ mods = list(
 
 mods %>% 
   etable(tex = TRUE)
+
+
+
+# ==== Regressions based on data from the normal distribution ====
+# The following files can be recreated with 009_Archaeological_monte_carlo.R
+# But this takes a while. They can also be donwloaded here:
+# https://www.dropbox.com/s/62yxdax9eaqedu9/Tmp_reg_data_arch_samples_norm.Rdata?dl=0
+# 
+# load("Data/Tmp_arch_samples_norm/Buildings.Rdata")
+# samples_buildings = arch_sampler(arch_samples = res_is$Overall_Buildings$samples)
+# 
+# load("Data/Tmp_arch_samples_norm/Coin findings.Rdata")
+# samples_coins = arch_sampler(arch_samples = res_is$`Overall_Coin findings`$samples)
+# 
+# save(samples_buildings, samples_coins, file = "Data/Tmp_reg_data_arch_samples_norm.Rdata")
+load("Data/Tmp_reg_data_arch_samples_norm.Rdata")
+
+coins = read_csv2("Data/Reg_arch_coins_norm.csv", guess_max = 2000) %>% 
+  fastDummies::dummy_cols("limfjord_placement") %>% 
+  mutate(
+    Year = relevel(factor(rYear), ref = "1000")
+  )
+buildings = read_csv2("Data/Reg_arch_buildings_norm.csv", guess_max = 2000) %>% 
+  fastDummies::dummy_cols("limfjord_placement") %>% 
+  mutate(
+    Year = relevel(factor(rYear), ref = "1000")
+  )
+
+# Adding geo and MA to samples
+samples_coins = lapply(samples_coins, function(x){
+  x %>%
+    left_join(geo_data, by = "GIS_ID") %>%
+    left_join(market_access, by = "GIS_ID") %>%
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>%
+    mutate(
+      Year = relevel(factor(rYear), ref = "1000")
+    ) %>%
+    fastDummies::dummy_cols("limfjord_placement")
+})
+
+# Adding geo and MA to samples
+samples_buildings = lapply(samples_buildings, function(x){
+  x %>%
+    left_join(geo_data, by = "GIS_ID") %>%
+    left_join(market_access, by = "GIS_ID") %>%
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>%
+    mutate(
+      Year = relevel(factor(rYear), ref = "1000")
+    ) %>%
+    fastDummies::dummy_cols("limfjord_placement")
+})
+
+# ==== Regressions norm ====
+# MA approach
+mod1 = feols(
+  activity ~ Year*Affected,
+  data = coins %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10)
+)
+
+set.seed(20)
+vcov1 = vcov_function_boot(
+  activity ~ Year*Affected, 
+  samples = samples_coins, 
+  capB = 1000, 
+  affected = "delta_lMA_theta_1_alpha_10"
+)
+
+mod1 = summary(
+  mod1,
+  vcov = vcov1$vcov
+)
+
+plot_mod_arch(mod1, "arch_MA_coins_norm", ref_year = 1000, the_col = regions_col["west"])
+
+# Plot of coefs in 1350
+p2 = vcov1$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50, fill = regions_col["west"]) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod1$coefficients[names(mod1$coefficients)=="Year1350:Affected"],
+    lty = 2
+  ) + 
+  labs(
+    x = "Parameter estimate: Affected x Year 1350"
+  )
+
+p2
+fname0 = paste0("Plots/Regression_plots/", "arch_MA_coins_boot_norm", ".png")
+ggsave(fname0,  plot = p2, width = 10, height = 8, units = "cm")
+
+
+# Dummy approach
+mod2 = feols(
+  activity ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = coins %>% mutate(Affected = limfjord_placement_west)
+)
+
+set.seed(20)
+vcov2 = vcov_function_boot(
+  activity ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east, 
+  samples = samples_coins, 
+  capB = 1000, 
+  affected = "limfjord_placement_west"
+)
+
+mod2 = summary(
+  mod2,
+  vcov = vcov2$vcov
+)
+
+plot_mod_arch(mod2, "arch_dummy_coins_norm", ref_year = 1000, the_col = regions_col["west"])
+
+# Plot of coefs in 1350
+p2 = vcov2$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50, fill = regions_col["west"]) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod2$coefficients[names(mod2$coefficients)=="Year1350:Affected"],
+    lty = 2
+  ) + 
+  labs(
+    x = "Parameter estimate: Affected x Year 1350"
+  )
+
+p2
+fname0 = paste0("Plots/Regression_plots/", "arch_dummy_coins_boot_norm", ".png")
+ggsave(fname0,  plot = p2, width = 10, height = 8, units = "cm")
+
+# Buildings
+# MA approach
+mod3 = feols(
+  activity ~ Year*Affected,
+  data = buildings %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+
+set.seed(20)
+vcov3 = vcov_function_boot(
+  activity ~ Year*Affected, 
+  samples = samples_buildings, 
+  capB = 1000, 
+  affected = "delta_lMA_theta_1_alpha_10"
+)
+
+mod3 = summary(
+  mod3,
+  vcov = vcov3$vcov
+)
+
+plot_mod_arch(mod3, "arch_MA_buildings_norm", ref_year = 1000, the_col = regions_col["middle"])
+
+# Plot of coefs in 1350
+p2 = vcov3$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50, fill = regions_col["middle"]) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod3$coefficients[names(mod3$coefficients)=="Year1350:Affected"],
+    lty = 2
+  ) + 
+  labs(
+    x = "Parameter estimate: Affected x Year 1350"
+  )
+
+p2
+fname0 = paste0("Plots/Regression_plots/", "arch_MA_buildings_boot_norm", ".png")
+ggsave(fname0,  plot = p2, width = 10, height = 8, units = "cm")
+
+# Dummy approach
+mod4 = feols(
+  activity ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = buildings %>% mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+
+set.seed(20)
+vcov4 = vcov_function_boot(
+  activity ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east, 
+  samples = samples_buildings, 
+  capB = 1000, 
+  affected = "limfjord_placement_west"
+)
+
+mod4 = summary(
+  mod4,
+  vcov = vcov4$vcov
+)
+
+plot_mod_arch(mod4, "arch_dummy_buildings_norm", ref_year = 1000, the_col = regions_col["middle"])
+
+# Plot of coefs in 1350
+p2 = vcov4$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50, fill = regions_col["middle"]) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod4$coefficients[names(mod4$coefficients)=="Year1350:Affected"],
+    lty = 2
+  ) + 
+  labs(
+    x = "Parameter estimate: Affected x Year 1350"
+  )
+
+p2
+fname0 = paste0("Plots/Regression_plots/", "arch_dummy_buildings_boot_norm", ".png")
+ggsave(fname0,  plot = p2, width = 10, height = 8, units = "cm")
