@@ -214,7 +214,7 @@ arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
     select(finding_interpretation_en) %>% 
     unlist() %>% unname()
   
-  res_i = monteCarlo(Finding_types = finding_types_i, capB = capB)
+  res_i = monteCarlo_norm(Finding_types = finding_types_i, capB = capB)
   
   res_is = foreach(j = finding_types_i) %do% {
     suppressWarnings({
