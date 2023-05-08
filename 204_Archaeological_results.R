@@ -794,3 +794,188 @@ p2 = vcov4$beta_samples %>%
 p2
 fname0 = paste0("Plots/Regression_plots/", "arch_dummy_buildings_boot_norm", ".png")
 ggsave(fname0,  plot = p2, width = 10, height = 8, units = "cm")
+
+# ==== Regressions norm matched ====
+samples_buildings_matched = lapply(samples_buildings, function(x) {
+  x %>%
+    filter(GIS_ID %in% matched_parishes$GIS_ID)
+})
+samples_coins_matched = lapply(samples_coins, function(x) {
+  x %>%
+    filter(GIS_ID %in% matched_parishes$GIS_ID)
+})
+
+
+# MA approach
+mod5 = feols(
+  activity ~ Year*Affected,
+  data = coins %>%
+    filter(GIS_ID %in% matched_parishes$GIS_ID) %>%
+    mutate(Affected = delta_lMA_theta_1_alpha_10)
+)
+
+set.seed(20)
+vcov5 = vcov_function_boot(
+  activity ~ Year*Affected,
+  samples = samples_coins_matched,
+  capB = 1000,
+  affected = "delta_lMA_theta_1_alpha_10",
+)
+
+mod5 = summary(
+  mod5,
+  vcov = vcov5$vcov
+)
+
+plot_mod_arch(mod5, "arch_MA_coins_matched_norm", ref_year = 1000, the_col = "#DE7500")
+
+# Plot of coefs in 1350
+p2 = vcov5$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50, fill = regions_col["west"]) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod5$coefficients[names(mod5$coefficients)=="Year1350:Affected"],
+    lty = 2
+  ) + 
+  labs(
+    x = "Parameter estimate: Affected x Year 1350"
+  )
+
+p2
+fname0 = paste0("Plots/Regression_plots/", "arch_MA_coins_matched_boot_norm", ".png")
+ggsave(fname0,  plot = p2, width = 10, height = 8, units = "cm")
+
+
+# Dummy approach
+mod6 = feols(
+  activity ~ Year*Affected,
+  data = coins %>%
+    filter(GIS_ID %in% matched_parishes$GIS_ID) %>%
+    mutate(Affected = limfjord_placement_west)
+)
+
+set.seed(20)
+vcov6 = vcov_function_boot(
+  activity ~ Year*Affected,
+  samples = samples_coins_matched,
+  capB = 1000,
+  affected = "limfjord_placement_west"
+)
+
+mod6 = summary(
+  mod6,
+  vcov = vcov6$vcov
+)
+
+plot_mod_arch(mod6, "arch_dummy_coins_matched_norm", ref_year = 1000, the_col = "#DE7500")
+
+# Plot of coefs in 1350
+p2 = vcov6$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50, fill = regions_col["west"]) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod6$coefficients[names(mod6$coefficients)=="Year1350:Affected"],
+    lty = 2
+  ) + 
+  labs(
+    x = "Parameter estimate: Affected x Year 1350"
+  )
+
+p2
+fname0 = paste0("Plots/Regression_plots/", "arch_dummy_coins_matched_boot_norm", ".png")
+ggsave(fname0,  plot = p2, width = 10, height = 8, units = "cm")
+
+
+# Buildings
+# MA approach
+mod7 = feols(
+  activity ~ Year*Affected,
+  data = buildings %>%
+    filter(GIS_ID %in% matched_parishes$GIS_ID) %>%
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+
+set.seed(20)
+vcov7 = vcov_function_boot(
+  activity ~ Year*Affected,
+  samples = samples_buildings_matched,
+  capB = 1000,
+  affected = "delta_lMA_theta_1_alpha_10"
+)
+
+mod7 = summary(
+  mod7,
+  vcov = vcov7$vcov
+)
+
+plot_mod_arch(mod7, "arch_MA_buildings_matched_norm", ref_year = 1000, the_col = regions_col["middle"])
+
+# Plot of coefs in 1350
+p2 = vcov7$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50, fill = regions_col["middle"]) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod7$coefficients[names(mod7$coefficients)=="Year1350:Affected"],
+    lty = 2
+  ) + 
+  labs(
+    x = "Parameter estimate: Affected x Year 1350"
+  )
+
+p2
+fname0 = paste0("Plots/Regression_plots/", "arch_MA_buildings_matched_boot_norm", ".png")
+ggsave(fname0,  plot = p2, width = 10, height = 8, units = "cm")
+
+# Dummy approach
+mod8 = feols(
+  activity ~ Year*Affected,
+  data = buildings %>%
+    filter(GIS_ID %in% matched_parishes$GIS_ID) %>%
+    mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+
+set.seed(20)
+vcov8 = vcov_function_boot(
+  activity ~ Year*Affected,
+  samples = samples_buildings_matched,
+  capB = 1000,
+  affected = "limfjord_placement_west"
+)
+
+mod8 = summary(
+  mod8,
+  vcov = vcov8$vcov
+)
+
+plot_mod_arch(mod8, "arch_dummy_buildings_matched_norm", ref_year = 1000, the_col = regions_col["middle"])
+
+# Plot of coefs in 1350
+p2 = vcov8$beta_samples %>% 
+  data.frame() %>% 
+  ggplot(aes(Year1350.Affected)) + 
+  geom_histogram(bins = 50, fill = regions_col["middle"]) + 
+  theme_bw() + 
+  geom_vline(xintercept = 0) + 
+  geom_vline(
+    xintercept = mod8$coefficients[names(mod8$coefficients)=="Year1350:Affected"],
+    lty = 2
+  ) + 
+  labs(
+    x = "Parameter estimate: Affected x Year 1350"
+  )
+
+p2
+fname0 = paste0("Plots/Regression_plots/", "arch_dummy_buildings_matched_boot_norm", ".png")
+ggsave(fname0,  plot = p2, width = 10, height = 8, units = "cm")
+
