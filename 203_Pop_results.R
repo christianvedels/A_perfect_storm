@@ -591,7 +591,7 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  fish, "fish_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
 
 fish = feols(
@@ -602,7 +602,7 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  fish, "fish_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
 
 fish = feols(
@@ -629,12 +629,12 @@ plot_mod(
 manu0 = manu
 
 manu = feols(
-  (Manufacturing>0) ~ Year*Affected,
-  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+  Manu ~ Year*Affected,
+  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10) %>% mutate(Manu = Manufacturing>0),
   cluster = ~ GIS_ID
 )
 plot_mod(
-  manu, "manu_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  manu, "manu_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
 
 manu = feols(
@@ -643,7 +643,7 @@ manu = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  manu, "manu_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  manu, "manu_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
 
 
@@ -750,6 +750,34 @@ plot_mod(
 )
 
 migr = feols(
+  (Born_different_county>0) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    filter(as.numeric(as.character(Year)) >= 1845) %>% 
+    mutate(Year = relevel(Year, ref = "1845")),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  migr, "born_different_extensive", ylab = "Parameter estimate", 
+  vadj = 0.15, the_col = "#2c5c34", ref_year = 1845
+)
+
+
+migr = feols(
+  log(Born_different_county) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    filter(as.numeric(as.character(Year)) >= 1845) %>% 
+    mutate(Year = relevel(Year, ref = "1845")) %>% 
+    filter(Born_different_county>0),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  migr, "born_different_intensive", ylab = "Parameter estimate", 
+  vadj = 0.15, the_col = "#2c5c34", ref_year = 1845
+)
+
+migr = feols(
   Share ~ Year*Affected,
   data = reg_pop %>% 
     mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
@@ -762,6 +790,7 @@ plot_mod(
   migr, "born_different_share", ylab = "Parameter estimate", 
   vadj = 0.15, the_col = "#2c5c34", ref_year = 1845
 )
+
 
 # ==== Effect by age group and gender ====
 # Young children per woman
@@ -793,6 +822,18 @@ plot_mod(
   vadj = 0.15, the_col = "#2c5c34"
 )
 
+# Elderly
+mf = feols(
+  log(Age_65_125) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    mutate(mf_ratio_15_24 = Age_25_34_m / Age_25_34_f),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  mf, "elderly", ylab = "Parameter estimate", 
+  vadj = 0.15, the_col = "#2c5c34"
+)
 
 # ==== Male female ratios in age groups 
 tmp_f = reg_pop %>% 
