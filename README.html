@@ -385,7 +385,7 @@ paper or appendix.</p>
 <p class="caption">Map</p>
 </div>
 <div id="included-data" class="section level2">
-<h2>1. Included data</h2>
+<h2>2. Included data</h2>
 <p>The following data is included in this repository</p>
 <div id="a.-popdata.csv" class="section level3">
 <h3>A. Popdata.csv</h3>
@@ -429,8 +429,16 @@ data</td>
 <td>People working in manufacturing</td>
 </tr>
 <tr class="odd">
-<td>Farmer</td>
+<td>Farming</td>
 <td>Farmers and farm workers in the parish</td>
+</tr>
+<tr class="even">
+<td>Building</td>
+<td>Building workers in the parish</td>
+</tr>
+<tr class="odd">
+<td>Merchants</td>
+<td>Merchants in the parish</td>
 </tr>
 <tr class="even">
 <td>Born_different_county</td>
@@ -662,8 +670,8 @@ vice versa for the east.</p>
 </tbody>
 </table>
 </div>
-<div id="f.-localsoundtoll.csv" class="section level3">
-<h3>F. LocalSoundToll.csv</h3>
+<div id="g.-localsoundtoll.csv" class="section level3">
+<h3>G. LocalSoundToll.csv</h3>
 <p>This contains summarised ship trafic from the sound toll registers.
 See <a href="http://www.soundtoll.nl/index.php/en/" class="uri">http://www.soundtoll.nl/index.php/en/</a></p>
 <table>
@@ -713,8 +721,8 @@ See <a href="http://www.soundtoll.nl/index.php/en/" class="uri">http://www.sound
 </tbody>
 </table>
 </div>
-<div id="g.-market_towns.csv" class="section level3">
-<h3>G. Market_towns.csv</h3>
+<div id="h.-market_towns.csv" class="section level3">
+<h3>H. Market_towns.csv</h3>
 <p>This data was manually compiled based on the following wikipedia
 page: <a href="https://da.wikipedia.org/wiki/K%C3%B8bst%C3%A6der_i_Danmark" class="uri">https://da.wikipedia.org/wiki/K%C3%B8bst%C3%A6der_i_Danmark</a></p>
 <p>The data was enriched with data from Degn (1989) and
@@ -811,8 +819,8 @@ www.ddb.byhistorie.dk</p>
 </tbody>
 </table>
 </div>
-<div id="h.-ma_estimates.csv" class="section level3">
-<h3>H. MA_estimates.csv</h3>
+<div id="i.-ma_estimates.csv" class="section level3">
+<h3>I. MA_estimates.csv</h3>
 <p>This contains Market Access estimates before and after the channel.
 When the channel opened six new ports became available. The data in this
 file measures market access in a standard Harris (1954) inspired fashion
@@ -881,8 +889,8 @@ of land travel)</td>
 <p>Maps given these MA estimates can be found in the path <em>Plots/MA
 plots</em>.</p>
 </div>
-<div id="i.-arch.csv" class="section level3">
-<h3>I. Arch.csv</h3>
+<div id="j.-arch.csv" class="section level3">
+<h3>J. Arch.csv</h3>
 <table>
 <colgroup>
 <col width="43%" />
@@ -924,8 +932,8 @@ Religious, Defensive, Distress</em></td>
 </tbody>
 </table>
 </div>
-<div id="i.-reg_arch_buildings.csv-reg_arch_coins.csv" class="section level3">
-<h3>I. Reg_arch_buildings.csv, Reg_arch_coins.csv</h3>
+<div id="k.-reg_arch_buildings.csv-reg_arch_coins.csv" class="section level3">
+<h3>K. Reg_arch_buildings.csv, Reg_arch_coins.csv</h3>
 <p>Regression data for arcaehological data based on monte carlo sampling
 from 009_Archaeological_monte_carlo.R. Reg_arch_buildings.csv contains
 data for buildings. Reg_arch_coins.csv contain data from coin
@@ -968,9 +976,105 @@ MA_estimates.csv with parameters -x and y.</td>
 </tbody>
 </table>
 </div>
+<div id="m.-hisco_sample_checked.csv" class="section level3">
+<h3>M. HISCO_sample_checked.csv</h3>
+<p>1000 random observations of occupational descriptions and HISCO codes
+checked.</p>
+</div>
+<div id="n.-distance_to_market_town.csv" class="section level3">
+<h3>N. Distance_to_market_town.csv</h3>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GIS_ID</td>
+<td>GIS_ID - unique ID for the parish.</td>
+</tr>
+<tr class="even">
+<td>Distance_market_town</td>
+<td>Distance to the closest market town centroid</td>
+</tr>
+<tr class="odd">
+<td>Closest_market_town</td>
+<td>Which market town is closest? Represented by GIS_ID</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="o.-parish_soil.csv" class="section level3">
+<h3>O. Parish_soil.csv</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GIS_ID</td>
+<td>GIS_ID - unique ID for the parish.</td>
+</tr>
+<tr class="even">
+<td>SOIL_TYPE</td>
+<td>Soil type from Pedersen et al (2019)</td>
+</tr>
+<tr class="odd">
+<td>area_parish</td>
+<td>Area of the parish in m^2</td>
+</tr>
+<tr class="even">
+<td>pct</td>
+<td>How much of this parish is this particular soil type</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p.-matched_parishes.csv" class="section level3">
+<h3>P. Matched_parishes.csv</h3>
+<p>This contains a data frame of parishes matched on propensity score.
+The propensity is for the being in the west Limfjord, which is estimated
+based on PLS propensity scores.</p>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GIS_ID</td>
+<td>All GIS_IDs which have been matched</td>
+</tr>
+<tr class="even">
+<td>propensity</td>
+<td>Propensity score for these parishes. The predicted probability that
+they belong to the west Limfjord based on soil type alone</td>
+</tr>
+<tr class="odd">
+<td>limfjord_placement</td>
+<td>Position in the Limfjord - ‘west’ or ‘not’</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="large-or-non-redistributable-data" class="section level2">
-<h2>2. Large or non-redistributable data:</h2>
+<h2>2. Large or non-redistributable data</h2>
 <p>These are not available in this repository, either because I am not
 allowed to redistribute them, or because they are too large.</p>
 <div id="a.-danish-census-data-from-link-lives" class="section level3">
@@ -1010,7 +1114,7 @@ my website: <a href="https://sites.google.com/view/christianvedel" class="uri">h
 <tr class="odd">
 <td>pa_id</td>
 <td>ID, which is unique for every year, which links to the rest of <a href="https://link-lives.dk/en/link-lives-a-research-project/">links
-lives</a> data</td>
+lives’</a> data</td>
 </tr>
 <tr class="even">
 <td>Kilde</td>
@@ -1058,6 +1162,12 @@ the Danish Agency of Culture and Palaces. They maintain a database og
 all arhaeological sites in Denmark. This data is processed in
 ‘008_Archaeological_data.R’.</p>
 </div>
+<div id="g.-soil-types-shape" class="section level3">
+<h3>G. Soil types shape</h3>
+<p>This contains the soil types of modern day Denmark, which was largely
+determined in the last ice age. See Pedersen et al (2019). It can be
+downloaded from: <a href="https://www.geus.dk/produkter-ydelser-og-faciliteter/data-og-kort/danske-kort/download-jordartskort" class="uri">https://www.geus.dk/produkter-ydelser-og-faciliteter/data-og-kort/danske-kort/download-jordartskort</a></p>
+</div>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>
@@ -1069,6 +1179,8 @@ Samlinger. <a href="https://tidsskrift.dk/historiejyskesamling/article/view/4019
 <p>Harris, C. D. (1954). The Market as a Factor in the Localization of
 Industry in the United States. Annals of the Association of American
 Geographers, 44(4), 315–348.</p>
+<p>Pedersen, S., Hermansen, B., Nathan, C., &amp; Tougaard, L. (2019).
+Surface geology map of Denmark 1:200 000, version 2. GEUS. <a href="https://eng.geus.dk/products-services-facilities/data-and-maps/maps-of-denmark" class="uri">https://eng.geus.dk/products-services-facilities/data-and-maps/maps-of-denmark</a></p>
 </div>
 </div>
 

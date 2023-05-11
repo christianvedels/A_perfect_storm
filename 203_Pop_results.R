@@ -572,23 +572,90 @@ ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 # ==== Mechanism occupation ====
 # Breach --> Fishing
 fish = feols(
-  log(Fishing + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  log(Fishing + 1) ~ Year*Affected,
   data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west),
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
   cluster = ~ GIS_ID
 )
 plot_mod(
   fish, "fish", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
 
+fish0 = fish
+
+fish = feols(
+  Fish ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    mutate(Fish = Fishing > 0),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "fish_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
+fish = feols(
+  log(Fishing) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    filter(coastal),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "fish_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
+fish = feols(
+ Share ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    mutate(Share = Fishing / Pop),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "fish_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
 # Breach --> Manufacturing
 manu = feols(
-  log(Manufacturing + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
-  data = reg_pop %>% mutate(Affected = limfjord_placement_west),
+  log(Manufacturing + 1) ~ Year*Affected,
+  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
   cluster = ~ GIS_ID
 )
 plot_mod(
   manu, "manu", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
+manu0 = manu
+
+manu = feols(
+  (Manufacturing>0) ~ Year*Affected,
+  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  manu, "manu_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
+manu = feols(
+  log(Manufacturing) ~ Year*Affected,
+  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  manu, "manu_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
+
+manu = feols(
+  Share ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    mutate(Share = Manufacturing / Pop),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  manu, "manu_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
 
 
@@ -601,16 +668,78 @@ Manu_avg_midpoint = reg_pop %>%
   filter(Year %in% c(1801, 1901), limfjord_placement == "west") %>% 
   summarise(Manufacturing = mean(Manufacturing)) %>% unlist()
 
-APE_fish = Fish_avg_midpoint * fish$coefficients["Year1901:Affected"]
-APE_fish = Manu_avg_midpoint * manu$coefficients["Year1901:Affected"]
+APE_fish = Fish_avg_midpoint * fish0$coefficients["Year1901:Affected"]
+APE_manu = Manu_avg_midpoint * manu0$coefficients["Year1901:Affected"]
 
+
+# All occupations
+reg_pop = reg_pop %>% 
+  rowwise() %>% 
+  mutate(
+    all_occ = 
+      hisco_1st_digit0 +
+      hisco_1st_digit1 +
+      hisco_1st_digit2 +
+      hisco_1st_digit3 +
+      hisco_1st_digit4 +
+      hisco_1st_digit5 +
+      hisco_1st_digit6 +
+      hisco_1st_digit7 +
+      hisco_1st_digit8 +
+      hisco_1st_digit9
+    )
+
+# Breach --> Fishing
+occ = feols(
+  log(all_occ + 1) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  occ, "all_occupations", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
+occ = feols(
+  Occ ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    mutate(Occ = all_occ > 0),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  occ, "all_occupations_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
+occ = feols(
+  log(all_occ) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    mutate(all_occ = all_occ / Pop) %>% 
+    filter(coastal),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  occ, "all_occupations_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
+occ = feols(
+  Share ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    mutate(Share = all_occ / Pop),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  occ, "all_occupations_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
 
 # ==== Mechanism internal migration ====
 # Breach --> Migration
 migr = feols(
-  log(Born_different_county) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  log(Born_different_county+1) ~ Year*Affected,
   data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west) %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
     filter(as.numeric(as.character(Year)) >= 1845) %>% 
     mutate(Year = relevel(Year, ref = "1845")),
   cluster = ~ GIS_ID
@@ -620,14 +749,26 @@ plot_mod(
   vadj = 0.15, the_col = "#2c5c34", ref_year = 1845
 )
 
-
+migr = feols(
+  Share ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+    filter(as.numeric(as.character(Year)) >= 1845) %>% 
+    mutate(Year = relevel(Year, ref = "1845")) %>% 
+    mutate(Share = Born_different_county / Pop),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  migr, "born_different_share", ylab = "Parameter estimate", 
+  vadj = 0.15, the_col = "#2c5c34", ref_year = 1845
+)
 
 # ==== Effect by age group and gender ====
 # Young children per woman
 fertility = feols(
-  log(Small_children_per_woman) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  Small_children_per_woman ~ Year*Affected,
   data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west) %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
     mutate(Small_children_per_woman = (Age_1_4) / (Age_15_24_f + Age_25_34_f + Age_35_44_f)),
   cluster = ~ GIS_ID
 )
@@ -641,7 +782,7 @@ fertility$coefficients["Year1901:Affected"]
 
 # Young men
 mf = feols(
-  log(mf_ratio_15_24) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  mf_ratio_15_24 ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
   data = reg_pop %>% 
     mutate(Affected = limfjord_placement_west) %>% 
     mutate(mf_ratio_15_24 = Age_25_34_m / Age_25_34_f),
