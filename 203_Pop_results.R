@@ -158,6 +158,14 @@ reg_pop %>%
   select(n, mean, sd, min, Q0.25, median, Q0.75, max) %>% 
   knitr::kable("latex", booktabs = TRUE, align = "c")
 
+n1 = reg_pop %>% 
+  distinct(Year) %>% NROW()
+
+n2 = reg_pop %>% 
+  distinct(GIS_ID) %>% NROW()
+
+n1*n2
+
 # ==== Regressions ====
 mod1 = feols(
   log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
