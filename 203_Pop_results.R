@@ -134,16 +134,17 @@ reg_pop = reg_pop %>%
     Within_5km_of_mt = Distance_market_town < 5
   )
 
+# Adding child women ratio
+reg_pop = reg_pop %>% 
+  mutate(Child_women_ratio = (Age_1_4) / (Age_15_24_f + Age_25_34_f + Age_35_44_f)) %>% 
+  mutate(
+    Child_women_ratio = ifelse(
+      is.finite(Child_women_ratio), Child_women_ratio, NA
+    )
+  )
+
 # ==== Summary table ====
 reg_pop %>% 
-  mutate(
-    Small_children_per_woman = (Age_1_4) / (Age_15_24_f + Age_25_34_f + Age_35_44_f)
-  ) %>% 
-  mutate(
-    Small_children_per_woman = ifelse(
-      is.finite(Small_children_per_woman), Small_children_per_woman, NA
-    )
-  ) %>% 
   select(
     Pop,
     limfjord_placement_west,
@@ -151,7 +152,7 @@ reg_pop %>%
     Fishing,
     Manufacturing,
     Born_different_county,
-    Small_children_per_woman
+    Child_women_ratio
   ) %>% 
   psych::describe(quant = c(0.25, 0.75)) %>% 
   mutate_all(round, 2) %>% 
@@ -165,6 +166,7 @@ n2 = reg_pop %>%
   distinct(GIS_ID) %>% NROW()
 
 n1*n2
+
 
 # ==== Regressions ====
 mod1 = feols(
@@ -576,7 +578,6 @@ p1
 fname0 = paste0("Plots/Regression_plots/", "Multiverse_MA_param_1787", ".png")
 ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
 
-
 # ==== Mechanism occupation ====
 # Breach --> Fishing
 fish = feols(
@@ -758,34 +759,6 @@ plot_mod(
 )
 
 migr = feols(
-  (Born_different_county>0) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    filter(as.numeric(as.character(Year)) >= 1845) %>% 
-    mutate(Year = relevel(Year, ref = "1845")),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  migr, "born_different_extensive", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34", ref_year = 1845
-)
-
-
-migr = feols(
-  log(Born_different_county) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    filter(as.numeric(as.character(Year)) >= 1845) %>% 
-    mutate(Year = relevel(Year, ref = "1845")) %>% 
-    filter(Born_different_county>0),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  migr, "born_different_intensive", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34", ref_year = 1845
-)
-
-migr = feols(
   Share ~ Year*Affected,
   data = reg_pop %>% 
     mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
@@ -796,17 +769,16 @@ migr = feols(
 )
 plot_mod(
   migr, "born_different_share", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34", ref_year = 1845
+  vadj = -0.25, the_col = "#2c5c34", ref_year = 1845
 )
 
 
 # ==== Effect by age group and gender ====
 # Young children per woman
 fertility = feols(
-  Small_children_per_woman ~ Year*Affected,
+  Child_women_ratio ~ Year*Affected,
   data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    mutate(Small_children_per_woman = (Age_1_4) / (Age_15_24_f + Age_25_34_f + Age_35_44_f)),
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
   cluster = ~ GIS_ID
 )
 plot_mod(

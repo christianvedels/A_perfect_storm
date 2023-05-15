@@ -158,6 +158,22 @@ dif_west_late %>%
     hisco::hisco %>% distinct(hisco, en_hisco_text), by = c("value"="hisco")
   )
 
-# Metal processors grew more in west Limfjord than elsewhere
-
-
+# Which top manu occupations
+obs1901 %>% 
+  semi_join(
+    occ_key %>% filter(Category == "manufacturing"),
+    by = c("value"="hisco")
+  ) %>% arrange(-n) %>% 
+  mutate(value = as.numeric(value)) %>% 
+  left_join(
+    hisco::hisco %>% distinct(hisco, en_hisco_text), by = c("value"="hisco")
+  )
+obs1801 %>% 
+  semi_join(
+    occ_key %>% filter(Category == "manufacturing"),
+    by = c("value"="hisco")
+  ) %>% arrange(-n) %>% 
+  mutate(value = as.numeric(value)) %>% 
+  left_join(
+    hisco::hisco %>% distinct(hisco, en_hisco_text), by = c("value"="hisco")
+  )
