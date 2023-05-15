@@ -121,6 +121,14 @@ data0 %>%
   group_by(After) %>% 
   summarise(mean(trafic))
 
+# Average for other ports:
+data0 %>% 
+  filter(!limfjord_placement %in% c("west", "middle")) %>% 
+  group_by(Year, After) %>% 
+  summarise(trafic = 6*mean(trafic)) %>% 
+  group_by(After) %>% 
+  summarise(mean(trafic))
+
 
 # ==== Regressions for appendix ====
 mod0 = fepois(
