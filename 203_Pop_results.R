@@ -10,6 +10,7 @@ library(tidyverse)
 library(fixest)
 library(sandwich)
 library(foreach)
+library(ggridges)
 
 # ==== Read data ====
 reg_pop = read_csv2("Data/Popdata.csv", guess_max = 2000)
@@ -167,6 +168,60 @@ n2 = reg_pop %>%
 
 n1*n2
 
+# ==== Balancing plot ====
+# Function to center values at 'not'
+center_not = function(x, limfjord_position){
+  x = x - x[limfjord_position == "not"]
+}
+
+plot_stats = reg_pop %>% 
+  # filter(GIS_ID %in% matched_gis_ids$GIS_ID) %>%
+  filter(Year %in% c(1787, 1801)) %>% 
+  filter(limfjord_placement %in% c("not", "west")) %>% 
+  select(
+    Year, limfjord_placement, Pop, Age_mean, Fishing, Manufacturing, Child_women_ratio
+  ) %>% 
+  filter(Fishing > 0) %>% 
+  mutate(
+    lPop = log(Pop),
+    lFish = log(Fishing + 1),
+    lManu = log(Manufacturing + 1)
+  ) %>% 
+  select(-Pop, -Fishing, -Manufacturing) %>% 
+  group_by(Year, limfjord_placement) %>% 
+  pivot_longer(
+    Age_mean:lManu,
+    names_to = "Variable"
+  ) %>% 
+  group_by(Year, Variable) %>% 
+  mutate(value = value - mean(value, na.rm = TRUE)) %>% 
+  mutate(
+    value_std = value / sd(value, na.rm = TRUE)
+  ) %>% 
+  mutate(Year = relevel(Year, ref = "1787")) %>% 
+  mutate(
+    Variable = case_when(
+      Variable == "lPop" ~ "log(Population)",
+      Variable == "lManu" ~ "log(Manufacturing + 1)",
+      Variable == "lFish" ~ "log(Fishing + 1)*",
+      Variable == "Child_women_ratio" ~ "Young children per woman",
+      Variable == "Age_mean" ~ "Mean age in parish"
+    )
+  ) %>% 
+  mutate(
+    Affected = ifelse(limfjord_placement == "west", "West Limfjord", "Reference")
+  )
+
+p1 = plot_stats %>% 
+  ggplot(aes(value_std, y = Variable, lty = Affected)) + 
+  geom_density_ridges(alpha = 0, scale = 0.8) + 
+  facet_wrap(~Year) + 
+  theme_bw() + 
+  theme(legend.position = "bottom") + 
+  labs(x = "Standardised values")
+
+p1
+ggsave("Plots/Balancing_plot.png",  plot = p1, width = 10, height = 8, units = "cm")
 
 # ==== Regressions ====
 mod1 = feols(
@@ -898,3 +953,60 @@ p1 = res_g %>%
 
 fname0 = paste0("Plots/Regression_plots/", "Age_group_mf_ratios", ".png")
 ggsave(fname0,  plot = p1, width = 14, height = 16, units = "cm")
+
+
+# ==== Callaway & Sant'Anna estimator ====
+# This is included because of doubly robust estimator
+
+library(did)
+
+reg_pop0 = reg_pop %>% 
+  mutate(lPop = log(Pop)) %>% 
+  mutate(
+    Year_num = as.numeric(as.character(Year)),
+    GIS_ID_num = as.numeric(factor(GIS_ID)),
+    Treat_year = ifelse(limfjord_placement_west==1, 1834, 0)
+  ) %>% 
+  mutate(
+    lManu = log(Manufacturing + 1),
+    lFish = log(Fishing + 1)
+  )#%>% 
+  drop_na(Pop, Age_mean, Fishing, Manufacturing, Child_women_ratio)
+
+# No covariates
+out1 = att_gt(
+  yname = "lPop",
+  tname = "Year_num",
+  gname = "Treat_year",
+  idname = "GIS_ID_num",
+  data = reg_pop0
+)
+
+ggdid(out1)
+summary(out1)
+
+# Covariates
+out2 = att_gt(
+  yname = "lPop",
+  tname = "Year_num",
+  gname = "Treat_year",
+  idname = "GIS_ID_num",
+  data = reg_pop0,
+  xformla = ~ lManu + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
+)
+
+ggdid(out2)
+summary(out2)
+
+# Pretreatment outcome also as covariate
+out3 = att_gt(
+  yname = "lPop",
+  tname = "Year_num",
+  gname = "Treat_year",
+  idname = "GIS_ID_num",
+  data = reg_pop0,
+  xformla = ~ lPop + lManu + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
+)
+
+ggdid(out3)
+summary(out3)
