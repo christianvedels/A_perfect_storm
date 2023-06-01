@@ -35,6 +35,7 @@ agg_data = merged_data %>%
   mutate(age = as.numeric(age)) %>% 
   summarise(
     Pop = n(),
+    Age_mean = mean(age, na.rm = TRUE),
     Age_0_1 = Age_cats(age, 0, 1),
     Age_1_4 = Age_cats(age, 1, 5),
     Age_5_14 = Age_cats(age, 5, 15),
@@ -77,6 +78,7 @@ agg_data_m = merged_data %>%
   mutate(age = as.numeric(age)) %>% 
   summarise(
     Pop = n(),
+    Age_mean = mean(age, na.rm = TRUE),
     Age_0_1 = Age_cats(age, 0, 1),
     Age_1_4 = Age_cats(age, 1, 5),
     Age_5_14 = Age_cats(age, 5, 15),
@@ -119,6 +121,7 @@ agg_data_f = merged_data %>%
   mutate(age = as.numeric(age)) %>% 
   summarise(
     Pop = n(),
+    Age_mean = mean(age, na.rm = TRUE),
     Age_0_1 = Age_cats(age, 0, 1),
     Age_1_4 = Age_cats(age, 1, 5),
     Age_5_14 = Age_cats(age, 5, 15),
@@ -233,6 +236,11 @@ agg_data %>%
   mutate(Year = as.numeric(as.character(Year))) %>% 
   ggplot(aes(Year, share, col = name)) + 
   geom_line(size = 2)
+
+agg_data %>% 
+  ggplot(aes(Age_mean, fill = Year)) + 
+  geom_density(alpha = 0.5) + 
+  facet_wrap(~Year, ncol = 1)
 
 
 # ==== Consistent parishes ====
