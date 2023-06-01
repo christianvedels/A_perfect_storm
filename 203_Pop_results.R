@@ -221,7 +221,7 @@ p1 = plot_stats %>%
   labs(x = "Standardised values")
 
 p1
-ggsave("Plots/Balancing_plot.png",  plot = p1, width = 10, height = 8, units = "cm")
+ggsave("Plots/Balancing_plot.png",  plot = p1, width = 16, height = 10, units = "cm")
 
 # ==== Regressions ====
 mod1 = feols(
@@ -955,11 +955,11 @@ fname0 = paste0("Plots/Regression_plots/", "Age_group_mf_ratios", ".png")
 ggsave(fname0,  plot = p1, width = 14, height = 16, units = "cm")
 
 
-# ==== Callaway & Sant'Anna estimator ====
+# ==== Doubly Robust DID ====
 # This is included because of doubly robust estimator
-
 library(did)
 
+set.seed(20)
 reg_pop0 = reg_pop %>% 
   mutate(lPop = log(Pop)) %>% 
   mutate(
@@ -970,8 +970,7 @@ reg_pop0 = reg_pop %>%
   mutate(
     lManu = log(Manufacturing + 1),
     lFish = log(Fishing + 1)
-  )#%>% 
-  drop_na(Pop, Age_mean, Fishing, Manufacturing, Child_women_ratio)
+  )
 
 # No covariates
 out1 = att_gt(
@@ -979,11 +978,10 @@ out1 = att_gt(
   tname = "Year_num",
   gname = "Treat_year",
   idname = "GIS_ID_num",
-  data = reg_pop0
+  data = reg_pop0,
 )
 
 ggdid(out1)
-summary(out1)
 
 # Covariates
 out2 = att_gt(
@@ -992,11 +990,10 @@ out2 = att_gt(
   gname = "Treat_year",
   idname = "GIS_ID_num",
   data = reg_pop0,
-  xformla = ~ lManu + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
+  xformla = ~ lManu + lFish + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
 )
 
 ggdid(out2)
-summary(out2)
 
 # Pretreatment outcome also as covariate
 out3 = att_gt(
@@ -1005,8 +1002,10 @@ out3 = att_gt(
   gname = "Treat_year",
   idname = "GIS_ID_num",
   data = reg_pop0,
-  xformla = ~ lPop + lManu + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
+  xformla = ~ lPop + lManu + lFish + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
 )
 
 ggdid(out3)
-summary(out3)
+
+summary(out1); summary(out2); summary(out3)
+
