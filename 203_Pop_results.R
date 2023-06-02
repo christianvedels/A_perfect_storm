@@ -223,6 +223,14 @@ p1 = plot_stats %>%
 p1
 ggsave("Plots/Balancing_plot.png",  plot = p1, width = 16, height = 10, units = "cm")
 
+# Fishing == 0 is sorted away. Check if dist is similar for this
+reg_pop %>% 
+  filter(Year %in% c(1787, 1801)) %>% 
+  group_by(limfjord_placement, Year) %>% 
+  summarise(
+    mean(Fishing==0)
+  )
+
 # ==== Regressions ====
 mod1 = feols(
   log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
@@ -642,7 +650,7 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  fish, "fish", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 fish0 = fish
@@ -655,7 +663,7 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  fish, "fish_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 fish = feols(
@@ -666,7 +674,7 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  fish, "fish_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 fish = feols(
@@ -677,7 +685,7 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  fish, "fish_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 # Breach --> Manufacturing
@@ -687,7 +695,7 @@ manu = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  manu, "manu", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  manu, "manu", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 manu0 = manu
@@ -698,7 +706,7 @@ manu = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  manu, "manu_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  manu, "manu_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 manu = feols(
@@ -707,7 +715,7 @@ manu = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  manu, "manu_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  manu, "manu_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 
@@ -719,7 +727,7 @@ manu = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  manu, "manu_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  manu, "manu_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 
@@ -761,7 +769,7 @@ occ = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  occ, "all_occupations", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  occ, "all_occupations", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 occ = feols(
@@ -772,7 +780,7 @@ occ = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  occ, "all_occupations_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  occ, "all_occupations_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 occ = feols(
@@ -784,7 +792,7 @@ occ = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  occ, "all_occupations_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  occ, "all_occupations_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 occ = feols(
@@ -795,7 +803,7 @@ occ = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  occ, "all_occupations_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  occ, "all_occupations_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 # ==== Mechanism internal migration ====
@@ -810,7 +818,7 @@ migr = feols(
 )
 plot_mod(
   migr, "born_different", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34", ref_year = 1845
+  vadj = 0.15, the_col = "#2c5c34", ref_year = 1845, corner_text = "Control group: Less Market Access improvement"
 )
 
 migr = feols(
@@ -824,7 +832,7 @@ migr = feols(
 )
 plot_mod(
   migr, "born_different_share", ylab = "Parameter estimate", 
-  vadj = -0.25, the_col = "#2c5c34", ref_year = 1845
+  vadj = -0.25, the_col = "#2c5c34", ref_year = 1845, corner_text = "Control group: Less Market Access improvement"
 )
 
 
@@ -838,7 +846,7 @@ fertility = feols(
 )
 plot_mod(
   fertility, "fertility", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34"
+  vadj = 0.15, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 migr$coefficients["Year1901:Affected"]
@@ -854,20 +862,19 @@ mf = feols(
 )
 plot_mod(
   mf, "young_male", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34"
+  vadj = 0.15, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 # Elderly
 mf = feols(
   log(Age_65_125) ~ Year*Affected,
   data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    mutate(mf_ratio_15_24 = Age_25_34_m / Age_25_34_f),
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
   cluster = ~ GIS_ID
 )
 plot_mod(
   mf, "elderly", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34"
+  vadj = 0.15, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 # ==== Male female ratios in age groups 
