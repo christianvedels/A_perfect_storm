@@ -146,6 +146,9 @@ reg_pop = reg_pop %>%
 
 # ==== Summary table ====
 reg_pop %>% 
+  mutate(
+    Born_different_county = ifelse(Year %in% c(1787, 1801, 1834, 1840), NA, Born_different_county)
+  ) %>% 
   select(
     Pop,
     limfjord_placement_west,
