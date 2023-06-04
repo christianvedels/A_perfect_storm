@@ -177,3 +177,21 @@ obs1801 %>%
   left_join(
     hisco::hisco %>% distinct(hisco, en_hisco_text), by = c("value"="hisco")
   )
+
+# Ocupations in 1901
+obs1901 = merged_data %>% 
+  filter(Year == 1901) %>% 
+  filter(GIS_ID %in% west_limfj$GIS_ID) %>% 
+  pivot_longer(hisco1:hisco5, names_to = "misc") %>% 
+  select(name, value) %>% group_by(value) %>% 
+  count()
+
+obs1901 %>% 
+  semi_join(
+    occ_key %>% filter(Category == "manufacturing"),
+    by = c("value"="hisco")
+  ) %>% arrange(-n) %>% 
+  mutate(value = as.numeric(value)) %>% 
+  left_join(
+    hisco::hisco %>% distinct(hisco, en_hisco_text), by = c("value"="hisco")
+  )
