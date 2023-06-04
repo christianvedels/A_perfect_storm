@@ -224,7 +224,7 @@ p1 = plot_stats %>%
   labs(x = "Standardized values")
 
 p1
-ggsave("Plots/Balancing_plot.png",  plot = p1, width = 16, height = 8, units = "cm")
+ggsave("Plots/Balancing_plot.png",  plot = p1, width = 16, height = 10, units = "cm")
 
 # Fishing == 0 is sorted away. Check if dist is similar for this
 reg_pop %>% 
