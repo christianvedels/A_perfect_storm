@@ -207,7 +207,7 @@ plot_stats = reg_pop %>%
       Variable == "lPop" ~ "log(Population)",
       Variable == "lManu" ~ "log(Manufacturing + 1)",
       Variable == "lFish" ~ "log(Fishing + 1)*",
-      Variable == "Child_women_ratio" ~ "Young children per woman",
+      Variable == "Child_women_ratio" ~ "Child women ratio",
       Variable == "Age_mean" ~ "Mean age in parish"
     )
   ) %>% 
@@ -221,10 +221,10 @@ p1 = plot_stats %>%
   facet_wrap(~Year) + 
   theme_bw() + 
   theme(legend.position = "bottom") + 
-  labs(x = "Standardised values")
+  labs(x = "Standardized values")
 
 p1
-ggsave("Plots/Balancing_plot.png",  plot = p1, width = 16, height = 10, units = "cm")
+ggsave("Plots/Balancing_plot.png",  plot = p1, width = 16, height = 8, units = "cm")
 
 # Fishing == 0 is sorted away. Check if dist is similar for this
 reg_pop %>% 

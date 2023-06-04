@@ -10,6 +10,7 @@ library(fixest)
 
 # ==== Load data ====
 data0 = read_csv2("Data/LocalSoundToll.csv")
+data_channel = read_csv2("Data/1977 Svalgard.csv")
 
 # ==== Default colors ====
 # Regions:
@@ -129,6 +130,28 @@ data0 %>%
   group_by(After) %>% 
   summarise(mean(trafic))
 
+# ==== Svalgaard data ====
+p2 = data_channel %>% 
+  ggplot(aes(Year, Ships_total, shape = Channel)) + 
+  geom_point(col = regions_col["west"]) + 
+  theme_bw() + 
+  labs(
+    y = "Ships passing the channel\nlog scale"
+  ) + 
+  theme(
+    legend.position = "bottom"
+  ) + 
+  scale_shape_manual(
+    values = c(
+      `Thyborøn channel` = 15,
+      `Agger channel` = 17
+    )
+  ) +
+  scale_x_continuous(breaks = seq(1830, 1875, by = 5)) + 
+  scale_y_log10()
+
+p2
+ggsave("Plots/Ship_trafic_channel.png", plot = p2, width = 8, height = 4)
 
 # ==== Regressions for appendix ====
 mod0 = fepois(
