@@ -219,7 +219,7 @@ name: str-results
 
 .pull-right[
 ```{r echo=FALSE, out.width="100%", fig.align='center'}
-knitr::include_graphics("Figures/STR_regressions.png")
+knitr::include_graphics("Figures/STR_regressions - Copy.png")
 ```
 *Larger on next page*
 ]
@@ -227,7 +227,7 @@ knitr::include_graphics("Figures/STR_regressions.png")
 ---
 # The channel caused trade
 ```{r echo=FALSE, out.width="100%", fig.align='center'}
-knitr::include_graphics("Figures/STR_regressions.png")
+knitr::include_graphics("Figures/STR_regressions - Copy.png")
 ```
 
 ---
