@@ -112,7 +112,7 @@ name: timeline
 --
 
 #### Pre-event: 
-- 1086-1208: Natural western channel closed because of gradual land rises (since the last ice age)
+- 1085-1208: Natural western channel closed because of gradual land rises (since the last ice age)
 - 1672: Eastern Limfjord town Aalborg 2nd largest in DK 
 - Other Limfjord towns lacked far behind under Aalborg's local hedgemony
 
@@ -173,8 +173,8 @@ name: str-presentation
 ]
 
 .pull-right[
-![1838](http://www2.soundtoll.nl/sonttolregisters-333/Sonttolregisters-333_0055.jpg)
-*Page from Sound Toll Register, (soundtoll.nl)*
+![1838](Figures/1734_STR_RUG.jpg)
+*Page from Sound Toll Register in 1734 (www.rug.nl)*
 ]
 
 ---
@@ -198,12 +198,17 @@ name: censusdata
 ]
 
 ---
-# The channel caused trade (1/2)
+# The channel caused trade
 
-![Descriptive](Figures/Sound_toll.png)
+![Ship traffic](Figures/Ship_trafic_channel.png)
+*Descriptive statistics from Svalgaard (1977) sourced from customs archives*
+---
+# The channel caused trade
+
+![Descriptive](Figures/Ship_trafic.png)
 ---
 name: str-results
-# The channel caused trade (2/2)
+# The channel caused trade
 .pull-left[
 - **Data**: Panel of Danish ports 1750-1855 
 - **Outcome**: Cargo ship traffic with origin or destination in a specified port
@@ -216,33 +221,44 @@ name: str-results
 
 
 .pull-right[
-![STR_reg](Figures/STR_regression.PNG)
-- *[Robustness: Only Origin/Destination](#onlyfromto)*&lt;br&gt;
-- *[Port-level results](#str-results2)*
+![STR_reg](Figures/STR_regressions.PNG)
+*Larger on next page*
 ]
 
 ---
-name: pop-ma
-# Large population growth (1/2)
-#### Market Access approach
-![MA](Figures/wide_pop_ma.png)
+# The channel caused trade
+![STR_reg](Figures/STR_regressions.PNG)
+
+---
+name: pop
+# Population increase
+
+.pull-left[
+### Market Access approach
+&lt;img src="Figures/pop_ma.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+**Robustness to:**
+- [Comparison groups](#Rob_comp)
+- [Parameter choices](#all-paramMA)
+]
+--
+.pull-right[
+### Dummy approach
+&lt;img src="Figures/pop_dummy.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+**Robustness to:**
+- [Comparison groups](#Rob_comp)
+- [Pre-treatment characteristics](#pre_treat_adj)
+
+]
 
 ???
 - Rauch &amp; Maurer (2022): 2.3 for panama canal
 
 ---
-name: pop-dummy
-# Large population growth (2/2)
-#### Dummy approach
-![Dummy](Figures/wide_pop_dummy.png)
-
-
-???
-
----
 name: mechanism1
 .pull-left[
-## Mechanism
+# Mechanism
 - **First-order mechanism:** Trade (as documented)
 - **Remaining questions**: 
 
@@ -250,7 +266,7 @@ name: mechanism1
   + **Answer:** [Institutions and secondary infrastructure](#instmech) had to adapt
 
   + *What carried the population growth?* 
-  + **Answer:** Manufacturing and migration not fishing 
+  + **Likely answer:** Fertility driven by rise of manufacturing and fishing
 ]
 
 .pull-right[
@@ -270,10 +286,7 @@ name: mechanism1
 
  
 **Fishing:**
-&lt;img src="Figures/Wide_fish_new.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-**Manufacturing:**
-&lt;img src="Figures/Wide_manu_new.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="Figures/fish.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ]
 --
@@ -281,13 +294,30 @@ name: mechanism1
 ### Part 2
 &lt;p style="color:red;"&gt;But only manufacturing can account for the population growth:&lt;/p&gt;
 
-**Fishing:**
-&lt;img src="Figures/Wide_wo_fish_dummy.png" width="100%" style="display: block; margin: auto;" /&gt;
-
 **Manufacturing:**
-&lt;img src="Figures/Wide_wo_manu_dummy.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="Figures/manu.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ]
+
+---
+### But can this explain the population growth?
+
+**Labor force as share of total pop:**
+&lt;img src="Figures/all_occupations_share.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+### Migration and fertility
+.pull-left[
+**People who live in different county than their birth county:**
+&lt;img src="Figures/born_different.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+--
+.pull-right[
+**Child/women ratio (ch. 1-5 years per f. 15-45):**
+&lt;img src="Figures/fertility.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
 
 
 ---
@@ -301,7 +331,7 @@ name: mechanism1
 
 **Data?** 
 - Just use register data! 
-- New method to construct panel sampling `\(P(Coin|t)_i\)` based on Bayes and Monte Carlo
+- New method to construct panel sampling `\(P(Coin|t)_i\)` from dating range based on Bayes and Monte Carlo
 ]
 
 .pull-right[
@@ -312,9 +342,18 @@ name: mechanism1
 ]
 
 ---
+# Descriptive evidence
+![Arch](Figures/Arch_descriptive.png)
+---
 name: arch
 **Plot of effect to the likelihood of a coin finding being generated**
-![Reg_arch](Figures/Arch_mod2.png)
+![Reg_arch](Figures/arch_dummy_coins.png)
+[More details](#appendixarch)
+
+---
+name: arch
+**Plot of effect to the likelihood of a building finding being generated**
+![Reg_arch](Figures/arch_dummy_buildings.png)
 [More details](#appendixarch)
 
 ---
@@ -324,7 +363,8 @@ name: other-results
 - **RQ:** How are we affected by geography? Does infrastructure cause development?
 - Storm led to a channel and improved connectivity in 1834
 - The population grew 22 percent in a generation in affected parishes 
-- Population growth carried by trade, adaptation and rise of manufacturing
+- Population growth carried by trade and adaptation
+- Intrinsic growth (fertility), fishing and manufacturing
 ]
 
 
@@ -397,68 +437,55 @@ name: elsinor
 
 [Back to STR](#str-presentation), [Back to results](#str-results)
 
----
-name: str-results2
-# The channel caused trade
-![By port](Figures/Trade_effect_port_level_wide.png)
-
-[APEs](#apes)
-
-.footnote[
-[Back](#str-results)
-]
 
 ---
-name: onlyfromto
-# Traffic origin/destination
+name: Rob_comp
+## Robustness: Comparison groups
+
 .pull-left[
-### Only destination
-![Dest](Figures/STR_reg_dest.png)
+#### MA approach
+![MA_mult](Figures/Multiverse_MA.png)
 ]
 
 .pull-right[
-### Only origin
-![Origin](Figures/STR_reg_ori.PNG)
+#### Dummy approach
+![Dummy_mult](Figures/Multiverse_dummy.png)
 ]
 
+[Back](#pop)
+
 .footnote[
-[Back](#str-results)
+**Definitions:** A: &lt;5km to coast; B: Copenhagen excl.; C: Control &gt;100 km from Limfj.; D: &lt;5km to Market town
 ]
+
 
 
 ---
 name: all-paramMA
-### All feasible MA parameters
-[Back](#pop-ma)
+## Robustness: Parameter choices
 
-![Robust Pop MA](Figures/Varying_theta_alpha.png)
+&lt;img src="Figures/Multiverse_MA_param.png" width="60%" style="display: block; margin: auto;" /&gt;
 
-
-
----
-name: popma-outliers
-### Robustness to outliers
-[Back](#pop-ma)
-![MAoutl](Figures/Robustness_to_outliers_pop.png)
+[Back](#pop)
 
 ---
-name: specs-dummy
-# All feasible specifications
-![All_specs](Figures/All_specs_west.png)
+name: pre_treat_adj
+## Robustness: Pre-treat characteristics
 
-.footnote[
-[Back](#pop-dummy)
+.pull-left[
+- Using the doubly robust estimator from Callaway &amp; Sant’Anna (2021).
+- Combines outcome regression with propensity score method. If either is valid, then the estimator is consistent.
+- Only corrects for pre-treatment characteristics
+
+**Columns:** (1): No adj.; (2): Adj. for age, occupation, fertility; (3): Adds log(Pop) as adj.
 ]
 
----
-name: heterogendummy
-# Urban/Rural heterogenous effects
-
-![All_specs](Figures/all_data_FE_het_market_towns.png)
-
-.footnote[
-[Back](#pop-dummy)
+.pull-right[
+![DR_est](Figures/CS_DR_estimate.png)
 ]
+
+[Back](#pop)
+
 
 ---
 name: fish
@@ -470,7 +497,6 @@ name: fish
 ---
 name: newspapers
 # Newspapers
-[Back](#MAadditional)
 
 .pull-left[
 - Based on all newspapers in published in the period
@@ -481,48 +507,9 @@ name: newspapers
 ]
 
 ---
-name: apes
-# APEs
-
-![APE](Figures/Trade_APE_port_level_wide.png)
-
-
-`$$APE_h = exp(X\beta)\beta_h$$`
-.footnote[
-[Back](#str-results2)
-]
-
----
-# Population growth - Poisson
-#### Dummy
-
-![Dummy](Figures/Possion.png)
-
-.footnote[
-[Back](#pop-dummy)
-]
-
----
-name: ma-pois
-# Population growth 
-#### Dummy Poisson
-
-![Dummy](Figures/Possion_MA.png)
-
-.footnote[
-[Back](#pop-ma)
-]
-
----
 ### Safer, more convenient harbours
 ![Skudehandel](Figures/Wikimedia_skudehandel.jpg)
 *Dangerous loading on the west coast*
-
----
-# Map
-.center[
-&lt;iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d704129.7470425251!2d8.826970647896832!3d56.880787313536544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sda!2sdk!4v1634159326111!5m2!1sda!2sdk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;
-]
 
 ---
 name: instmech
@@ -616,43 +603,19 @@ name: appendixarch
 - **What we have:** Observations of individual coin findings and a distribution of times `\(t\)`, which are likely for a specific coin finding in a place `\(i\)` 
 
 **In equation form:**
-- What we have: `\(P_i(t|c)\)` 
-- What we want: `\(P_i(c|t)\)` 
+- What we have: `\(P_i(t|c)\)`: Probability of `\(t\)` given one coin 
+- What we want: `\(P_i(\{c\}|t)\)`: Probability of *any* coins in time `\(t\)`
 ]
 --
 .pull-right[
 ### The solution
 Bayes formula and Monte Carlo!
-- Bayes: `\(P_i(Coin|t) = \frac{P_i(t|Coin)P_i(Coin)}{P_i(t)}\)` 
-- Monte Carlo: For every coin:
-  + Draw random number between `\(Year_{min}\)` and `\(Year_{max}\)` 
-  + Repeat 1000 times 
-  + Each of these represent a draw from the distribution we are interested in
-  + Average to get estimate: `\(\widehat{P_i}(Coin|t)\)`
+- Simple to sample from this distribution
+- Sample `\(t\)` from each coin 
+- Count frequency of coin findings
 ]
 
-
----
-### Descriptive results
-![Arch](Figures/Archeological_bootstrap_match.png)
-*Error bars based on both sampling and dating uncertainty*
----
-### Regression results
-![Reg_arch](Figures/Arch_regs.png)
-
-.footnote[
-[Back](#arch)
-]
-
----
-#### Alternatives: All indicators
-
-![Other_ind](Figures/Arch_ind_econ.png)
-
-.footnote[
-[Back](#arch)
-]
-
+`$$P_i(\{findings\}|t)=\left[1-\prod_{c=1}^{K_i} \left( 1 - P(t|finding_c) \right)\right] P(\{findings\})$$`
 ---
 ### All indicators 
 ![Other_ind](Figures/Arch_all.png)
@@ -660,13 +623,6 @@ Bayes formula and Monte Carlo!
 .footnote[
 [Back](#arch)
 ]
-
-
----
-
----
-# Breach `\(\rightarrow\)` Migration
-![Migr1](Figures/Wide_born_different_county.png)
 
 ---
 ### Safer, more convenient harbours
