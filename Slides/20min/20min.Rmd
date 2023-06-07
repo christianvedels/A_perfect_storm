@@ -671,15 +671,17 @@ knitr::include_graphics("Figures/Propensity_after.png")
 ---
 name: matching_coins
 #### Coin findings (matched sample)
-
-
-![Arch coins matched](Figures/arch_dummy_coins_matched.png)
+```{r echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Figures/arch_dummy_coins_matched.png")
+```
 [Back](#arch1)
 ---
 name: matching_buildings
 #### Building findings (matched sample)
-![Arch buildings matched](Figures/arch_dummy_buildings.png)
-[Back](#arch1)
+```{r echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Figures/arch_dummy_buildings.png")
+```
+[Back](#arch2)
 ---
 ### Safer, more convenient harbours
 ![Skudehandel](Figures/Wikimedia_skudehandel.jpg)
