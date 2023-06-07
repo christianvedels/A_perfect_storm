@@ -218,13 +218,17 @@ name: str-results
 
 
 .pull-right[
-![STR_reg](Figures/STR_regressions.jpg)
+```{r echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("Figures/STR_regressions.png")
+```
 *Larger on next page*
 ]
 
 ---
 # The channel caused trade
-![STR_reg](Figures/STR_regressions.jpg)
+```{r echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("Figures/STR_regressions.png")
+```
 
 ---
 name: pop
