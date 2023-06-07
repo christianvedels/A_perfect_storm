@@ -356,16 +356,21 @@ knitr::include_graphics("Figures/fertility.png")
 # Descriptive evidence
 ![Arch](Figures/Arch_descriptive.png)
 ---
-name: arch
+name: arch1
 **Plot of effect to the likelihood of a coin finding being generated**
-![Reg_arch](Figures/arch_dummy_coins.png)
-[More details](#appendixarch)
+```{r echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Figures/arch_dummy_coins.png")
+```
+
+[More details](#appendixarch); [Matched sample alternative](#matching_coins)
 
 ---
-name: arch
+name: arch2
 **Plot of effect to the likelihood of a building finding being generated**
-![Reg_arch](Figures/arch_dummy_buildings.png)
-[More details](#appendixarch)
+```{r echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Figures/arch_dummy_buildings.png")
+```
+[More details](#appendixarch); [Matched sample alternative](#matching_buildings)
 
 ---
 name: other-results
@@ -624,13 +629,18 @@ name: appendixarch
 --
 .pull-right[
 ### The solution
-Bayes formula and Monte Carlo!
+Bayes formula and Monte Carlo
 - Simple to sample from this distribution
 - Sample $t$ from each coin 
 - Count frequency of coin findings
+$$P(\{c\}|t)=\left[1-\prod_{c=1}^{K_i} \left( 1 - P(t|c) \right)\right] P(\{c\})$$
+where it is assumed that
+$P(t|c)\sim \mathscr{U}(Year_{min}^c; Year_{max}^c)$ or
+$P(t|c)\sim \mathscr{N}(\mu_c, \sigma_c),$
+$\sigma_c=\frac{(Year_{max}^c - Year_{min}^c)}{1.96}$
 ]
 
-$$P_i(\{findings\}|t)=\left[1-\prod_{c=1}^{K_i} \left( 1 - P(t|finding_c) \right)\right] P(\{findings\})$$
+
 ---
 ### All indicators 
 ![Other_ind](Figures/Arch_all.png)
@@ -638,7 +648,41 @@ $$P_i(\{findings\}|t)=\left[1-\prod_{c=1}^{K_i} \left( 1 - P(t|finding_c) \right
 .footnote[
 [Back](#arch)
 ]
+---
+name: matching
+### Soil type matching
+.pull-left[
+- Soil types linked to medieval developmental trajectory (Andersen et al, 2016)
+- Using common soil types to estimate treatment propensity score with XGBoost 
+- Soil from GEUS
+- West Limfjord matched to other parishes using greedy matching. 
+]
 
+.pull-right[
+*Before*
+```{r echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Figures/Propensity_before.png")
+```
+
+*After*
+```{r echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("Figures/Propensity_after.png")
+```
+
+]
+
+---
+name: matching_coins
+#### Coin findings (matched sample)
+
+
+![Arch coins matched](Figures/arch_dummy_coins_matched.png)
+[Back](#arch1)
+---
+name: matching_buildings
+#### Building findings (matched sample)
+![Arch buildings matched](Figures/arch_dummy_buildings.png)
+[Back](#arch1)
 ---
 ### Safer, more convenient harbours
 ![Skudehandel](Figures/Wikimedia_skudehandel.jpg)
