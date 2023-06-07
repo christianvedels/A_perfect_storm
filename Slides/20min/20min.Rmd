@@ -218,13 +218,13 @@ name: str-results
 
 
 .pull-right[
-![STR_reg](Figures/STR_regressions.PNG)
+![STR_reg](Figures/STR_regressions.png)
 *Larger on next page*
 ]
 
 ---
 # The channel caused trade
-![STR_reg](Figures/STR_regressions.PNG)
+![STR_reg](Figures/STR_regressions.png)
 
 ---
 name: pop
