@@ -524,11 +524,6 @@ name: newspapers
 ]
 
 ---
-### Safer, more convenient harbours
-![Skudehandel](Figures/Wikimedia_skudehandel.jpg)
-*Dangerous loading on the west coast*
-
----
 name: instmech
 # Mechanism: Adaptation
 

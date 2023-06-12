@@ -11,6 +11,7 @@ library(fixest)
 library(sandwich)
 library(foreach)
 library(ggridges)
+source("000_Functions.R")
 
 # ==== Load data ====
 reg_pop = read_csv2("Data/Pop_reg.csv", guess_max = 2000)
@@ -20,6 +21,387 @@ reg_pop = reg_pop %>%
   mutate(
     Year = relevel(factor(Year), ref = "1801")
   )
+
+
+# ==== New mechanism results ====
+# Idea: Control for mechanisms as mediators
+# Step 1: Show that mediator reacted to exposure
+# Step 2: Show that mediator takes away effect, when it is controlled for
+
+# Occupation
+occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
+  occ_i = reg_pop %>% 
+    select(contains(paste0("hisco_1st_digit", i))) %>% 
+    select(-contains("_f"), -contains("_m")) %>% unlist()
+  
+  # If hisco first digit is 1 then it should contain both 0 and 1
+  if(i == 1){
+    occ_0 = reg_pop %>% 
+      select(contains(paste0("hisco_1st_digit", i-1))) %>% 
+      select(-contains("_f"), -contains("_m")) %>% unlist()
+    
+    occ_i = occ_0 + occ_i
+  }
+  
+  # If hisco first digit is 7 then it should contain both 7, 8 and 9
+  if(i == 7){
+    occ_8 = reg_pop %>% 
+      select(contains(paste0("hisco_1st_digit", i+1))) %>% 
+      select(-contains("_f"), -contains("_m")) %>% unlist()
+    
+    occ_9 = reg_pop %>% 
+      select(contains(paste0("hisco_1st_digit", i+2))) %>% 
+      select(-contains("_f"), -contains("_m")) %>% unlist()
+    
+    occ_i = occ_8 + occ_9 + occ_i
+  }
+  
+  reg_pop$occ_i = occ_i
+  
+  exposed_pop = reg_pop %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(occ_i, na.rm = TRUE)
+    ) %>% unlist()
+  
+  average_parish_size = reg_pop %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(Pop, na.rm = TRUE)
+    ) %>% unlist()
+  
+  # log(x+1)
+  mod_i_MA = feols(
+    log(occ_i + 1) ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    log(occ_i + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
+      mutate(Affected = limfjord_placement_west),
+    cluster = ~ GIS_ID
+  )
+  
+  # Saving plots
+  MA_logx1 = plot_mod( # MA approach
+    mod_i_MA, 
+    paste0("log_x1_HISCO_",i,"_MA"),
+    corner_text = "Control group: Less Market Access improvement",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/",
+    return_data_and_plot = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  Dummy_logx1 = plot_mod( # Dummy approach
+    mod_i_Dummy, 
+    paste0("log_x1_HISCO_",i,"_Dummy"),
+    corner_text = "Control: Non-Limfjord parishes",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/",
+    return_data_and_plot = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  # extensive
+  mod_i_MA = feols(
+    occ_i>0 ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    occ_i>0 ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
+      mutate(Affected = limfjord_placement_west),
+    cluster = ~ GIS_ID
+  )
+  
+  # Saving plots
+  MA_ext = plot_mod( # MA approach
+    mod_i_MA, 
+    paste0("extensive_HISCO_",i,"_MA"),
+    corner_text = "Control group: Less Market Access improvement",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/",
+    return_data_and_plot = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  Dummy_ext = plot_mod( # Dummy approach
+    mod_i_Dummy, 
+    paste0("extensive_HISCO_",i,"_Dummy"),
+    corner_text = "Control: Non-Limfjord parishes",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/",
+    return_data_and_plot = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  # intensive
+  with_occ_consist = reg_pop %>% # IDs which consistently have >0
+    filter(occ_i>0) %>% 
+    group_by(GIS_ID) %>% 
+    count() %>% 
+    ungroup() %>% 
+    filter(
+      n == max(n) # Only those observed in all years with the above filter
+    )
+  
+  exposed_pop_int = reg_pop %>% 
+    filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(occ_i, na.rm = TRUE)
+    ) %>% unlist()
+  
+  average_parish_size_int = reg_pop %>% 
+    filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(Pop, na.rm = TRUE)
+    ) %>% unlist()
+  
+  mod_i_MA = feols(
+    log(occ_i) ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+      filter(GIS_ID %in% with_occ_consist$GIS_ID),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    log(occ_i) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
+      mutate(Affected = limfjord_placement_west) %>% 
+      filter(GIS_ID %in% with_occ_consist$GIS_ID),
+    cluster = ~ GIS_ID
+  )
+  
+  # Saving plots
+  MA_int = plot_mod( # MA approach
+    mod_i_MA, 
+    paste0("intensive_HISCO_",i,"_MA"),
+    corner_text = "Control group: Less Market Access improvement",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/",
+    return_data_and_plot = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  Dummy_int = plot_mod( # Dummy approach
+    mod_i_Dummy, 
+    paste0("intensive_HISCO_",i,"_Dummy"),
+    corner_text = "Control: Non-Limfjord parishes",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/",
+    return_data_and_plot = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  # asinh()
+  mod_i_MA = feols(
+    asinh(occ_i) ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    asinh(occ_i) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
+      mutate(Affected = limfjord_placement_west),
+    cluster = ~ GIS_ID
+  )
+  
+  # Saving plots
+  MA_asinh = plot_mod( # MA approach
+    mod_i_MA, 
+    paste0("asinh_HISCO_",i,"_MA"),
+    corner_text = "Control group: Less Market Access improvement",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/",
+    return_data_and_plot = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  Dummy_asinh = plot_mod( # Dummy approach
+    mod_i_Dummy, 
+    paste0("asinh_HISCO_",i,"_Dummy"),
+    corner_text = "Control: Non-Limfjord parishes",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/",
+    return_data_and_plot = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  data.frame(
+    Exposed_pop = c(rep(exposed_pop, 4), rep(exposed_pop_int, 2), rep(exposed_pop, 2)),
+    average_parish_size = c(rep(average_parish_size, 4), rep(average_parish_size_int, 2), rep(average_parish_size, 2)),
+    Affected = rep(c("MA", "Dummy"), 4),
+    Approach = c("log(x+1)", "log(x+1)", "Extensive", "Extensive", "Intensive", "Intensive", "asinh(x)", "asinh(x)"),
+    Estimate = c(
+      MA_logx1$Estimate, 
+      Dummy_logx1$Estimate, 
+      MA_ext$Estimate, 
+      Dummy_ext$Estimate,
+      MA_int$Estimate,
+      Dummy_int$Estimate,
+      MA_asinh$Estimate,
+      Dummy_asinh$Estimate
+    ),
+    Std = c(
+      MA_logx1$Std..Error, 
+      Dummy_logx1$Std..Error, 
+      MA_ext$Std..Error, 
+      Dummy_ext$Std..Error,
+      MA_int$Std..Error,
+      Dummy_int$Std..Error,
+      MA_asinh$Std..Error,
+      Dummy_asinh$Std..Error
+    ),
+    Pval = c(
+      MA_logx1$Pr...t.., 
+      Dummy_logx1$Pr...t..,
+      MA_ext$Pr...t.., 
+      Dummy_ext$Pr...t..,
+      MA_int$Pr...t..,
+      Dummy_int$Pr...t..,
+      MA_asinh$Pr...t..,
+      Dummy_asinh$Pr...t..
+    ),
+    Pretrend_est = c(
+      MA_logx1$Pretrend_est, 
+      Dummy_logx1$Pretrend_est, 
+      MA_ext$Pretrend_est, 
+      Dummy_ext$Pretrend_est,
+      MA_int$Pretrend_est,
+      Dummy_int$Pretrend_est,
+      MA_asinh$Pretrend_est,
+      Dummy_asinh$Pretrend_est
+    ),
+    Pretrend_pval = c(
+      MA_logx1$Pretrend_pval, 
+      Dummy_logx1$Pretrend_pval, 
+      MA_ext$Pretrend_pval, 
+      Dummy_ext$Pretrend_pval,
+      MA_int$Pretrend_pval,
+      Dummy_int$Pretrend_pval,
+      MA_asinh$Pretrend_pval,
+      Dummy_asinh$Pretrend_pval
+    ),
+    hisco = i,
+    n_parishes = c(rep(1589, 4), rep(NROW(with_occ_consist), 2), rep(1589, 2))
+  )
+}
+
+# Key with description
+key_desc = data.frame(
+  hisco = c(1:7),
+  description = c( # From: https://historyofwork.iisg.nl/major.php
+    "0/1: Professional, technical and related workers",
+    "2: Administrative and managerial workers",
+    "3: Clerical and related workers",
+    "4: Sales workers",
+    "5: Service workers",
+    "6: Agricultural, animal husbandry and forestry workers, fishermen and hunters",
+    "7/8/9: Production and related workers, transport equipment operators and labourers"
+  )
+)
+
+# Bonferoni correction
+occ_effects_1901 = occ_effects_1901 %>% 
+  mutate(
+    Pval_bonf = p.adjust(Pval, method = "bonferroni")
+  ) %>% 
+  mutate(
+    stars = case_when(
+      Pval_bonf < 0.01 ~ "***",
+      Pval_bonf < 0.05 ~ "**",
+      Pval_bonf < 0.01 ~ "*",
+      TRUE ~ ""
+    )
+  )
+
+# APE
+occ_effects_1901 = occ_effects_1901 %>% 
+  mutate(
+    APE = Exposed_pop*Estimate
+  ) %>% 
+  mutate(
+    APE_pct = APE/average_parish_size
+  )
+
+# Make plot
+nudge = 0.05
+occ_effects_1901 %>% 
+  left_join(key_desc, by = "hisco") %>% 
+  mutate(
+    Upper = Estimate + 1.96*Std,
+    Lower = Estimate - 1.96*Std
+  ) %>% 
+  mutate(
+    intensive_text = ifelse(Approach == "Intensive", n_parishes, "")
+  ) %>% 
+  mutate(
+    intensive_text = ifelse(Pretrend_pval < 0.01, paste(intensive_text,"*"), intensive_text)
+  ) %>% 
+  mutate(
+    Approach = factor(Approach, levels = c("Extensive", "Intensive", "log(x+1)", "asinh(x)"))
+  ) %>% 
+  ggplot(aes(Approach, Estimate, col = Affected)) + 
+  geom_point(position = position_nudge(x = c(nudge, -nudge))) + 
+  geom_errorbar(aes(ymin = Lower, ymax = Upper), position = position_nudge(x = c(nudge, -nudge))) +
+  facet_wrap(~description, scales = "free") + 
+  geom_hline(yintercept = 0) + 
+  geom_text(
+    aes(label = intensive_text),
+    position = position_nudge(
+      x = c(4*nudge, -4*nudge),
+      y = c(4*nudge, -4*nudge)
+    )
+    ) + 
+  theme_bw() + 
+  scale_color_manual(values = c(Dummy = "#2c5c34", MA = "#b33d3d")) + 
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5)
+  )
+
+# What is a meaningfull effect?
+# For the dummy approach: 0.05, MA approach 0.5
+occ_effects_1901 %>% 
+  filter(
+    ifelse(
+      Affected == "MA", abs(Estimate)>0.5, abs(Estimate)>0.05
+    )
+  ) %>% 
+  left_join(key_desc, by = "hisco")
+# There is possibly a meaningful effect to all occupations (but not on all margins)
+
+# Singificant effects
+occ_effects_1901 %>% 
+  arrange(-abs(Estimate)) %>% 
+  left_join(key_desc, by = "hisco") %>% 
+  filter(
+    Pval_bonf < 0.1
+  ) %>%
+  select(hisco, Affected, Approach, Estimate, Std, stars, Pretrend_pval, APE, APE_pct, average_parish_size) %>% 
+  arrange(hisco) %>% 
+  mutate(
+    Pretrend_pval = case_when(
+      Pretrend_pval < 0.01 ~ "***",
+      Pretrend_pval < 0.05 ~ "**",
+      Pretrend_pval < 0.1 ~ "*",
+      TRUE ~ ""
+    )
+  ) %>% 
+  knitr::kable("latex", booktabs = TRUE, align = "c")
+  
+
 
 # ==== Mechanism occupation ====
 # Breach --> Fishing

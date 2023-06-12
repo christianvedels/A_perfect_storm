@@ -240,12 +240,13 @@ plot_mod = function(
     mod, 
     fname, 
     ref_year = 1801, 
-    Parishes = 0, 
     ylab = "",
     vadj = 0.15,
     the_col = "#b33d3d",
     corner_text = "Control: Non-Limfjord parishes",
-    return_data = FALSE
+    return_data = FALSE,
+    dir0 = "Plots/Regression_plots/",
+    return_data_and_plot = FALSE
 ){
   capN = mod$nobs
   
@@ -305,8 +306,23 @@ plot_mod = function(
       # axis.title.x = element_text(hjust = 0)
     )
   
-  fname0 = paste0("Plots/Regression_plots/", fname, ".png")
+  fname0 = paste0(dir0, fname, ".png")
   ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
+  
+  # Testing potential pretrends
+  pre_trend = data0 %>% 
+    filter(Year == 1787) %>% 
+    transmute(
+      Pretrend_est = Estimate,
+      Pretrend_std = Std..Error,
+      Pretrend_pval = Pr...t..
+    )
+  
+  data0 = bind_cols(data0, pre_trend)
+  
+  if(return_data_and_plot){
+    return(data0)
+  }
   
   return(p1)
 }

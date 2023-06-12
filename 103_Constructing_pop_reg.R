@@ -65,6 +65,5 @@ reg_pop = reg_pop %>%
     )
   )
 
-
 # ==== Save data ====
 write_csv2(reg_pop, "Data/Pop_reg.csv")
