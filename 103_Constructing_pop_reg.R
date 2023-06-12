@@ -1,5 +1,5 @@
 # Pop reg data
-# Date updated:   2023-06-23
+# Date updated:   2023-06-12
 # Auhtor:         Christian Vedel 
 #
 # Purpose:        Constructs the regression data used in the analysis        
