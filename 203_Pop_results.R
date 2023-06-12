@@ -11,6 +11,7 @@ library(fixest)
 library(sandwich)
 library(foreach)
 library(ggridges)
+source("000_Functions.R")
 
 # ==== Load data ====
 reg_pop = read_csv2("Data/Pop_reg.csv", guess_max = 2000)
