@@ -91,7 +91,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
     paste0("log_x1_HISCO_",i,"_MA"),
     corner_text = "Control group: Less Market Access improvement",
     the_col = "#2c5c34",
-    dir0 = "Plots/Mechanism/",
+    dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
   ) %>% 
     filter(Year == 1901)
@@ -101,7 +101,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
     paste0("log_x1_HISCO_",i,"_Dummy"),
     corner_text = "Control: Non-Limfjord parishes",
     the_col = "#2c5c34",
-    dir0 = "Plots/Mechanism/",
+    dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
   ) %>% 
     filter(Year == 1901)
@@ -127,7 +127,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
     paste0("extensive_HISCO_",i,"_MA"),
     corner_text = "Control group: Less Market Access improvement",
     the_col = "#2c5c34",
-    dir0 = "Plots/Mechanism/",
+    dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
   ) %>% 
     filter(Year == 1901)
@@ -137,7 +137,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
     paste0("extensive_HISCO_",i,"_Dummy"),
     corner_text = "Control: Non-Limfjord parishes",
     the_col = "#2c5c34",
-    dir0 = "Plots/Mechanism/",
+    dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
   ) %>% 
     filter(Year == 1901)
@@ -188,7 +188,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
     paste0("intensive_HISCO_",i,"_MA"),
     corner_text = "Control group: Less Market Access improvement",
     the_col = "#2c5c34",
-    dir0 = "Plots/Mechanism/",
+    dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
   ) %>% 
     filter(Year == 1901)
@@ -198,7 +198,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
     paste0("intensive_HISCO_",i,"_Dummy"),
     corner_text = "Control: Non-Limfjord parishes",
     the_col = "#2c5c34",
-    dir0 = "Plots/Mechanism/",
+    dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
   ) %>% 
     filter(Year == 1901)
@@ -224,7 +224,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
     paste0("asinh_HISCO_",i,"_MA"),
     corner_text = "Control group: Less Market Access improvement",
     the_col = "#2c5c34",
-    dir0 = "Plots/Mechanism/",
+    dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
   ) %>% 
     filter(Year == 1901)
@@ -234,7 +234,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
     paste0("asinh_HISCO_",i,"_Dummy"),
     corner_text = "Control: Non-Limfjord parishes",
     the_col = "#2c5c34",
-    dir0 = "Plots/Mechanism/",
+    dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
   ) %>% 
     filter(Year == 1901)
