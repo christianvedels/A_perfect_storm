@@ -308,21 +308,21 @@ key_desc = data.frame(
     "3: Clerical and related workers",
     "4: Sales workers",
     "5: Service workers",
-    "6: Agricultural, animal husbandry and forestry workers, fishermen and hunters",
-    "7/8/9: Production and related workers, transport equipment operators and labourers"
+    "6: Agricultural, animal husbandry and forestry\nworkers, fishermen and hunters",
+    "7/8/9: Production and related workers, transport\nequipment operators and labourers"
   )
 )
 
 # Bonferoni correction
 occ_effects_1901 = occ_effects_1901 %>% 
   mutate(
-    Pval_bonf = p.adjust(Pval, method = "bonferroni")
-  ) %>% 
+    Pval_holm = p.adjust(Pval, method = "holm")
+  ) %>%
   mutate(
     stars = case_when(
-      Pval_bonf < 0.01 ~ "***",
-      Pval_bonf < 0.05 ~ "**",
-      Pval_bonf < 0.01 ~ "*",
+      Pval_holm < 0.01 ~ "***",
+      Pval_holm < 0.05 ~ "**",
+      Pval_holm < 0.1 ~ "*",
       TRUE ~ ""
     )
   )
@@ -338,20 +338,25 @@ occ_effects_1901 = occ_effects_1901 %>%
 
 # Make plot
 nudge = 0.05
-occ_effects_1901 %>% 
+p1 = occ_effects_1901 %>% 
+  mutate(
+    Approach = case_when(
+      Approach == "Extensive" ~ paste0("1: ", Approach),
+      Approach == "Intensive" ~ paste0("2: ", Approach),
+      Approach == "log(x+1)" ~ paste0("3: ", Approach),
+      Approach == "asinh(x)" ~ paste0("4: ", Approach)
+    )
+  ) %>% 
   left_join(key_desc, by = "hisco") %>% 
   mutate(
     Upper = Estimate + 1.96*Std,
     Lower = Estimate - 1.96*Std
   ) %>% 
   mutate(
-    intensive_text = ifelse(Approach == "Intensive", n_parishes, "")
+    intensive_text = ifelse(Approach == "2: Intensive", n_parishes, "")
   ) %>% 
   mutate(
-    intensive_text = ifelse(Pretrend_pval < 0.01, paste(intensive_text,"*"), intensive_text)
-  ) %>% 
-  mutate(
-    Approach = factor(Approach, levels = c("Extensive", "Intensive", "log(x+1)", "asinh(x)"))
+    Approach = factor(Approach, levels = c("1: Extensive", "2: Intensive", "3: log(x+1)", "4: asinh(x)"))
   ) %>% 
   ggplot(aes(Approach, Estimate, col = Affected)) + 
   geom_point(position = position_nudge(x = c(nudge, -nudge))) + 
@@ -371,6 +376,8 @@ occ_effects_1901 %>%
     axis.text.x = element_text(angle = 90, vjust = 0.5)
   )
 
+ggsave("Plots/Mechanism/All_occupations.png", plot = p1, width = 3*10, height = 3*8, units = "cm")
+
 # What is a meaningfull effect?
 # For the dummy approach: 0.05, MA approach 0.5
 occ_effects_1901 %>% 
@@ -383,23 +390,42 @@ occ_effects_1901 %>%
 # There is possibly a meaningful effect to all occupations (but not on all margins)
 
 # Singificant effects
-occ_effects_1901 %>% 
+table0 = occ_effects_1901 %>% 
+  mutate(
+    Approach = case_when(
+      Approach == "Extensive" ~ paste0("1: ", Approach),
+      Approach == "Intensive" ~ paste0("2: ", Approach),
+      Approach == "log(x+1)" ~ paste0("3: ", Approach),
+      Approach == "asinh(x)" ~ paste0("4: ", Approach)
+    )
+  ) %>% 
   arrange(-abs(Estimate)) %>% 
   left_join(key_desc, by = "hisco") %>% 
-  filter(
-    Pval_bonf < 0.1
-  ) %>%
-  select(hisco, Affected, Approach, Estimate, Std, stars, Pretrend_pval, APE, APE_pct, average_parish_size) %>% 
+  # filter(
+  #   Pval_holm < 0.1
+  # ) %>% 
   arrange(hisco) %>% 
   mutate(
-    Pretrend_pval = case_when(
+    Pretrend_stars = case_when(
       Pretrend_pval < 0.01 ~ "***",
       Pretrend_pval < 0.05 ~ "**",
       Pretrend_pval < 0.1 ~ "*",
       TRUE ~ ""
     )
   ) %>% 
+  mutate_all(Round0) %>%
+  mutate(
+    Estimate = paste0(Estimate, stars, " (", Std, ")"),
+    Pretrend_pval = paste0(Pretrend_pval, Pretrend_stars)
+  ) %>% 
+  select(hisco, Affected, Approach, Estimate, Pretrend_pval, APE, APE_pct, n_parishes)
+
+table0 %>% # For appendix
+  arrange(hisco) %>% 
   knitr::kable("latex", booktabs = TRUE, align = "c")
+
+table0 %>% # For paper
+  top_n(10, APE)
   
 
 

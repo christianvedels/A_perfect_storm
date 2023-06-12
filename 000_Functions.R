@@ -326,3 +326,14 @@ plot_mod = function(
   
   return(p1)
 }
+
+# ==== Round0 ====
+Round0 = function(x, digits = 3){
+  if(is.numeric(x)){
+    return(round(x, digits = digits))
+  } else {
+    return(x)
+  }
+  
+  stop("Unexpected error")
+}
