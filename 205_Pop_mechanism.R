@@ -23,10 +23,7 @@ reg_pop = reg_pop %>%
   )
 
 
-# ==== New mechanism results ====
-# Idea: Control for mechanisms as mediators
-# Step 1: Show that mediator reacted to exposure
-# Step 2: Show that mediator takes away effect, when it is controlled for
+# ==== Effect of channel on occupational structure ====
 
 # Occupation
 occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
@@ -303,14 +300,31 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
 key_desc = data.frame(
   hisco = c(1:7),
   description = c( # From: https://historyofwork.iisg.nl/major.php
-    "0/1: Professional, technical and related workers",
-    "2: Administrative and managerial workers",
+    "0/1: Professional, technical and\nrelated workers",
+    "2: Administrative and managerial\nworkers",
     "3: Clerical and related workers",
     "4: Sales workers",
     "5: Service workers",
-    "6: Agricultural, animal husbandry and forestry\nworkers, fishermen and hunters",
-    "7/8/9: Production and related workers, transport\nequipment operators and labourers"
+    "6: Agricultural, animal husbandry\n and forestry workers, fishermen\nand hunters",
+    "7/8/9: Production and related\nworkers, transportequipment operators\nand labourers"
   )
+)
+
+# What is a meaningfull effect?
+# For the dummy approach: 0.05, MA approach 0.5
+occ_effects_1901 %>% 
+  filter(
+    ifelse(
+      Affected == "MA", abs(Estimate)>0.25, abs(Estimate)>0.05
+    )
+  ) %>% 
+  left_join(key_desc, by = "hisco")
+# There is possibly a meaningful effect to all occupations (but not on all margins)
+
+meaningfull_effects = data.frame(
+  Affected = rep(c("MA", "Dummy")),
+  Effect_size_upper = c(0.05, 0.25),
+  Effect_size_lower = -c(0.05, 0.25)
 )
 
 # Bonferoni correction
@@ -330,10 +344,18 @@ occ_effects_1901 = occ_effects_1901 %>%
 # APE
 occ_effects_1901 = occ_effects_1901 %>% 
   mutate(
-    APE = Exposed_pop*Estimate
+    Upper = Estimate + 1.96*Std,
+    Lower = Estimate - 1.96*Std
   ) %>% 
   mutate(
-    APE_pct = APE/average_parish_size
+    APE = Exposed_pop*Estimate,
+    APE_upper = Exposed_pop*Upper,
+    APE_lower = Exposed_pop*Lower
+  ) %>% 
+  mutate(
+    APE_pct = APE/average_parish_size,
+    APE_pct_lower = APE_lower/average_parish_size,
+    APE_pct_upper = APE_upper/average_parish_size
   )
 
 # Make plot
@@ -347,47 +369,51 @@ p1 = occ_effects_1901 %>%
       Approach == "asinh(x)" ~ paste0("4: ", Approach)
     )
   ) %>% 
+  filter(
+    n_parishes > 100
+  ) %>%
   left_join(key_desc, by = "hisco") %>% 
+  left_join(meaningfull_effects, by = "Affected") %>% 
+  group_by(hisco) %>% 
   mutate(
-    Upper = Estimate + 1.96*Std,
-    Lower = Estimate - 1.96*Std
+    Effect_size_upper = Effect_size_upper*mean(exposed_pop)/mean(average_parish_size),  
+    Effect_size_lower = Effect_size_lower*mean(exposed_pop)/mean(average_parish_size)
   ) %>% 
+  ungroup() %>% 
   mutate(
     intensive_text = ifelse(Approach == "2: Intensive", n_parishes, "")
   ) %>% 
   mutate(
+    intensive_text = ifelse(Pretrend_pval<0.05, paste0(intensive_text,"*"), intensive_text)
+  ) %>% 
+  mutate(
     Approach = factor(Approach, levels = c("1: Extensive", "2: Intensive", "3: log(x+1)", "4: asinh(x)"))
   ) %>% 
-  ggplot(aes(Approach, Estimate, col = Affected)) + 
+  ggplot(aes(Approach, APE_pct, col = Affected)) + 
   geom_point(position = position_nudge(x = c(nudge, -nudge))) + 
-  geom_errorbar(aes(ymin = Lower, ymax = Upper), position = position_nudge(x = c(nudge, -nudge))) +
-  facet_wrap(~description, scales = "free") + 
+  geom_errorbar(aes(ymin = APE_pct_lower, ymax = APE_pct_upper), position = position_nudge(x = c(nudge, -nudge))) +
+  facet_wrap(~description, scales = "free_y") + 
   geom_hline(yintercept = 0) + 
   geom_text(
     aes(label = intensive_text),
     position = position_nudge(
-      x = c(4*nudge, -4*nudge),
-      y = c(4*nudge, -4*nudge)
+      x = c(4*nudge, -4*nudge)
     )
     ) + 
   theme_bw() + 
   scale_color_manual(values = c(Dummy = "#2c5c34", MA = "#b33d3d")) + 
   theme(
     axis.text.x = element_text(angle = 90, vjust = 0.5)
+  ) + 
+  geom_hline(aes(yintercept = Effect_size_upper, col = Affected), lty = 2) +
+  geom_hline(aes(yintercept = Effect_size_lower, col = Affected), lty = 2) +
+  labs(
+    x = "",
+    y = "APE share"
   )
 
-ggsave("Plots/Mechanism/All_occupations.png", plot = p1, width = 3*10, height = 3*8, units = "cm")
-
-# What is a meaningfull effect?
-# For the dummy approach: 0.05, MA approach 0.5
-occ_effects_1901 %>% 
-  filter(
-    ifelse(
-      Affected == "MA", abs(Estimate)>0.5, abs(Estimate)>0.05
-    )
-  ) %>% 
-  left_join(key_desc, by = "hisco")
-# There is possibly a meaningful effect to all occupations (but not on all margins)
+p1
+ggsave("Plots/Mechanism/All_occupations.png", plot = p1, width = 2*10, height = 2*8, units = "cm")
 
 # Singificant effects
 table0 = occ_effects_1901 %>% 
@@ -426,8 +452,56 @@ table0 %>% # For appendix
 
 table0 %>% # For paper
   top_n(10, APE)
-  
 
+# ==== Was it fishing or other types of agriculture? ====
+reg_pop = reg_pop %>% 
+  mutate(
+    Agri_not_fish = hisco_1st_digit6 - Fishing
+  )
+
+fish = feols(
+  log(Fishing + 1) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "fish_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+)
+
+# What part of agriculture?
+fish = feols(
+  log(Agri_not_fish + 1) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "agri_not_fish_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+)
+
+fish = feols(
+  log(Fishing + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% 
+    mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+)
+
+# What part of agriculture?
+fish = feols(
+  log(Agri_not_fish + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% 
+    mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "agri_not_fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+)
+
+# ==== Effect of channel on demographics ====
 
 # ==== Mechanism occupation ====
 # Breach --> Fishing
