@@ -415,7 +415,7 @@ p1 = occ_effects_1901 %>%
 p1
 ggsave("Plots/Mechanism/All_occupations.png", plot = p1, width = 2*10, height = 2*8, units = "cm")
 
-# Singificant effects
+# Table of all
 table0 = occ_effects_1901 %>% 
   mutate(
     Approach = case_when(
@@ -427,9 +427,6 @@ table0 = occ_effects_1901 %>%
   ) %>% 
   arrange(-abs(Estimate)) %>% 
   left_join(key_desc, by = "hisco") %>% 
-  # filter(
-  #   Pval_holm < 0.1
-  # ) %>% 
   arrange(hisco) %>% 
   mutate(
     Pretrend_stars = case_when(
@@ -450,8 +447,11 @@ table0 %>% # For appendix
   arrange(hisco) %>% 
   knitr::kable("latex", booktabs = TRUE, align = "c")
 
-table0 %>% # For paper
-  top_n(10, APE)
+
+# ==== What is inside '6' and '7/8/9'? ====
+reg_pop %>% 
+  select(hisco_2nd_digit60:hisco_2nd_digit99) %>% 
+  summarise_all(sum0)
 
 # ==== Was it fishing or other types of agriculture? ====
 reg_pop = reg_pop %>% 

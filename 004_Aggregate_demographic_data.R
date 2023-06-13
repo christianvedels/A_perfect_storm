@@ -163,19 +163,22 @@ agg_data_f = merged_data %>%
 hisco_2nd_all = merged_data %>% 
   group_by(Year, GIS_ID) %>% 
   select(hisco_2nd_digit00:hisco_2nd_digit99) %>% 
-  summarise_all(sum0)
+  summarise_all(sum0) %>%
+  select(where(~ any(sum_special(.) != 0)))
 
 hisco_2nd_m = merged_data %>% 
   filter(sex == "m") %>% 
   group_by(Year, GIS_ID) %>% 
   select(hisco_2nd_digit00:hisco_2nd_digit99) %>% 
-  summarise_all(sum0)
+  summarise_all(sum0) %>%
+  select(where(~ any(sum_special(.) != 0)))
 
 hisco_2nd_f = merged_data %>% 
   filter(sex == "f") %>% 
   group_by(Year, GIS_ID) %>% 
   select(hisco_2nd_digit00:hisco_2nd_digit99) %>% 
-  summarise_all(sum0)
+  summarise_all(sum0) %>%
+  select(where(~ any(sum_special(.) != 0)))
 
 
 # Merge together data for all and male / female

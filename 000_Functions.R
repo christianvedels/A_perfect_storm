@@ -343,3 +343,13 @@ Round0 = function(x, digits = 3){
 sum0 = function(x){
   sum(x, na.rm=TRUE)
 }
+
+# ==== sum_special ====
+# Summary which return 100 if a character vector is inputted
+sum_special = function(x){
+  if(is.character(x)){
+    return(x)
+  } else {
+    return(sum(x, na.rm=TRUE))
+  }
+}
