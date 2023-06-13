@@ -449,9 +449,336 @@ table0 %>% # For appendix
 
 
 # ==== What is inside '6' and '7/8/9'? ====
-reg_pop %>% 
-  select(hisco_2nd_digit60:hisco_2nd_digit99) %>% 
-  summarise_all(sum0)
+# Extract only parameter estimates p-values are meaningless with so many estimates
+
+tmp = reg_pop %>% 
+  select(Fishing, hisco_2nd_digit61:hisco_2nd_digit99) %>% 
+  data.frame()
+
+effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "bind_rows") %do% {
+  reg_pop$occ_j = tmp[,j]
+  
+  exposed_pop = reg_pop %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(occ_j, na.rm = TRUE)
+    ) %>% unlist()
+  
+  average_parish_size = reg_pop %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(hisco_1st_digit6 + hisco_1st_digit7 + hisco_1st_digit8 + hisco_1st_digit9, na.rm = TRUE)
+    ) %>% unlist()
+  
+  # log(x+1)
+  mod_i_MA = feols(
+    log(occ_j + 1) ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    log(occ_j + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
+      mutate(Affected = limfjord_placement_west),
+    cluster = ~ GIS_ID
+  )
+  
+  # Extract estimate in 1901
+  MA_logx1 = plot_mod( # MA approach
+    mod_i_MA, 
+    the_col = "#2c5c34",
+    return_data = TRUE
+  ) %>% 
+    filter(Year == 1901) %>% 
+    select(Estimate) # Only save estimate - no inference
+  
+  Dummy_logx1 = plot_mod( # Dummy approach
+    mod_i_Dummy, 
+    the_col = "#2c5c34",
+    return_data = TRUE
+  ) %>% 
+    filter(Year == 1901) %>% 
+    select(Estimate) # Only save estimate - no inference
+  
+  # extensive
+  mod_i_MA = feols(
+    occ_j>0 ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    occ_j>0 ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
+      mutate(Affected = limfjord_placement_west),
+    cluster = ~ GIS_ID
+  )
+  
+  # Extract estimate in 1901
+  MA_ext = plot_mod( # MA approach
+    mod_i_MA, 
+    the_col = "#2c5c34",
+    return_data = TRUE
+  ) %>% 
+    filter(Year == 1901) %>% 
+    select(Estimate) # Only save estimate - no inference
+  
+  Dummy_ext = plot_mod( # Dummy approach
+    mod_i_Dummy, 
+    the_col = "#2c5c34",
+    return_data = TRUE
+  ) %>% 
+    filter(Year == 1901) %>% 
+    select(Estimate) # Only save estimate - no inference
+  
+  # intensive
+  with_occ_consist = reg_pop %>% # IDs which consistently have >0
+    filter(occ_j>0) %>% 
+    group_by(GIS_ID) %>% 
+    count() %>% 
+    ungroup() %>% 
+    filter(
+      n == max(n) # Only those observed in all years with the above filter
+    )
+  
+  exposed_pop_int = reg_pop %>% 
+    filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(occ_j, na.rm = TRUE)
+    ) %>% unlist()
+  
+  average_parish_size_int = reg_pop %>% 
+    filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(hisco_1st_digit6 + hisco_1st_digit7 + hisco_1st_digit8 + hisco_1st_digit9, na.rm = TRUE)
+    ) %>% unlist()
+  
+  mod_i_MA = feols(
+    log(occ_j) ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+      filter(GIS_ID %in% with_occ_consist$GIS_ID),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    log(occ_j) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
+      mutate(Affected = limfjord_placement_west) %>% 
+      filter(GIS_ID %in% with_occ_consist$GIS_ID),
+    cluster = ~ GIS_ID
+  )
+  
+  # Extract estimate in 1901
+  MA_int = plot_mod( # MA approach
+    mod_i_MA, 
+    the_col = "#2c5c34",
+    return_data = TRUE
+  ) %>% 
+    filter(Year == 1901) %>% 
+    select(Estimate) # Only save estimate - no inference
+  
+  Dummy_int = plot_mod( # MA approach
+    mod_i_Dummy, 
+    the_col = "#2c5c34",
+    return_data = TRUE
+  ) %>% 
+    filter(Year == 1901) %>% 
+    select(Estimate) # Only save estimate - no inference
+  
+  # Test if any west Limfjord
+  test = reg_pop %>% 
+    filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
+    filter(limfjord_placement_west == 1) %>% NROW()
+  if(test==0 | NROW(Dummy_int) == 0){
+    exposed_pop_int = NA
+    average_parish_size_int = NA
+    MA_int = data.frame(Estimate = NA)
+    Dummy_int = data.frame(Estimate = NA)
+  }
+  
+  # asinh()
+  mod_i_MA = feols(
+    asinh(occ_j) ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    asinh(occ_j) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
+      mutate(Affected = limfjord_placement_west),
+    cluster = ~ GIS_ID
+  )
+  
+  # Saving plots
+  MA_asinh = plot_mod( # MA approach
+    mod_i_MA, 
+    the_col = "#2c5c34",
+    return_data = TRUE
+  ) %>% 
+    filter(Year == 1901) %>% 
+    select(Estimate) # Only save estimate - no inference
+  
+  Dummy_asinh = plot_mod( # MA approach
+    mod_i_Dummy, 
+    the_col = "#2c5c34",
+    return_data = TRUE
+  ) %>% 
+    filter(Year == 1901) %>% 
+    select(Estimate) # Only save estimate - no inference
+  
+  data.frame(
+    Exposed_pop = c(rep(exposed_pop, 4), rep(exposed_pop_int, 2), rep(exposed_pop, 2)),
+    average_parish_size = c(rep(average_parish_size, 4), rep(average_parish_size_int, 2), rep(average_parish_size, 2)),
+    Affected = rep(c("MA", "Dummy"), 4),
+    Approach = c("log(x+1)", "log(x+1)", "Extensive", "Extensive", "Intensive", "Intensive", "asinh(x)", "asinh(x)"),
+    Estimate = c(
+      MA_logx1$Estimate, 
+      Dummy_logx1$Estimate, 
+      MA_ext$Estimate, 
+      Dummy_ext$Estimate,
+      MA_int$Estimate,
+      Dummy_int$Estimate,
+      MA_asinh$Estimate,
+      Dummy_asinh$Estimate
+    ),
+    hisco = substrRight(names(tmp)[j], 2),
+    n_parishes = c(rep(1589, 4), rep(NROW(with_occ_consist), 2), rep(1589, 2))
+  )
+}
+
+# Descriptions
+description = data.frame(
+  hisco = c(61:64, 71:79, 80:89, 90:99) %>% as.character(),
+  description = c( # Copied from https://historyofwork.iisg.nl/major.php
+    # Starting with 6
+    "Farmers",
+    "Agricultural And Animal Husbandry Workers",
+    "Forestry Workers",
+    "Fishermen, Hunters And Related Workers",
+    
+    # Starting with 7
+    "Miners, Quarrymen, Well-Drillers And Related Workers",
+    "Metal Processors",
+    "Wood Preparation Workers And Paper Makers",
+    "Chemical Processors And Related Workers",
+    "Spinners, Weavers, Knitters, Dyers And Related Workers",
+    "Tanners, Fellmongers And Pelt Dressers",
+    "Food And Beverage Processors",
+    "Tobacco Preparers And Tobacco Product Makers",
+    "Tailors, Dressmakers, Sewers, Upholsterers And Related Workers",
+    
+    # Starting with 8
+    "Shoemakers And Leather Goods Makers",
+    "Cabinetmakers And Related Woodworkers",
+    "Stone Cutters And Carvers",
+    "Blacksmiths, Toolmakers And Machine-Tool Operators",
+    "Machinery Fitters, Machine Assemblers And Precision-Instrument Makers (Except Electrical)",
+    "Electrical Fitters And Related Electrical And Electronics Workers",
+    "Broadcasting And Sound-Equipment Operators And Cinema Projectionists",
+    "Plumbers, Welders, Sheet-Metal, And Structural Metal Preparers And Erectors",
+    "Jewellers And Precious Metal Workers",
+    "Glass Formers, Potters And Related Workers",
+    
+    # Starting with 9
+    "Rubber And Plastics Product Makers",
+    "Paper And Paperboard Products Makers",
+    "Printers And Related Workers",
+    "Painters",
+    "Production And Related Workers Not Elsewhere Classified",
+    "Bricklayers, Carpenters And Other Construction Workers",
+    "Stationary Engine And Related Equipment Operators",
+    "Material Handling And Related Equipment Operators, Dockers And Freight Handlers",
+    "Transport Equipment Operators",
+    "Workers Not Elsewhere Classified"
+  )
+)
+
+# Table
+table0 = effects_6_to_9 %>% 
+  left_join(description, by = "hisco") %>% 
+  mutate(
+    description = ifelse(hisco == "ng", "Fishing", description)
+  ) %>% 
+  mutate(
+    Approach = case_when(
+      Approach == "Extensive" ~ paste0("1: ", Approach),
+      Approach == "Intensive" ~ paste0("2: ", Approach),
+      Approach == "log(x+1)" ~ paste0("3: ", Approach),
+      Approach == "asinh(x)" ~ paste0("4: ", Approach)
+    )
+  ) %>% 
+  mutate(
+    APE = Exposed_pop*Estimate
+  ) %>% 
+  mutate(
+    APE_pct = APE/average_parish_size
+  ) %>% 
+  filter(
+    n_parishes > 100
+  ) %>%
+  left_join(meaningfull_effects, by = "Affected")
+
+
+# Plot effects
+for(aff in c("Dummy", "MA")){
+  for(app in c("1: Extensive", "2: Intensive", "3: log(x+1)", "4: asinh(x)")){
+    p1 = table0 %>% 
+      filter(
+        Affected == aff
+      ) %>% 
+      filter(
+        Approach == app
+      ) %>% 
+      arrange(Estimate) %>% 
+      mutate(
+        description = cut_strings(description)
+      ) %>% 
+      mutate(
+        description = forcats::fct_inorder(description),
+        hisco = forcats::fct_inorder(hisco)
+      ) %>% 
+      ungroup() %>% 
+      ggplot(aes(Estimate, hisco, col = Affected)) + 
+      geom_point(shape = 4) + 
+      geom_text(
+        aes(label = description),
+        angle = 0,
+        size = 3,
+        nudge_y = 0.5
+      ) +
+      geom_vline(xintercept = 0) + 
+      theme_bw() + 
+      scale_color_manual(values = c(Dummy = "#2c5c34", MA = "#b33d3d")) + 
+      theme(
+        axis.text.x = element_text(angle = 90, vjust = 0.5)
+      ) + 
+      labs(
+        x = "Estimate",
+        y = "HISCO",
+        subtitle = paste0(app," ", aff)
+      ) 
+    
+    # if(aff == "Dummy"){
+    #   p1 = p1 + xlim(-0.15, 0.15)
+    # } else {
+    #   p1 = p1 + xlim(-1.5, 1.5)
+    # }
+    
+    print(p1)
+    ggsave(paste0("Plots/Mechanism/Tmp_", aff, "_", substr(app, 4, 6), ".png"), plot = p1, width = 2*10, height = 2*8, units = "cm")
+  }
+}
+
+
+  
 
 # ==== Was it fishing or other types of agriculture? ====
 reg_pop = reg_pop %>% 

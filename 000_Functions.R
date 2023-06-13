@@ -353,3 +353,28 @@ sum_special = function(x){
     return(sum(x, na.rm=TRUE))
   }
 }
+
+
+# ==== cut_string ====
+# Cuts strings at the closest word to a limit
+cut_strings = function(x, limit = 20){
+  strsplit(x, " ") %>% 
+    lapply(function(y){
+      nchar_y = nchar(y)
+      cumsum_nchar = cumsum(nchar_y + 1) # + 1 to include spaces
+      
+      # Return unaltered string if it already is within limit
+      if(max(cumsum_nchar) <= (limit+1)){ # + 1 to allow exact limit
+        res = paste(y, collapse = " ")
+        return(res)
+      }
+      
+      # Return those below limit
+      res = y[which(cumsum_nchar <= limit)]
+      res = paste(res, collapse = " ")
+      res = paste0(res, "...")
+      
+      return(res)
+    }) %>% 
+    unlist()
+}
