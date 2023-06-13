@@ -17,7 +17,7 @@ The following data is included in this repository
 This contains demographic data at the parish level. The data contains the following variables:
 
 | Variable              | Description                                                                                              |
-|--------------------------------|----------------------------------------|
+|-----------------------|----------------------------------------------------------------------------------------------------------|
 | Year                  | Census year                                                                                              |
 | GIS_ID                | Unique identifier for each parish, which links to the shape data                                         |
 | Pop                   | Population in parish                                                                                     |
