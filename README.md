@@ -29,6 +29,7 @@ This contains demographic data at the parish level. The data contains the follow
 | Merchants             | Merchants in the parish                                                                                  |
 | Born_different_county | Number of people born in a different county                                                              |
 | hisco_1st_digit[x]    | Number of people with first digit of their HISCO code [x]. See <https://historyofwork.iisg.nl/major.php> |
+| hisco_2nd_digit[x]    | Number of people with the two first digits of their HISCO code [x]. See <https://historyofwork.iisg.nl/major.php> |
 | prime_labor_age       | Number of people of prime working age (between 25 to 54 years)                                           |
 | occupation_in_prime   | Number of people with a HISCO code in prime working age (between 25 to 54 years)                         |
 | consistent            | Dummy for parishes which are consistently observed across all years (1590 parishes)                      |

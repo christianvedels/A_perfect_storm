@@ -337,3 +337,9 @@ Round0 = function(x, digits = 3){
   
   stop("Unexpected error")
 }
+
+# ==== sum0 ====
+# Summary which defaults to na.rm = TRUE
+sum0 = function(x){
+  sum(x, na.rm=TRUE)
+}

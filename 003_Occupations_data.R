@@ -19,7 +19,7 @@ merged_data = read_fst("Data/tmp_census.fst")
 hisco = read_csv2("Data/LL_hisco_codes_clean.csv") # Available here: 
 # https://www.dropbox.com/s/ov7ubxtqq21c6za/LL_hisco_codes_clean.csv?dl=0
 
-# Deleter occ cols if any, to be able to rerun this multiple times:
+# Delete occ cols if any, to be able to rerun this multiple times:
 merged_data = merged_data %>% 
   select(pa_id:Born_different_county)
 
@@ -88,7 +88,7 @@ top100 %>%
 # # A tibble: 7 × 2
 # Category          pct
 # <chr>           <dbl>
-#   1 building      0.0259 
+# 1 building      0.0259 
 # 2 farming       0.551  
 # 3 fishing       0.00579
 # 4 manufacturing 0.149  
@@ -178,11 +178,15 @@ fix_hisco = function(x){
   return(x)
 }
 
-merged_data = merged_data %>% 
-  # sample_n(1000) %>% 
+merged_data0 = merged_data %>% 
+  # sample_n(1000) %>%
   # Fix HISCO codes to char
   mutate_at(vars(starts_with("hisco")), fix_hisco) %>% 
   mutate(unique_hiscos = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 1)))) %>% 
+  mutate(unique_hiscos_2digit = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 2))))
+
+# First digit
+merged_data0 = merged_data0 %>% 
   mutate(
     hisco_1st_digit0 = as.numeric(grepl("0", unique_hiscos)),
     hisco_1st_digit1 = as.numeric(grepl("1", unique_hiscos)),
@@ -196,6 +200,14 @@ merged_data = merged_data %>%
     hisco_1st_digit9 = as.numeric(grepl("9", unique_hiscos))
   ) %>% select(-unique_hiscos)
 
+# Second digit
+for (i in 0:99) {
+  cat(i, "         \r")
+  col_name = paste0("hisco_2nd_digit", sprintf("%02d", i))
+  merged_data0[col_name] <- as.numeric(grepl(sprintf("%02d", i), merged_data0$unique_hiscos_2digit))
+}
+
+merged_data = merged_data0 %>% select(-unique_hiscos_2digit)
 
 # ==== Saving data enriched data ====
 write_fst(merged_data, "Data/tmp_census.fst", compress = 0)

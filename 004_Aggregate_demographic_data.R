@@ -159,10 +159,32 @@ agg_data_f = merged_data %>%
   select(-no_occupation_in_prime)
   
 
+# 2nd digit of HISCO
+hisco_2nd_all = merged_data %>% 
+  group_by(Year, GIS_ID) %>% 
+  select(hisco_2nd_digit00:hisco_2nd_digit99) %>% 
+  summarise_all(sum0)
+
+hisco_2nd_m = merged_data %>% 
+  filter(sex == "m") %>% 
+  group_by(Year, GIS_ID) %>% 
+  select(hisco_2nd_digit00:hisco_2nd_digit99) %>% 
+  summarise_all(sum0)
+
+hisco_2nd_f = merged_data %>% 
+  filter(sex == "f") %>% 
+  group_by(Year, GIS_ID) %>% 
+  select(hisco_2nd_digit00:hisco_2nd_digit99) %>% 
+  summarise_all(sum0)
+
+
 # Merge together data for all and male / female
 agg_data = agg_data %>% 
   left_join(agg_data_m, by = c("Year", "GIS_ID"), suffix = c("","_m")) %>% 
   left_join(agg_data_f, by = c("Year", "GIS_ID"), suffix = c("","_f")) %>% 
+  left_join(hisco_2nd_all, by = c("Year", "GIS_ID"))%>% 
+  left_join(hisco_2nd_m, by = c("Year", "GIS_ID"), suffix = c("","_m")) %>% 
+  left_join(hisco_2nd_f, by = c("Year", "GIS_ID"), suffix = c("","_f")) %>% 
   ungroup()
 
 # ==== Plots for sanity check ====
