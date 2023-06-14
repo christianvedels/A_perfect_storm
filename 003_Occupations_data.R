@@ -183,7 +183,8 @@ merged_data0 = merged_data %>%
   # Fix HISCO codes to char
   mutate_at(vars(starts_with("hisco")), fix_hisco) %>% 
   mutate(unique_hiscos = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 1)))) %>% 
-  mutate(unique_hiscos_2digit = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 2))))
+  mutate(unique_hiscos_2digit = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 2)))) %>% 
+  mutate(unique_hiscos_3digit = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 3))))
 
 # First digit
 merged_data0 = merged_data0 %>% 
@@ -200,14 +201,41 @@ merged_data0 = merged_data0 %>%
     hisco_1st_digit9 = as.numeric(grepl("9", unique_hiscos))
   ) %>% select(-unique_hiscos)
 
+# Find the HISCO codes that appear in the data
+appeared_hiscos = sort(unique(unlist(merged_data0$unique_hiscos_2digit)))
+
 # Second digit
 for (i in 0:99) {
+  # Skip iterations if 'i' is not in appeared_hiscos
+  if (!(sprintf("%02d", i) %in% appeared_hiscos)){
+    next
+  }
+  
   cat(i, "         \r")
   col_name = paste0("hisco_2nd_digit", sprintf("%02d", i))
   merged_data0[col_name] <- as.numeric(grepl(sprintf("%02d", i), merged_data0$unique_hiscos_2digit))
 }
 
-merged_data = merged_data0 %>% select(-unique_hiscos_2digit)
+# Find the HISCO codes that appear in the data
+appeared_hiscos = sort(unique(unlist(merged_data0$unique_hiscos_3digit)))
+
+# Third digit
+for (i in 0:999) {
+  # Skip iterations if 'i' is not in appeared_hiscos
+  if (!(sprintf("%03d", i) %in% appeared_hiscos)){
+    next
+  }
+    
+  cat(i, "         \r")
+  col_name = paste0("hisco_3rd_digit", sprintf("%03d", i))
+  merged_data0[col_name] <- as.numeric(grepl(sprintf("%03d", i), merged_data0$unique_hiscos_3digit))
+}
+
+
+# Delete temporary variables
+merged_data = merged_data0 %>% 
+  select(-unique_hiscos_2digit) %>% 
+  select(-unique_hiscos_3digit)
 
 # ==== Saving data enriched data ====
 write_fst(merged_data, "Data/tmp_census.fst", compress = 0)
