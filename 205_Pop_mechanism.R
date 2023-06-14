@@ -452,11 +452,15 @@ table0 %>% # For appendix
 # Extract only parameter estimates p-values are meaningless with so many estimates
 
 tmp = reg_pop %>% 
-  select(Fishing, hisco_2nd_digit61:hisco_2nd_digit99) %>% 
-  data.frame()
+  select(hisco_3rd_digit611:hisco_3rd_digit649, hisco_2nd_digit71:hisco_2nd_digit99) %>% 
+  data.frame() %>%
+  select(where(~ any(sum_special(.) != 0)))
 
 effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "bind_rows") %do% {
   reg_pop$occ_j = tmp[,j]
+  if(var(reg_pop$occ_j) == 0){
+    return(NA)
+  }
   
   exposed_pop = reg_pop %>% 
     filter(limfjord_placement_west == 1) %>% 
@@ -649,56 +653,76 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
       MA_asinh$Estimate,
       Dummy_asinh$Estimate
     ),
-    hisco = substrRight(names(tmp)[j], 2),
+    hisco = gsub("t", "", substrRight(names(tmp)[j], 3)),
     n_parishes = c(rep(1589, 4), rep(NROW(with_occ_consist), 2), rep(1589, 2))
   )
 }
 
 # Descriptions
 description = data.frame(
-  hisco = c(61:64, 71:79, 80:89, 90:99) %>% as.character(),
+  hisco = c(611, 621:629, 631:632, 641, 649, 71:79, 80:89, 90:99) %>% as.character(),
   description = c( # Copied from https://historyofwork.iisg.nl/major.php
     # Starting with 6
-    "Farmers",
-    "Agricultural And Animal Husbandry Workers",
-    "Forestry Workers",
-    "Fishermen, Hunters And Related Workers",
+    "611: General Farmers",
+    
+    "621: General Farm Workers",
+    "622: Field Crop and Vegetable Farm Workers",
+    "623: Orchard, Vineyard and Related Tree and Shrub Crop Workers",
+    "624: Livestock Workers",
+    "625: Dairy Farm Workers",
+    "626: Poultry Farm Workers",
+    "627: Nursery Workers and Gardeners",
+    "628: Farm Machinery Operators",
+    "629: Agricultural and Animal Husbandry Workers Not Elsewhere Classified",
+    
+    "631: Loggers",
+    "632: Forestry Workers (except Logging)",
+    
+    "641: Fishermen",
+    "649: Fishermen, Hunters and Related Workers Not Elsewhere Classified",
     
     # Starting with 7
-    "Miners, Quarrymen, Well-Drillers And Related Workers",
-    "Metal Processors",
-    "Wood Preparation Workers And Paper Makers",
-    "Chemical Processors And Related Workers",
-    "Spinners, Weavers, Knitters, Dyers And Related Workers",
-    "Tanners, Fellmongers And Pelt Dressers",
-    "Food And Beverage Processors",
-    "Tobacco Preparers And Tobacco Product Makers",
-    "Tailors, Dressmakers, Sewers, Upholsterers And Related Workers",
+    "71: Miners, Quarrymen, Well-Drillers And Related Workers",
+    "72: Metal Processors",
+    "73: Wood Preparation Workers And Paper Makers",
+    "74: Chemical Processors And Related Workers",
+    "75: Spinners, Weavers, Knitters, Dyers And Related Workers",
+    "76: Tanners, Fellmongers And Pelt Dressers",
+    "77: Food And Beverage Processors",
+    "78: Tobacco Preparers And Tobacco Product Makers",
+    "79: Tailors, Dressmakers, Sewers, Upholsterers And Related Workers",
     
     # Starting with 8
-    "Shoemakers And Leather Goods Makers",
-    "Cabinetmakers And Related Woodworkers",
-    "Stone Cutters And Carvers",
-    "Blacksmiths, Toolmakers And Machine-Tool Operators",
-    "Machinery Fitters, Machine Assemblers And Precision-Instrument Makers (Except Electrical)",
-    "Electrical Fitters And Related Electrical And Electronics Workers",
-    "Broadcasting And Sound-Equipment Operators And Cinema Projectionists",
-    "Plumbers, Welders, Sheet-Metal, And Structural Metal Preparers And Erectors",
-    "Jewellers And Precious Metal Workers",
-    "Glass Formers, Potters And Related Workers",
+    "80: Shoemakers And Leather Goods Makers",
+    "81: Cabinetmakers And Related Woodworkers",
+    "82: Stone Cutters And Carvers",
+    "83: Blacksmiths, Toolmakers And Machine-Tool Operators",
+    "84: Machinery Fitters, Machine Assemblers And Precision-Instrument Makers (Except Electrical)",
+    "85: Electrical Fitters And Related Electrical And Electronics Workers",
+    "86: Broadcasting And Sound-Equipment Operators And Cinema Projectionists",
+    "87: Plumbers, Welders, Sheet-Metal, And Structural Metal Preparers And Erectors",
+    "88: Jewellers And Precious Metal Workers",
+    "89: Glass Formers, Potters And Related Workers",
     
     # Starting with 9
-    "Rubber And Plastics Product Makers",
-    "Paper And Paperboard Products Makers",
-    "Printers And Related Workers",
-    "Painters",
-    "Production And Related Workers Not Elsewhere Classified",
-    "Bricklayers, Carpenters And Other Construction Workers",
-    "Stationary Engine And Related Equipment Operators",
-    "Material Handling And Related Equipment Operators, Dockers And Freight Handlers",
-    "Transport Equipment Operators",
-    "Workers Not Elsewhere Classified"
+    "90: Rubber And Plastics Product Makers",
+    "91: Paper And Paperboard Products Makers",
+    "92: Printers And Related Workers",
+    "93: Painters",
+    "94: Production And Related Workers Not Elsewhere Classified",
+    "95: Bricklayers, Carpenters And Other Construction Workers",
+    "96: Stationary Engine And Related Equipment Operators",
+    "97: Material Handling And Related Equipment Operators, Dockers And Freight Handlers",
+    "98: Transport Equipment Operators",
+    "99: Workers Not Elsewhere Classified"
   )
+)
+
+# Defining meaningfull effect size
+meaningfull_effects = data.frame(
+  Affected = rep(c("MA", "Dummy")),
+  Effect_size_upper = c(0.25, 0.05),
+  Effect_size_lower = -c(0.25, 0.05)
 )
 
 # Table
@@ -707,6 +731,8 @@ table0 = effects_6_to_9 %>%
   mutate(
     description = ifelse(hisco == "ng", "Fishing", description)
   ) %>% 
+  # remove fihsing
+  filter(hisco != "ng") %>%
   mutate(
     Approach = case_when(
       Approach == "Extensive" ~ paste0("1: ", Approach),
@@ -724,29 +750,46 @@ table0 = effects_6_to_9 %>%
   filter(
     n_parishes > 100
   ) %>%
-  left_join(meaningfull_effects, by = "Affected")
+  left_join(meaningfull_effects, by = "Affected") %>% 
+  mutate(
+    `HISCO first digit` = ifelse(
+      hisco < 70, 
+      "6: Agricultural, animal husbandry\n and forestry workers, fishermen\nand hunters",
+      "7/8/9: Production and related\nworkers, transportequipment operators\nand labourers"
+    )
+  )
 
 
 # Plot effects
+nudge_factor = 1.5
+
 for(aff in c("Dummy", "MA")){
   for(app in c("1: Extensive", "2: Intensive", "3: log(x+1)", "4: asinh(x)")){
-    p1 = table0 %>% 
+    table_i = table0 %>% 
       filter(
         Affected == aff
       ) %>% 
       filter(
         Approach == app
       ) %>% 
-      arrange(Estimate) %>% 
+      arrange(`HISCO first digit`, Estimate) %>% 
       mutate(
-        description = cut_strings(description)
+        description = cut_strings(description, 30)
       ) %>% 
       mutate(
         description = forcats::fct_inorder(description),
         hisco = forcats::fct_inorder(hisco)
       ) %>% 
       ungroup() %>% 
-      ggplot(aes(Estimate, hisco, col = Affected)) + 
+      drop_na(Estimate)
+    
+    lim_i = c(
+      table_i$Estimate %>% min(na.rm = TRUE)*nudge_factor,
+      table_i$Estimate %>% max(na.rm = TRUE)*nudge_factor
+    )
+    
+    p1 = table_i %>% 
+      ggplot(aes(Estimate, hisco, col = `HISCO first digit`)) + 
       geom_point(shape = 4) + 
       geom_text(
         aes(label = description),
@@ -756,7 +799,10 @@ for(aff in c("Dummy", "MA")){
       ) +
       geom_vline(xintercept = 0) + 
       theme_bw() + 
-      scale_color_manual(values = c(Dummy = "#2c5c34", MA = "#b33d3d")) + 
+      scale_color_manual(values = c(
+        "6: Agricultural, animal husbandry\n and forestry workers, fishermen\nand hunters" = "#2c5c34", 
+        "7/8/9: Production and related\nworkers, transportequipment operators\nand labourers" = "#b33d3d"
+      )) + 
       theme(
         axis.text.x = element_text(angle = 90, vjust = 0.5)
       ) + 
@@ -764,23 +810,24 @@ for(aff in c("Dummy", "MA")){
         x = "Estimate",
         y = "HISCO",
         subtitle = paste0(app," ", aff)
-      ) 
+      ) + 
+      geom_segment(
+        aes(x = 0, xend = Estimate, y = hisco, yend = hisco)
+      ) +
+      geom_vline(aes(xintercept = Effect_size_upper), lty = 2) +
+      geom_vline(aes(xintercept = Effect_size_lower), lty = 2) +
+      xlim(lim_i) +
+      expand_limits(y = c(0, length(levels(table_i$hisco))+1))
+      
     
-    # if(aff == "Dummy"){
-    #   p1 = p1 + xlim(-0.15, 0.15)
-    # } else {
-    #   p1 = p1 + xlim(-1.5, 1.5)
-    # }
-    
-    print(p1)
+    # print(p1)
     ggsave(paste0("Plots/Mechanism/Tmp_", aff, "_", substr(app, 4, 6), ".png"), plot = p1, width = 2*10, height = 2*8, units = "cm")
   }
 }
 
-
   
 
-# ==== Was it fishing or other types of agriculture? ====
+# ==== Fishing ====
 reg_pop = reg_pop %>% 
   mutate(
     Agri_not_fish = hisco_1st_digit6 - Fishing

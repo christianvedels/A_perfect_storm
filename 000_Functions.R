@@ -363,6 +363,11 @@ cut_strings = function(x, limit = 20){
       nchar_y = nchar(y)
       cumsum_nchar = cumsum(nchar_y + 1) # + 1 to include spaces
       
+      # NA handling
+      if(all(is.na(y))){
+        return(" ")
+      }
+      
       # Return unaltered string if it already is within limit
       if(max(cumsum_nchar) <= (limit+1)){ # + 1 to allow exact limit
         res = paste(y, collapse = " ")
