@@ -11,6 +11,13 @@ library(fst)
 # ==== Load data ====
 merged_data = read_fst("Data/tmp_census.fst") 
 occ_key = read_csv2("Data/Top100_HISCO.csv", col_types = "c")
+geo_data = read_csv2("Data/Geo.csv")
+west_limfj = geo_data %>% filter(limfjord_placement == "west")
+reference = geo_data %>% filter(limfjord_placement == "not")
+
+# ==== Check 99 HISCO codes ====
+merged_data %>% 
+  filter(GIS_ID %in% west_limfj$GIS_ID)
 
 # ==== Tmp checks for the analysis ====
 # # Check Nykoebing - one of the affected market towns
@@ -20,9 +27,7 @@ occ_key = read_csv2("Data/Top100_HISCO.csv", col_types = "c")
 #   write.csv2("Data/Tmp_nykoebing.csv", fileEncoding="latin1")
 
 # Check growing professions 1880-1901
-geo_data = read_csv2("Data/Geo.csv")
-west_limfj = geo_data %>% filter(limfjord_placement == "west")
-reference = geo_data %>% filter(limfjord_placement == "not")
+
 
 sum0 = function(x) sum(x, na.rm = TRUE)
 

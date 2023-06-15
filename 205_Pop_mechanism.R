@@ -304,13 +304,13 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
 key_desc = data.frame(
   hisco = c(1:7),
   description = c( # From: https://historyofwork.iisg.nl/major.php
-    "0/1: Professional, technical and\nrelated workers",
-    "2: Administrative and managerial\nworkers",
-    "3: Clerical and related workers",
+    "0/1: Professional, technical",
+    "2: Admin. and managerial",
+    "3: Clerical and related",
     "4: Sales workers",
     "5: Service workers",
-    "6: Agricultural, animal husbandry\n and forestry workers, fishermen\nand hunters",
-    "7/8/9: Production and related\nworkers, transportequipment operators\nand labourers"
+    "6: Agricultural",
+    "7/8/9: Production and related"
   )
 )
 
@@ -336,13 +336,13 @@ bonf_crit = abs(qnorm(0.025/NROW(occ_effects_1901)))
 
 occ_effects_1901 = occ_effects_1901 %>% 
   mutate(
-    Pval_holm = p.adjust(Pval, method = "bonferroni")
+    Pval_bonf = p.adjust(Pval, method = "bonferroni")
   ) %>%
   mutate(
     stars = case_when(
-      Pval_holm < 0.01 ~ "***",
-      Pval_holm < 0.05 ~ "**",
-      Pval_holm < 0.1 ~ "*",
+      Pval_bonf < 0.01 ~ "***",
+      Pval_bonf < 0.05 ~ "**",
+      Pval_bonf < 0.1 ~ "*",
       TRUE ~ ""
     )
   ) %>% 
@@ -414,10 +414,11 @@ p1 = occ_effects_1901 %>%
   labs(
     x = "",
     y = "APE share"
-  )
+  ) +
+  theme(legend.position = "bottom")
 
 p1
-ggsave("Plots/Mechanism/All_occupations.png", plot = p1, width = 2*10, height = 2*8, units = "cm")
+ggsave("Plots/Mechanism/All_occupations.png", plot = p1, width = 1.75*8, height = 1.75*10, units = "cm")
 
 # Table of all
 table0 = occ_effects_1901 %>% 
@@ -521,16 +522,14 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
     the_col = "#2c5c34",
     return_data = TRUE
   ) %>% 
-    filter(Year == 1901) %>% 
-    select(Estimate) # Only save estimate - no inference
+    filter(Year == 1901)
   
   Dummy_logx1 = plot_mod( # Dummy approach
     mod_i_Dummy, 
     the_col = "#2c5c34",
     return_data = TRUE
   ) %>% 
-    filter(Year == 1901) %>% 
-    select(Estimate) # Only save estimate - no inference
+    filter(Year == 1901)
   
   # extensive
   mod_i_MA = feols(
@@ -553,16 +552,14 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
     the_col = "#2c5c34",
     return_data = TRUE
   ) %>% 
-    filter(Year == 1901) %>% 
-    select(Estimate) # Only save estimate - no inference
+    filter(Year == 1901)
   
   Dummy_ext = plot_mod( # Dummy approach
     mod_i_Dummy, 
     the_col = "#2c5c34",
     return_data = TRUE
   ) %>% 
-    filter(Year == 1901) %>% 
-    select(Estimate) # Only save estimate - no inference
+    filter(Year == 1901)
   
   # intensive
   with_occ_consist = reg_pop %>% # IDs which consistently have >0
@@ -577,8 +574,8 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
   if(NROW(with_occ_consist)<25){ # If few parishes it is likely to break
     exposed_pop_int = NA
     average_parish_size_int = NA
-    MA_int = data.frame(Estimate = NA)
-    Dummy_int = data.frame(Estimate = NA)
+    MA_int = data.frame(Estimate = NA, Std..Error = NA)
+    Dummy_int = data.frame(Estimate = NA, Std..Error = NA)
   } else {
     exposed_pop_int = reg_pop %>%
       filter(Year == 1901) %>% 
@@ -618,16 +615,14 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
       the_col = "#2c5c34",
       return_data = TRUE
     ) %>% 
-      filter(Year == 1901) %>% 
-      select(Estimate) # Only save estimate - no inference
+      filter(Year == 1901)
     
     Dummy_int = plot_mod( # MA approach
       mod_i_Dummy, 
       the_col = "#2c5c34",
       return_data = TRUE
     ) %>% 
-      filter(Year == 1901) %>% 
-      select(Estimate) # Only save estimate - no inference
+      filter(Year == 1901)
   }
   
   # Test if any west Limfjord
@@ -637,8 +632,8 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
   if(test==0 | NROW(Dummy_int) == 0){
     exposed_pop_int = NA
     average_parish_size_int = NA
-    MA_int = data.frame(Estimate = NA)
-    Dummy_int = data.frame(Estimate = NA)
+    MA_int = data.frame(Estimate = NA, Std..Error = NA)
+    Dummy_int = data.frame(Estimate = NA, Std..Error = NA)
   }
   
   # asinh()
@@ -662,16 +657,14 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
     the_col = "#2c5c34",
     return_data = TRUE
   ) %>% 
-    filter(Year == 1901) %>% 
-    select(Estimate) # Only save estimate - no inference
+    filter(Year == 1901)
   
   Dummy_asinh = plot_mod( # MA approach
     mod_i_Dummy, 
     the_col = "#2c5c34",
     return_data = TRUE
   ) %>% 
-    filter(Year == 1901) %>% 
-    select(Estimate) # Only save estimate - no inference
+    filter(Year == 1901)
   
   data.frame(
     Exposed_pop = c(rep(exposed_pop, 4), rep(exposed_pop_int, 2), rep(exposed_pop, 2)),
@@ -687,6 +680,16 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
       Dummy_int$Estimate,
       MA_asinh$Estimate,
       Dummy_asinh$Estimate
+    ),
+    Std = c(
+      MA_logx1$Std..Error, 
+      Dummy_logx1$Std..Error, 
+      MA_ext$Std..Error, 
+      Dummy_ext$Std..Error,
+      MA_int$Std..Error,
+      Dummy_int$Std..Error,
+      MA_asinh$Std..Error,
+      Dummy_asinh$Std..Error
     ),
     hisco = gsub("t", "", substrRight(names(tmp)[j], 3)),
     n_parishes = c(rep(1589, 4), rep(NROW(with_occ_consist), 2), rep(1589, 2))
@@ -753,12 +756,6 @@ description = data.frame(
   )
 )
 
-# Defining meaningfull effect size
-meaningfull_effects = data.frame(
-  Affected = rep(c("MA", "Dummy")),
-  Effect_size_upper = c(0.25, 0.05),
-  Effect_size_lower = -c(0.25, 0.05)
-)
 
 # Table
 table0 = effects_6_to_9 %>% 
@@ -785,7 +782,6 @@ table0 = effects_6_to_9 %>%
   filter(
     n_parishes > 100
   ) %>%
-  left_join(meaningfull_effects, by = "Affected") %>% 
   mutate(
     `HISCO first digit` = ifelse(
       hisco < 70, 
@@ -819,13 +815,12 @@ for(aff in c("Dummy", "MA")){
       drop_na(Estimate)
     
     lim_i = c(
-      table_i$APE_pct %>% min(na.rm = TRUE)*nudge_factor,
-      table_i$APE_pct %>% max(na.rm = TRUE)*nudge_factor
+      table_i$Estimate %>% min(na.rm = TRUE)*nudge_factor,
+      table_i$Estimate %>% max(na.rm = TRUE)*nudge_factor
     )
     
     p1 = table_i %>% 
-      filter(strsplit(as.character(hisco), 1, 2) == "98") %>% 
-      ggplot(aes(APE_pct, hisco, col = `HISCO first digit`)) + 
+      ggplot(aes(Estimate, hisco, col = `HISCO first digit`)) + 
       geom_point(shape = 4) + 
       geom_text(
         aes(label = description),
@@ -843,12 +838,11 @@ for(aff in c("Dummy", "MA")){
         axis.text.x = element_text(angle = 90, vjust = 0.5)
       ) + 
       labs(
-        x = "Estimate",
-        y = "HISCO",
-        subtitle = paste0(app," ", aff)
+        x = paste("Parameter estimate\n", substr(app, 4, nchar(app))),
+        y = "HISCO"
       ) + 
       geom_segment(
-        aes(x = 0, xend = APE_pct, y = hisco, yend = hisco)
+        aes(x = 0, xend = Estimate, y = hisco, yend = hisco)
       ) +
       xlim(lim_i) +
       expand_limits(y = c(0, length(levels(table_i$hisco))+1)) +
@@ -859,7 +853,6 @@ for(aff in c("Dummy", "MA")){
         col = "Major category:"
       )
       
-    
     # print(p1)
     ggsave(paste0("Plots/Mechanism/Detailed6789_", aff, "_", substr(app, 4, 6), ".png"), plot = p1, width = 2*10, height = 2*8, units = "cm")
   }
