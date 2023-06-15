@@ -56,12 +56,14 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
   reg_pop$occ_i = occ_i
   
   exposed_pop = reg_pop %>% 
-    filter(limfjord_placement_west == 1) %>% 
+    filter(limfjord_placement_west == 1) %>%
+    filter(Year == 1901) %>% 
     summarise(
       mean(occ_i, na.rm = TRUE)
     ) %>% unlist()
   
-  average_parish_size = reg_pop %>% 
+  average_parish_size = reg_pop %>%
+    filter(Year == 1901) %>% 
     filter(limfjord_placement_west == 1) %>% 
     summarise(
       mean(Pop, na.rm = TRUE)
@@ -149,14 +151,16 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
       n == max(n) # Only those observed in all years with the above filter
     )
   
-  exposed_pop_int = reg_pop %>% 
+  exposed_pop_int = reg_pop %>%
+    filter(Year == 1901) %>% 
     filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
     filter(limfjord_placement_west == 1) %>% 
     summarise(
       mean(occ_i, na.rm = TRUE)
     ) %>% unlist()
   
-  average_parish_size_int = reg_pop %>% 
+  average_parish_size_int = reg_pop %>%
+    filter(Year == 1901) %>% 
     filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
     filter(limfjord_placement_west == 1) %>% 
     summarise(
@@ -323,14 +327,16 @@ occ_effects_1901 %>%
 
 meaningfull_effects = data.frame(
   Affected = rep(c("MA", "Dummy")),
-  Effect_size_upper = c(0.05, 0.25),
-  Effect_size_lower = -c(0.05, 0.25)
+  Effect_size_upper = c(1.591198*0.05, 0.236446*0.05),
+  Effect_size_lower = -c(1.591198*0.05, 0.236446*0.05)
 )
 
 # Bonferoni correction
+bonf_crit = abs(qnorm(0.025/NROW(occ_effects_1901)))
+
 occ_effects_1901 = occ_effects_1901 %>% 
   mutate(
-    Pval_holm = p.adjust(Pval, method = "holm")
+    Pval_holm = p.adjust(Pval, method = "bonferroni")
   ) %>%
   mutate(
     stars = case_when(
@@ -339,14 +345,15 @@ occ_effects_1901 = occ_effects_1901 %>%
       Pval_holm < 0.1 ~ "*",
       TRUE ~ ""
     )
-  )
+  ) %>% 
+  mutate(
+    Upper = Estimate + bonf_crit*Std,
+    Lower = Estimate - bonf_crit*Std
+  ) %>% 
+  ungroup()
 
 # APE
 occ_effects_1901 = occ_effects_1901 %>% 
-  mutate(
-    Upper = Estimate + 1.96*Std,
-    Lower = Estimate - 1.96*Std
-  ) %>% 
   mutate(
     APE = Exposed_pop*Estimate,
     APE_upper = Exposed_pop*Upper,
@@ -375,29 +382,26 @@ p1 = occ_effects_1901 %>%
   left_join(key_desc, by = "hisco") %>% 
   left_join(meaningfull_effects, by = "Affected") %>% 
   group_by(hisco) %>% 
-  mutate(
-    Effect_size_upper = Effect_size_upper*mean(exposed_pop)/mean(average_parish_size),  
-    Effect_size_lower = Effect_size_lower*mean(exposed_pop)/mean(average_parish_size)
-  ) %>% 
   ungroup() %>% 
   mutate(
     intensive_text = ifelse(Approach == "2: Intensive", n_parishes, "")
   ) %>% 
-  mutate(
-    intensive_text = ifelse(Pretrend_pval<0.05, paste0(intensive_text,"*"), intensive_text)
-  ) %>% 
+  # mutate(
+  #   intensive_text = ifelse(Pretrend_pval<0.05, paste0(intensive_text,"*"), intensive_text)
+  # ) %>% 
   mutate(
     Approach = factor(Approach, levels = c("1: Extensive", "2: Intensive", "3: log(x+1)", "4: asinh(x)"))
   ) %>% 
   ggplot(aes(Approach, APE_pct, col = Affected)) + 
   geom_point(position = position_nudge(x = c(nudge, -nudge))) + 
   geom_errorbar(aes(ymin = APE_pct_lower, ymax = APE_pct_upper), position = position_nudge(x = c(nudge, -nudge))) +
-  facet_wrap(~description, scales = "free_y") + 
+  facet_wrap(~description) + 
   geom_hline(yintercept = 0) + 
   geom_text(
     aes(label = intensive_text),
     position = position_nudge(
-      x = c(4*nudge, -4*nudge)
+      x = c(4*nudge, -4*nudge),
+      y = c(2*nudge, -2*nudge)
     )
     ) + 
   theme_bw() + 
@@ -405,8 +409,8 @@ p1 = occ_effects_1901 %>%
   theme(
     axis.text.x = element_text(angle = 90, vjust = 0.5)
   ) + 
-  geom_hline(aes(yintercept = Effect_size_upper, col = Affected), lty = 2) +
-  geom_hline(aes(yintercept = Effect_size_lower, col = Affected), lty = 2) +
+  # geom_hline(aes(yintercept = Effect_size_upper, col = Affected), lty = 2) +
+  # geom_hline(aes(yintercept = Effect_size_lower, col = Affected), lty = 2) +
   labs(
     x = "",
     y = "APE share"
@@ -447,12 +451,32 @@ table0 %>% # For appendix
   arrange(hisco) %>% 
   knitr::kable("latex", booktabs = TRUE, align = "c")
 
+# Look up parameters
+table0 %>% 
+  filter(Approach == "2: Intensive") %>% 
+  filter(hisco %in% c(6, 7))
+
+# How many in each category in 1787/1801?
+reg_pop %>% 
+  filter(Year %in% c(1801, 1901)) %>% 
+  filter(limfjord_placement_west == 1) %>% 
+  pivot_longer(hisco_1st_digit6:hisco_1st_digit9) %>% 
+  group_by(Year, name) %>% 
+  summarise(
+    n = sum(value),
+    Pop = sum(Pop)
+  ) %>% 
+  mutate(
+    pct = n/Pop
+  )
 
 # ==== What is inside '6' and '7/8/9'? ====
 # Extract only parameter estimates p-values are meaningless with so many estimates
 
 tmp = reg_pop %>% 
-  select(hisco_3rd_digit611:hisco_3rd_digit649, hisco_2nd_digit71:hisco_2nd_digit99) %>% 
+  select(hisco_3rd_digit611:hisco_3rd_digit649, hisco_2nd_digit71:hisco_2nd_digit99) %>%
+  # Tested 3rd digit for all, and did not learn anything new:
+  # select(hisco_3rd_digit611:hisco_3rd_digit649, hisco_3rd_digit712:hisco_3rd_digit999) %>%
   data.frame() %>%
   select(where(~ any(sum_special(.) != 0)))
 
@@ -463,12 +487,14 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
   }
   
   exposed_pop = reg_pop %>% 
+    filter(Year == 1901) %>% 
     filter(limfjord_placement_west == 1) %>% 
     summarise(
       mean(occ_j, na.rm = TRUE)
     ) %>% unlist()
   
   average_parish_size = reg_pop %>% 
+    filter(Year == 1901) %>% 
     filter(limfjord_placement_west == 1) %>% 
     summarise(
       mean(hisco_1st_digit6 + hisco_1st_digit7 + hisco_1st_digit8 + hisco_1st_digit9, na.rm = TRUE)
@@ -548,52 +574,61 @@ effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "b
       n == max(n) # Only those observed in all years with the above filter
     )
   
-  exposed_pop_int = reg_pop %>% 
-    filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
-    filter(limfjord_placement_west == 1) %>% 
-    summarise(
-      mean(occ_j, na.rm = TRUE)
-    ) %>% unlist()
-  
-  average_parish_size_int = reg_pop %>% 
-    filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
-    filter(limfjord_placement_west == 1) %>% 
-    summarise(
-      mean(hisco_1st_digit6 + hisco_1st_digit7 + hisco_1st_digit8 + hisco_1st_digit9, na.rm = TRUE)
-    ) %>% unlist()
-  
-  mod_i_MA = feols(
-    log(occ_j) ~ Year*Affected,
-    data = reg_pop %>% 
-      mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-      filter(GIS_ID %in% with_occ_consist$GIS_ID),
-    cluster = ~ GIS_ID
-  )
-  
-  mod_i_Dummy = feols(
-    log(occ_j) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
-    data = reg_pop %>% 
-      mutate(Affected = limfjord_placement_west) %>% 
-      filter(GIS_ID %in% with_occ_consist$GIS_ID),
-    cluster = ~ GIS_ID
-  )
-  
-  # Extract estimate in 1901
-  MA_int = plot_mod( # MA approach
-    mod_i_MA, 
-    the_col = "#2c5c34",
-    return_data = TRUE
-  ) %>% 
-    filter(Year == 1901) %>% 
-    select(Estimate) # Only save estimate - no inference
-  
-  Dummy_int = plot_mod( # MA approach
-    mod_i_Dummy, 
-    the_col = "#2c5c34",
-    return_data = TRUE
-  ) %>% 
-    filter(Year == 1901) %>% 
-    select(Estimate) # Only save estimate - no inference
+  if(NROW(with_occ_consist)<25){ # If few parishes it is likely to break
+    exposed_pop_int = NA
+    average_parish_size_int = NA
+    MA_int = data.frame(Estimate = NA)
+    Dummy_int = data.frame(Estimate = NA)
+  } else {
+    exposed_pop_int = reg_pop %>%
+      filter(Year == 1901) %>% 
+      filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
+      filter(limfjord_placement_west == 1) %>% 
+      summarise(
+        mean(occ_j, na.rm = TRUE)
+      ) %>% unlist()
+    
+    average_parish_size_int = reg_pop %>% 
+      filter(Year == 1901) %>% 
+      filter(GIS_ID %in% with_occ_consist$GIS_ID) %>% 
+      filter(limfjord_placement_west == 1) %>% 
+      summarise(
+        mean(hisco_1st_digit6 + hisco_1st_digit7 + hisco_1st_digit8 + hisco_1st_digit9, na.rm = TRUE)
+      ) %>% unlist()
+    
+    mod_i_MA = feols(
+      log(occ_j) ~ Year*Affected,
+      data = reg_pop %>% 
+        mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
+        filter(GIS_ID %in% with_occ_consist$GIS_ID),
+      cluster = ~ GIS_ID
+    )
+    
+    mod_i_Dummy = feols(
+      log(occ_j) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+      data = reg_pop %>% 
+        mutate(Affected = limfjord_placement_west) %>% 
+        filter(GIS_ID %in% with_occ_consist$GIS_ID),
+      cluster = ~ GIS_ID
+    )
+    
+    # Extract estimate in 1901
+    MA_int = plot_mod( # MA approach
+      mod_i_MA, 
+      the_col = "#2c5c34",
+      return_data = TRUE
+    ) %>% 
+      filter(Year == 1901) %>% 
+      select(Estimate) # Only save estimate - no inference
+    
+    Dummy_int = plot_mod( # MA approach
+      mod_i_Dummy, 
+      the_col = "#2c5c34",
+      return_data = TRUE
+    ) %>% 
+      filter(Year == 1901) %>% 
+      select(Estimate) # Only save estimate - no inference
+  }
   
   # Test if any west Limfjord
   test = reg_pop %>% 
@@ -784,12 +819,13 @@ for(aff in c("Dummy", "MA")){
       drop_na(Estimate)
     
     lim_i = c(
-      table_i$Estimate %>% min(na.rm = TRUE)*nudge_factor,
-      table_i$Estimate %>% max(na.rm = TRUE)*nudge_factor
+      table_i$APE_pct %>% min(na.rm = TRUE)*nudge_factor,
+      table_i$APE_pct %>% max(na.rm = TRUE)*nudge_factor
     )
     
     p1 = table_i %>% 
-      ggplot(aes(Estimate, hisco, col = `HISCO first digit`)) + 
+      filter(strsplit(as.character(hisco), 1, 2) == "98") %>% 
+      ggplot(aes(APE_pct, hisco, col = `HISCO first digit`)) + 
       geom_point(shape = 4) + 
       geom_text(
         aes(label = description),
@@ -812,16 +848,20 @@ for(aff in c("Dummy", "MA")){
         subtitle = paste0(app," ", aff)
       ) + 
       geom_segment(
-        aes(x = 0, xend = Estimate, y = hisco, yend = hisco)
+        aes(x = 0, xend = APE_pct, y = hisco, yend = hisco)
       ) +
-      geom_vline(aes(xintercept = Effect_size_upper), lty = 2) +
-      geom_vline(aes(xintercept = Effect_size_lower), lty = 2) +
       xlim(lim_i) +
-      expand_limits(y = c(0, length(levels(table_i$hisco))+1))
+      expand_limits(y = c(0, length(levels(table_i$hisco))+1)) +
+      theme(
+        legend.position = "bottom"
+      ) + 
+      labs(
+        col = "Major category:"
+      )
       
     
     # print(p1)
-    ggsave(paste0("Plots/Mechanism/Tmp_", aff, "_", substr(app, 4, 6), ".png"), plot = p1, width = 2*10, height = 2*8, units = "cm")
+    ggsave(paste0("Plots/Mechanism/Detailed6789_", aff, "_", substr(app, 4, 6), ".png"), plot = p1, width = 2*10, height = 2*8, units = "cm")
   }
 }
 
@@ -862,6 +902,39 @@ fish = feols(
 )
 plot_mod(
   fish, "fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+)
+
+# What part of agriculture?
+fish = feols(
+  log(Agri_not_fish + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% 
+    mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "agri_not_fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+)
+
+# ==== Spinning ====
+mod1 = feols(
+  log(hisco_2nd_digit75 + 1) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  mod1, "spinning_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+)
+
+
+mod2 = feols(
+  log(hisco_2nd_digit75 + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% 
+    mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  mod2, "spinning_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
 )
 
 # What part of agriculture?
