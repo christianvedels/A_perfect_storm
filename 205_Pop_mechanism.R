@@ -418,7 +418,7 @@ p1 = occ_effects_1901 %>%
   theme(legend.position = "bottom")
 
 p1
-ggsave("Plots/Mechanism/All_occupations.png", plot = p1, width = 1.75*8, height = 1.75*10, units = "cm")
+ggsave("Plots/Mechanism/All_occupations.png", plot = p1, width = 1.9*8, height = 1.9*9, units = "cm")
 
 # Table of all
 table0 = occ_effects_1901 %>% 
@@ -449,6 +449,7 @@ table0 = occ_effects_1901 %>%
   select(hisco, Affected, Approach, Estimate, Pretrend_pval, APE, APE_pct, n_parishes)
 
 table0 %>% # For appendix
+  select(hisco, Affected, Approach, Estimate, n_parishes) %>% 
   arrange(hisco) %>% 
   knitr::kable("latex", booktabs = TRUE, align = "c")
 
@@ -854,39 +855,13 @@ for(aff in c("Dummy", "MA")){
       )
       
     # print(p1)
-    ggsave(paste0("Plots/Mechanism/Detailed6789_", aff, "_", substr(app, 4, 6), ".png"), plot = p1, width = 2*10, height = 2*8, units = "cm")
+    ggsave(paste0("Plots/Mechanism/Detailed6789/", aff, "_", substr(app, 4, 6), ".png"), plot = p1, width = 2*10, height = 2*8, units = "cm")
   }
 }
 
   
 
 # ==== Fishing ====
-reg_pop = reg_pop %>% 
-  mutate(
-    Agri_not_fish = hisco_1st_digit6 - Fishing
-  )
-
-fish = feols(
-  log(Fishing + 1) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  fish, "fish_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-# What part of agriculture?
-fish = feols(
-  log(Agri_not_fish + 1) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  fish, "agri_not_fish_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
 fish = feols(
   log(Fishing + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
   data = reg_pop %>% 
@@ -894,57 +869,9 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+  fish, "fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
 )
 
-# What part of agriculture?
-fish = feols(
-  log(Agri_not_fish + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
-  data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  fish, "agri_not_fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-# ==== Spinning ====
-mod1 = feols(
-  log(hisco_2nd_digit75 + 1) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  mod1, "spinning_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-
-mod2 = feols(
-  log(hisco_2nd_digit75 + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
-  data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  mod2, "spinning_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-# What part of agriculture?
-fish = feols(
-  log(Agri_not_fish + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
-  data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  fish, "agri_not_fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-# ==== Effect of channel on demographics ====
-
-# ==== Mechanism occupation ====
-# Breach --> Fishing
 fish = feols(
   log(Fishing + 1) ~ Year*Affected,
   data = reg_pop %>% 
@@ -952,177 +879,43 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+  fish, "fish_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
 )
 
-fish0 = fish
 
-fish = feols(
-  Fish ~ Year*Affected,
+# ==== Spinning ====
+mod1 = feols(
+  log(hisco_2nd_digit75 + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
   data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    mutate(Fish = Fishing > 0),
+    mutate(Affected = limfjord_placement_west),
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+  mod1, "spinning_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34",
 )
 
-fish = feols(
-  log(Fishing) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    filter(coastal),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  fish, "fish_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-fish = feols(
-  Share ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    mutate(Share = Fishing / Pop),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  fish, "fish_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-# Breach --> Manufacturing
-manu = feols(
-  log(Manufacturing + 1) ~ Year*Affected,
-  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  manu, "manu", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-manu0 = manu
-
-manu = feols(
-  Manu ~ Year*Affected,
-  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10) %>% mutate(Manu = Manufacturing>0),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  manu, "manu_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-manu = feols(
-  log(Manufacturing) ~ Year*Affected,
-  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  manu, "manu_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-
-manu = feols(
-  Share ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    mutate(Share = Manufacturing / Pop),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  manu, "manu_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-
-# APE
-Fish_avg_midpoint = reg_pop %>% 
-  filter(Year %in% c(1801, 1901), limfjord_placement == "west") %>% 
-  summarise(Fishing = mean(Fishing)) %>% unlist()
-
-Manu_avg_midpoint = reg_pop %>% 
-  filter(Year %in% c(1801, 1901), limfjord_placement == "west") %>% 
-  summarise(Manufacturing = mean(Manufacturing)) %>% unlist()
-
-APE_fish = Fish_avg_midpoint * fish0$coefficients["Year1901:Affected"]
-APE_manu = Manu_avg_midpoint * manu0$coefficients["Year1901:Affected"]
-
-
-# All occupations
-reg_pop = reg_pop %>% 
-  rowwise() %>% 
-  mutate(
-    all_occ = 
-      hisco_1st_digit0 +
-      hisco_1st_digit1 +
-      hisco_1st_digit2 +
-      hisco_1st_digit3 +
-      hisco_1st_digit4 +
-      hisco_1st_digit5 +
-      hisco_1st_digit6 +
-      hisco_1st_digit7 +
-      hisco_1st_digit8 +
-      hisco_1st_digit9
-  )
-
-# Breach --> Fishing
-occ = feols(
-  log(all_occ + 1) ~ Year*Affected,
+spinning = feols(
+  log(hisco_2nd_digit75 + 1) ~ Year*Affected,
   data = reg_pop %>% 
     mutate(Affected = delta_lMA_theta_1_alpha_10),
   cluster = ~ GIS_ID
 )
 plot_mod(
-  occ, "all_occupations", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+  spinning, "spinning_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
 )
 
-occ = feols(
-  Occ ~ Year*Affected,
+
+ropemakers = feols(
+  log(hisco_3rd_digit757 + 1) ~ Year*Affected,
   data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    mutate(Occ = all_occ > 0),
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
   cluster = ~ GIS_ID
 )
 plot_mod(
-  occ, "all_occupations_intensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+  ropemakers, "ropemakers_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
 )
 
-occ = feols(
-  log(all_occ) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    mutate(all_occ = all_occ / Pop) %>% 
-    filter(coastal),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  occ, "all_occupations_extensive", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-occ = feols(
-  Share ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    mutate(Share = all_occ / Pop),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  occ, "all_occupations_share", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
-
-# ==== Mechanism internal migration ====
-# Breach --> Migration
-migr = feols(
-  log(Born_different_county+1) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10) %>% 
-    filter(as.numeric(as.character(Year)) >= 1845) %>% 
-    mutate(Year = relevel(Year, ref = "1845")),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  migr, "born_different", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34", ref_year = 1845, corner_text = "Control group: Less Market Access improvement"
-)
-
+# ==== Simple fertility and migration ====
 migr = feols(
   Share ~ Year*Affected,
   data = reg_pop %>% 
@@ -1133,13 +926,36 @@ migr = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  migr, "born_different_share", ylab = "Parameter estimate", 
-  vadj = -0.25, the_col = "#2c5c34", ref_year = 1845, corner_text = "Control group: Less Market Access improvement"
+  migr, "born_different_share_MA", 
+  ylab = "Parameter estimate", 
+  the_col = "#b33d3d", 
+  dir0 = "Plots/Mechanism/", 
+  ref_year = 1845, 
+  corner_text = "Control group: Less Market Access improvement",
+  pretrend_test = FALSE,
+  vadj_automatic = TRUE
 )
 
+migr = feols(
+  Share ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% 
+    mutate(Affected = limfjord_placement_west) %>% 
+    filter(as.numeric(as.character(Year)) >= 1845) %>% 
+    mutate(Year = relevel(Year, ref = "1845")) %>% 
+    mutate(Share = Born_different_county / Pop),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  migr, "born_different_share_Dummy", 
+  ylab = "Parameter estimate", 
+  the_col = "#2c5c34", 
+  dir0 = "Plots/Mechanism/", 
+  ref_year = 1845, 
+  pretrend_test = FALSE,
+  vadj_automatic = TRUE
+)
 
-# ==== Effect by age group and gender ====
-# Young children per woman
+# Child women ratio
 fertility = feols(
   Child_women_ratio ~ Year*Affected,
   data = reg_pop %>% 
@@ -1147,119 +963,364 @@ fertility = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fertility, "fertility", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+  fertility, "fertility_MA", 
+  ylab = "Parameter estimate", 
+  the_col = "#b33d3d", 
+  dir0 = "Plots/Mechanism/", 
+  corner_text = "Control group: Less Market Access improvement",
+  vadj_automatic = TRUE
 )
 
-migr$coefficients["Year1901:Affected"]
-fertility$coefficients["Year1901:Affected"]
-
-# Young men
-mf = feols(
-  mf_ratio_15_24 ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+fertility = feols(
+  Child_women_ratio ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
   data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west) %>% 
-    mutate(mf_ratio_15_24 = Age_25_34_m / Age_25_34_f),
+    mutate(Affected = limfjord_placement_west),
   cluster = ~ GIS_ID
 )
 plot_mod(
-  mf, "young_male", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
+  fertility, "fertility_Dummy", 
+  ylab = "Parameter estimate", 
+  the_col = "#2c5c34", 
+  dir0 = "Plots/Mechanism/", 
+  corner_text = "Control group: Less Market Access improvement",
+  vadj_automatic = TRUE
 )
 
-# Elderly
-mf = feols(
-  log(Age_65_125) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  mf, "elderly", ylab = "Parameter estimate", 
-  vadj = 0.15, the_col = "#2c5c34", corner_text = "Control group: Less Market Access improvement"
-)
 
-# ==== Male female ratios in age groups 
-tmp_f = reg_pop %>% 
-  select(Year, GIS_ID, limfjord_placement, Age_0_1_f:Age_65_125_f) %>% 
-  pivot_longer(Age_0_1_f:Age_65_125_f) %>% 
-  mutate(name = gsub("_f","", name))
-tmp_m = reg_pop %>% 
-  select(Year, GIS_ID, limfjord_placement, Age_0_1_m:Age_65_125_m) %>% 
-  pivot_longer(Age_0_1_m:Age_65_125_m) %>% 
-  mutate(name = gsub("_m","", name))
-
-data1 = tmp_f %>% 
-  left_join(
-    tmp_m, by = c("GIS_ID", "Year", "name", "limfjord_placement"),
-    suffix = c("_f", "_m")
+# Simple plot of fertility
+reg_pop %>% 
+  mutate(
+    Year = as.numeric(as.character(Year))
   ) %>% 
-  filter(name != "Age_0_1") 
+  filter(
+    limfjord_placement %in% c("west", "not")
+  ) %>% 
+  ggplot(aes(Year, Child_women_ratio, col = limfjord_placement)) +
+  # geom_point(alpha = 0.1) + 
+  geom_line(data = . %>%
+              group_by(Year, limfjord_placement) %>%
+              summarise(mean_child_women_ratio = mean(Child_women_ratio, na.rm = TRUE)),
+            aes(y = mean_child_women_ratio)) + 
+  theme_bw()
 
-res_g = foreach(g = unique(data1$name), .combine = "bind_rows") %do% {
-  data_g = data1 %>% 
-    filter(name == g) %>% 
-    fastDummies::dummy_cols("limfjord_placement") %>% 
+# ==== Effect on age ====
+tmp = reg_pop %>%
+  mutate_at(vars(Age_1_4:Age_65_125), ~./Pop) %>% 
+  select(Age_1_4:Age_65_125) %>%
+  data.frame() %>%
+  select(where(~ any(sum_special(.) != 0)))
+
+average_parish_size = reg_pop %>% 
+  filter(Year == 1901) %>% 
+  filter(limfjord_placement_west == 1) %>% 
+  summarise(
+    mean(Pop, na.rm = TRUE)
+  ) %>% unlist()
+
+effects_demographics = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "bind_rows") %do% {
+  reg_pop$dem_j = tmp[,j]
+  if(var(reg_pop$dem_j, na.rm = TRUE) == 0){
+    return(NA)
+  }
+  
+  exposed_pop = reg_pop %>% 
+    filter(Year == 1901) %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(dem_j, na.rm = TRUE)
+    ) %>% unlist()
+  
+  name_j = names(tmp)[j]
+  
+  # log(x+1)
+  mod_i_MA = feols(
+    dem_j ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    dem_j ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
+      mutate(Affected = limfjord_placement_west),
+    cluster = ~ GIS_ID
+  )
+
+  # Extract estimate in 1901
+  MA_logx1 = plot_mod( # MA approach
+    mod_i_MA, 
+    paste0(name_j,"_MA"),
+    corner_text = "Control group: Less Market Access improvement",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/Demographics/Age_groups/",
+    return_data_and_plot = TRUE,
+    vadj_automatic = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  Dummy_logx1 = plot_mod( # Dummy approach
+    mod_i_Dummy, 
+    paste0(name_j,"_Dummy"),
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/Demographics/Age_groups/",
+    return_data_and_plot = TRUE,
+    vadj_automatic = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  data.frame(
+    Exposed_pop = exposed_pop,
+    average_parish_size = average_parish_size,
+    Affected = rep(c("MA", "Dummy"), 2),
+    Estimate = c(
+      MA_logx1$Estimate, 
+      Dummy_logx1$Estimate
+    ),
+    Std = c(
+      MA_logx1$Std..Error, 
+      Dummy_logx1$Std..Error
+    ),
+    Pval = c(
+      MA_logx1$Pr...t.., 
+      Dummy_logx1$Pr...t..
+    ),
+    Pretrend_est = c(
+      MA_logx1$Pretrend_est, 
+      Dummy_logx1$Pretrend_est
+    ),
+    Pretrend_pval = c(
+      MA_logx1$Pretrend_pval, 
+      Dummy_logx1$Pretrend_pval
+    ),
+    age_group = names(tmp)[j],
+    n_parishes = 1589
+  )
+}
+
+# Bonferroni CI
+effects_demographics = effects_demographics %>% 
+  mutate(
+    Upper = Estimate + abs(qnorm(0.025/n()))*Std,
+    Lower = Estimate - abs(qnorm(0.025/n()))*Std
+  )
+
+p1 = effects_demographics %>% 
+  filter(Affected == "Dummy") %>% 
+  mutate(age_group = gsub("Age_", "", age_group)) %>% 
+  mutate(age_group = gsub("_", " to ", age_group)) %>% 
+  mutate(
+    age_group = forcats::fct_inorder(age_group)
+  ) %>% 
+  ggplot(aes(age_group, Estimate)) + 
+  geom_point() + 
+  geom_errorbar(aes(ymax = Upper, ymin = Lower)) +
+  geom_hline(yintercept = 0) + 
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) + 
+  labs(
+    x = "Age group",
+    y = "Effect in 1901"
+  )
+
+p1
+ggsave("Plots/Mechanism/Age_composition_Dummy.png", plot = p1, width = 10, height = 8, units = "cm")
+
+p1 = effects_demographics %>% 
+  filter(Affected == "Dummy") %>% 
+  mutate(age_group = gsub("Age_", "", age_group)) %>% 
+  mutate(age_group = gsub("_", " to ", age_group)) %>% 
+  mutate(
+    age_group = forcats::fct_inorder(age_group)
+  ) %>% 
+  ggplot(aes(age_group, Estimate, col = Affected)) + 
+  geom_point() + 
+  geom_errorbar(aes(ymax = Upper, ymin = Lower)) +
+  geom_hline(yintercept = 0) + 
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) + 
+  labs(
+    x = "Age group",
+    y = "Effect in 1901"
+  ) + 
+  scale_color_manual(values = c(Dummy = "#2c5c34", MA = "#b33d3d")) + 
+  theme(legend.position = "none")
+
+p1
+ggsave("Plots/Mechanism/Age_composition_Dummy.png", plot = p1, width = 10, height = 8, units = "cm")
+
+p2 = effects_demographics %>% 
+  filter(Affected == "MA") %>% 
+  mutate(age_group = gsub("Age_", "", age_group)) %>% 
+  mutate(age_group = gsub("_", " to ", age_group)) %>% 
+  mutate(
+    age_group = forcats::fct_inorder(age_group)
+  ) %>% 
+  ggplot(aes(age_group, Estimate, col = Affected)) + 
+  geom_point() + 
+  geom_errorbar(aes(ymax = Upper, ymin = Lower)) +
+  geom_hline(yintercept = 0) + 
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) + 
+  labs(
+    x = "Age group",
+    y = "Effect in 1901"
+  ) + 
+  scale_color_manual(values = c(Dummy = "#2c5c34", MA = "#b33d3d")) + 
+  theme(legend.position = "none")
+
+p2
+ggsave("Plots/Mechanism/Age_composition_MA.png", plot = p2, width = 10, height = 8, units = "cm")
+
+# ==== Effect on migration ====
+tmp = reg_pop %>%
+  mutate(
+    Age_1_4_migr = Age_1_4_migr/Age_1_4,
+    Age_5_14_migr = Age_5_14_migr/Age_5_14,
+    Age_15_24_migr = Age_15_24_migr/Age_15_24,
+    Age_25_34_migr = Age_25_34_migr/Age_25_34,
+    Age_35_44_migr = Age_35_44_migr/Age_35_44,
+    Age_45_54_migr = Age_45_54_migr/Age_45_54,
+    Age_55_64_migr = Age_55_64_migr/Age_55_64,
+    Age_65_125_migr = Age_65_125_migr/Age_65_125
+  ) %>% 
+  select(Age_1_4_migr:Age_65_125_migr) %>% 
+  # select(starts_with("Age_")) %>%
+  # select(contains("_migr")) %>% 
+  # select(-contains("mean")) %>% 
+  # select(-contains("Age_0_1")) %>% 
+  data.frame() %>%
+  select(where(~ any(sum_special(.) != 0)))
+
+effects_demographics = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "bind_rows") %do% {
+  reg_pop$dem_j = tmp[,j]
+  if(var(reg_pop$dem_j, na.rm = TRUE) == 0){
+    return(NA)
+  }
+  
+  # Save original data to restore later
+  reg_pop0 = reg_pop
+  
+  # Filter data
+  reg_pop = reg_pop %>% 
     mutate(
-      mf_ratio = (value_m + 1)/(value_f + 1)
+      Year = relevel(Year, "1845")
+    ) %>% 
+    filter(
+      as.numeric(as.character(Year)) > 1840
     )
   
-  mod_g = feols(
-    log(mf_ratio) ~ log(value_f) + Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
-    data = data_g %>% 
+  exposed_pop = reg_pop %>% 
+    filter(Year == 1901) %>% 
+    filter(limfjord_placement_west == 1) %>% 
+    summarise(
+      mean(dem_j, na.rm = TRUE)
+    ) %>% unlist()
+  
+  name_j = names(tmp)[j]
+  
+  # log(x+1)
+  mod_i_MA = feols(
+    dem_j ~ Year*Affected,
+    data = reg_pop %>% 
+      mutate(Affected = delta_lMA_theta_1_alpha_10),
+    cluster = ~ GIS_ID
+  )
+  
+  mod_i_Dummy = feols(
+    dem_j ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+    data = reg_pop %>% 
       mutate(Affected = limfjord_placement_west),
     cluster = ~ GIS_ID
   )
   
-  plot_mod(mod_g, return_data = TRUE) %>% 
-    mutate(group = g)
+  # Extract estimate in 1901
+  MA_logx1 = plot_mod( # MA approach
+    mod_i_MA, 
+    paste0(name_j,"_MA"),
+    corner_text = "Control group: Less Market Access improvement",
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/Demographics/Migration/",
+    return_data_and_plot = TRUE,
+    ref_year = 1845,
+    pretrend_test = FALSE,
+    vadj_automatic = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  Dummy_logx1 = plot_mod( # Dummy approach
+    mod_i_Dummy, 
+    paste0(name_j,"_Dummy"),
+    the_col = "#2c5c34",
+    dir0 = "Plots/Mechanism/Demographics/Migration/",
+    return_data_and_plot = TRUE,
+    ref_year = 1845,
+    pretrend_test = FALSE,
+    vadj_automatic = TRUE
+  ) %>% 
+    filter(Year == 1901)
+  
+  
+  # Restore original data
+  reg_pop = reg_pop0
+  
+  # Output
+  data.frame(
+    Exposed_pop = exposed_pop,
+    average_parish_size = average_parish_size,
+    Affected = rep(c("MA", "Dummy"), 2),
+    Estimate = c(
+      MA_logx1$Estimate, 
+      Dummy_logx1$Estimate
+    ),
+    Std = c(
+      MA_logx1$Std..Error, 
+      Dummy_logx1$Std..Error
+    ),
+    Pval = c(
+      MA_logx1$Pr...t.., 
+      Dummy_logx1$Pr...t..
+    ),
+    age_group = names(tmp)[j],
+    n_parishes = 1589
+  )
 }
 
-p1 = res_g %>% 
+# Bonferroni CI
+effects_demographics = effects_demographics %>% 
   mutate(
-    group = sub("_", " ", group)
-  ) %>% 
-  mutate(
-    group = sub("_", " to ", group)
-  ) %>%
-  mutate(
-    group = factor(
-      group,
-      levels = c(
-        "Age 1 to 4", 
-        "Age 5 to 14",
-        "Age 15 to 24",
-        "Age 25 to 34",
-        "Age 35 to 44",
-        "Age 45 to 54",
-        "Age 55 to 64",
-        "Age 65 to 125"
-      )
-    )
-  ) %>% 
-  ggplot(aes(Year, Estimate, col = group)) + 
-  geom_point() + 
-  geom_errorbar(aes(ymin = Lower, ymax = Upper)) + 
-  geom_hline(yintercept = 0) + 
-  theme_bw() + 
-  facet_wrap(~group) +
-  geom_vline(xintercept = c(1825, 1833.5), lty = 2) +
-  scale_x_continuous(breaks = seq(1790, 1900, by = 10)) +
-  theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5)
-  ) +
-  theme(legend.position = "bottom",
-        plot.caption = element_text(vjust = 20)) + 
-  labs(
-    y = "Parameter estimate",
-    caption = "Control: Non-Limfjord parishes"
-  ) + 
-  geom_hline(yintercept = 0) + 
-  theme(
-    plot.caption = element_text(size = 7, face = "italic", vjust = 0.2),
+    Upper = Estimate + abs(qnorm(0.025))*Std,
+    Lower = Estimate - abs(qnorm(0.025))*Std
   )
 
-
-fname0 = paste0("Plots/Regression_plots/", "Age_group_mf_ratios", ".png")
-ggsave(fname0,  plot = p1, width = 14, height = 16, units = "cm")
+effects_demographics %>% 
+  mutate(age_group = gsub("Age_", "", age_group)) %>% 
+  mutate(
+    gender = substrRight(age_group, 1)
+  ) %>% 
+  mutate(
+    age_group = gsub("_f", "", age_group)
+  ) %>% 
+  mutate(
+    age_group = gsub("_m", "", age_group)
+  ) %>% 
+  mutate(
+    gender = ifelse(gender == "r", "All", gender)
+  ) %>% 
+  mutate(
+    age_group = gsub("igr", "", age_group)
+  ) %>% 
+  mutate(
+    age_group = gsub("_", " to ", age_group)
+  ) %>% 
+  mutate(
+    age_group = forcats::fct_inorder(age_group)
+  ) %>% 
+  ggplot(aes(age_group, Estimate)) + 
+  geom_point() + 
+  geom_errorbar(aes(ymax = Upper, ymin = Lower)) +
+  geom_hline(yintercept = 0) + 
+  facet_wrap(gender~Affected, ncol = 2, scales = "free_y")  + 
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
 

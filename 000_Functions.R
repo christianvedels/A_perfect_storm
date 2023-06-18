@@ -246,7 +246,9 @@ plot_mod = function(
     corner_text = "Control: Non-Limfjord parishes",
     return_data = FALSE,
     dir0 = "Plots/Regression_plots/",
-    return_data_and_plot = FALSE
+    return_data_and_plot = FALSE,
+    pretrend_test = TRUE,
+    vadj_automatic = FALSE
 ){
   capN = mod$nobs
   
@@ -282,6 +284,10 @@ plot_mod = function(
     return(data0)
   }
   
+  if(vadj_automatic){
+    vadj = mean(data0$Estimate)
+  }
+  
   p1 = data0 %>%
     ggplot(aes(Year, Estimate)) +
     geom_point(col = the_col) +
@@ -310,15 +316,17 @@ plot_mod = function(
   ggsave(fname0,  plot = p1, width = 10, height = 8, units = "cm")
   
   # Testing potential pretrends
-  pre_trend = data0 %>% 
-    filter(Year == 1787) %>% 
-    transmute(
-      Pretrend_est = Estimate,
-      Pretrend_std = Std..Error,
-      Pretrend_pval = Pr...t..
-    )
-  
-  data0 = bind_cols(data0, pre_trend)
+  if(pretrend_test){
+    pre_trend = data0 %>% 
+      filter(Year == 1787) %>% 
+      transmute(
+        Pretrend_est = Estimate,
+        Pretrend_std = Std..Error,
+        Pretrend_pval = Pr...t..
+      )
+    
+    data0 = bind_cols(data0, pre_trend)
+  }
   
   if(return_data_and_plot){
     return(data0)

@@ -16,8 +16,15 @@ west_limfj = geo_data %>% filter(limfjord_placement == "west")
 reference = geo_data %>% filter(limfjord_placement == "not")
 
 # ==== Check 99 HISCO codes ====
-merged_data %>% 
-  filter(GIS_ID %in% west_limfj$GIS_ID)
+tmp = merged_data %>% 
+  filter(GIS_ID %in% west_limfj$GIS_ID) %>% 
+  filter(Year == 1901) %>% 
+  mutate(
+    Occ1_string = paste(Occupation)
+  ) %>% 
+  filter(hisco_2nd_digit99 == 1) %>% 
+  group_by(Occ1_string) %>% 
+  count()
 
 # ==== Tmp checks for the analysis ====
 # # Check Nykoebing - one of the affected market towns

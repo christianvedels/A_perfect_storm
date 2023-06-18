@@ -194,9 +194,13 @@ p1 = arch_raw1 %>%
     limfjord_placement = ifelse(limfjord_placement == "not", "reference", limfjord_placement)
   ) %>% 
   group_by(Year, limfjord_placement) %>% 
+  summarise(
+    n = mean(n, na.rm = TRUE)
+  ) %>% 
   # filter(limfjord_placement != "middle") %>%
-  ggplot(aes(Year, log(n+1), col = limfjord_placement)) + 
-  geom_smooth(se = FALSE, lty = 5, size = 1) +
+  ggplot(aes(Year, n, col = limfjord_placement)) + 
+  geom_line() + 
+  # geom_smooth(se = FALSE, lty = 5, size = 1) +
   theme_bw() +
   geom_vline(xintercept = c(1086, 1200), lty = 2) +
   scale_x_continuous(breaks = seq(750, 1500, by = 50)) +
@@ -211,7 +215,7 @@ p1 = arch_raw1 %>%
   ) + 
   labs(
     col = "Location in Limfjord:",
-    y = "log(findings + 1)"
+    y = "Mean of coin findings"
   )
   
 p1

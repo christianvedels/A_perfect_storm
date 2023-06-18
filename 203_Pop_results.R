@@ -22,6 +22,12 @@ reg_pop = reg_pop %>%
     Year = relevel(factor(Year), ref = "1801")
   )
 
+# ==== Manu ====
+reg_pop = reg_pop %>% 
+  mutate(
+    manu = hisco_1st_digit7 + hisco_1st_digit8 + hisco_1st_digit9
+  )
+
 # ==== Summary table ====
 reg_pop %>% 
   mutate(
@@ -31,8 +37,8 @@ reg_pop %>%
     Pop,
     limfjord_placement_west,
     delta_lMA_theta_1_alpha_10,
-    Fishing,
-    Manufacturing,
+    hisco_1st_digit6,
+    manu,
     Born_different_county,
     Child_women_ratio
   ) %>% 
@@ -60,15 +66,14 @@ plot_stats = reg_pop %>%
   filter(Year %in% c(1787, 1801)) %>% 
   filter(limfjord_placement %in% c("not", "west")) %>% 
   select(
-    Year, limfjord_placement, Pop, Age_mean, Fishing, Manufacturing, Child_women_ratio
+    Year, limfjord_placement, Pop, Age_mean, hisco_1st_digit6, manu, Child_women_ratio
   ) %>% 
-  filter(Fishing > 0) %>% 
   mutate(
     lPop = log(Pop),
-    lFish = log(Fishing + 1),
-    lManu = log(Manufacturing + 1)
+    lAgri = log(hisco_1st_digit6 + 1),
+    lManu = log(manu + 1)
   ) %>% 
-  select(-Pop, -Fishing, -Manufacturing) %>% 
+  select(-Pop, -hisco_1st_digit6, -manu) %>% 
   group_by(Year, limfjord_placement) %>% 
   pivot_longer(
     Age_mean:lManu,
@@ -83,8 +88,8 @@ plot_stats = reg_pop %>%
   mutate(
     Variable = case_when(
       Variable == "lPop" ~ "log(Population)",
-      Variable == "lManu" ~ "log(Manufacturing + 1)",
-      Variable == "lFish" ~ "log(Fishing + 1)*",
+      Variable == "lManu" ~ "log(HISCO Manufacturing + 1)",
+      Variable == "lAgri" ~ "log(HISCO Agricultural + 1)",
       Variable == "Child_women_ratio" ~ "Child women ratio",
       Variable == "Age_mean" ~ "Mean age in parish"
     )
@@ -536,8 +541,8 @@ reg_pop0 = reg_pop %>%
     Treat_year = ifelse(limfjord_placement_west==1, 1834, 0)
   ) %>% 
   mutate(
-    lManu = log(Manufacturing + 1),
-    lFish = log(Fishing + 1)
+    lManu = log(manu + 1),
+    lAgri = log(hisco_1st_digit6 + 1)
   )
 
 # No covariates
@@ -558,7 +563,7 @@ out2 = att_gt(
   gname = "Treat_year",
   idname = "GIS_ID_num",
   data = reg_pop0,
-  xformla = ~ lManu + lFish + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
+  xformla = ~ lManu + lAgri + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
 )
 
 ggdid(out2)
@@ -570,7 +575,7 @@ out3 = att_gt(
   gname = "Treat_year",
   idname = "GIS_ID_num",
   data = reg_pop0,
-  xformla = ~ lPop + lManu + lFish + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
+  xformla = ~ lManu + lAgri + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
 )
 
 ggdid(out3)

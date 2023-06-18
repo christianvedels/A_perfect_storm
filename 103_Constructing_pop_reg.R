@@ -58,10 +58,16 @@ reg_pop = reg_pop %>%
 
 # Adding child women ratio
 reg_pop = reg_pop %>% 
-  mutate(Child_women_ratio = (Age_1_4) / (Age_15_24_f + Age_25_34_f + Age_35_44_f)) %>% 
+  mutate(
+    Child_women_ratio = (Age_1_4) / (Age_15_24_f + Age_25_34_f + Age_35_44_f),
+    Child_women_ratio_migr = (Age_1_4_migr) / (Age_15_24_migr_f + Age_25_34_migr_f + Age_35_44_migr_f)
+  ) %>% 
   mutate(
     Child_women_ratio = ifelse(
       is.finite(Child_women_ratio), Child_women_ratio, NA
+    ),
+    Child_women_ratio_migr = ifelse(
+      is.finite(Child_women_ratio_migr), Child_women_ratio_migr, NA
     )
   )
 
