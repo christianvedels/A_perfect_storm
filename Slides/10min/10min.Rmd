@@ -191,7 +191,7 @@ name: pop
 .pull-left[
 ### Market Access approach
 ```{r echo=FALSE, out.width="100%", fig.align='center'}
-knitr::include_graphics("Figures/pop_MA.png")
+knitr::include_graphics("Figures/pop_ma.png")
 ```
 
 **Robustness to:**
