@@ -1,6 +1,9 @@
 # Replication files for "A perfect storm and the natural endowments of infrastructure"
 
-This is the repository of the paper 'A perfect storm and the natural endowments of trade-enabling infrastructure'. The repository was created as I refactored all the code of the project to tie it up for a version to include in my thesis. [Slides can be found here](https://raw.githack.com/christianvedels/A_perfect_storm_replication/main/Slides/20min/20min.html#1). A short version of the paper is enclosed in this repository as 'Paper_short_version.pdf'. This specific version of the paper won the [EHS's New Researcher Prize](https://ehs.org.uk/society/grants-prizes/new-researcher-paper-prize-winners/) in the spring of 2023.
+This is the repository of the paper 'A perfect storm and the natural endowments of trade-enabling infrastructure'. The repository was created as I refactored all the code of the project to tie it up for a version to include in my thesis. Slides can be found here ([20 min.](https://raw.githack.com/christianvedels/A_perfect_storm_replication/main/Slides/20min/20min.html#1); [10 min.](https://raw.githack.com/christianvedels/A_perfect_storm_replication/main/Slides/10min/10min.html#1)). A short version of the paper is enclosed in this repository as 'Paper_short_version.pdf'. This specific version of the paper won the [EHS's New Researcher Prize](https://ehs.org.uk/society/grants-prizes/new-researcher-paper-prize-winners/) in the spring of 2023.
+
+
+
 
 The scripts in this repository are numbered to indicate the order in which to run them. Some of the data cannot be shared in this repository either because I am not authorized to redistribute it, or because it is too large. However, I have included all the necessary information to download or obtain the data below. All scripts from "008\_..." onwards require only data that is included in the repository.
 

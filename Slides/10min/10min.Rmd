@@ -81,7 +81,6 @@ knitr::include_graphics("Figures/Petersen 1877.png")
 ]
 
 
-**15/45**
 
 ---
 # Litterature
