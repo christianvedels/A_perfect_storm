@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>A perfect storm and the natural endowments of trade-enabling infrastructure</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Christian Vedel,  University of Southern Denmark, HEDG    Twitter: @ChristianVedel,   Email: christian-vs@sam.sdu.dk" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# A perfect storm and the natural endowments of trade-enabling infrastructure
+]
+.author[
+### Christian Vedel,<br> University of Southern Denmark, HEDG <br><br> Twitter: <span class="citation">@ChristianVedel</span>, <br> Email: <a href="mailto:christian-vs@sam.sdu.dk" class="email">christian-vs@sam.sdu.dk</a>
+]
+.date[
+### Updated: 2023-07-18
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+.pull-left {
+  float: left;
+  width: 44%;
+}
+.pull-right {
+  float: right;
+  width: 44%;
+}
+.pull-right ~ p {
+  clear: both;
+}
+&lt;/style&gt;
+
+# Introduction
+.pull-left[
+- Geography is more than soil quality. We are slaves of geomorphology.  
+- In 1825 the Agger isthmus* broke by 1834 a natural channel had formed 
+- 700 years prior a similar channel had silted up 
+- Is infrastructure important in economic development? (Fogel, 1964)
+
+#### This paper
+- The channel caused trade 
+- The channel caused a local population boom
+- Mechanism
+- Evidence for the reverse natural experiment in 1100s
+
+]
+
+.pull-right[
+&lt;img src="Figures/1714 Homann - Tabula Generalis lutiae ... www.kb.dk.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+*Humann (1750) 'Tabula Generalis Iutia' www.kb.dk*
+
+&lt;img src="Figures/Petersen 1877.png" width="100%" style="display: block; margin: auto;" /&gt;
+*Petersen (1877)*
+
+]
+
+
+
+???
+**3/45**  
+- Understanding what causes wealth (wellbeing, etc.) is at the heart of Economics 
+- Understanding the interplay between geography (environment) and Economics is vital in the 21st century
+
+
+---
+![Event2](Figures/Map.png)
+
+???
+- This map essentially shows the entire story I am going to tell you today 
+
+---
+# Map
+.center[
+&lt;iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d704129.7470425251!2d8.826970647896832!3d56.880787313536544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sda!2sdk!4v1634159326111!5m2!1sda!2sdk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;
+]
+
+
+**15/45**
+
+---
+# Litterature
+.pull-left[
+- History described by Poulsen (2019, 2022)
+- Does infrastructure promote regional development? (Fogel, 1964; Bogart, 2009; Donaldson &amp; Hornbeck, 2016; Berger &amp; Enflo, 2017; etc.)
+- Does trade cause growth? (Frankel &amp; Romer, 1999; Feyrer, 2021; Pascali, 2017)
+- Fundamental determinants of economic wealth: *Institutions or geography?* 
+- Pragmatically: Infrastructure is expensive
+
+**Why this case**: 
+- Neat natural experiment: No-one decided that a canal should be constructed
+]
+
+
+.pull-right[
+![Fishermen](Figures/1889 Anker - smk.dk - Two fishermen by a boat.jpg)
+*'Two fishermen by a boat', Anker (1889), smk.dk*  
+]
+
+???
+
+---
+name: timeline
+# Timeline
+
+--
+
+#### Pre-event: 
+- 1085-1208: Natural western channel closed because of gradual land rises (since the last ice age)
+- 1672: Eastern Limfjord town Aalborg 2nd largest in DK 
+- Other Limfjord towns lacked far behind under Aalborg's local hedgemony
+
+--
+
+#### Event:
+- 1825: Breach of Agger Isthmus
+- 1834: Ships start consistently passing through a new natural channel 
+- 1841: Independent trade rights to west Limfjord market towns 
+- 1850-1900: [Secondary infrastructure and growth](#post-event) 
+- 1860-1900: Strong(er) growth
+
+![Newspaper](Figures/Stenkul_from_Newcastle.PNG)
+
+---
+# Empirical strategy
+
+`$$log(y_{it}) = Affected_i \times Year_t \beta_t + FE + \varepsilon_{it}$$`
+
+*Affected is:*
+- The **West** Limfjord, or
+- Improved **market access** after the breach
+
+
+---
+name: censusdata
+
+# Census data
+
+.pull-left[
+- Link Lives 
+- Individual-level data for the years 1787, 1801, 1834, 1845, 1860, 1870, 1890 and 1901 
+- From this: Parish level population counts + occupations 
+- New procedure to automatically make [HISCO labels](#hisco)
+
+![NN](Figures/Architecture_small.png)
+]
+
+.pull-right[
+*Census, wikimedia commons*
+![Filled form](https://upload.wikimedia.org/wikipedia/commons/9/9a/Folket%C3%A6lling-1840.jpg)
+
+]
+---
+# The channel caused trade
+
+![Descriptive](Figures/Ship_trafic.png)
+---
+name: str-results
+# The channel caused trade
+.pull-left[
+- **Data**: Panel of Danish ports 1750-1855 
+- **Outcome**: Cargo ship traffic with origin or destination in a specified port
+- PPML estimator following Silva &amp; Tenreyro (2006) 
+- In the order of 400% growth in trade in the region
+- Local descriptive trade stats show the same story:
+  + From 6 to 62 ships in Thisted harbour (1834-1876)
+  + 997% increase in oats export, Thisted (1801-1853) 
+]
+
+
+.pull-right[
+&lt;img src="Figures/STR_regressions - Copy.png" width="100%" style="display: block; margin: auto;" /&gt;
+*Larger on next page*
+]
+
+---
+&lt;img src="Figures/STR_regressions - Copy.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+name: pop
+# Population increase
+
+.pull-left[
+### Market Access approach
+&lt;img src="Figures/pop_ma.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+**Robustness to:**
+- [Comparison groups](#Rob_comp)
+- [Parameter choices](#all-paramMA)
+]
+--
+.pull-right[
+### Dummy approach
+&lt;img src="Figures/pop_dummy.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+**Robustness to:**
+- [Comparison groups](#Rob_comp)
+- [Pre-treatment characteristics](#pre_treat_adj)
+
+]
+
+???
+- Rauch &amp; Maurer (2022): 2.3 for panama canal
+
+---
+name: mechanism1
+.pull-left[
+# Mechanism
+- **First-order mechanism:** Trade (as documented)
+- **Remaining questions**: 
+
+  + *Why was the take-off relatively slow?* 
+  + **Answer:** [Institutions and secondary infrastructure](#instmech) had to adapt
+
+  + *What carried the population growth?* 
+  + **Likely answer:** Fertility driven by rise of manufacturing and fishing
+]
+
+.pull-right[
+![Loading Butter](Figures/1924 Loading Butter, Esbjerg port.jpg)
+*Loading Butter in a Danish port (1924)*
+
+![dag](Figures/dag_mechanism.png)
+*DAG of the suggested mechanism* 
+]
+
+
+
+---
+.pull-left[
+**Fishing:**
+&lt;img src="Figures/fish_MA.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+**Manufacturing:**
+&lt;img src="Figures/manu.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+--
+.pull-right[
+**Fertility:**
+&lt;img src="Figures/fertility.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+**Reallocation:**
+&lt;img src="Figures/born_different_share_MA.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+
+
+---
+# The reverse natural experiment
+
+.pull-left[ 
+- The Limfjord also had a western opening in the Viking age. 
+- Ideal hub for viking fleets heading west towards England (Matthiessen 1941; Rasmussen, 1966) 
+- Northwestern Denmark in 1100s is very different from ditto in 1800s
+- Between 1086 and 1208 the channel silted up (Saxo (1208) + geological sources)
+
+**Data?** 
+- Just use register data! 
+- Turning dating range + coordinate into panel of economic activity
+]
+
+.pull-right[
+![Overseas Guests, Roerich, 1901](https://upload.wikimedia.org/wikipedia/commons/a/a6/Nicholas_Roerich%2C_Guests_from_Overseas_%28corrected_colour%29.jpg)
+*'Overseas Guests', Roerich (1901)*
+![Viking hub](Figures/Hub2.jpg)
+*maps.stamen.com*
+]
+
+---
+# Descriptive evidence
+![Arch](Figures/Arch_descriptive.png)
+---
+name: arch1
+**Plot of effect to the likelihood of a coin finding being generated**
+&lt;img src="Figures/arch_dummy_coins.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+[More details](#appendixarch); [Matched sample alternative](#matching_coins)
+
+---
+name: other-results
+# Conclusion 
+.pull-left[
+- **RQ:** How are we affected by geography? Does infrastructure cause development?
+- Storm led to a channel and improved connectivity in 1834
+- The population grew 22 percent in a generation in affected parishes 
+- Population growth carried by trade and adaptation
+- Intrinsic growth (fertility), fishing and manufacturing
+]
+
+
+.footnote[
+**Email**: christian-vs@sam.sdu.dk;&lt;br&gt;
+**Twitter**: @Christian Vedel&lt;br&gt;
+Feel free to reach out :-)
+]
+
+.pull-right[
+**Moving forward**
+- Quantifying institutions and secondary infrastructure
+- Your comments!
+
+&lt;br&gt;
+&lt;img src="Figures/Morsoe.jpg" width="60%" style="display: block; margin: auto;" /&gt;
+*Oven from Morsø Iron foundry. Founded in a Limfjord Market town with British coal and Swedish iron in 1853*
+]
+
+
+---
+count: false
+class: center, middle
+# Appendix
+
+
+
+---
+# Market Access
+.pull-left[
+Based on cost distance from parishes to harbours: 
+`$${MA}_p = \sum_{h \in H} [CostDist(p, h) + 1]^\theta \times W_{p}$$`
+- CostDist - Dijkstra's agorithm and 1/10 land/sea ratio 
+- `\(\theta = -1\)`  
+- Breach caused new harbours in West Limfjord: `\(H\rightarrow H^*\)`
+
+`$$MA_{before} = MA_p|H \\
+MA_{after} = MA_p|H^*$$`
+Main measure:
+`$$\Delta log(MA) = log(MA_{after})-log(MA_{before})$$`
+]
+
+.pull-right[
+![Event](Figures/Map.png)
+]
+
+
+---
+name: str-presentation
+# Trade data: Sound Toll Register (STR)
+
+.pull-left[
+- Most ships to and from the Baltic region (1.8 mio. passages, 1497-1857) 
+- Extract traffic for Denmark  
+- Digitized by team at Gronningen (Veluwenkamp &amp; Woude, 2009)
+- Only ships passing [Elsinore](#elsinor)
+ 
+![Kronborg](https://upload.wikimedia.org/wikipedia/commons/9/97/Kronborg_Braun-Hogenberg.jpg)
+*Kronborg at Elsinore anno 1500, wikimedia commons*
+]
+
+.pull-right[
+![1838](Figures/1734_STR_RUG.jpg)
+*Page from Sound Toll Register in 1734 (www.rug.nl)*
+]
+
+
+---
+# The channel caused trade
+
+![Ship traffic](Figures/Ship_trafic_channel.png)
+*Descriptive statistics from Svalgaard (1977) sourced from customs archives*
+
+---
+### But can this explain the population growth?
+
+**Labor force as share of total pop:**
+&lt;img src="Figures/all_occupations_share.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+name: arch2
+**Plot of effect to the likelihood of a building finding being generated**
+&lt;img src="Figures/arch_dummy_buildings.png" width="80%" style="display: block; margin: auto;" /&gt;
+[More details](#appendixarch); [Matched sample alternative](#matching_buildings)
+
+
+---
+name: new-ports
+# New ports
+[Back](#instmech)
+![New ports](Figures/WestMiddle_port_projects.png)
+
+---
+name: railways1
+# Railways (1/2)
+[Back](#instmech)
+
+.pull-left[
+![1860](Figures/Y1860.png)
+]
+
+.pull-right[
+![1866](Figures/Y1866.png)
+
+]
+
+Source: Fertner (2013)
+
+---
+name: railways2
+# Railways (2/2)
+[Back](#instmech)
+.pull-left[
+![1880](Figures/Y1880.png)
+]
+
+.pull-right[
+![1900](Figures/Y1900.png)
+]
+
+Source: Fertner (2013)
+
+---
+name: elsinor
+# Elsinor
+
+
+.center[
+&lt;iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3743.038856836935!2d12.616720634729397!3d56.03904113734528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sda!2sdk!4v1655049802848!5m2!1sda!2sdk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"&gt;&lt;/iframe&gt;
+]
+
+[Back to STR](#str-presentation), [Back to results](#str-results)
+
+
+---
+name: Rob_comp
+## Robustness: Comparison groups
+
+.pull-left[
+#### MA approach
+![MA_mult](Figures/Multiverse_MA.png)
+]
+
+.pull-right[
+#### Dummy approach
+![Dummy_mult](Figures/Multiverse_dummy.png)
+]
+
+[Back](#pop)
+
+.footnote[
+**Definitions:** A: &lt;5km to coast; B: Copenhagen excl.; C: Control &gt;100 km from Limfj.; D: &lt;5km to Market town
+]
+
+
+
+---
+name: all-paramMA
+## Robustness: Parameter choices
+
+&lt;img src="Figures/Multiverse_MA_param.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+[Back](#pop)
+
+---
+name: pre_treat_adj
+## Robustness: Pre-treat characteristics
+
+.pull-left[
+- Using the doubly robust estimator from Callaway &amp; Sant’Anna (2021).
+- Combines outcome regression with propensity score method. If either is valid, then the estimator is consistent.
+- Only corrects for pre-treatment characteristics
+
+**Columns:** (1): No adj.; (2): Adj. for age, occupation, fertility; (3): Adds log(Pop) as adj.
+]
+
+.pull-right[
+![DR_est](Figures/CS_DR_estimate.png)
+]
+
+[Back](#pop)
+
+
+---
+name: fish
+# Environmental impact
+[Back](#mechanism1)
+
+![Fish](Figures/Herring_caught_Poulsen_et_al_2007.png)
+
+---
+name: newspapers
+# Newspapers
+
+.pull-left[
+- Based on all newspapers in published in the period
+]
+
+.pull-right[
+![Newspapers](Figures/Mentions_of_agger_channel.png)
+]
+
+---
+name: instmech
+# Mechanism: Adaptation
+
+.pull-left[
+[Back](#mechanism1)  
+*Theoretical mystery desribed by Redding and Turner (2015)*
+
+#### Historiography:
+- 1840s: [New ports were constructed in all west Limfjord market towns](#new-ports)
+- 1841: Independent rights for international trade
+- 1852: First ever Danish steam route to England 
+- 1856-1861: Construction of the Frederik VII canal at Løgstør 
+- 1860-1900: [Railways](#railways1) and highways 
+- 1875-1933: Groins to stabilise the channel (and coast) 
+]
+
+
+
+.pull-right[
+![FrederikVII](Figures/1884 Milton Jensen - Frederik VII canal - wikimedia commons.jpg)
+*Milton (1884) Frederik VII canal*
+
+![Trade](Figures/placat_1841.jpg)
+*'Placat' announcing trade rights of Limfjord market towns*
+]
+
+
+---
+name: hisco
+# New occupational data
+[Back](#censusdata)
+
+.pull-left[
+- Data censuses 1787-1901 contain occupational for some years (3.7 mio. observations) 
+- Training data to train an automatic HISCO-label AI for all 12.4 mio. records. 
+- Precision: 97.21%; Recall: 97.07% 
+- Separate paper - please let me know if you have data
+]
+
+.pull-right[
+#### How it is applied here
+- Top 100 occupations are manually labelled as 'Fishing' or 'Manufacturing'
+- Used in a mediation analysis: Can either explain away the effect of the channel?  
+- Manufacturing can! 
+]
+
+
+![Network](Figures/Architecture.png)
+
+---
+class: center, middle
+name: appendixarch
+# Archaeological evidence details
+
+.footnote[
+[Back](#arch)
+]
+
+---
+
+.pull-left[
+## About the data
+- Administrative database of all archaelogical sites and finds 
+- Managed by ministry of culture 
+- 321 generic types of findings. E.g. coins
+- 1940 dated sites with coins between 750 and 1500
+
+- Panel construction:
+  + **Innovation:** Monte Carlo to estimate `\(P_i(Coin|t)\)`   
+  + Probability that a coin finding was generated at a specific time
+
+]
+
+.pull-right[
+## Data example
+![Data example](Figures/Arch_data_example.png)
+![Coins](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Hist_Museum_Oslo_IMG_2914_viking_coin_find.jpg/800px-Hist_Museum_Oslo_IMG_2914_viking_coin_find.jpg)
+*Coins, wikimedia commons*
+]
+
+.footnote[
+[Back](#arch)
+]
+
+---
+# Estimator of coin probability
+.pull-left[
+- **Objective:** We want to know *how likely it is that coin was left at a particular time `\(t\)`*
+- **What we have:** Observations of individual coin findings and a distribution of times `\(t\)`, which are likely for a specific coin finding in a place `\(i\)` 
+
+**In equation form:**
+- What we have: `\(P_i(t|c)\)`: Probability of `\(t\)` given one coin 
+- What we want: `\(P_i(\{c\}|t)\)`: Probability of *any* coins in time `\(t\)`
+]
+--
+.pull-right[
+### The solution
+Bayes formula and Monte Carlo
+- Simple to sample from this distribution
+- Sample `\(t\)` from each coin 
+- Count frequency of coin findings
+`$$P(\{c\}|t)=\left[1-\prod_{c=1}^{K_i} \left( 1 - P(t|c) \right)\right] P(\{c\})$$`
+where it is assumed that
+`\(P(t|c)\sim \mathscr{U}(Year_{min}^c; Year_{max}^c)\)` or
+`\(P(t|c)\sim \mathscr{N}(\mu_c, \sigma_c),\)`
+`\(\sigma_c=\frac{(Year_{max}^c - Year_{min}^c)}{1.96}\)`
+]
+
+
+---
+### All indicators 
+![Other_ind](Figures/Arch_all.png)
+
+.footnote[
+[Back](#arch)
+]
+---
+name: matching
+### Soil type matching
+.pull-left[
+- Soil types linked to medieval developmental trajectory (Andersen et al, 2016)
+- Using common soil types to estimate treatment propensity score with XGBoost 
+- Soil from GEUS
+- West Limfjord matched to other parishes using greedy matching. 
+]
+
+.pull-right[
+*Before*
+&lt;img src="Figures/Propensity_before.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+*After*
+&lt;img src="Figures/Propensity_after.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+name: matching_coins
+#### Coin findings (matched sample)
+&lt;img src="Figures/arch_dummy_coins_matched.png" width="80%" style="display: block; margin: auto;" /&gt;
+[Back](#arch1)
+---
+name: matching_buildings
+#### Building findings (matched sample)
+&lt;img src="Figures/arch_dummy_buildings.png" width="80%" style="display: block; margin: auto;" /&gt;
+[Back](#arch2)
+---
+### Safer, more convenient harbours
+![Skudehandel](Figures/Wikimedia_skudehandel.jpg)
+*Dangerous loading on the west coast*
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+.logo {
+  background-image: url(Logos.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 83px;
+  height: 96px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // insert more to hide here
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
