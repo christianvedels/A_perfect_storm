@@ -103,6 +103,10 @@ knitr::include_graphics("Figures/Petersen 1877.png")
 **15/45**
 
 ---
+### From the exhibition at the London Canal Museum
+![CanalMuseum](Figures/CanalMuserumLondon.jpg)
+
+---
 name: timeline
 # Timeline
 
@@ -300,14 +304,6 @@ knitr::include_graphics("Figures/manu.png")
 ```
 
 ]
-
----
-### But can this explain the population growth?
-
-**Labor force as share of total pop:**
-```{r echo=FALSE, out.width="70%", fig.align='center'}
-knitr::include_graphics("Figures/all_occupations_share.png")
-```
 
 ---
 ### Migration and fertility
@@ -557,17 +553,15 @@ name: hisco
 [Back](#censusdata)
 
 .pull-left[
-- Data censuses 1787-1901 contain occupational for some years (3.7 mio. observations) 
-- Training data to train an automatic HISCO-label AI for all 12.4 mio. records. 
-- Precision: 97.21%; Recall: 97.07% 
-- Separate paper - please let me know if you have data
+- Censuses 1787-1901 contain HISCO for some years (3.7 mio. observations) 
+- Training data $\rightarrow$ 13.5 mio. records. 
+- Accuracy: 94 pct + Multlingual
 ]
 
 .pull-right[
-#### How it is applied here
-- Top 100 occupations are manually labelled as 'Fishing' or 'Manufacturing'
-- Used in a mediation analysis: Can either explain away the effect of the channel?  
-- Manufacturing can! 
+- Check out [OccCANINE](https://github.com/christianvedels/OccCANINE)
+- [arXiv: Breaking the HISCO Barrier: Automatic Occupational Standardization with OccCANINE](https://arxiv.org/abs/2402.13604)
+w. Christian M. Dahl and Torben Johansen
 ]
 
 

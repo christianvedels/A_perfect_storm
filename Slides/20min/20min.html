@@ -19,7 +19,7 @@ class: center, middle, inverse, title-slide
 ### Christian Vedel,<br> University of Southern Denmark, HEDG <br><br> Twitter: <span class="citation">@ChristianVedel</span>, <br> Email: <a href="mailto:christian-vs@sam.sdu.dk" class="email">christian-vs@sam.sdu.dk</a>
 ]
 .date[
-### Updated: 2023-06-08
+### Updated: 2024-04-18
 ]
 
 ---
@@ -104,6 +104,10 @@ class: center, middle, inverse, title-slide
 
 ???
 **15/45**
+
+---
+### From the exhibition at the London Canal Museum
+![CanalMuseum](Figures/CanalMuserumLondon.jpg)
 
 ---
 name: timeline
@@ -291,12 +295,6 @@ name: mechanism1
 &lt;img src="Figures/manu.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ]
-
----
-### But can this explain the population growth?
-
-**Labor force as share of total pop:**
-&lt;img src="Figures/all_occupations_share.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 ### Migration and fertility
@@ -534,17 +532,15 @@ name: hisco
 [Back](#censusdata)
 
 .pull-left[
-- Data censuses 1787-1901 contain occupational for some years (3.7 mio. observations) 
-- Training data to train an automatic HISCO-label AI for all 12.4 mio. records. 
-- Precision: 97.21%; Recall: 97.07% 
-- Separate paper - please let me know if you have data
+- Censuses 1787-1901 contain HISCO for some years (3.7 mio. observations) 
+- Training data `\(\rightarrow\)` 13.5 mio. records. 
+- Accuracy: 94 pct + Multlingual
 ]
 
 .pull-right[
-#### How it is applied here
-- Top 100 occupations are manually labelled as 'Fishing' or 'Manufacturing'
-- Used in a mediation analysis: Can either explain away the effect of the channel?  
-- Manufacturing can! 
+- Check out [OccCANINE](https://github.com/christianvedels/OccCANINE)
+- [arXiv: Breaking the HISCO Barrier: Automatic Occupational Standardization with OccCANINE](https://arxiv.org/abs/2402.13604)
+w. Christian M. Dahl and Torben Johansen
 ]
 
 
