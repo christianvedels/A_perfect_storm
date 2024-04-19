@@ -37,7 +37,7 @@ editor_options:
 - Geography is more than soil quality. We are slaves of geomorphology.  
 - In 1825 the Agger isthmus* broke by 1834 a natural channel had formed 
 - 700 years prior a similar channel had silted up
-- Is infrastructure important in economic development? (Fogel, 1964)
+- Does trade cause growth?
 
 #### What will be demonstrated:
   - The channel caused trade 
