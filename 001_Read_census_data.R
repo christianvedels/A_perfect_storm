@@ -1,6 +1,6 @@
 # Reading census data
 #
-# Date updated:   2023-04-13
+# Date updated:   2024-06-15
 # Auhtor:         Christian Vedel 
 # Purpose:        This script reads csv-files containing census data and merges them
 #
