@@ -1,0 +1,1876 @@
+﻿event_parish;event_district;event_county;GIS_ID
+gudhjem;oester;bornholm;Bornholm, Gudhjem, 346
+NA;vester;bornholm;
+rutsker;noerre;bornholm;Bornholm, Rutsker, 332
+nyker;vester;bornholm;Bornholm, Nyker, 341
+nylarsker;vester;bornholm;Bornholm, Nylarsker, 342
+roe;noerre;bornholm;Bornholm, Roe, 333
+NA;noerre;bornholm;
+NA;soender;bornholm;
+NA;oester;bornholm;
+oestermarie;oester;bornholm;Bornholm, Oestermarie, 350
+aaker;soender;bornholm;Bornholm, Aaker, 338
+povlsker;soender;bornholm;Bornholm, Povlsker, 337
+vestermarie;vester;bornholm;Bornholm, Vestermarie, 344
+pedersker;soender;bornholm;Bornholm, Pedersker, 336
+ibsker;oester;bornholm;Bornholm, Ibsker, 347
+klemensker;noerre;bornholm;Bornholm, Klemensker, 1581
+knudsker;vester;bornholm;Bornholm, Knudsker, 340
+bodilsker;soender;bornholm;Bornholm, Bodilsker, 334
+olsker;noerre;bornholm;Bornholm, Olsker, 331
+oesterlarsker;oester;bornholm;Bornholm, Oesterlarsker, 349
+frederikssund;lyngefrederiksborg;frederiksborg;Frederiksborg, Frederikssund, 1795
+stroe;stroe;frederiksborg;Frederiksborg, Stroe, 39
+lille lyngby;stroe;frederiksborg;Frederiksborg, Lille Lyngby, 36
+ferslev;horns;frederiksborg;Frederiksborg, Ferslev, 15
+soeborg;holbo;frederiksborg;Frederiksborg, Soeborg, 1718
+esboenderup;holbo;frederiksborg;Frederiksborg, Esboenderup, 1719
+stenloese;oelstykke;frederiksborg;Frederiksborg, Stenloese, 46
+ramloese;holbo;frederiksborg;Frederiksborg, Ramloese, 10
+snostrup;oelstykke;frederiksborg;Frederiksborg, Snostrup, 45
+maarum;holbo;frederiksborg;Frederiksborg, Maarum, 1594
+tikoeb;lyngekronborg;frederiksborg;Frederiksborg, Tikoeb, 1587
+lynge;lyngefrederiksborg;frederiksborg;Frederiksborg, Lynge, 26
+graese;lyngefrederiksborg;frederiksborg;Frederiksborg, Graese, 21
+torup;stroe;frederiksborg;Frederiksborg, Torup, 40
+helsinge;holbo;frederiksborg;Frederiksborg, Helsinge, 9
+valby;holbo;frederiksborg;Frederiksborg, Valby, 12
+gerlev;horns;frederiksborg;Frederiksborg, Gerlev, 16
+selsoe;horns;frederiksborg;Frederiksborg, Selsoe, 1794
+vinderoed;stroe;frederiksborg;Frederiksborg, Vinderoed, 1586
+NA;lyngefrederiksborg;frederiksborg;
+goerloese;lyngefrederiksborg;frederiksborg;Frederiksborg, Goerloese, 22
+kregme;stroe;frederiksborg;Frederiksborg, Kregme, 35
+vellerup;horns;frederiksborg;Frederiksborg, Vellerup, 20
+vejby;holbo;frederiksborg;Frederiksborg, Vejby, 13
+kyndby;horns;frederiksborg;Frederiksborg, Kyndby, 18
+graested;holbo;frederiksborg;Frederiksborg, Graested, 1717
+lilleroed;lyngefrederiksborg;frederiksborg;Frederiksborg, Lilleroed, 25
+karlebo;lyngekronborg;frederiksborg;Frederiksborg, Karlebo, 34
+asminderoed;lyngekronborg;frederiksborg;Frederiksborg, Asminderoed, 1588
+oppe sundby;lyngefrederiksborg;frederiksborg;Frederiksborg, Oppe Sundby, 1796
+noerre herlev;lyngefrederiksborg;frederiksborg;Frederiksborg, Noerre Herlev, 27
+sigerslevvester;lyngefrederiksborg;frederiksborg;Frederiksborg, Sigerslevvester, 28
+uggeloese;lyngefrederiksborg;frederiksborg;Frederiksborg, Uggeloese, 30
+blistrup;holbo;frederiksborg;Frederiksborg, Blistrup, 1532
+frederiksborg slots;lyngefrederiksborg;frederiksborg;Frederiksborg, Frederiksborg Slots, 1592
+melby;stroe;frederiksborg;Frederiksborg, Melby, 37
+tibirke;holbo;frederiksborg;Frederiksborg, Tibirke, 11
+tjaereby;stroe;frederiksborg;Frederiksborg, Tjaereby, 1591
+skuldelev;horns;frederiksborg;Frederiksborg, Skuldelev, 19
+joerlunde;lyngefrederiksborg;frederiksborg;Frederiksborg, Joerlunde, 24
+slangerup;lyngefrederiksborg;frederiksborg;Frederiksborg, Slangerup, 29
+krogstrup;horns;frederiksborg;Frederiksborg, Krogstrup, 17
+slagslunde;oelstykke;frederiksborg;Frederiksborg, Slagslunde, 44
+veksoe;oelstykke;frederiksborg;Frederiksborg, Veksoe, 47
+skibby;horns;frederiksborg;Frederiksborg, Skibby, 1793
+birkeroed;lyngekronborg;frederiksborg;Frederiksborg, Birkeroed, 1609
+noedebo;holbo;frederiksborg;Frederiksborg, Noedebo, 1593
+uvelse;lyngefrederiksborg;frederiksborg;Frederiksborg, Uvelse, 31
+oelsted;stroe;frederiksborg;Frederiksborg, Oelsted, 41
+blovstroed;lyngekronborg;frederiksborg;Frederiksborg, Blovstroed, 1608
+groenholt;lyngekronborg;frederiksborg;Frederiksborg, Groenholt, 32
+hoersholm;lyngekronborg;frederiksborg;Frederiksborg, Hoersholm, 1607
+skaevinge;stroe;frederiksborg;Frederiksborg, Skaevinge, 38
+alsoenderup;stroe;frederiksborg;Frederiksborg, Alsoenderup, 1595
+NA;lyngekronborg;frederiksborg;
+oelstykke;oelstykke;frederiksborg;Frederiksborg, Oelstykke, 48
+farum;oelstykke;frederiksborg;Frederiksborg, Farum, 42
+ganloese;oelstykke;frederiksborg;Frederiksborg, Ganloese, 43
+annisse;holbo;frederiksborg;Frederiksborg, Annisse, 1531
+draaby;horns;frederiksborg;Frederiksborg, Draaby, 14
+fole;froes;haderslev;Haderslev, Fole, 1424
+gram;froes;haderslev;Haderslev, Gram, 1432
+lintrup;froes;haderslev;Haderslev, Lintrup, 1426
+hygum;froes;haderslev;Haderslev, Soender Hygum, 1430
+hjerting;froes;haderslev;Haderslev, Hjerting, 1425
+toftlund;noerre rangstrup;haderslev;Haderslev, Toftlund, 1457
+roedding;froes;haderslev;Haderslev, Roedding, 1427
+oerum;dronninglund;hjoerring;Hjoerring, Oerum, 593
+vrensted;boerglum;hjoerring;Hjoerring, Vrensted, 578
+tise;boerglum;hjoerring;Hjoerring, Tise, 573
+NA;dronninglund;hjoerring;
+skallerup;vennebjerg;hjoerring;Hjoerring, Skallerup, 626
+sankt olai;vennebjerg;hjoerring;Hjoerring, Sankt Olai(Hjoerring), 1631
+flade;horns;hjoerring;Hjoerring, Flade, 596
+lendum;horns;hjoerring;Hjoerring, Lendum, 599
+sindal;vennebjerg;hjoerring;Hjoerring, Sindal, 625
+bindslev;horns;hjoerring;Hjoerring, Bindslev, 594
+mosbjerg;horns;hjoerring;Hjoerring, Mosbjerg, 600
+hoermested;horns;hjoerring;Hjoerring, Hoermested, 598
+NA;horns;hjoerring;
+tornby;vennebjerg;hjoerring;Hjoerring, Tornby, 627
+tolne;horns;hjoerring;Hjoerring, Tolne, 604
+tversted;horns;hjoerring;Hjoerring, Tversted, 1715
+jelstrup;vennebjerg;hjoerring;Hjoerring, Jelstrup, 620
+rubjerg;vennebjerg;hjoerring;Hjoerring, Rubjerg, 623
+em;boerglum;hjoerring;Hjoerring, Em, 564
+ingstrup;hvetbo;hjoerring;Hjoerring, Ingstrup, 608
+vester hjermitslev;hvetbo;hjoerring;Hjoerring, Vester Hjermitslev, 611
+broenderslev;boerglum;hjoerring;Hjoerring, Broenderslev, 562
+aasted;horns;hjoerring;Hjoerring, Aasted, 605
+vennebjerg;vennebjerg;hjoerring;Hjoerring, Vennebjerg, 630
+gaerum;horns;hjoerring;Hjoerring, Gaerum, 597
+maarup;vennebjerg;hjoerring;Hjoerring, Maarup, 622
+jerslev;boerglum;hjoerring;Hjoerring, Jerslev, 567
+hellum;dronninglund;hjoerring;Hjoerring, Hellum, 584
+serritslev;boerglum;hjoerring;Hjoerring, Serritslev, 571
+boerglum;boerglum;hjoerring;Hjoerring, Boerglum, 563
+aggersborg;oester han;hjoerring;Hjoerring, Aggersborg, 632
+vesteroe;laesoe;hjoerring;Hjoerring, Vesteroe, 614
+stenum;boerglum;hjoerring;Hjoerring, Stenum, 572
+ugilt;vennebjerg;hjoerring;Hjoerring, Ugilt, 629
+uggerby;vennebjerg;hjoerring;Hjoerring, Uggerby, 628
+skagen;horns;hjoerring;Hjoerring, Skagen, 601
+skaerum;horns;hjoerring;Hjoerring, Skaerum, 603
+elling;horns;hjoerring;Hjoerring, Elling, 595
+tranum;oester han;hjoerring;Hjoerring, Tranum, 1716
+understed;dronninglund;hjoerring;Hjoerring, Understed, 590
+taars;boerglum;hjoerring;Hjoerring, Taars, 575
+hals;laesoe;hjoerring;Hjoerring, Hals, 613
+vrejlev;boerglum;hjoerring;Hjoerring, Vrejlev, 577
+hallund;dronninglund;hjoerring;Hjoerring, Hallund, 582
+hune;hvetbo;hjoerring;Hjoerring, Hune, 607
+brovst;oester han;hjoerring;Hjoerring, Brovst, 1682
+horne;vennebjerg;hjoerring;Hjoerring, Horne, 619
+bjergby;vennebjerg;hjoerring;Hjoerring, Bjergby, 617
+skraem;oester han;hjoerring;Hjoerring, Skraem, 635
+hellevad;dronninglund;hjoerring;Hjoerring, Hellevad, 583
+tolstrup;boerglum;hjoerring;Hjoerring, Tolstrup, 574
+oeland;oester han;hjoerring;Hjoerring, Oeland, 1685
+lerup;oester han;hjoerring;Hjoerring, Lerup, 634
+oester svenstrup;oester han;hjoerring;Hjoerring, Oester Svenstrup, 636
+torslev;oester han;hjoerring;Hjoerring, Torslev, 1683
+bejstrup;oester han;hjoerring;Hjoerring, Bejstrup, 633
+karup;dronninglund;hjoerring;Hjoerring, Karup, 586
+torslev;dronninglund;hjoerring;Hjoerring, Torslev, 589
+oester broenderslev;boerglum;hjoerring;Hjoerring, Oester Broenderslev, 580
+lyngby;boerglum;hjoerring;Hjoerring, Lyngby, 568
+vraa;boerglum;hjoerring;Hjoerring, Vraa, 579
+hoerby;dronninglund;hjoerring;Hjoerring, Hoerby, 585
+volstrup;dronninglund;hjoerring;Hjoerring, Volstrup, 592
+voer;dronninglund;hjoerring;Hjoerring, Voer, 591
+gjoel;hvetbo;hjoerring;Hjoerring, Gjoel, 1679
+saltum;hvetbo;hjoerring;Hjoerring, Saltum, 610
+jetsmark;hvetbo;hjoerring;Hjoerring, Jetsmark, 609
+alstrup;hvetbo;hjoerring;Hjoerring, Alstrup, 606
+byrum;laesoe;hjoerring;Hjoerring, Byrum, 612
+raabjerg;horns;hjoerring;Hjoerring, Raabjerg, 1714
+mygdal;vennebjerg;hjoerring;Hjoerring, Mygdal, 621
+sejlstrup;boerglum;hjoerring;Hjoerring, Sejlstrup, 570
+vidstrup;vennebjerg;hjoerring;Hjoerring, Vidstrup, 631
+haestrup;boerglum;hjoerring;Hjoerring, Haestrup, 566
+loekken-furreby;boerglum;hjoerring;Hjoerring, Furreby, 565
+vejby;boerglum;hjoerring;Hjoerring, Vejby, 576
+rakkeby;boerglum;hjoerring;Hjoerring, Rakkeby, 569
+skaeve;dronninglund;hjoerring;Hjoerring, Skaeve, 587
+asdal;vennebjerg;hjoerring;Hjoerring, Asdal, 615
+haverslev;oester han;hjoerring;Hjoerring, Haverslev, 1680
+hirsholmene;horns;hjoerring;Hjoerring, Frederikshavn, 1602
+harritslev;vennebjerg;hjoerring;Hjoerring, Harritslev, 618
+NA;vennebjerg;hjoerring;
+dronninglund;dronninglund;hjoerring;Hjoerring, Dronninglund, 1559
+albaek-lyngsaa;dronninglund;hjoerring;Hjoerring, Albaek, 581
+sankt hans;vennebjerg;hjoerring;Hjoerring, Sankt Hans(Hjoerring), 624
+astrup;vennebjerg;hjoerring;Hjoerring, Astrup, 616
+tersloese;merloese;holbaek;Holbaek, Tersloese, 145
+grevinge;ods;holbaek;Holbaek, Grevinge, 1783
+kirke eskilstrup;merloese;holbaek;Holbaek, Kirke Eskilstrup, 136
+skamstrup;tuse;holbaek;Holbaek, Skamstrup, 167
+kundby;tuse;holbaek;Holbaek, Kundby, 1788
+aarby;ars;holbaek;Holbaek, Aarby, 121
+skellebjerg;loeve;holbaek;Holbaek, Skellebjerg, 131
+kirke helsinge;loeve;holbaek;Holbaek, Kirke Helsinge, 1840
+gierslev;loeve;holbaek;Holbaek, Gierslev, 125
+toelloese;merloese;holbaek;Holbaek, Toelloese, 146
+sejeroe;skippinge;holbaek;Holbaek, Sejeroe, 159
+NA;merloese;holbaek;
+NA;ods;holbaek;
+svallerup;ars;holbaek;Holbaek, Svallerup, 119
+hoerve;ods;holbaek;Holbaek, Hoerve, 1785
+hoejby;ods;holbaek;Holbaek, Hoejby, 1792
+jorloese;skippinge;holbaek;Holbaek, Jorloese, 158
+bregninge;skippinge;holbaek;Holbaek, Bregninge, 1775
+ubby;ars;holbaek;Holbaek, Ubby, 120
+hoerby;tuse;holbaek;Holbaek, Hoerby, 163
+hjembaek;tuse;holbaek;Holbaek, Hjembaek, 162
+tranebjerg;samsoe;holbaek;Holbaek, Tranebjerg, 153
+ugerloese;merloese;holbaek;Holbaek, Ugerloese, 1603
+reerslev;loeve;holbaek;Holbaek, Reerslev, 129
+saerslev;skippinge;holbaek;Holbaek, Saerslev, 1784
+onsbjerg;samsoe;holbaek;Holbaek, Onsbjerg, 1731
+besser;samsoe;holbaek;Holbaek, Besser, 1730
+niloese;merloese;holbaek;Holbaek, Niloese, 138
+store taastrup;merloese;holbaek;Holbaek, Store Taastrup, 1604
+noerre asmindrup;ods;holbaek;Holbaek, Noerre Asmindrup, 149
+nordby;samsoe;holbaek;Holbaek, Nordby, 152
+kolby;samsoe;holbaek;Holbaek, Kolby, 151
+store fuglede;ars;holbaek;Holbaek, Store Fuglede, 118
+grandloese;merloese;holbaek;Holbaek, Grandloese, 135
+vallekilde;ods;holbaek;Holbaek, Vallekilde, 1780
+tveje merloese;merloese;holbaek;Holbaek, Merloese, 1620
+kvanloese;merloese;holbaek;Holbaek, Kvanloese, 137
+udby;tuse;holbaek;Holbaek, Udby, 170
+finderup;loeve;holbaek;Holbaek, Finderup, 124
+hagested;tuse;holbaek;Holbaek, Hagested, 1787
+asnaes;ods;holbaek;Holbaek, Asnaes, 1778
+raklev;ars;holbaek;Holbaek, Raklev, 1774
+frydendal;tuse;holbaek;Holbaek, Frydendal, 161
+moerkoev;tuse;holbaek;Holbaek, Moerkoev, 165
+oerslev;loeve;holbaek;Holbaek, Oerslev, 133
+toemmerup;ars;holbaek;Holbaek, Toemmerup, 1776
+vaerslev;skippinge;holbaek;Holbaek, Vaerslev, 1777
+viskinge;skippinge;holbaek;Holbaek, Viskinge, 160
+holmstrup;skippinge;holbaek;Holbaek, Holmstrup, 157
+havrebjerg;loeve;holbaek;Holbaek, Havrebjerg, 128
+asmindrup;merloese;holbaek;Holbaek, Soender Asmindrup, 141
+tuse;tuse;holbaek;Holbaek, Tuse, 169
+bjergsted;skippinge;holbaek;Holbaek, Bjergsted, 155
+avnsoe;skippinge;holbaek;Holbaek, Avnsoe, 154
+undloese;merloese;holbaek;Holbaek, Undloese, 147
+soderup;merloese;holbaek;Holbaek, Soderup, 0
+droesselbjerg;loeve;holbaek;Holbaek, Droesselbjerg, 123
+jyderup;tuse;holbaek;Holbaek, Jyderup, 164
+oroe;tuse;holbaek;Holbaek, Oroe, 166
+foellenslev;skippinge;holbaek;Holbaek, Foellenslev, 156
+saeby;loeve;holbaek;Holbaek, Saeby, 1584
+lille fuglede;ars;holbaek;Holbaek, Lille Fuglede, 115
+odden;ods;holbaek;Holbaek, Odden, 150
+roerby;ars;holbaek;Holbaek, Roerby, 116
+goerlev;loeve;holbaek;Holbaek, Goerlev, 126
+hallenslev;loeve;holbaek;Holbaek, Hallenslev, 127
+soestrup;merloese;holbaek;Holbaek, Soestrup, 144
+svinninge;tuse;holbaek;Holbaek, Svinninge, 1789
+egebjerg;ods;holbaek;Holbaek, Egebjerg, 1779
+vor frue;ars;holbaek;Holbaek, Kalundborg, 1773
+roesnaes;ars;holbaek;Holbaek, Roesnaes, 117
+butterup;merloese;holbaek;Holbaek, Butterup, 134
+soender jernloese;merloese;holbaek;Holbaek, Soender Jernloese, 142
+gislinge;tuse;holbaek;Holbaek, Gislinge, 1781
+aagerup;merloese;holbaek;Holbaek, Aagerup, 148
+stigs bjergby;tuse;holbaek;Holbaek, Stigs Bjergby, 168
+stenlille;merloese;holbaek;Holbaek, Stenlille, 140
+noerre jernloese;merloese;holbaek;Holbaek, Noerre Jernloese, 139
+soendersted;merloese;holbaek;Holbaek, Soendersted, 143
+bakkendrup;loeve;holbaek;Holbaek, Bakkendrup, 122
+ruds vedby;loeve;holbaek;Holbaek, Ruds Vedby, 130
+solbjerg;loeve;holbaek;Holbaek, Solbjerg, 132
+vig;ods;holbaek;Holbaek, Vig, 1786
+faarevejle;ods;holbaek;Holbaek, Faarevejle, 1782
+NA;ars;holbaek;
+roervig;ods;holbaek;Holbaek, Roervig, 1791
+NA;koebenhavn;koebenhavn;
+store magleby;sokkelund;koebenhavn;Koebenhavn, Store Magleby, 1600
+sengeloese;smoerum;koebenhavn;Koebenhavn, Sengeloese, 69
+hvidovre;sokkelund;koebenhavn;Koebenhavn, Hvidovre, 1611
+ledoeje;smoerum;koebenhavn;Koebenhavn, Ledoeje, 67
+ballerup;smoerum;koebenhavn;Koebenhavn, Ballerup, 60
+herstedoester;smoerum;koebenhavn;Koebenhavn, Herstedoester, 65
+maaloev;smoerum;koebenhavn;Koebenhavn, Maaloev, 68
+gladsaxe;sokkelund;koebenhavn;Koebenhavn, Gladsakse, 75
+kongens lyngby;sokkelund;koebenhavn;Koebenhavn, Lyngby-Taarbaek, 77
+smoerum;smoerum;koebenhavn;Koebenhavn, Smoerum, 70
+hoeje taastrup;smoerum;koebenhavn;Koebenhavn, Hoeje Taastrup, 1585
+taarnby;sokkelund;koebenhavn;Koebenhavn, Taarnby, 1610
+vallensbaek;smoerum;koebenhavn;Koebenhavn, Vallensbaek, 72
+torslunde;smoerum;koebenhavn;Koebenhavn, Torslunde, 71
+staden koebenhavn;sokkelund;koebenhavn;Koebenhavn, Koebenhavn, 1614
+vaerloese;smoerum;koebenhavn;Koebenhavn, Vaerloese, 73
+broendbyvester;smoerum;koebenhavn;Koebenhavn, Broendbyvester, 62
+broendbyoester;smoerum;koebenhavn;Koebenhavn, Broendbyoester, 61
+herlev;sokkelund;koebenhavn;Koebenhavn, Herlev, 76
+roedovre;sokkelund;koebenhavn;Koebenhavn, Roedovre, 78
+gentofte;sokkelund;koebenhavn;Koebenhavn, Gentofte, 74
+ishoej;smoerum;koebenhavn;Koebenhavn, Ishoej, 66
+glostrup;smoerum;koebenhavn;Koebenhavn, Glostrup, 63
+herstedvester;smoerum;koebenhavn;Koebenhavn, Herstedvester, 64
+soelleroed;sokkelund;koebenhavn;Koebenhavn, Soelleroed, 79
+broenshoej;sokkelund;koebenhavn;Koebenhavn, Broenshoej, 1612
+fejoe;fuglse;maribo;Maribo, Fejoe, 367
+kettinge;musse;maribo;Maribo, Kettinge, 394
+systofte;falsters soender;maribo;Maribo, Systofte, 363
+skelby;falsters soender;maribo;Maribo, Skelby, 1812
+toreby;musse;maribo;Maribo, Toreby, 404
+nysted;musse;maribo;Maribo, Nysted, 398
+radsted;musse;maribo;Maribo, Radsted, 400
+tillitse;lollands soender;maribo;Maribo, Tillitse, 386
+arninge;lollands soender;maribo;Maribo, Arninge, 1824
+slemminge;musse;maribo;Maribo, Slemminge, 403
+oestofte;fuglse;maribo;Maribo, Oestofte, 1579
+vaeggerloese;falsters soender;maribo;Maribo, Vaeggerloese, 1813
+musse;musse;maribo;Maribo, Musse, 397
+sakskoebing;musse;maribo;Maribo, Sakskoebing, 401
+nebbelunde;fuglse;maribo;Maribo, Nebbelunde, 1815
+kroenge;fuglse;maribo;Maribo, Kroenge, 372
+NA;fuglse;maribo;
+ringseboelle;fuglse;maribo;Maribo, Ringseboelle, 373
+skoerringe;fuglse;maribo;Maribo, Skoerringe, 374
+tirsted;fuglse;maribo;Maribo, Tirsted, 1819
+koebelev;lollands noerre;maribo;Maribo, Koebelev, 1829
+taagerup;fuglse;maribo;Maribo, Taagerup, 1822
+utterslev;lollands noerre;maribo;Maribo, Utterslev, 1830
+sandby;lollands noerre;maribo;Maribo, Sandby, 1721
+vejleby;fuglse;maribo;Maribo, Vejleby, 1820
+horslunde;lollands noerre;maribo;Maribo, Horslunde, 378
+birket;lollands noerre;maribo;Maribo, Birket, 376
+vindeby;lollands noerre;maribo;Maribo, Vindeby, 1831
+herredskirke;lollands noerre;maribo;Maribo, Herredskirke, 377
+nordlunde;lollands noerre;maribo;Maribo, Nordlunde, 380
+loejtofte;lollands noerre;maribo;Maribo, Loejtofte, 379
+eskilstrup;falsters noerre;maribo;Maribo, Eskilstrup, 352
+bursoe;fuglse;maribo;Maribo, Bursoe, 366
+errindlev;fuglse;maribo;Maribo, Errindlev, 1814
+holeby;fuglse;maribo;Maribo, Holeby, 371
+fuglse;fuglse;maribo;Maribo, Fuglse, 369
+branderslev;lollands noerre;maribo;Maribo, Branderslev, 1720
+kappel;lollands soender;maribo;Maribo, Kappel, 1825
+vestenskov;lollands soender;maribo;Maribo, Vestenskov, 1828
+majboelle;musse;maribo;Maribo, Majboelle, 1808
+taars;musse;maribo;Maribo, Taars, 405
+vester ulslev;musse;maribo;Maribo, Vester Ulslev, 406
+vaabensted;musse;maribo;Maribo, Vaabensted, 408
+NA;lollands noerre;maribo;
+noerre oerslev;falsters soender;maribo;Maribo, Noerre Oerslev, 362
+horbelev;falsters soender;maribo;Maribo, Horbelev, 359
+falkerslev;falsters soender;maribo;Maribo, Falkerslev, 358
+horreby;falsters soender;maribo;Maribo, Horreby, 360
+vesterborg;lollands noerre;maribo;Maribo, Vesterborg, 381
+gurreby;lollands soender;maribo;Maribo, Gurreby, 382
+landet;lollands soender;maribo;Maribo, Landet, 1817
+ryde;lollands soender;maribo;Maribo, Ryde, 383
+skovlaenge;lollands soender;maribo;Maribo, Skovlaenge, 384
+nakskov;lollands noerre;maribo;Maribo, Nakskov, 1826
+dannemare;lollands soender;maribo;Maribo, Dannemare, 1816
+oester ulslev;musse;maribo;Maribo, Oester Ulslev, 409
+gloslunde;lollands soender;maribo;Maribo, Gloslunde, 1821
+godsted;musse;maribo;Maribo, Godsted, 391
+karleby;falsters soender;maribo;Maribo, Karleby, 361
+maglebraende;falsters noerre;maribo;Maribo, Maglebraende, 353
+soender kirkeby;falsters soender;maribo;Maribo, Soender Kirkeby, 365
+halsted;lollands noerre;maribo;Maribo, Halsted, 1823
+avnede;lollands soender;maribo;Maribo, Avnede, 1827
+stokkemarke;lollands soender;maribo;Maribo, Stokkemarke, 1833
+soellested;lollands soender;maribo;Maribo, Soellested, 385
+maribo dom;musse;maribo;Maribo, Maribo, 395
+bregninge;musse;maribo;Maribo, Bregninge, 387
+nykoebing f;falsters soender;maribo;Maribo, Nykoebing F, 1809
+gedesby;falsters soender;maribo;Maribo, Gedesby, 1810
+askoe;fuglse;maribo;Maribo, Askoe, 1832
+NA;falsters soender;maribo;
+aastrup;falsters soender;maribo;Maribo, Aastrup, 1800
+herritslev;musse;maribo;Maribo, Herritslev, 392
+NA;falsters noerre;maribo;
+brarup;falsters noerre;maribo;Maribo, Brarup, 351
+gundslev;falsters noerre;maribo;Maribo, Gundslev, 1801
+kippinge;falsters noerre;maribo;Maribo, Kippinge, 1804
+lillebraende;falsters noerre;maribo;Maribo, Lillebraende, 1802
+noerre alslev;falsters noerre;maribo;Maribo, Noerre Alslev, 1803
+noerre kirkeby;falsters noerre;maribo;Maribo, Noerre Kirkeby, 354
+noerre vedby;falsters noerre;maribo;Maribo, Noerre Vedby, 1805
+stadager;falsters noerre;maribo;Maribo, Stadager, 1807
+tingsted;falsters noerre;maribo;Maribo, Tingsted, 355
+torkilstrup;falsters noerre;maribo;Maribo, Torkilstrup, 356
+vaalse;falsters noerre;maribo;Maribo, Vaalse, 1806
+oenslev;falsters noerre;maribo;Maribo, Oenslev, 357
+NA;musse;maribo;
+soender alslev;falsters soender;maribo;Maribo, Soender Alslev, 364
+olstrup;fuglse;maribo;Maribo, Olstrup, 1818
+torslunde;fuglse;maribo;Maribo, Torslunde, 375
+hillested;fuglse;maribo;Maribo, Hillested, 370
+femoe;fuglse;maribo;Maribo, Femoe, 368
+doellefjelde;musse;maribo;Maribo, Doellefjelde, 388
+fjelde;musse;maribo;Maribo, Fjelde, 390
+graeshave;lollands soender;maribo;Maribo, Graeshave, 1846
+vigsnaes;musse;maribo;Maribo, Vigsnaes, 407
+engestofte;musse;maribo;Maribo, Engestofte, 389
+idestrup;falsters soender;maribo;Maribo, Idestrup, 1811
+hunseby;musse;maribo;Maribo, Hunseby, 393
+saedinge;fuglse;maribo;Maribo, Saedinge, 1845
+roerslev;vends;odense;Odense, Rorslev, 477
+verninge;odense;odense;Odense, Verninge, 452
+dalby;bjerge;odense;Odense, Dalby, 412
+bellinge;odense;odense;Odense, Bellinge, 2
+NA;vends;odense;
+lumby;lunde;odense;Odense, Lumby, 1758
+brylle;odense;odense;Odense, Brylle, 441
+munkebo;bjerge;odense;Odense, Munkebo, 1750
+roerup;vends;odense;Odense, Roerup, 478
+balslev;vends;odense;Odense, Balslev, 468
+vissenbjerg;odense;odense;Odense, Vissenbjerg, 453
+aasum;aasum;odense;Odense, Aasum, 487
+koelstrup;bjerge;odense;Odense, Koelstrup, 413
+oestrup;lunde;odense;Odense, Oestrup, 1755
+haarslev;skovby;odense;Odense, Haarslev, 460
+koeng;baag;odense;Odense, Koeng, 427
+skamby;skam;odense;Odense, Skamby, 456
+dreslette;baag;odense;Odense, Dreslette, 421
+brenderup;vends;odense;Odense, Brenderup, 469
+marslev;bjerge;odense;Odense, Marslev, 414
+naesbyhoved-broby;odense;odense;Odense, Naesbyhoved-Broby, 445
+odense;odense;odense;Odense, Odense, 1626
+noerre lyndelse;aasum;odense;Odense, Noerre Lyndelse, 482
+stubberup;bjerge;odense;Odense, Stubberup, 1754
+viby;bjerge;odense;Odense, Viby, 417
+haarby;baag;odense;Odense, Haarby, 1747
+soenderby;baag;odense;Odense, Soenderby, 432
+agedrup;bjerge;odense;Odense, Agedrup, 410
+holevad;baag;odense;Odense, Holevad, 424
+gelsted;vends;odense;Odense, Gelsted, 472
+sandager;baag;odense;Odense, Sandager, 428
+tommerup;odense;odense;Odense, Tommerup, 449
+flemloese;baag;odense;Odense, Flemloese, 422
+gamtofte;baag;odense;Odense, Gamtofte, 423
+foens;vends;odense;Odense, Foens, 1768
+harndrup;vends;odense;Odense, Harndrup, 473
+soellested;baag;odense;Odense, Soellested, 431
+barloese;baag;odense;Odense, Barloese, 419
+stenloese;odense;odense;Odense, Stenloese, 448
+baagoe;baag;odense;Odense, Baagoe, 420
+tanderup;baag;odense;Odense, Tanderup, 433
+orte;baag;odense;Odense, Orte, 1
+soender naeraa;aasum;odense;Odense, Soender Naeraa, 486
+skydebjerg;baag;odense;Odense, Skydebjerg, 429
+vedtofte;baag;odense;Odense, Vedtofte, 435
+soeby;baag;odense;Odense, Soeby, 430
+oersted;baag;odense;Odense, Oersted, 436
+fraugde;aasum;odense;Odense, Fraugde, 1627
+turup;baag;odense;Odense, Turup, 434
+kerte;baag;odense;Odense, Kerte, 425
+kaerum;baag;odense;Odense, Kaerum, 426
+vigerslev;skovby;odense;Odense, Vigerslev, 466
+maesinge;bjerge;odense;Odense, Mesinge, 1753
+NA;skovby;odense;
+skeby;lunde;odense;Odense, Skeby, 1760
+paarup;odense;odense;Odense, Paarup, 446
+ubberud;odense;odense;Odense, Ubberud, 451
+fangel;odense;odense;Odense, Fangel, 444
+davinde;aasum;odense;Odense, Davinde, 480
+bederslev;skam;odense;Odense, Bederslev, 454
+allesoe;lunde;odense;Odense, Allese, 437
+uggerslev;skam;odense;Odense, Uggerslev, 457
+noerre naeraa;skam;odense;Odense, Noerre Naeraa, 1764
+noerre sandager;skovby;odense;Odense, Noerre Sandager, 1765
+hoeybye;aasum;odense;Odense, Hoejby, 481
+helnaes;baag;odense;Odense, Helnaes, 1735
+braendekilde;odense;odense;Odense, Braendekilde, 442
+roenninge;aasum;odense;Odense, Roenninge, 485
+rolsted;aasum;odense;Odense, Rolsted, 484
+seden;aasum;odense;Odense, Seden, 1756
+allerup;aasum;odense;Odense, Allerup, 479
+sanderum;odense;odense;Odense, Sanderum, 447
+rynkeby;bjerge;odense;Odense, Rynkeby, 416
+lunde;lunde;odense;Odense, Lunde, 439
+hjadstrup;lunde;odense;Odense, Hjadstrup, 438
+gamborg;vends;odense;Odense, Gamborg, 1769
+birkende;bjerge;odense;Odense, Birkende, 411
+otterup;lunde;odense;Odense, Otterup, 440
+norup;lunde;odense;Odense, Norup, 1759
+korup;odense;odense;Odense, Troestrup-Korup, 450
+drigstrup;bjerge;odense;Odense, Drigstrup, 1751
+revninge;bjerge;odense;Odense, Revninge, 415
+dalum;odense;odense;Odense, Dalum, 443
+fjelsted;vends;odense;Odense, Fjelsted, 471
+noerre soeby;aasum;odense;Odense, Noerre Soeby, 483
+ejby;vends;odense;Odense, Ejby, 470
+middelfart;vends;odense;Odense, Middelfart, 1578
+grindloese;skam;odense;Odense, Grindloese, 1762
+klinte;skam;odense;Odense, Klinte, 1763
+krogsboelle;skam;odense;Odense, Krogsboelle, 1761
+noerre hoejrup;skam;odense;Odense, Noerre Hoejrup, 455
+husby;vends;odense;Odense, Husby, 1771
+asperup;vends;odense;Odense, Asperup, 467
+ingslev;vends;odense;Odense, Ingslev, 474
+kauslunde;vends;odense;Odense, Kavslunde, 475
+noerre aaby;vends;odense;Odense, Noerre Aaby, 476
+udby;vends;odense;Odense, Udby, 1770
+oerslev;vends;odense;Odense, Oerslev, 1772
+vejlby;vends;odense;Odense, Vejlby, 1574
+soendersoe;skovby;odense;Odense, Soendersoe, 464
+NA;bjerge;odense;
+ore;skovby;odense;Odense, Ore, 462
+saerslev;skovby;odense;Odense, Saerslev, 463
+ejlby;skovby;odense;Odense, Ejlby, 458
+veflinge;skovby;odense;Odense, Veflinge, 465
+melby;skovby;odense;Odense, Melby, 461
+guldbjerg;skovby;odense;Odense, Guldbjerg, 459
+skovby;skovby;odense;Odense, Skovby, 1767
+NA;odense;odense;
+NA;baag;odense;
+havnelev;stevns;praestoe;Praestoe, Havnelev, 305
+magleby stevns;stevns;praestoe;Praestoe, Magleby Stevns, 311
+holtug;stevns;praestoe;Praestoe, Holtug, 307
+stroeby;stevns;praestoe;Praestoe, Stroeby, 315
+hellested;stevns;praestoe;Praestoe, Hellested, 306
+store heddinge;stevns;praestoe;Praestoe, Store Heddinge, 313
+lille heddinge;stevns;praestoe;Praestoe, Lille Heddinge, 309
+hoejerup;stevns;praestoe;Praestoe, Hoejerup, 308
+lyderslev;stevns;praestoe;Praestoe, Lyderslev, 310
+varpelev;stevns;praestoe;Praestoe, Varpelev, 316
+smerup;stevns;praestoe;Praestoe, Smerup, 312
+faxe;fakse;praestoe;Praestoe, Fakse, 1580
+endeslev;bjaeverskov;praestoe;Praestoe, Endeslev, 254
+holme olstrup;hammer;praestoe;Praestoe, Holme-Olstrup, 288
+kastrup;hammer;praestoe;Praestoe, Kastrup, 289
+alslev;fakse;praestoe;Praestoe, Alslev, 278
+ulse;fakse;praestoe;Praestoe, Ulse, 285
+baarse;baarse;praestoe;Praestoe, Baarse, 1599
+jungshoved;baarse;praestoe;Praestoe, Jungshoved, 268
+oester egesborg;baarse;praestoe;Praestoe, Oester Egesborg, 277
+udby;baarse;praestoe;Praestoe, Udby, 274
+beldringe;baarse;praestoe;Praestoe, Beldringe, 1597
+oerslev;baarse;praestoe;Praestoe, Oerslev, 276
+everdrup;baarse;praestoe;Praestoe, Everdrup, 267
+vordingborg;baarse;praestoe;Praestoe, Vordingborg, 275
+NA;baarse;praestoe;
+snesere;baarse;praestoe;Praestoe, Snesere, 273
+mern;baarse;praestoe;Praestoe, Mern, 270
+taarnby;bjaeverskov;praestoe;Praestoe, Taarnby, 262
+valloeby;bjaeverskov;praestoe;Praestoe, Valloeby, 263
+vollerslev;bjaeverskov;praestoe;Praestoe, Vollerslev, 264
+goerslev;bjaeverskov;praestoe;Praestoe, Goerslev, 255
+borre;moenbo;praestoe;Praestoe, Borre, 299
+damsholte;moenbo;praestoe;Praestoe, Damsholte, 1797
+bjaeverskov;bjaeverskov;praestoe;Praestoe, Bjaeverskov, 253
+elmelunde;moenbo;praestoe;Praestoe, Elmelunde, 300
+fanefjord;moenbo;praestoe;Praestoe, Fanefjord, 301
+himlingoeje;bjaeverskov;praestoe;Praestoe, Himlingoeje, 257
+keldby;moenbo;praestoe;Praestoe, Keldby, 302
+haarlev;bjaeverskov;praestoe;Praestoe, Haarlev, 258
+magleby;moenbo;praestoe;Praestoe, Magleby, 303
+lellinge;bjaeverskov;praestoe;Praestoe, Lellinge, 259
+lidemark;bjaeverskov;praestoe;Praestoe, Lidemark, 260
+herfoelge;bjaeverskov;praestoe;Praestoe, Herfoelge, 256
+saedder;bjaeverskov;praestoe;Praestoe, Saedder, 261
+toksvaerd;hammer;praestoe;Praestoe, Toksvaerd, 295
+NA;moenbo;praestoe;
+praestoe;baarse;praestoe;Praestoe, Praestoe, 271
+stege;moenbo;praestoe;Praestoe, Stege, 1601
+froeslev;stevns;praestoe;Praestoe, Froeslev, 304
+kalvehave;baarse;praestoe;Praestoe, Kalvehave, 269
+NA;stevns;praestoe;
+koeng;hammer;praestoe;Praestoe, Koeng, 1834
+bogoe;moenbo;praestoe;Praestoe, Bogoe, 298
+lundby;hammer;praestoe;Praestoe, Lundby, 290
+naestelsoe;hammer;praestoe;Praestoe, Naestelsoe, 292
+vemmetofte;fakse;praestoe;Praestoe, Fakse, 1580
+karise;fakse;praestoe;Praestoe, Karise, 279
+roennebaek;hammer;praestoe;Praestoe, Roennebaek, 293
+svaerdborg;hammer;praestoe;Praestoe, Svaerdborg, 294
+vejloe;hammer;praestoe;Praestoe, Vejloe, 296
+tyvelse;tybjerg;praestoe;Praestoe, Tyvelse, 327
+vrangstrup;tybjerg;praestoe;Praestoe, Vrangstrup, 329
+roholte;fakse;praestoe;Praestoe, Roholte, 281
+spjellerup;fakse;praestoe;Praestoe, Spjellerup, 282
+kongsted;fakse;praestoe;Praestoe, Kongsted, 280
+soender dalby;fakse;praestoe;Praestoe, Soender Dalby, 283
+tureby;fakse;praestoe;Praestoe, Tureby, 284
+oester egede;fakse;praestoe;Praestoe, Oester Egede, 286
+aversi;tybjerg;praestoe;Praestoe, Aversi, 317
+bavelse;tybjerg;praestoe;Praestoe, Bavelse, 318
+fensmark;tybjerg;praestoe;Praestoe, Fensmark, 319
+glumsoe;tybjerg;praestoe;Praestoe, Glumsoe, 320
+herlufmagle;tybjerg;praestoe;Praestoe, Herlufmagle, 321
+naesby;tybjerg;praestoe;Praestoe, Naesby, 322
+rislev;tybjerg;praestoe;Praestoe, Rislev, 323
+sandby;tybjerg;praestoe;Praestoe, Sandby, 324
+naestved;tybjerg;praestoe;Praestoe, Naestved, 1624
+skelby;tybjerg;praestoe;Praestoe, Skelby, 325
+tybjerg;tybjerg;praestoe;Praestoe, Tybjerg, 326
+vester egede;tybjerg;praestoe;Praestoe, Vester Egede, 328
+vester egesborg;hammer;praestoe;Praestoe, Vester Egesborg, 297
+vraaby;bjaeverskov;praestoe;Praestoe, Vraaby, 265
+hammer;hammer;praestoe;Praestoe, Hammer, 287
+mogenstrup;hammer;praestoe;Praestoe, Mogenstrup, 291
+allerslev;baarse;praestoe;Praestoe, Allerslev, 266
+NA;tybjerg;praestoe;
+skibbinge;baarse;praestoe;Praestoe, Skibinge, 272
+skoedstrup;oester lisbjerg;randers;Randers, Skoedstrup, 1051
+NA;mols;randers;
+soender onsild;onsild;randers;Randers, Soender Onsild, 1016
+hoed;djurs soender;randers;Randers, Hoed, 961
+tirstrup;djurs soender;randers;Randers, Tirstrup, 965
+stoevring;stoevring;randers;Randers, Stoevring, 1693
+asferg;noerhald;randers;Randers, Asferg, 997
+todbjerg;oester lisbjerg;randers;Randers, Todbjerg, 1053
+mellerup;stoevring;randers;Randers, Mellerup, 1689
+NA;stoevring;randers;
+gassum;noerhald;randers;Randers, Gassum, 999
+hjortshoej;oester lisbjerg;randers;Randers, Hjortshoej, 1046
+voer;rougsoe;randers;Randers, Voer, 1687
+oersted;rougsoe;randers;Randers, Oersted, 1692
+feldballe;djurs soender;randers;Randers, Feldballe, 959
+haslund;galten;randers;Randers, Haslund, 969
+estruplund;rougsoe;randers;Randers, Estruplund, 1017
+ebdrup;djurs soender;randers;Randers, Ebdrup, 958
+fuglslev;djurs soender;randers;Randers, Fuglslev, 960
+alboege;djurs soender;randers;Randers, Alboege, 1699
+lyngby;djurs soender;randers;Randers, Lyngby, 1698
+vejlby;djurs soender;randers;Randers, Vejlby, 1700
+homaa;djurs soender;randers;Randers, Homaa, 962
+oelst;galten;randers;Randers, Oelst, 977
+noedager;djurs soender;randers;Randers, Noedager, 1702
+thorsager;oester lisbjerg;randers;Randers, Thorsager, 1052
+snaebum;onsild;randers;Randers, Snaebum, 1014
+oerum;galten;randers;Randers, Oerum, 978
+vistoft;mols;randers;Randers, Vistoft, 996
+hyllested;djurs soender;randers;Randers, Hyllested, 963
+helgenaes;mols;randers;Randers, Helgenaes, 1726
+krogsbaek;soenderhald;randers;Randers, Krogsbaek, 1031
+rosmus;djurs soender;randers;Randers, Rosmus, 964
+aalsoe;djurs soender;randers;Randers, Aalsoe, 1636
+laurbjerg;galten;randers;Randers, Laurbjerg, 970
+vivild;soenderhald;randers;Randers, Vivild, 1041
+oester alling;soenderhald;randers;Randers, Oester Alling, 1042
+draaby;mols;randers;Randers, Draaby, 989
+egens;mols;randers;Randers, Egens, 992
+rolsoe;mols;randers;Randers, Rolsoe, 994
+spentrup;noerhald;randers;Randers, Spentrup, 1004
+halling;galten;randers;Randers, Halling, 968
+lerbjerg;galten;randers;Randers, Lerbjerg, 971
+noerre galten;galten;randers;Randers, Galten (Noerre), 966
+vissing;galten;randers;Randers, Vissing, 973
+oester toerslev;gjerlev;randers;Randers, Oester Toerslev, 1686
+enslev;gjerlev;randers;Randers, Enslev, 981
+gjerlev;gjerlev;randers;Randers, Gjerlev, 982
+kastbjerg;gjerlev;randers;Randers, Kastbjerg, 983
+kaerby;gjerlev;randers;Randers, Kaerby, 984
+raaby;gjerlev;randers;Randers, Raaby, 985
+soedring;gjerlev;randers;Randers, Soedring, 986
+sankt mortens;galten;randers;Randers, Randers Sanct Mortens (af), 1643
+virring;soenderhald;randers;Randers, Virring, 1694
+anholt;djurs noerre;randers;Randers, Anholt, 944
+enslev;djurs noerre;randers;Randers, Enslev, 1703
+gjerrild;djurs noerre;randers;Randers, Gjerrild, 946
+karlby;djurs noerre;randers;Randers, Karlby, 950
+voldby;djurs noerre;randers;Randers, Voldby, 956
+hemmed;djurs noerre;randers;Randers, Hemmed, 949
+glesborg;djurs noerre;randers;Randers, Glesborg, 947
+NA;onsild;randers;
+NA;djurs noerre;randers;
+fjellerup;djurs noerre;randers;Randers, Fjellerup, 945
+nimtofte;djurs noerre;randers;Randers, Nimtofte, 952
+rimsoe;djurs noerre;randers;Randers, Rimsoe, 953
+kastbjerg;djurs noerre;randers;Randers, Kastbjerg, 951
+oerum;djurs noerre;randers;Randers, Oerum, 957
+ginnerup;djurs noerre;randers;Randers, Ginnerup, 1695
+toestrup;djurs noerre;randers;Randers, Toestrup, 1697
+veggerslev;djurs noerre;randers;Randers, Veggerslev, 954
+villersoe;djurs noerre;randers;Randers, Villersoe, 955
+hem;onsild;randers;Randers, Hem, 1007
+mariager;onsild;randers;Randers, Mariager, 1009
+sem;onsild;randers;Randers, Sem, 1012
+hvornum;onsild;randers;Randers, Hvornum, 1008
+svenstrup;onsild;randers;Randers, Svenstrup, 1015
+noerre onsild;onsild;randers;Randers, Noerre Onsild, 1011
+falslev;onsild;randers;Randers, Falslev, 1006
+skjellerup;onsild;randers;Randers, Skjellerup, 1013
+vorup;galten;randers;Randers, Randers, 1642
+ebeltoft;mols;randers;Randers, Ebeltoft, 990
+hammelev;djurs noerre;randers;Randers, Hammelev, 948
+faarup;noerhald;randers;Randers, Faarup, 998
+glenstrup;noerhald;randers;Randers, Glenstrup, 1000
+kousted;noerhald;randers;Randers, Kousted, 1002
+linde;noerhald;randers;Randers, Linde, 1003
+tvede;noerhald;randers;Randers, Tvede, 1691
+vester toerslev;noerhald;randers;Randers, Vester Toerslev, 1005
+udby;rougsoe;randers;Randers, Udby, 1019
+borup;stoevring;randers;Randers, Borup, 1020
+lem;stoevring;randers;Randers, Lem, 1023
+raasted;stoevring;randers;Randers, Raasted, 1024
+gammel;djurs noerre;randers;Randers, Gammelsogn, 1638
+holbaek;rougsoe;randers;Randers, Holbaek, 1018
+dalbyneder;gjerlev;randers;Randers, Dalbyneder, 979
+albaek;stoevring;randers;Randers, Albaek, 1688
+gimming;stoevring;randers;Randers, Gimming, 1021
+harridslev;stoevring;randers;Randers, Harridslev, 1022
+hvilsager;soenderhald;randers;Randers, Hvilsager, 1028
+lime;soenderhald;randers;Randers, Lime, 1032
+agri;mols;randers;Randers, Agri, 988
+knebel;mols;randers;Randers, Knebel, 993
+tved;mols;randers;Randers, Tved, 995
+hadbjerg;galten;randers;Randers, Hadbjerg, 967
+rud;galten;randers;Randers, Rud, 972
+voldum;galten;randers;Randers, Voldum, 974
+vaerum;galten;randers;Randers, Vaerum, 975
+oedum;galten;randers;Randers, Oedum, 976
+dalbyover;gjerlev;randers;Randers, Dalbyover, 980
+udbyneder;gjerlev;randers;Randers, Udbyneder, 1651
+vindblaes;gjerlev;randers;Randers, Vindblaes, 987
+hald;noerhald;randers;Randers, Hald, 1001
+egaa;oester lisbjerg;randers;Randers, Egaa, 1045
+mejlby;oester lisbjerg;randers;Randers, Mejlby, 1048
+koed;soenderhald;randers;Randers, Koed, 1701
+marie magdalene;soenderhald;randers;Randers, Marie Magdalene, 1033
+kristrup;soenderhald;randers;Randers, Kristrup, 1030
+mygind;soenderhald;randers;Randers, Mygind, 1034
+skader;soenderhald;randers;Randers, Skader, 1036
+skoerring;soenderhald;randers;Randers, Skoerring, 1037
+soeby;soenderhald;randers;Randers, Soeby, 1038
+gjesing;soenderhald;randers;Randers, Gjesing, 1027
+noerager;soenderhald;randers;Randers, Noerager, 1035
+vejlby;soenderhald;randers;Randers, Vejlby, 1039
+auning;soenderhald;randers;Randers, Auning, 1025
+essenbaek;soenderhald;randers;Randers, Essenbaek, 1026
+fausing;soenderhald;randers;Randers, Fausing, 1690
+hoerning;soenderhald;randers;Randers, Hoerning(Noerre), 1029
+kolind;djurs soender;randers;Randers, Kolind, 1696
+hornslet;oester lisbjerg;randers;Randers, Hornslet, 1047
+bregnet;oester lisbjerg;randers;Randers, Bregnet, 1044
+moerke;oester lisbjerg;randers;Randers, Moerke, 1049
+vester alling;soenderhald;randers;Randers, Vester Alling, 1040
+aarslev;soenderhald;randers;Randers, Aarslev(Noerre), 1043
+skarresoe;oester lisbjerg;randers;Randers, Skarresoe, 1050
+faaborg;skast;ribe;Ribe, Faaborg, 1388
+lejrskov;anst;ribe;Ribe, Lejrskov, 1355
+NA;ribe;ribe;
+aastrup;goerding;ribe;Ribe, Aastrup, 1366
+ho;vester horne;ribe;Ribe, Ho, 1408
+foevling;malt;ribe;Ribe, Foevling, 1369
+vilslev;goerding;ribe;Ribe, Vilslev, 1365
+oksby;vester horne;ribe;Ribe, Oksby, 1414
+grene;slavs;ribe;Ribe, Grene, 1403
+hejnsvig;slavs;ribe;Ribe, Hejnsvig, 1405
+vorbasse;slavs;ribe;Ribe, Vorbasse, 1406
+goerding;goerding;ribe;Ribe, Goerding, 1361
+farup;ribe;ribe;Ribe, Farup, 1375
+andst;anst;ribe;Ribe, Andst, 1350
+guldager;skast;ribe;Ribe, Guldager, 1390
+noerre nebel;vester horne;ribe;Ribe, Noerre Nebel, 1413
+vester nebel;skast;ribe;Ribe, Vester Nebel, 1398
+grindsted;slavs;ribe;Ribe, Grindsted, 1404
+jerne;skast;ribe;Ribe, Esbjerg, 1387
+hostrup;skast;ribe;Ribe, Hostrup, 1391
+vester vedsted;ribe;ribe;Ribe, Vester Vedsted, 1384
+vester starup;skast;ribe;Ribe, Vester Starup, 1400
+soenderho;skast;ribe;Ribe, Soenderho, 1396
+holsted;malt;ribe;Ribe, Holsted, 1370
+ribe;ribe;ribe;Ribe, Ribe Domkirke, 1381
+naesbjerg;skast;ribe;Ribe, Naesbjerg, 1393
+kalvslund;ribe;ribe;Ribe, Kalvslund, 1377
+bramming;goerding;ribe;Ribe, Bramming, 1359
+darum;goerding;ribe;Ribe, Darum, 1360
+hunderup;goerding;ribe;Ribe, Hunderup, 1362
+vejrup;goerding;ribe;Ribe, Vejrup, 1364
+hjortlund;ribe;ribe;Ribe, Hjortlund, 1376
+henne;vester horne;ribe;Ribe, Henne, 1706
+outrup;vester horne;ribe;Ribe, Ovtrup, 1415
+broendum;skast;ribe;Ribe, Bryndum, 1386
+jordrup;anst;ribe;Ribe, Jordrup, 1354
+seest;anst;ribe;Ribe, Seest, 1647
+skanderup;anst;ribe;Ribe, Skanderup, 1356
+mandoe;ribe;ribe;Ribe, Mandoe, 1378
+aal;vester horne;ribe;Ribe, Aal, 1708
+NA;vester horne;ribe;
+loenne;vester horne;ribe;Ribe, Loenne, 1412
+billum;vester horne;ribe;Ribe, Billum, 1407
+janderup;vester horne;ribe;Ribe, Janderup, 1707
+tjaereborg;skast;ribe;Ribe, Tjaereborg, 1397
+sneum;skast;ribe;Ribe, Sneum, 1395
+veerst;anst;ribe;Ribe, Veerst, 1358
+folding;malt;ribe;Ribe, Folding, 1368
+vamdrup;anst;ribe;Ribe, Vamdrup, 1357
+hjarup;anst;ribe;Ribe, Hjarup, 1353
+alslev;skast;ribe;Ribe, Alslev, 1385
+seem;ribe;ribe;Ribe, Seem, 1383
+varde;vester horne;ribe;Ribe, Varde, 1416
+baekke;anst;ribe;Ribe, Baekke, 1351
+gesten;anst;ribe;Ribe, Gesten, 1352
+kvong;vester horne;ribe;Ribe, Kvong, 1409
+lydum;vester horne;ribe;Ribe, Lydum, 1411
+vester nykirke;skast;ribe;Ribe, Vester Nykirke, 1399
+oese;skast;ribe;Ribe, Oese, 1401
+jernved;goerding;ribe;Ribe, Jernved, 1363
+broerup;malt;ribe;Ribe, Broerup, 1367
+lindknud;malt;ribe;Ribe, Lindknud, 1371
+laeborg;malt;ribe;Ribe, Laeborg, 1372
+malt;malt;ribe;Ribe, Malt, 1373
+vejen;malt;ribe;Ribe, Vejen, 1374
+hodde;oester horne;ribe;Ribe, Hodde, 1419
+horne;oester horne;ribe;Ribe, Horne, 1420
+thorstrup;oester horne;ribe;Ribe, Torstrup, 1422
+lunde;vester horne;ribe;Ribe, Lunde, 1410
+nordby;skast;ribe;Ribe, Nordby, 1392
+aarre;skast;ribe;Ribe, Aarre, 1402
+oelgod;oester horne;ribe;Ribe, Oelgod, 1423
+tistrup;oester horne;ribe;Ribe, Tistrup, 1421
+ansager;oester horne;ribe;Ribe, Ansager, 1418
+grimstrup;skast;ribe;Ribe, Grimstrup, 1389
+skast;skast;ribe;Ribe, Noerre Skast, 1394
+NA;skodborg;ringkoebing;
+haderup;ginding;ringkoebing;Ringkoebing, Haderup, 1543
+husby;ulfborg;ringkoebing;Ringkoebing, Husby, 1672
+noevling;hammerum;ringkoebing;Ringkoebing, Noevling, 1274
+herning;hammerum;ringkoebing;Ringkoebing, Herning, 1272
+ryde;ginding;ringkoebing;Ringkoebing, Ryde, 1264
+oelstrup;boelling;ringkoebing;Ringkoebing, Oelstrup, 1291
+stauning;boelling;ringkoebing;Ringkoebing, Stavning, 1675
+estvad;ginding;ringkoebing;Ringkoebing, Estvad, 1262
+soender felding;hammerum;ringkoebing;Ringkoebing, Soender Felding, 1278
+skarrild;hammerum;ringkoebing;Ringkoebing, Skarrild, 1277
+gammel;hind;ringkoebing;Ringkoebing, Gammelsogn, 1596
+hodsager;ginding;ringkoebing;Ringkoebing, Hodsager, 1263
+vemb;hjerm;ringkoebing;Ringkoebing, Vemb, 1305
+roenbjerg;ginding;ringkoebing;Ringkoebing, Roenbjerg, 1265
+staby;ulfborg;ringkoebing;Ringkoebing, Staby, 1335
+noerre bork;noerre horne;ringkoebing;Ringkoebing, Noerre Bork, 1311
+borbjerg;hjerm;ringkoebing;Ringkoebing, Borbjerg, 1293
+asp;hjerm;ringkoebing;Ringkoebing, Asp, 1292
+lyne;noerre horne;ringkoebing;Ringkoebing, Lyne, 1310
+oddum;noerre horne;ringkoebing;Ringkoebing, Aadum (Oddum), 1312
+rindum;hind;ringkoebing;Ringkoebing, Rindum, 1285
+hee;hind;ringkoebing;Ringkoebing, Hee, 1550
+stadil;hind;ringkoebing;Ringkoebing, Stadil, 1669
+egvad;noerre horne;ringkoebing;Ringkoebing, Egvad, 1307
+ny;hind;ringkoebing;Ringkoebing, Nysogn, 1671
+fousing;hjerm;ringkoebing;Ringkoebing, Fovsing, 1295
+oelby;hjerm;ringkoebing;Ringkoebing, Oelby, 1306
+loenborg;noerre horne;ringkoebing;Ringkoebing, Loenborg, 1676
+vejrum;hjerm;ringkoebing;Ringkoebing, Vejrum, 1304
+bording;hammerum;ringkoebing;Ringkoebing, Bording, 1548
+engbjerg;vandfuld;ringkoebing;Ringkoebing, Engbjerg, 1342
+harbooere;vandfuld;ringkoebing;Ringkoebing, Harbooer, 1668
+handbjerg;hjerm;ringkoebing;Ringkoebing, Handbjerg, 1297
+vedersoe;hind;ringkoebing;Ringkoebing, Vedersoe, 1670
+sevel;ginding;ringkoebing;Ringkoebing, Sevel, 1267
+mejrup;hjerm;ringkoebing;Ringkoebing, Mejrup, 1300
+hjerm;hjerm;ringkoebing;Ringkoebing, Hjerm, 1298
+noerre nissum;skodborg;ringkoebing;Ringkoebing, Noerre Nissum, 1326
+strellev;noerre horne;ringkoebing;Ringkoebing, Strellev, 1313
+velling;hind;ringkoebing;Ringkoebing, Velling, 1290
+torsted;hind;ringkoebing;Ringkoebing, Torsted, 1289
+fabjerg;skodborg;ringkoebing;Ringkoebing, Fabjerg, 1317
+boevling;skodborg;ringkoebing;Ringkoebing, Boevling, 1316
+resen;skodborg;ringkoebing;Ringkoebing, Resen, 1327
+venoe;skodborg;ringkoebing;Ringkoebing, Venoe, 1330
+sahl;ginding;ringkoebing;Ringkoebing, Sahl, 1266
+idum;ulfborg;ringkoebing;Ringkoebing, Idum, 1331
+raasted;ulfborg;ringkoebing;Ringkoebing, Raasted, 1334
+tim;hind;ringkoebing;Ringkoebing, Tim, 1288
+ferring;vandfuld;ringkoebing;Ringkoebing, Ferring, 1343
+noerre felding;ulfborg;ringkoebing;Ringkoebing, Noerre Felding, 1333
+bur;hjerm;ringkoebing;Ringkoebing, Bur, 1294
+soender bork;noerre horne;ringkoebing;Ringkoebing, Soender Bork, 1314
+brejning;boelling;ringkoebing;Ringkoebing, Brejning, 1282
+noerlem;skodborg;ringkoebing;Ringkoebing, Noerlem, 1325
+lomborg;skodborg;ringkoebing;Ringkoebing, Lomborg, 1322
+hanning;boelling;ringkoebing;Ringkoebing, Hanning, 1256
+goerding;hjerm;ringkoebing;Ringkoebing, Goerding, 1296
+moeborg;skodborg;ringkoebing;Ringkoebing, Moeborg, 1323
+flynder;skodborg;ringkoebing;Ringkoebing, Flynder, 1318
+toerring;skodborg;ringkoebing;Ringkoebing, Toerring, 1329
+heldum;skodborg;ringkoebing;Ringkoebing, Heldum, 1320
+NA;hjerm;ringkoebing;
+arnborg;hammerum;ringkoebing;Ringkoebing, Arnborg, 1268
+tjoerring;hammerum;ringkoebing;Ringkoebing, Tjoerring, 1279
+rind;hammerum;ringkoebing;Ringkoebing, Rind, 1275
+oerre;hammerum;ringkoebing;Ringkoebing, Oerre, 1552
+gimsing;hjerm;ringkoebing;Ringkoebing, Gimsing, 1561
+sir;hjerm;ringkoebing;Ringkoebing, Sir, 1303
+naur;hjerm;ringkoebing;Ringkoebing, Navr, 1302
+hoven;noerre horne;ringkoebing;Ringkoebing, Hoven, 1309
+humlum;skodborg;ringkoebing;Ringkoebing, Humlum, 1321
+rom;skodborg;ringkoebing;Ringkoebing, Rom, 1328
+hover;hind;ringkoebing;Ringkoebing, Hover, 1283
+gudum;skodborg;ringkoebing;Ringkoebing, Gudum, 1319
+soender vium;noerre horne;ringkoebing;Ringkoebing, Soender Vium, 1315
+noerre omme;hind;ringkoebing;Ringkoebing, Noerre Omme, 1284
+maabjerg;hjerm;ringkoebing;Ringkoebing, Maabjerg, 1301
+NA;hind;ringkoebing;
+snejbjerg;hammerum;ringkoebing;Ringkoebing, Snejbjerg, 1553
+dybe;vandfuld;ringkoebing;Ringkoebing, Dybe, 1341
+boelling;boelling;ringkoebing;Ringkoebing, Boelling, 1253
+dejbjerg;boelling;ringkoebing;Ringkoebing, Dejbjerg, 1254
+faster;boelling;ringkoebing;Ringkoebing, Faster, 1255
+fjaltring;vandfuld;ringkoebing;Ringkoebing, Fjaltring, 1344
+hove;vandfuld;ringkoebing;Ringkoebing, Hove, 1345
+gjellerup;hammerum;ringkoebing;Ringkoebing, Gjellerup, 1271
+vorgod;boelling;ringkoebing;Ringkoebing, Vorgod, 1546
+soender borris;boelling;ringkoebing;Ringkoebing, Soender Borris, 1260
+soender lem;boelling;ringkoebing;Ringkoebing, Soender Lem, 1287
+saedding;boelling;ringkoebing;Ringkoebing, Saedding, 1259
+noerre vium;boelling;ringkoebing;Ringkoebing, Noerre Vium, 1257
+ikast;hammerum;ringkoebing;Ringkoebing, Ikast, 1273
+sinding;hammerum;ringkoebing;Ringkoebing, Sinding, 1276
+sunds;hammerum;ringkoebing;Ringkoebing, Sunds, 1547
+tvis;hammerum;ringkoebing;Ringkoebing, Tvis, 1280
+nees;skodborg;ringkoebing;Ringkoebing, Nees, 1324
+vildbjerg;hammerum;ringkoebing;Ringkoebing, Vildbjerg, 1281
+ejsing;ginding;ringkoebing;Ringkoebing, Ejsing, 1261
+madum;ulfborg;ringkoebing;Ringkoebing, Madum, 1332
+timring;ulfborg;ringkoebing;Ringkoebing, Timring, 1337
+ulfborg;ulfborg;ringkoebing;Ringkoebing, Ulfborg, 1338
+vind;ulfborg;ringkoebing;Ringkoebing, Vind, 1339
+vinding;ulfborg;ringkoebing;Ringkoebing, Vinding, 1340
+skjern;boelling;ringkoebing;Ringkoebing, Skjern, 1258
+hemmet;noerre horne;ringkoebing;Ringkoebing, Hemmet, 1308
+trans;vandfuld;ringkoebing;Ringkoebing, Trans, 1348
+vandborg;vandfuld;ringkoebing;Ringkoebing, Vandborg, 1349
+hygum;vandfuld;ringkoebing;Ringkoebing, Hygum, 1346
+ramme;vandfuld;ringkoebing;Ringkoebing, Ramme, 1347
+aulum;hammerum;ringkoebing;Ringkoebing, Avlum, 1270
+assing;hammerum;ringkoebing;Ringkoebing, Assing, 1269
+soender nissum;ulfborg;ringkoebing;Ringkoebing, Soender Nissum, 1336
+greve;tune;roskilde;Koebenhavn, Greve, 91
+karlslunde;tune;roskilde;Koebenhavn, Karlslunde, 94
+tune;tune;roskilde;Koebenhavn, Tune, 101
+jersie;tune;roskilde;Koebenhavn, Jersie, 93
+havdrup;tune;roskilde;Koebenhavn, Havdrup, 92
+kildebroende;tune;roskilde;Koebenhavn, Kildebroende, 96
+ejby;ramsoe;roskilde;Koebenhavn, Ejby, 51
+kornerup;soemme;roskilde;Koebenhavn, Kornerup, 87
+solroed;tune;roskilde;Koebenhavn, Solroed, 100
+snoldelev;tune;roskilde;Koebenhavn, Snoldelev, 99
+daastrup;ramsoe;roskilde;Koebenhavn, Daastrup, 50
+gadstrup;ramsoe;roskilde;Koebenhavn, Gadstrup, 52
+NA;soemme;roskilde;
+oersted;ramsoe;roskilde;Koebenhavn, Oersted, 59
+syv;ramsoe;roskilde;Koebenhavn, Syv, 57
+himmelev;soemme;roskilde;Koebenhavn, Himmelev, 1615
+NA;ramsoe;roskilde;
+gershoej;voldborg;roskilde;Koebenhavn, Gershoej, 103
+kirke hyllinge;voldborg;roskilde;Koebenhavn, Kirke Hyllinge, 106
+lyndby;voldborg;roskilde;Koebenhavn, Lyndby, 110
+jyllinge;soemme;roskilde;Koebenhavn, Jyllinge, 85
+borup;ramsoe;roskilde;Koebenhavn, Borup, 49
+kimmerslev;ramsoe;roskilde;Koebenhavn, Kimmerslev, 54
+koege;ramsoe;roskilde;Koebenhavn, Koege, 1606
+aagerup;soemme;roskilde;Koebenhavn, Aagerup, 90
+gundsoemagle;soemme;roskilde;Koebenhavn, Gundsoemagle, 82
+hvedstrup;soemme;roskilde;Koebenhavn, Hvedstrup, 84
+kirkerup;soemme;roskilde;Koebenhavn, Kirkerup, 86
+hoejelse;ramsoe;roskilde;Koebenhavn, Hoejelse, 53
+noerre dalby;ramsoe;roskilde;Koebenhavn, Noerre Dalby, 55
+rorup;ramsoe;roskilde;Koebenhavn, Rorup, 56
+oelsemagle;ramsoe;roskilde;Koebenhavn, Oelsemagle, 58
+vor frue;soemme;roskilde;Koebenhavn, Vor Frue (Roskilde), 89
+karlstrup;tune;roskilde;Koebenhavn, Karlstrup, 95
+kirke skensved;tune;roskilde;Koebenhavn, Kirke Skensved, 97
+sankt joergensbjerg;soemme;roskilde;Koebenhavn, Sankt Joergensbjerg, 1616
+glim;soemme;roskilde;Koebenhavn, Glim, 81
+svogerslev;soemme;roskilde;Koebenhavn, Svogerslev, 88
+herslev;soemme;roskilde;Koebenhavn, Herslev, 83
+vindinge;tune;roskilde;Koebenhavn, Vindinge, 1618
+rye;voldborg;roskilde;Koebenhavn, Rye, 112
+kirke sonnerup;voldborg;roskilde;Koebenhavn, Kirke Sonnerup, 107
+saeby;voldborg;roskilde;Koebenhavn, Saeby, 113
+kirke hvalsoe;voldborg;roskilde;Koebenhavn, Kirke Hvalsoe, 105
+kisserup;voldborg;roskilde;Koebenhavn, Kisserup, 109
+saerloese;voldborg;roskilde;Koebenhavn, Saerloese, 114
+kirke saaby;voldborg;roskilde;Koebenhavn, Kirke Saaby, 108
+allerslev;voldborg;roskilde;Koebenhavn, Allerslev, 102
+gevninge;voldborg;roskilde;Koebenhavn, Gevninge, 104
+osted;voldborg;roskilde;Koebenhavn, Osted, 111
+floeng;soemme;roskilde;Koebenhavn, Floeng, 80
+reerslev;tune;roskilde;Koebenhavn, Reerslev, 98
+gjern;gjern;skanderborg;Skanderborg, Gjern, 1113
+laasby;gjern;skanderborg;Skanderborg, Laasby, 1115
+dover;hjelmslev;skanderborg;Skanderborg, Dover, 1125
+alling;gjern;skanderborg;Skanderborg, Alling, 1111
+hammel;gjern;skanderborg;Skanderborg, Hammel, 1114
+tulstrup;gjern;skanderborg;Skanderborg, Tulstrup, 1121
+NA;hjelmslev;skanderborg;
+dallerup;gjern;skanderborg;Skanderborg, Dallerup, 1112
+linaa;gjern;skanderborg;Skanderborg, Linaa, 1565
+veng;hjelmslev;skanderborg;Skanderborg, Veng, 1132
+fruering;hjelmslev;skanderborg;Skanderborg, Fruering, 1126
+vitved;hjelmslev;skanderborg;Skanderborg, Vitved, 1133
+tolstrup;voer;skanderborg;Skanderborg, Tolstrup, 1159
+roegen;gjern;skanderborg;Skanderborg, Roegen, 1116
+underup;nim;skanderborg;Skanderborg, Underup, 1139
+skorup;gjern;skanderborg;Skanderborg, Skorup, 1118
+sporup;gjern;skanderborg;Skanderborg, Sporup, 1119
+adslev;hjelmslev;skanderborg;Skanderborg, Adslev, 1123
+stilling;hjelmslev;skanderborg;Skanderborg, Stilling, 1131
+mesing;hjelmslev;skanderborg;Skanderborg, Mesing, 1128
+soeby;gjern;skanderborg;Skanderborg, Soeby, 1120
+voldby;gjern;skanderborg;Skanderborg, Voldby, 1122
+tvilum;gjern;skanderborg;Skanderborg, Tvilum, 1564
+blegind;hjelmslev;skanderborg;Skanderborg, Blegind, 1124
+hansted;voer;skanderborg;Skanderborg, Hansted, 1152
+vaer;voer;skanderborg;Skanderborg, Vaer, 1162
+ovsted;voer;skanderborg;Skanderborg, Ovsted, 1157
+braedstrup;tyrsting;skanderborg;Skanderborg, Ring, 1143
+bryrup;tyrsting;skanderborg;Skanderborg, Bryrup, 1140
+toenning;tyrsting;skanderborg;Skanderborg, Toenning, 1148
+soender vissing;tyrsting;skanderborg;Skanderborg, Soender Vissing, 1145
+traeden;tyrsting;skanderborg;Skanderborg, Traeden, 1146
+foevling;tyrsting;skanderborg;Skanderborg, Foevling, 1141
+graedstrup;tyrsting;skanderborg;Skanderborg, Graedstrup, 1142
+tyrsting;tyrsting;skanderborg;Skanderborg, Tyrsting, 1147
+vinding;tyrsting;skanderborg;Skanderborg, Vinding, 1149
+voerladegaard;tyrsting;skanderborg;Skanderborg, Voerladegaard, 1150
+aale;vrads;skanderborg;Skanderborg, Aale, 1174
+hammer;vrads;skanderborg;Skanderborg, Hammer, 1167
+klovborg;vrads;skanderborg;Skanderborg, Klovborg, 1168
+linnerup;vrads;skanderborg;Skanderborg, Linnerup, 1169
+noerre snede;vrads;skanderborg;Skanderborg, Noerre Snede, 1170
+them;vrads;skanderborg;Skanderborg, Them, 1171
+vrads;vrads;skanderborg;Skanderborg, Vrads, 1173
+taaning;voer;skanderborg;Skanderborg, Taaning, 1160
+hornborg;nim;skanderborg;Skanderborg, Hornborg, 1135
+skannerup;gjern;skanderborg;Skanderborg, Skannerup, 1117
+hvirring;nim;skanderborg;Skanderborg, Hvirring, 1136
+vedslet;voer;skanderborg;Skanderborg, Vedslet, 1161
+hoerning;hjelmslev;skanderborg;Skanderborg, Hoerning(Soender), 1127
+gammel rye;tyrsting;skanderborg;Skanderborg, Gl.Rye(Rye), 1144
+tamdrup;nim;skanderborg;Skanderborg, Tamdrup, 1138
+skanderup;hjelmslev;skanderborg;Skanderborg, Skanderup, 1130
+ejstrup;vrads;skanderborg;Skanderborg, Ejstrup, 1166
+toerring;vrads;skanderborg;Skanderborg, Toerring, 1172
+endelave;nim;skanderborg;Skanderborg, Endelave, 1134
+gangsted;voer;skanderborg;Skanderborg, Gangsted, 1151
+kattrup;voer;skanderborg;Skanderborg, Kattrup, 1154
+lundum;voer;skanderborg;Skanderborg, Lundum, 1155
+soevind;voer;skanderborg;Skanderborg, Soevind, 1158
+yding;voer;skanderborg;Skanderborg, Yding, 1163
+oerridslev;voer;skanderborg;Skanderborg, Oerridslev, 1164
+oestbirk;voer;skanderborg;Skanderborg, Oestbirk, 1165
+nim;nim;skanderborg;Skanderborg, Nim, 1137
+hylke;voer;skanderborg;Skanderborg, Hylke, 1153
+nebel;voer;skanderborg;Skanderborg, Nebel, 1156
+NA;nim;skanderborg;
+lynge;alsted;soroe;Soroe, Lynge, 175
+holsteinborg;vester flakkebjerg;soroe;Soroe, Holsteinborg, 226
+bringstrup;ringsted;soroe;Soroe, Bringstrup, 184
+tystrup;oester flakkebjerg;soroe;Soroe, Tystrup, 251
+kirke flinterup;alsted;soroe;Soroe, Kirke Flinterup, 174
+nordrupvester;slagelse;soroe;Soroe, Nordrupvester, 212
+gyrstinge;alsted;soroe;Soroe, Gyrstinge, 1622
+haslev;ringsted;soroe;Soroe, Haslev, 188
+hoem;ringsted;soroe;Soroe, Hoem, 189
+taarnborg;slagelse;soroe;Soroe, Taarnborg, 1839
+slaglille;alsted;soroe;Soroe, Slaglille, 178
+stenmagle;alsted;soroe;Soroe, Stenmagle, 180
+fuglebjerg;oester flakkebjerg;soroe;Soroe, Fuglebjerg, 240
+foerslev;oester flakkebjerg;soroe;Soroe, Foerslev, 242
+haldagerlille;oester flakkebjerg;soroe;Soroe, Haldagerlille, 244
+krummerup;oester flakkebjerg;soroe;Soroe, Krummerup, 248
+kvislemark;oester flakkebjerg;soroe;Soroe, Kvislemark, 249
+NA;vester flakkebjerg;soroe;
+jystrup;ringsted;soroe;Soroe, Jystrup, 190
+kvaerkeby;ringsted;soroe;Soroe, Kvaerkeby, 191
+nordrupoester;ringsted;soroe;Soroe, Nordrupoester, 192
+sigersted;ringsted;soroe;Soroe, Sigersted, 195
+valsoelille;ringsted;soroe;Soroe, Valsoelille, 199
+braaby;ringsted;soroe;Soroe, Braaby(Oester-Broby), 204
+herlufsholm;oester flakkebjerg;soroe;Soroe, Herlufsholm, 245
+pedersborg;alsted;soroe;Soroe, Pedersborg, 177
+fjenneslev;alsted;soroe;Soroe, Fjenneslev, 1623
+bromme;alsted;soroe;Soroe, Bromme, 173
+bjernede;alsted;soroe;Soroe, Bjernede, 172
+fodby;oester flakkebjerg;soroe;Soroe, Fodby, 1625
+fyrendal;oester flakkebjerg;soroe;Soroe, Fyrendal, 241
+gunderslev;oester flakkebjerg;soroe;Soroe, Gunderslev, 243
+hyllinge;oester flakkebjerg;soroe;Soroe, Hyllinge, 246
+karrebaek;oester flakkebjerg;soroe;Soroe, Karrebaek, 247
+marvede;oester flakkebjerg;soroe;Soroe, Marvede, 250
+vallensved;oester flakkebjerg;soroe;Soroe, Vallensved, 252
+vester broby;alsted;soroe;Soroe, Vester Broby, 181
+munke bjergby;alsted;soroe;Soroe, Munke Bjergby, 176
+alsted;alsted;soroe;Soroe, Alsted, 171
+magleby;vester flakkebjerg;soroe;Soroe, Magleby, 1835
+agersoe;vester flakkebjerg;soroe;Soroe, Agersoe, 221
+omoe;vester flakkebjerg;soroe;Soroe, Omoe, 231
+soroe;alsted;soroe;Soroe, Soroe, 179
+vetterslev;ringsted;soroe;Soroe, Vetterslev, 200
+vigersted;ringsted;soroe;Soroe, Vigersted, 201
+oede foerslev;ringsted;soroe;Soroe, Oede Foerslev, 202
+oerslev;ringsted;soroe;Soroe, Oerslev, 203
+allindemagle;ringsted;soroe;Soroe, Allindemagle, 182
+benloese;ringsted;soroe;Soroe, Benloese, 183
+oerslev;vester flakkebjerg;soroe;Soroe, Oerslev, 239
+venslev;vester flakkebjerg;soroe;Soroe, Venslev, 238
+tjaereby;vester flakkebjerg;soroe;Soroe, Tjaereby, 237
+kirkerup;vester flakkebjerg;soroe;Soroe, Kirkerup, 230
+ting jellinge;vester flakkebjerg;soroe;Soroe, Ting Jellinge, 236
+soerbymagle;vester flakkebjerg;soroe;Soroe, Soerbymagle, 235
+faardrup;vester flakkebjerg;soroe;Soroe, Faardrup, 224
+skoerpinge;vester flakkebjerg;soroe;Soroe, Skoerpinge, 233
+flakkebjerg;vester flakkebjerg;soroe;Soroe, Flakkebjerg, 223
+hoeve;vester flakkebjerg;soroe;Soroe, Hoeve, 228
+hyllested;vester flakkebjerg;soroe;Soroe, Hyllested, 227
+haarslev;vester flakkebjerg;soroe;Soroe, Haarslev, 229
+gimlinge;vester flakkebjerg;soroe;Soroe, Gimlinge, 225
+soender bjerge;vester flakkebjerg;soroe;Soroe, Soender Bjerge, 234
+NA;alsted;soroe;
+vemmelev;slagelse;soroe;Soroe, Vemmelev, 1838
+soenderup;slagelse;soroe;Soroe, Soenderup, 220
+sorterup;slagelse;soroe;Soroe, Sorterup, 219
+sludstrup;slagelse;soroe;Soroe, Sludstrup, 218
+slots bjergby;slagelse;soroe;Soroe, Slots Bjergby, 217
+slagelse;slagelse;soroe;Soroe, Slagelse, 216
+gerlev;slagelse;soroe;Soroe, Gerlev, 206
+gudum;slagelse;soroe;Soroe, Gudum, 207
+boeslunde;slagelse;soroe;Soroe, Boeslunde, 205
+kindertofte;slagelse;soroe;Soroe, Kindertofte, 210
+hejninge;slagelse;soroe;Soroe, Hejninge, 208
+hemmeshoej;slagelse;soroe;Soroe, Hemmeshoej, 209
+lundforlund;slagelse;soroe;Soroe, Lundforlund, 211
+farendloese;ringsted;soroe;Soroe, Farendloese, 185
+haraldsted;ringsted;soroe;Soroe, Haraldsted, 187
+sneslev;ringsted;soroe;Soroe, Sneslev, 196
+freerslev;ringsted;soroe;Soroe, Freerslev, 186
+teestrup;ringsted;soroe;Soroe, Teestrup, 197
+terslev;ringsted;soroe;Soroe, Terslev, 198
+ringsted;ringsted;soroe;Soroe, Ringsted, 193
+NA;slagelse;soroe;
+NA;ringsted;soroe;
+kirke stillinge;slagelse;soroe;Soroe, Kirke Stillinge, 1836
+egeslevmagle;vester flakkebjerg;soroe;Soroe, Eggeslevmagle, 222
+ottestrup;slagelse;soroe;Soroe, Ottestrup, 213
+vester skerninge;sallinge;svendborg;Svendborg, Vester Skerninge, 528
+aastrup;sallinge;svendborg;Svendborg, Aastrup, 1738
+NA;langelands noerre;svendborg;
+drejoe;sunds;svendborg;Svendborg, Drejoe, 532
+strynoe;sunds;svendborg;Svendborg, Strynoe, 540
+stoense;langelands noerre;svendborg;Svendborg, Stoense, 1589
+simmerboelle;langelands noerre;svendborg;Svendborg, Simmerboelle, 501
+brudager;gudme;svendborg;Svendborg, Brudager, 488
+gudbjerg;gudme;svendborg;Svendborg, Gudbjerg, 490
+gudme;gudme;svendborg;Svendborg, Gudme, 491
+stenstrup;sunds;svendborg;Svendborg, Stenstrup, 539
+NA;vindinge;svendborg;
+faaborg;sallinge;svendborg;Svendborg, Faaborg, 1576
+skaarup;sunds;svendborg;Svendborg, Skaarup, 1746
+avernakoe;sallinge;svendborg;Svendborg, Avernakoe, 507
+ellested;vindinge;svendborg;Svendborg, Ellested, 546
+ulboelle;sallinge;svendborg;Svendborg, Ulboelle, 524
+thuroe;sunds;svendborg;Svendborg, Thuroe, 542
+kirkeby;sunds;svendborg;Svendborg, Kirkeby, 534
+bregninge;sunds;svendborg;Svendborg, Bregninge, 531
+egense;sunds;svendborg;Svendborg, Egense, 533
+landet;sunds;svendborg;Svendborg, Landet, 536
+kvaerndrup;sunds;svendborg;Svendborg, Kvaerndrup, 535
+soerup;sunds;svendborg;Svendborg, Svendborg, 541
+tved;sunds;svendborg;Svendborg, Tved, 543
+lunde;sunds;svendborg;Svendborg, Lunde, 537
+NA;sunds;svendborg;
+gislev;gudme;svendborg;Svendborg, Gislev, 489
+bjerreby;sunds;svendborg;Svendborg, Bjerreby, 530
+froerup;vindinge;svendborg;Svendborg, Froerup, 549
+soellinge;vindinge;svendborg;Svendborg, Soellinge, 555
+bovense;vindinge;svendborg;Svendborg, Bovense, 545
+hellerup;vindinge;svendborg;Svendborg, Hellerup, 550
+tranekaer;langelands noerre;svendborg;Svendborg, Tranekaer, 502
+refsvindinge;vindinge;svendborg;Svendborg, Refs-Vindinge, 553
+snoede;langelands noerre;svendborg;Svendborg, Snoede, 1590
+skroebelev;langelands noerre;svendborg;Svendborg, Skroebelev, 1742
+kullerup;vindinge;svendborg;Svendborg, Kullerup, 552
+aarslev;vindinge;svendborg;Svendborg, Aarslev, 559
+herrested;vindinge;svendborg;Svendborg, Herrested, 551
+fuglsboelle;langelands soender;svendborg;Svendborg, Longelse, 505
+lindelse;langelands soender;svendborg;Svendborg, Lindelse, 1743
+fodslette;langelands soender;svendborg;Svendborg, Fodslette, 504
+skellerup;vindinge;svendborg;Svendborg, Skellerup, 554
+ellinge;vindinge;svendborg;Svendborg, Ellinge, 547
+soender broby;sallinge;svendborg;Svendborg, Soender Broby, 523
+vindinge;vindinge;svendborg;Svendborg, Vindinge, 1748
+oerbaek;vindinge;svendborg;Svendborg, Oerbaek, 558
+nyborg;vindinge;svendborg;Svendborg, Nyborg, 1749
+floedstrup;vindinge;svendborg;Svendborg, Floedstrup, 548
+aunslev;vindinge;svendborg;Svendborg, Avnslev, 3
+horne;sallinge;svendborg;Svendborg, Horne, 515
+hesselager;gudme;svendborg;Svendborg, Hesselager, 492
+ullerslev;vindinge;svendborg;Svendborg, Ullerslev, 557
+soender hoejrup;vindinge;svendborg;Svendborg, Soender-Hoejrup, 556
+tulleboelle;langelands noerre;svendborg;Svendborg, Tulleboelle, 503
+boestrup;langelands noerre;svendborg;Svendborg, Boestrup, 500
+hundstrup;sallinge;svendborg;Svendborg, Hundstrup, 516
+vejle;sallinge;svendborg;Svendborg, Vejle, 526
+vejstrup;gudme;svendborg;Svendborg, Vejstrup, 498
+oure;gudme;svendborg;Svendborg, Oure, 494
+langaa;gudme;svendborg;Svendborg, Langaa, 493
+longelse;langelands soender;svendborg;Svendborg, Longelse, 505
+ringe;gudme;svendborg;Svendborg, Ringe, 495
+oester haesinge;sallinge;svendborg;Svendborg, Oester Haesinge, 529
+sandholts lyndelse;sallinge;svendborg;Svendborg, Sandholts Lyndelse, 521
+vantinge;sallinge;svendborg;Svendborg, Vantinge, 525
+krarup;sallinge;svendborg;Svendborg, Krarup, 519
+lyoe;sallinge;svendborg;Svendborg, Lyoe, 1736
+jordloese;sallinge;svendborg;Svendborg, Jordloese, 518
+herringe;sallinge;svendborg;Svendborg, Herringe, 513
+haastrup;sallinge;svendborg;Svendborg, Haastrup, 517
+heden;sallinge;svendborg;Svendborg, Heden, 512
+gestelev;sallinge;svendborg;Svendborg, Gestelev, 511
+oeksendrup;gudme;svendborg;Svendborg, Oeksendrup, 499
+allested;sallinge;svendborg;Svendborg, Allested, 506
+svindinge;gudme;svendborg;Svendborg, Svindinge, 497
+ryslinge;gudme;svendborg;Svendborg, Ryslinge, 496
+espe;sallinge;svendborg;Svendborg, Espe, 510
+hillerslev;sallinge;svendborg;Svendborg, Hillerslev, 514
+svanninge;sallinge;svendborg;Svendborg, Svanninge, 522
+NA;sallinge;svendborg;
+vester haesinge;sallinge;svendborg;Svendborg, Vester Haesinge, 527
+vester aaby;sallinge;svendborg;Svendborg, Vester Aaby, 1737
+humble;langelands soender;svendborg;Svendborg, Humble, 1741
+magleby;langelands soender;svendborg;Svendborg, Magleby, 1744
+tryggelev;langelands soender;svendborg;Svendborg, Tryggelev, 1745
+diernaes;sallinge;svendborg;Svendborg, Diernaes, 509
+noerre broby;sallinge;svendborg;Svendborg, Noerre Broby, 520
+oester skerninge;sunds;svendborg;Svendborg, Oester Skerninge, 544
+ollerup;sunds;svendborg;Svendborg, Ollerup, 538
+brahetrolleborg;sallinge;svendborg;Svendborg, Brahetrolleborg, 508
+nors;hillerslev;thisted;Thisted, Nors, 655
+lild;vester han;thisted;Thisted, Lild, 1657
+skjoldborg;hundborg;thisted;Thisted, Skjoldborg, 664
+hunstrup;hillerslev;thisted;Thisted, Hunstrup, 1662
+NA;hundborg;thisted;
+agger;refs;thisted;Thisted, Agger, 1560
+gettrup;refs;thisted;Thisted, Gettrup, 699
+ydby;refs;thisted;Thisted, Ydby, 1667
+vang;hundborg;thisted;Thisted, Vang, 1713
+klim;vester han;thisted;Thisted, Klim, 1656
+tved;hillerslev;thisted;Thisted, Tved, 658
+hjardemaal;hillerslev;thisted;Thisted, Hjardemaal, 653
+oesterild;hillerslev;thisted;Thisted, Oesterild, 1652
+hoerdum;hassing;thisted;Thisted, Hoerdum, 642
+hvidbjerg vesten aa;hassing;thisted;Thisted, Hvidbjerg Vesten Aa, 641
+dragstrup;morsoe noerre;thisted;Thisted, Dragstrup, 671
+helligsoe;refs;thisted;Thisted, Helligsoe, 1666
+hansted;hillerslev;thisted;Thisted, Hansted, 652
+heltborg;refs;thisted;Thisted, Heltborg, 700
+hillerslev;hillerslev;thisted;Thisted, Hillerslev, 1661
+hurup;refs;thisted;Thisted, Hurup, 701
+hvidbjerg;refs;thisted;Thisted, Hvidbjerg, 702
+kaastrup;hillerslev;thisted;Thisted, Kaastrup, 654
+raehr;hillerslev;thisted;Thisted, Raehr, 656
+oester vandet;hillerslev;thisted;Thisted, Oester Vandet, 661
+jegindoe;refs;thisted;Thisted, Jegindoe, 703
+lyngs;refs;thisted;Thisted, Lyngs, 704
+snedsted;hassing;thisted;Thisted, Snedsted, 646
+odby;refs;thisted;Thisted, Odby, 705
+soendbjerg;refs;thisted;Thisted, Soendbjerg, 706
+grurup;hassing;thisted;Thisted, Grurup, 638
+harring;hassing;thisted;Thisted, Harring, 639
+vestervig;refs;thisted;Thisted, Vestervig, 707
+hassing;hassing;thisted;Thisted, Hassing, 640
+hoersted;hassing;thisted;Thisted, Hoersted, 643
+noerhaa;hundborg;thisted;Thisted, Noerhaa, 662
+elsoe;morsoe soender;thisted;Thisted, Elsoe, 684
+bedsted;hassing;thisted;Thisted, Bedsted, 637
+boddum;refs;thisted;Thisted, Boddum, 698
+skyum;hassing;thisted;Thisted, Skyum, 645
+froeslev;morsoe soender;thisted;Thisted, Froeslev, 685
+nykoebing m;morsoe soender;thisted;Thisted, Nykoebing M, 691
+vigsoe;hillerslev;thisted;Thisted, Vigsoe, 660
+alsted;morsoe noerre;thisted;Thisted, Alsted, 669
+bjergby;morsoe noerre;thisted;Thisted, Bjergby, 670
+ejerslev;morsoe noerre;thisted;Thisted, Ejerslev, 672
+joersby;morsoe noerre;thisted;Thisted, Joersby, 676
+skallerup;morsoe noerre;thisted;Thisted, Skallerup, 678
+sundby;morsoe noerre;thisted;Thisted, Sundby, 680
+toedsoe;morsoe noerre;thisted;Thisted, Toedsoe, 682
+oester joelby;morsoe noerre;thisted;Thisted, Oester Joelby, 683
+arup;vester han;thisted;Thisted, Arup, 1653
+goettrup;vester han;thisted;Thisted, Goettrup, 708
+hjortdal;vester han;thisted;Thisted, Hjortdal, 709
+kollerup;vester han;thisted;Thisted, Kollerup, 711
+vesloes;vester han;thisted;Thisted, Vesloes, 1655
+vester torup;vester han;thisted;Thisted, Vester Torup, 1658
+sennels;hillerslev;thisted;Thisted, Sennels, 657
+flade;morsoe noerre;thisted;Thisted, Flade, 674
+galtrup;morsoe noerre;thisted;Thisted, Galtrup, 675
+sejerslev;morsoe noerre;thisted;Thisted, Sejerslev, 677
+solbjerg;morsoe noerre;thisted;Thisted, Solbjerg, 679
+kettrup;vester han;thisted;Thisted, Kettrup, 710
+toemmerby;vester han;thisted;Thisted, Toemmerby, 1654
+blidstrup;morsoe soender;thisted;Thisted, Blidstrup, 1663
+lodbjerg;hassing;thisted;Thisted, Lodbjerg, 644
+stagstrup;hassing;thisted;Thisted, Stagstrup, 647
+soenderhaa;hassing;thisted;Thisted, Soenderhaa, 648
+villerslev;hassing;thisted;Thisted, Villerslev, 649
+visby;hassing;thisted;Thisted, Visby, 650
+oerum;hassing;thisted;Thisted, Oerum, 651
+hundborg;hundborg;thisted;Thisted, Hundborg, 1709
+kallerup;hundborg;thisted;Thisted, Kallerup, 1711
+sjoerring;hundborg;thisted;Thisted, Sjoerring, 1712
+skinnerup;hundborg;thisted;Thisted, Skinnerup, 663
+thisted;hundborg;thisted;Thisted, Thisted, 665
+tilsted;hundborg;thisted;Thisted, Tilsted, 667
+torsted;hundborg;thisted;Thisted, Torsted, 668
+erslev;morsoe noerre;thisted;Thisted, Erslev, 673
+hvidbjerg;morsoe soender;thisted;Thisted, Hvidbjerg, 686
+karby;morsoe soender;thisted;Thisted, Karby, 687
+ljoerslev;morsoe soender;thisted;Thisted, Ljoerslev, 689
+loedderup;morsoe soender;thisted;Thisted, Loedderup, 688
+mollerup;morsoe soender;thisted;Thisted, Mollerup, 690
+rakkeby;morsoe soender;thisted;Thisted, Rakkeby, 693
+redsted;morsoe soender;thisted;Thisted, Redsted, 1664
+taebring;morsoe soender;thisted;Thisted, Taebring, 694
+vejerslev;morsoe soender;thisted;Thisted, Vejerslev, 695
+vester assels;morsoe soender;thisted;Thisted, Vester Assels, 1665
+oester assels;morsoe soender;thisted;Thisted, Oester Assels, 697
+soender draaby;morsoe noerre;thisted;Thisted, Soender Draaby, 681
+vust;vester han;thisted;Thisted, Vust, 1659
+oesloes;vester han;thisted;Thisted, Oesloes, 1660
+jannerup;hundborg;thisted;Thisted, Jannerup, 1710
+vester vandet;hillerslev;thisted;Thisted, Vester Vandet, 659
+NA;morsoe soender;thisted;
+ovtrup;morsoe soender;thisted;Thisted, Ovtrup, 692
+oerding;morsoe soender;thisted;Thisted, Oerding, 696
+roemoe;toender hoejer og loe;toender;Toender, Roemoe, 1485
+skaerbaek;hviding;toender;Toender, Skaerbaek, 1470
+mjolden;toender hoejer og loe;toender;Toender, Mjolden, 1482
+hvidding;hviding;toender;Toender, Hviding, 1466
+hoejrup;hviding;toender;Toender, Hoejrup, 1467
+refsby;hviding;toender;Toender, Rejsby, 1468
+broens;hviding;toender;Toender, Broens, 1465
+emmerlev;toender hoejer og loe;toender;Toender, Emmerlev, 1474
+vodder;hviding;toender;Toender, Vodder, 1472
+arrild;hviding;toender;Toender, Arrild, 1464
+spandet;hviding;toender;Toender, Spandet, 1471
+randerup;toender hoejer og loe;toender;Toender, Randerup, 1484
+visby;toender hoejer og loe;toender;Toender, Visby, 1497
+roager;hviding;toender;Toender, Roager, 1469
+doestrup;toender hoejer og loe;toender;Toender, Doestrup, 1479
+moegeltoender;toender hoejer og loe;toender;Toender, Moegeltoender, 1493
+ballum;toender hoejer og loe;toender;Toender, Ballum, 1477
+daler;toender hoejer og loe;toender;Toender, Daler, 1473
+eltang;brusk;vejle;Vejle, Eltang, 1563
+barrit;bjerre;vejle;Vejle, Barrit, 1175
+bjaert;brusk;vejle;Vejle, Eltang, 1563
+raarup;bjerre;vejle;Vejle, Raarup, 1181
+tyrsted;hatting;vejle;Vejle, Tyrsted, 1208
+korning;hatting;vejle;Vejle, Korning, 1203
+engum;hatting;vejle;Vejle, Engum, 1200
+stenderup;hatting;vejle;Vejle, Stenderup, 1205
+daugaard;hatting;vejle;Vejle, Daugaard, 1199
+store dalby;hatting;vejle;Vejle, Store Dalby, 1206
+sindbjerg;noervang;vejle;Vejle, Sindbjerg, 1236
+egtved;jerlev;vejle;Vejle, Egtved, 1217
+oester nykirke;noervang;vejle;Vejle, Oester Nykirke, 1242
+jelling;toerrild;vejle;Vejle, Jelling, 1247
+uldum;noervang;vejle;Vejle, Uldum, 1238
+as;bjerre;vejle;Vejle, As, 1728
+hjarnoe;bjerre;vejle;Vejle, Hjarnoe, 1177
+hvejsel;noervang;vejle;Vejle, Hvejsel, 1233
+bramdrup;brusk;vejle;Vejle, Kolding, 1648
+skibet;toerrild;vejle;Vejle, Skibet, 1252
+brande;noervang;vejle;Vejle, Brande, 1228
+urlev;bjerre;vejle;Vejle, Urlev, 1209
+vrigsted;bjerre;vejle;Vejle, Vrigsted, 1185
+NA;noervang;vejle;
+oester snede;noervang;vejle;Vejle, Oester Snede, 1243
+oedsted;jerlev;vejle;Vejle, Oedsted, 1220
+gauerslund;holmans;vejle;Vejle, Gauerslund, 1211
+pjedsted;holmans;vejle;Vejle, Pjedsted, 1213
+smidstrup;holmans;vejle;Vejle, Smidstrup, 1215
+vinding;holmans;vejle;Vejle, Vinding, 1216
+skaerup;holmans;vejle;Vejle, Skaerup, 1214
+bredstrup;elbo;vejle;Vejle, Bredstrup, 1193
+erritsoe;elbo;vejle;Vejle, Erritsoe, 1194
+taulov;elbo;vejle;Vejle, Taulov, 1196
+vejlby;elbo;vejle;Vejle, Vejlby, 1198
+trinitatis;elbo;vejle;Vejle, Trinitatis Ls(Ullerup), 1197
+oelsted;hatting;vejle;Vejle, Oelsted, 1210
+loesning;hatting;vejle;Vejle, Loesning, 1204
+bjerre;bjerre;vejle;Vejle, Bjerre, 1176
+glud;bjerre;vejle;Vejle, Glud, 1727
+hornum;bjerre;vejle;Vejle, Hornum, 1178
+stouby;bjerre;vejle;Vejle, Stouby, 1183
+klakring;bjerre;vejle;Vejle, Klakring, 1179
+nebsager;bjerre;vejle;Vejle, Nebsager, 1180
+skjold;bjerre;vejle;Vejle, Skjold, 1182
+uth;bjerre;vejle;Vejle, Uth, 1184
+oerum;bjerre;vejle;Vejle, Oerum, 1186
+almind;brusk;vejle;Vejle, Almind, 1187
+soender vilstrup;brusk;vejle;Vejle, Soender Vilstrup, 1189
+harte;brusk;vejle;Vejle, Harte, 1645
+herslev;brusk;vejle;Vejle, Herslev, 1188
+sankt nicolai;brusk;vejle;Vejle, Kolding, 1648
+oester starup;brusk;vejle;Vejle, Oester Starup, 1192
+vester nebel;brusk;vejle;Vejle, Vester Nebel, 1190
+hatting;hatting;vejle;Vejle, Hatting, 1201
+hedensted;hatting;vejle;Vejle, Hedensted, 1202
+viuf;brusk;vejle;Vejle, Viuf, 1191
+langskov;noervang;vejle;Vejle, Langskov, 1234
+bredsten;toerrild;vejle;Vejle, Bredsten, 1244
+NA;brusk;vejle;
+grejs;noervang;vejle;Vejle, Grejs, 1231
+NA;elbo;vejle;
+torsted;hatting;vejle;Vejle, Torsted, 1207
+gaarslev;holmans;vejle;Vejle, Gaarslev, 1212
+gadbjerg;toerrild;vejle;Vejle, Gadbjerg, 1245
+jerlev;jerlev;vejle;Vejle, Jerlev, 1219
+give;noervang;vejle;Vejle, Give, 1229
+hoejen;jerlev;vejle;Vejle, Hoejen, 1218
+soender omme;noervang;vejle;Vejle, Soender Omme, 1562
+givskud;noervang;vejle;Vejle, Givskud, 1230
+thyregod;noervang;vejle;Vejle, Thyregod, 1237
+vester;noervang;vejle;Vejle, Vester, 1240
+vindelev;noervang;vejle;Vejle, Vindelev, 1241
+hornstrup;noervang;vejle;Vejle, Hornstrup, 1232
+sankt nikolaj;noervang;vejle;Vejle, Vejle, 1239
+noerup;toerrild;vejle;Vejle, Noerup, 1250
+randboel;toerrild;vejle;Vejle, Randboel, 1251
+lindeballe;toerrild;vejle;Vejle, Lindeballe, 1249
+kollerup;toerrild;vejle;Vejle, Kollerup, 1248
+hover;toerrild;vejle;Vejle, Hover, 1246
+ringive;noervang;vejle;Vejle, Ringive, 1235
+hinge;lysgaard;viborg;Viborg, Hinge, 857
+oddense;hindborg;viborg;Viborg, Oddense, 838
+oerslevkloster;fjends;viborg;Viborg, Oerslevkloster, 821
+vium;lysgaard;viborg;Viborg, Vium, 865
+frederiks;lysgaard;viborg;Viborg, Frederiks, 855
+hindborg;hindborg;viborg;Viborg, Hindborg, 836
+thorning;lysgaard;viborg;Viborg, Torning, 1539
+lysgaard;lysgaard;viborg;Viborg, Lysgaard, 862
+vinderslev;lysgaard;viborg;Viborg, Vinderslev, 864
+NA;hindborg;viborg;
+langaa;middelsom;viborg;Viborg, Langaa, 869
+dommerby;fjends;viborg;Viborg, Dommerby, 1704
+lundoe;fjends;viborg;Viborg, Lundoe, 813
+kragelund;hids;viborg;Viborg, Kragelund, 1537
+helstrup;middelsom;viborg;Viborg, Helstrup, 867
+hvidbjerg;hindborg;viborg;Viborg, Hvidbjerg, 837
+haurum;houlbjerg;viborg;Viborg, Haurum, 844
+jebjerg;noerre;viborg;Viborg, Jebjerg, 923
+fly;fjends;viborg;Viborg, Fly, 809
+bigum;noerlyng;viborg;Viborg, Bigum, 881
+dollerup;noerlyng;viborg;Viborg, Dollerup, 882
+finderup;noerlyng;viborg;Viborg, Finderup, 883
+NA;noerlyng;viborg;
+thorsoe;houlbjerg;viborg;Viborg, Thorsoe, 850
+groenbaek;lysgaard;viborg;Viborg, Groenbaek, 856
+aidt;houlbjerg;viborg;Viborg, Aidt, 841
+oerum;soenderlyng;viborg;Viborg, Oerum, 941
+skive;hindborg;viborg;Viborg, Skive, 1634
+elsborg;lysgaard;viborg;Viborg, Elsborg, 854
+resen;hindborg;viborg;Viborg, Resen, 1633
+hvam;rinds;viborg;Viborg, Hvam, 899
+vester tostrup;rinds;viborg;Viborg, Vester Tostrup, 911
+testrup;rinds;viborg;Viborg, Testrup, 907
+gedsted;rinds;viborg;Viborg, Gedsted, 897
+vesterboelle;rinds;viborg;Viborg, Vester Boelle, 910
+ulbjerg;rinds;viborg;Viborg, Ulbjerg, 908
+fjelsoe;rinds;viborg;Viborg, Fjelsoe, 896
+klejtrup;rinds;viborg;Viborg, Klejtrup, 901
+aalum;soenderlyng;viborg;Viborg, Aalum, 943
+tapdrup;noerlyng;viborg;Viborg, Tapdrup, 892
+simested;rinds;viborg;Viborg, Simested, 905
+lynderup;rinds;viborg;Viborg, Lynderup, 902
+hersom;rinds;viborg;Viborg, Hersom, 898
+hvilsom;rinds;viborg;Viborg, Hvilsom, 900
+vester bjerregrav;rinds;viborg;Viborg, Vester Bjerregrav, 909
+roum;rinds;viborg;Viborg, Roum, 904
+laastrup;rinds;viborg;Viborg, Laastrup, 903
+laesten;soenderlyng;viborg;Viborg, Laesten, 932
+romlund;noerlyng;viborg;Viborg, Romlund, 890
+asmild;noerlyng;viborg;Viborg, Asmild, 880
+oesterboelle;rinds;viborg;Viborg, Oester Boelle, 912
+vinkel;middelsom;viborg;Viborg, Vinkel, 878
+viborg;noerlyng;viborg;Viborg, Viborg, 894
+doelby;hindborg;viborg;Viborg, Doelby, 834
+levring;lysgaard;viborg;Viborg, Levring, 861
+funder;hids;viborg;Viborg, Funder, 1538
+vorning;soenderlyng;viborg;Viborg, Vorning, 940
+kvols;fjends;viborg;Viborg, Kvols, 812
+hammershoej;soenderlyng;viborg;Viborg, Hammershoej, 930
+oester velling;middelsom;viborg;Viborg, Oester Velling, 879
+kvorning;soenderlyng;viborg;Viborg, Kvorning, 931
+granslev;houlbjerg;viborg;Viborg, Granslev, 843
+gullev;houlbjerg;viborg;Viborg, Gullev, 1535
+houlbjerg;houlbjerg;viborg;Viborg, Houlbjerg, 845
+hvorslev;houlbjerg;viborg;Viborg, Hvorslev, 846
+sahl;houlbjerg;viborg;Viborg, Sahl, 847
+vejerslev;houlbjerg;viborg;Viborg, Vejerslev, 851
+vellev;houlbjerg;viborg;Viborg, Vellev, 852
+sall;houlbjerg;viborg;Viborg, Sall, 848
+goedvad;hids;viborg;Viborg, Goedvad, 1566
+sejling;hids;viborg;Viborg, Sejling, 829
+serup;hids;viborg;Viborg, Serup, 830
+selde;noerre;viborg;Viborg, Selde, 927
+junget;noerre;viborg;Viborg, Junget, 924
+thorum;noerre;viborg;Viborg, Torum, 929
+aasted;harre;viborg;Viborg, Aasted, 827
+nautrup;harre;viborg;Viborg, Nautrup, 1541
+saeby;harre;viborg;Viborg, Saeby, 1542
+vile;harre;viborg;Viborg, Vile, 1674
+durup;harre;viborg;Viborg, Durup, 823
+fur;harre;viborg;Viborg, Fur, 8
+viskum;soenderlyng;viborg;Viborg, Viskum, 939
+vejrum;soenderlyng;viborg;Viborg, Vejrum, 938
+balle;hids;viborg;Viborg, Balle, 1567
+hem;hindborg;viborg;Viborg, Hem, 835
+lemming;hids;viborg;Viborg, Lemming, 828
+sinding;hids;viborg;Viborg, Sinding, 831
+svostrup;hids;viborg;Viborg, Svostrup, 832
+hoejbjerg;lysgaard;viborg;Viborg, Hoebjerg, 858
+gerning;houlbjerg;viborg;Viborg, Gerning, 842
+skjoed;houlbjerg;viborg;Viborg, Skjoed, 849
+groenning;noerre;viborg;Viborg, Groenning, 922
+balling;roedding;viborg;Viborg, Balling, 913
+torup;middelsom;viborg;Viborg, Torup, 875
+skals;rinds;viborg;Viborg, Skals, 906
+volling;hindborg;viborg;Viborg, Volling, 840
+hoerup;lysgaard;viborg;Viborg, Hoerup, 859
+broendum;hindborg;viborg;Viborg, Broendum, 833
+karup;lysgaard;viborg;Viborg, Karup, 860
+grensten;middelsom;viborg;Viborg, Grensten, 866
+vorde;noerlyng;viborg;Viborg, Vorde, 895
+lyby;noerre;viborg;Viborg, Lyby, 925
+hjorthede;middelsom;viborg;Viborg, Hjorthede, 868
+bjerring;middelsom;viborg;Viborg, Bjerring, 1536
+skjern;middelsom;viborg;Viborg, Skjern, 872
+soender vinge;middelsom;viborg;Viborg, Soender Vinge, 874
+toendering;harre;viborg;Viborg, Toendering, 826
+roslev;harre;viborg;Viborg, Roslev, 825
+hjerk;harre;viborg;Viborg, Hjerk, 824
+harre;harre;viborg;Viborg, Harre, 1673
+grinderslev;noerre;viborg;Viborg, Grinderslev, 921
+rybjerg;noerre;viborg;Viborg, Rybjerg, 926
+thise;noerre;viborg;Viborg, Thise, 928
+almind;lysgaard;viborg;Viborg, Almind, 853
+noerbaek;soenderlyng;viborg;Viborg, Noerbaek, 933
+taanum;soenderlyng;viborg;Viborg, Taanum, 937
+krejbjerg;roedding;viborg;Viborg, Krejbjerg, 915
+roedding;roedding;viborg;Viborg, Roedding, 919
+kobberup;fjends;viborg;Viborg, Kobberup, 1705
+stoholm;fjends;viborg;Viborg, Feldingbjerg, 808
+hoejslev;fjends;viborg;Viborg, Hoejslev, 811
+moensted;fjends;viborg;Viborg, Moensted, 814
+sparkaer;fjends;viborg;Viborg, Noerre Borris, 815
+resen;fjends;viborg;Viborg, Resen, 816
+smollerup;fjends;viborg;Viborg, Smollerup, 817
+taarup;fjends;viborg;Viborg, Taarup, 818
+vridsted;fjends;viborg;Viborg, Vridsted, 819
+vroue;fjends;viborg;Viborg, Vroue, 820
+oerum;fjends;viborg;Viborg, Oerum, 822
+fiskbaek;noerlyng;viborg;Viborg, Fiskbaek, 884
+lindum;noerlyng;viborg;Viborg, Lindum, 886
+loevel;noerlyng;viborg;Viborg, Loevel, 887
+pederstrup;noerlyng;viborg;Viborg, Pederstrup, 888
+ravnstrup;noerlyng;viborg;Viborg, Ravnstrup, 889
+roedding;noerlyng;viborg;Viborg, Roedding, 891
+vammen;noerlyng;viborg;Viborg, Vammen, 893
+lihme;roedding;viborg;Viborg, Lihme, 917
+gammelstrup;fjends;viborg;Viborg, Gammelstrup, 810
+lem;roedding;viborg;Viborg, Lem, 916
+hjermind;middelsom;viborg;Viborg, Hjermind, 1534
+lee;middelsom;viborg;Viborg, Lee, 870
+mammen;middelsom;viborg;Viborg, Mammen, 871
+soender rind;middelsom;viborg;Viborg, Soender Rind, 873
+haasum;roedding;viborg;Viborg, Haasum, 914
+ramsing;roedding;viborg;Viborg, Ramsing, 918
+daugbjerg;fjends;viborg;Viborg, Daugbjerg, 807
+oester bjerregrav;soenderlyng;viborg;Viborg, Oester Bjerregrav, 942
+hornbaek;soenderlyng;viborg;Viborg, Hornbaek, 1573
+soenderbaek;soenderlyng;viborg;Viborg, Soenderbaek, 935
+tjele;soenderlyng;viborg;Viborg, Tjele, 936
+noerre vinge;soenderlyng;viborg;Viborg, Noerre Vinge, 934
+otting;hindborg;viborg;Viborg, Otting, 839
+vejby;roedding;viborg;Viborg, Vejby, 920
+vester velling;middelsom;viborg;Viborg, Vester Velling, 876
+vindum;middelsom;viborg;Viborg, Vindum, 877
+sjoerslev;lysgaard;viborg;Viborg, Sjoerslev, 863
+blaere;aars;aalborg;Aalborg, Blaere, 794
+veggerby;hornum;aalborg;Aalborg, Veggerby, 771
+NA;hornum;aalborg;
+astrup;hindsted;aalborg;Aalborg, Astrup, 752
+sundby;kaer;aalborg;Aalborg, Sundby, 1557
+vadum;kaer;aalborg;Aalborg, Vadum, 780
+fraeer;hellum;aalborg;Aalborg, Fraeer, 740
+skibsted;hellum;aalborg;Aalborg, Skibsted, 746
+oester hassing;kaer;aalborg;Aalborg, Oester Hassing, 7
+als;hindsted;aalborg;Aalborg, Als, 5
+grynderup;gislum;aalborg;Aalborg, Grynderup, 730
+gerding;hellum;aalborg;Aalborg, Gerding, 741
+bislev;hornum;aalborg;Aalborg, Bislev, 761
+aars;aars;aalborg;Aalborg, Aars, 806
+hyllebjerg;aars;aalborg;Aalborg, Hyllebjerg, 801
+naesborg;slet;aalborg;Aalborg, Naesborg, 787
+malle;slet;aalborg;Aalborg, Malle, 786
+hoerby;hindsted;aalborg;Aalborg, Hoerby, 1641
+skoerping;hellum;aalborg;Aalborg, Skoerping, 747
+soenderup;hornum;aalborg;Aalborg, Soenderup, 770
+gislum;gislum;aalborg;Aalborg, Gislum, 729
+oester hornum;hornum;aalborg;Aalborg, Oester Hornum, 773
+suldrup;hornum;aalborg;Aalborg, Suldrup, 767
+aalborg;hornum;aalborg;Aalborg, Frue Ls (Egholm), 1681
+ulsted;kaer;aalborg;Aalborg, Ulsted, 1558
+strandby;gislum;aalborg;Aalborg, Strandby, 735
+soender tranders;fleskum;aalborg;Aalborg, Soender Tranders, 1540
+flejsborg;aars;aalborg;Aalborg, Flejsborg, 797
+rostrup;hindsted;aalborg;Aalborg, Rostrup, 756
+oels;hindsted;aalborg;Aalborg, Oels, 1640
+doestrup;hindsted;aalborg;Aalborg, Doestrup, 753
+havbro;aars;aalborg;Aalborg, Havbro, 799
+noerre tranders;fleskum;aalborg;Aalborg, Noerre Tranders, 1554
+siem;hellum;aalborg;Aalborg, Siem, 745
+soenderholm;hornum;aalborg;Aalborg, Soenderholm, 769
+sebber;slet;aalborg;Aalborg, Sebber, 789
+lundby;slet;aalborg;Aalborg, Lundby, 785
+vive;hindsted;aalborg;Aalborg, Vive, 1545
+farsoe;gislum;aalborg;Aalborg, Farsoe, 727
+solbjerg;hellum;aalborg;Aalborg, Solbjerg, 748
+gundersted;slet;aalborg;Aalborg, Gundersted, 783
+frejlev;hornum;aalborg;Aalborg, Frejlev, 763
+valsgaard;hindsted;aalborg;Aalborg, Valsgaard, 759
+aaby;kaer;aalborg;Aalborg, Aaby, 1684
+salling;slet;aalborg;Aalborg, Skarp-Salling, 790
+store ajstrup;slet;aalborg;Aalborg, Store Ajstrup, 791
+baelum;hellum;aalborg;Aalborg, Baelum, 739
+vebbestrup;hindsted;aalborg;Aalborg, Vebbestrup, 760
+vilsted;slet;aalborg;Aalborg, Vilsted, 792
+farstrup;slet;aalborg;Aalborg, Farstrup, 782
+gunderup;fleskum;aalborg;Aalborg, Gunderup, 715
+vokslev;hornum;aalborg;Aalborg, Vokslev, 772
+noerholm;hornum;aalborg;Aalborg, Noerholm, 766
+oue;hindsted;aalborg;Aalborg, Ove, 754
+bjoernsholm;slet;aalborg;Aalborg, Bjoernsholm, 1632
+lovns;gislum;aalborg;Aalborg, Lovns, 732
+loegsted;slet;aalborg;Aalborg, Loegsted, 1549
+noevling;fleskum;aalborg;Aalborg, Noevling, 719
+gudum;fleskum;aalborg;Aalborg, Gudum, 714
+hvorup;kaer;aalborg;Aalborg, Hvorup, 1555
+alstrup;gislum;aalborg;Aalborg, Alstrup, 724
+vindblaes;slet;aalborg;Aalborg, Vindblaes, 793
+blenstrup;hellum;aalborg;Aalborg, Blenstrup, 738
+svenstrup;hornum;aalborg;Aalborg, Svenstrup, 768
+roerbaek;gislum;aalborg;Aalborg, Roerbaek, 733
+visborg;hindsted;aalborg;Aalborg, Visborg, 1544
+rold;hindsted;aalborg;Aalborg, Rold, 755
+durup;gislum;aalborg;Aalborg, Durup, 726
+kornum;slet;aalborg;Aalborg, Kornum, 784
+mou;fleskum;aalborg;Aalborg, Mou, 718
+lillevorde;fleskum;aalborg;Aalborg, Lillevorde, 717
+sejlflod;fleskum;aalborg;Aalborg, Sejlflod, 721
+storvorde;fleskum;aalborg;Aalborg, Storvorde, 722
+romdrup;fleskum;aalborg;Aalborg, Romdrup, 720
+horsens;kaer;aalborg;Aalborg, Horsens, 778
+torup;hellum;aalborg;Aalborg, Torup, 751
+aarestrup;hornum;aalborg;Aalborg, Aarestrup, 774
+volsted;fleskum;aalborg;Aalborg, Volsted, 723
+ferslev;fleskum;aalborg;Aalborg, Ferslev, 713
+skelund;hindsted;aalborg;Aalborg, Skelund, 757
+NA;fleskum;aalborg;
+aalborg;kaer;aalborg;Aalborg, Sundby, 1557
+stenild;gislum;aalborg;Aalborg, Stenild, 734
+ellidshoej;hornum;aalborg;Aalborg, Ellidshoej, 762
+ulstrup;aars;aalborg;Aalborg, Ulstrup, 804
+buderup;hornum;aalborg;Aalborg, Buderup, 6
+vester hassing;kaer;aalborg;Aalborg, Vester Hassing, 781
+dall;fleskum;aalborg;Aalborg, Dall, 712
+biersted;kaer;aalborg;Aalborg, Biersted, 776
+binderup;gislum;aalborg;Aalborg, Binderup, 725
+gravlev;hornum;aalborg;Aalborg, Gravlev, 764
+hals;kaer;aalborg;Aalborg, Hals, 777
+hammer;kaer;aalborg;Aalborg, Hammer, 1556
+lyngby;hellum;aalborg;Aalborg, Lyngby, 743
+klarup;fleskum;aalborg;Aalborg, Klarup, 716
+oudrup;slet;aalborg;Aalborg, Oudrup, 788
+kongens tisted;gislum;aalborg;Aalborg, Kongens Tisted, 731
+ajstrup;kaer;aalborg;Aalborg, Ajstrup, 775
+ravnkilde;aars;aalborg;Aalborg, Ravnkilde, 802
+skivum;aars;aalborg;Aalborg, Skivum, 803
+vester hornum;aars;aalborg;Aalborg, Vester Hornum, 805
+store arden;hindsted;aalborg;Aalborg, Store Arden, 758
+ullits;gislum;aalborg;Aalborg, Ullits, 736
+fovlum;gislum;aalborg;Aalborg, Fovlum, 728
+giver;aars;aalborg;Aalborg, Giver, 798
+brorstrup;aars;aalborg;Aalborg, Brorstrup, 795
+haverslev;aars;aalborg;Aalborg, Haverslev, 800
+komdrup;hellum;aalborg;Aalborg, Komdrup, 742
+noerre kongerslev;hellum;aalborg;Aalborg, Noerre Kongerslev, 744
+store broendum;hellum;aalborg;Aalborg, Store Broendum, 749
+soender kongerslev;hellum;aalborg;Aalborg, Soender Kongerslev, 750
+ejdrup;aars;aalborg;Aalborg, Ejdrup, 796
+sulsted;kaer;aalborg;Aalborg, Sulsted, 779
+vognsild;gislum;aalborg;Aalborg, Vognsild, 737
+haldum;sabro;aarhus;Aarhus, Haldum, 1098
+NA;hasle;aarhus;
+gylling;hads;aarhus;Aarhus, Gylling, 1068
+viby;ning;aarhus;Aarhus, Viby, 1570
+odder;hads;aarhus;Aarhus, Odder, 1073
+saksild;hads;aarhus;Aarhus, Saksild, 1075
+vitten;sabro;aarhus;Aarhus, Vitten, 1102
+galten;framlev;aarhus;Aarhus, Galten (Soender), 1063
+trige;vester lisbjerg;aarhus;Aarhus, Trige, 1109
+vejlby;hasle;aarhus;Aarhus, Vejlby, 1568
+hundslund;hads;aarhus;Aarhus, Hundslund, 1070
+tiset;ning;aarhus;Aarhus, Tiset, 1091
+spoerring;vester lisbjerg;aarhus;Aarhus, Spoerring, 1107
+maarslet;ning;aarhus;Aarhus, Maarslet, 1572
+skjoerring;framlev;aarhus;Aarhus, Skoerring, 1060
+sjelle;framlev;aarhus;Aarhus, Sjelle, 1057
+ormslev;ning;aarhus;Aarhus, Ormslev, 1090
+skovby;framlev;aarhus;Aarhus, Skovby, 1059
+kolt;ning;aarhus;Aarhus, Kolt, 1088
+storring;framlev;aarhus;Aarhus, Storring, 1062
+framlev;framlev;aarhus;Aarhus, Framlev, 1055
+astrup;ning;aarhus;Aarhus, Astrup, 1086
+foldby;sabro;aarhus;Aarhus, Folby, 1095
+malling;ning;aarhus;Aarhus, Malling, 1089
+borum;framlev;aarhus;Aarhus, Borum, 1054
+skivholme;framlev;aarhus;Aarhus, Skivholme, 1058
+tulstrup;ning;aarhus;Aarhus, Tulstrup, 1093
+brabrand;hasle;aarhus;Aarhus, Brabrand, 1078
+bjerager;hads;aarhus;Aarhus, Bjerager, 1065
+lyngaa;sabro;aarhus;Aarhus, Lyngaa, 1100
+aaby;hasle;aarhus;Aarhus, Aaby, 1085
+sabro;sabro;aarhus;Aarhus, Sabro, 1101
+randlev;hads;aarhus;Aarhus, Randlev, 1074
+torrild;hads;aarhus;Aarhus, Torrild, 1076
+lading;sabro;aarhus;Aarhus, Lading, 1099
+harlev;framlev;aarhus;Aarhus, Harlev, 1056
+soender aarslev;hasle;aarhus;Aarhus, Soender Aarslev, 1083
+grundfoer;vester lisbjerg;aarhus;Aarhus, Grundfoer, 1105
+alroe;hads;aarhus;Aarhus, Alroe, 1064
+falling;hads;aarhus;Aarhus, Falling, 1066
+lisbjerg;vester lisbjerg;aarhus;Aarhus, Lisbjerg, 1106
+tilst;hasle;aarhus;Aarhus, Tilst, 1084
+faarup;sabro;aarhus;Aarhus, Faarup, 1096
+tranbjerg;ning;aarhus;Aarhus, Tranbjerg, 1092
+holme;ning;aarhus;Aarhus, Holme, 1571
+tunoe;ning;aarhus;Aarhus, Tunoe, 1094
+hvilsted;hads;aarhus;Aarhus, Hvilsted, 1071
+beder;ning;aarhus;Aarhus, Beder, 1087
+halling;hads;aarhus;Aarhus, Halling, 1069
+over- og neder- hadsten;sabro;aarhus;Aarhus, Hadsten, 1097
+hasle;hasle;aarhus;Aarhus, Hasle, 1079
+kasted;hasle;aarhus;Aarhus, Kasted, 1080
+skejby;hasle;aarhus;Aarhus, Skejby, 1082
+elev;vester lisbjerg;aarhus;Aarhus, Elev, 1103
+elsted;vester lisbjerg;aarhus;Aarhus, Elsted, 1104
+soeften;vester lisbjerg;aarhus;Aarhus, Soeften, 1108
+noelev;hads;aarhus;Aarhus, Noelev, 1072
+gosmer;hads;aarhus;Aarhus, Gosmer, 1067
+lyngby;hasle;aarhus;Aarhus, Lyngby, 1081
+oerting;hads;aarhus;Aarhus, Oerting, 1077
+oelsted;vester lisbjerg;aarhus;Aarhus, Oelsted, 1110
+stjaer;framlev;aarhus;Aarhus, Stjaer, 1061
+christiansoe;soender;bornholm;Bornholm, Christiansoe, 345
+nustrup;gram;haderslev;Haderslev, Nustrup, 1437
+agerskov;noerre rangstrup;haderslev;Haderslev, Agerskov, 1453
+bevtoft;noerre rangstrup;haderslev;Haderslev, Bevtoft, 1454
+branderup;noerre rangstrup;haderslev;Haderslev, Branderup, 1455
+tirslund;noerre rangstrup;haderslev;Haderslev, Tislund, 1456
+oester lindet;froes;haderslev;Haderslev, Oester Lindet, 1431
+skrydstrup;gram;haderslev;Haderslev, Skrydstrup, 1439
+aaby;hvetbo;hjoerring;
+sankt mortens;tybjerg;praestoe;
+sankt peders;tybjerg;praestoe;Praestoe, Naestved, 1624
+sankt peders;slagelse;soroe;Soroe, Slagelse, 216
+skelskoer;vester flakkebjerg;soroe;Soroe, Skaelskoer, 232
+svendborg;sunds;svendborg;Svendborg, Svendborg, 541
+hjerpsted;toender hoejer og loe;toender;Toender, Hjerpsted, 1475
+abild;toender hoejer og loe;toender;Toender, Abild, 1492
+NA;toender hoejer og loe;toender;
+skodborg;froes;haderslev;Haderslev, Skodborg, 1428
+frederikshavn;horns;hjoerring;Hjoerring, Frederikshavn, 1602
+sankt mortens;stoevring;randers;Randers, Randers Sanct Mortens (af), 1643
+ringkoebing;hind;ringkoebing;Ringkoebing, Ringkoebing, 1286
+hoejrup;toender hoejer og loe;toender;Toender, Hoejrup, 1467
+NA;NA;NA;
+frederiks;fjends;viborg;Viborg, Frederiks, 855
+NA;kaer;aalborg;
+grarup;haderslev;haderslev;Haderslev, Grarup, 1444
+moltrup;haderslev;haderslev;Haderslev, Moltrup, 1447
+starup;haderslev;haderslev;Haderslev, Soender Starup, 1448
+vonsbaek;haderslev;haderslev;Haderslev, Vonsbaek, 1450
+tranbjerg;samsoe;holbaek;Holbaek, Tranebjerg, 153
+marstal;aeroe;svendborg;Svendborg, Marstal, 560
+hoejer;toender hoejer og loe;toender;Toender, Hoejer, 1677
+brede;toender hoejer og loe;toender;Toender, Brede, 1478
+soender skast;toender hoejer og loe;toender;Toender, Soender Skast, 1476
+hejls;noerre tyrstrup;vejle;Vejle, Hejls, 1222
+oedis;noerre tyrstrup;vejle;Vejle, Oedis, 1227
+stenderup;noerre tyrstrup;vejle;Vejle, Stenderup, 1205
+vejstrup;noerre tyrstrup;vejle;Vejle, Vejstrup, 1226
+vonsild;noerre tyrstrup;vejle;Vejle, Vonsild, 1646
+ensted;lundtoft;aabenraa;Aabenraa, Ensted, 1499
+bedsted;soender rangstrup;aabenraa;Aabenraa, Bedsted, 1512
+NA;haderslev;haderslev;
+jels;gram;haderslev;Haderslev, Jels, 1435
+hjerndrup;soender tyrstrup;haderslev;Haderslev, Hjerndrup, 1462
+jegerup;gram;haderslev;Haderslev, Jegerup, 1434
+fjelstrup;soender tyrstrup;haderslev;Haderslev, Fjelstrup, 1460
+gammel haderslev;haderslev;haderslev;Haderslev, Gammel Haderslev Ls, 1443
+aastrup;haderslev;haderslev;Haderslev, Aastrup, 1452
+oksenvad;gram;haderslev;Haderslev, Oksenvad, 1438
+sommersted;gram;haderslev;Haderslev, Sommersted, 1440
+hammelev;gram;haderslev;Haderslev, Hammelev, 1433
+tyrstrup;soender tyrstrup;haderslev;Haderslev, Tyrstrup, 1650
+froerup;soender tyrstrup;haderslev;Haderslev, Froerup, 1461
+sottrup;soender tyrstrup;haderslev;
+maugstrup;gram;haderslev;Haderslev, Magstrup, 1436
+bjerning;soender tyrstrup;haderslev;Haderslev, Bjerning, 1459
+hoptrup;haderslev;haderslev;Haderslev, Hoptrup, 1446
+aller;soender tyrstrup;haderslev;Haderslev, Aller, 1458
+broager;nyboel;soenderborg;Soenderborg, Broager, 1526
+asserballe;als soender;soenderborg;Soenderborg, Asserballe, 1518
+sottrup;nyboel;soenderborg;Soenderborg, Sottrup, 1529
+ulkeboel;als soender;soenderborg;Soenderborg, Ulkeboel, 1525
+augustenborg;als soender;soenderborg;Soenderborg, Augustenborg, 1844
+ullerup;nyboel;soenderborg;Soenderborg, Ullerup, 1530
+egen;als noerre;soenderborg;Soenderborg, Egen, 1733
+ketting;als soender;soenderborg;Soenderborg, Ketting, 1521
+notmark;als soender;soenderborg;Soenderborg, Notmark, 1734
+hoerup;als soender;soenderborg;Soenderborg, Hoerup, 1519
+tandslet;als soender;soenderborg;Soenderborg, Tandslet, 1524
+nyboel;nyboel;soenderborg;Soenderborg, Nyboel, 1528
+nordborg;als noerre;soenderborg;Soenderborg, Nordborg, 1516
+svenstrup;als noerre;soenderborg;Soenderborg, Svenstrup, 1517
+kegnaes;als soender;soenderborg;Soenderborg, Kegnaes, 1520
+havnbjerg;als noerre;soenderborg;Soenderborg, Havnbjerg, 1724
+NA;als soender;soenderborg;
+dybboel;nyboel;soenderborg;Soenderborg, Dybboel, 1527
+oksboel;als noerre;soenderborg;Soenderborg, Oksboel, 1725
+lysabild;als soender;soenderborg;Soenderborg, Lysabild, 1522
+bregninge;aeroe;svendborg;Svendborg, Bregninge, 1722
+rise;aeroe;svendborg;Svendborg, Rise, 1843
+soeby;aeroe;svendborg;Svendborg, Soeby, 1723
+tranderup;aeroe;svendborg;Svendborg, Tranderup, 1842
+NA;aeroe;svendborg;
+noerre loegum;toender hoejer og loe;toender;Toender, Noerre Loegum, 1483
+tinglev;slogs;toender;Toender, Tinglev, 1491
+ubjerg;toender hoejer og loe;toender;Toender, Ubjerg, 1496
+loegumkloster;toender hoejer og loe;toender;Toender, Loegumkloster, 1480
+ravsted;slogs;toender;Toender, Ravsted, 1490
+bylderup;slogs;toender;Toender, Bylderup, 1487
+toender;toender hoejer og loe;toender;Toender, Toender, 1494
+hoejst;slogs;toender;Toender, Hoejst, 1489
+hostrup;slogs;toender;Toender, Hostrup, 1488
+burkal;slogs;toender;Toender, Burkal, 1486
+taps;noerre tyrstrup;vejle;Vejle, Taps, 1225
+bjaert;noerre tyrstrup;vejle;Vejle, Soender Bjert, 1223
+dalby;noerre tyrstrup;vejle;Vejle, Dalby, 1221
+uge;lundtoft;aabenraa;Aabenraa, Uge, 1505
+bjolderup;rise;aabenraa;Aabenraa, Bjolderup, 1507
+egvad;soender rangstrup;aabenraa;Aabenraa, Egvad, 1513
+aabenraa;rise;aabenraa;Aabenraa, Aabenraa, 1511
+hjordkaer;rise;aabenraa;Aabenraa, Hjordkaer, 1508
+rinkenaes;lundtoft;aabenraa;Aabenraa, Rinkenaes, 1504
+kvaers;lundtoft;aabenraa;Aabenraa, Kvaers, 1503
+NA;rise;aabenraa;
+rise;rise;aabenraa;Aabenraa, Rise, 1510
+graasten-adsboel;lundtoft;aabenraa;Aabenraa, Adsboel, 1649
+holboel;lundtoft;aabenraa;Aabenraa, Holboel, 1501
+bov;lundtoft;aabenraa;Aabenraa, Bov, 1498
+hellevad;soender rangstrup;aabenraa;Aabenraa, Hellevad, 1514
+oester loegum;soender rangstrup;aabenraa;Aabenraa, Oester Loegum, 1515
+felsted;lundtoft;aabenraa;Aabenraa, Felsted, 1500
+varnaes;lundtoft;aabenraa;Aabenraa, Varnaes, 1506
+kliplev;lundtoft;aabenraa;Aabenraa, Kliplev, 1502
+loejt;rise;aabenraa;Aabenraa, Loejt, 1509
+allinge-sandvig;noerre;bornholm;Bornholm, Allinge-Sandvig koebstad, 1583
+saeby;dronninglund;hjoerring;Hjoerring, Saeby, 588
+assens;baag;odense;Odense, Assens, 418
+vedsted;gram;haderslev;Haderslev, Vedsted, 1441
+halk;haderslev;haderslev;Haderslev, Halk, 1732
+vilstrup;haderslev;haderslev;Haderslev, Vilstrup, 1449
+oesby;haderslev;haderslev;Haderslev, Oesby, 1451
+NA;stroe;frederiksborg;
+obbekaer;ribe;ribe;Ribe, Obbekaer, 1379
+roskilde dom;soemme;roskilde;Koebenhavn, Roskilde, 1619
+hasle;noerre;bornholm;Bornholm, Hasle, 330
+NA;vordingborg koebstad;praestoe;
+koege;bjaeverskov;praestoe;
+NA;skast;ribe;
+NA;ulfborg;ringkoebing;
+NA;gjern;skanderborg;
+hov;langelands noerre;svendborg;Svendborg, Snoede, 1590
+NA;toerrild;vejle;
+engesvang;hids;viborg;Viborg, Funder, 1538
+Lemvig koebstad;skodborg;ringkoebing;Ringkoebing, Lemvig, A114160
+NA;slet;aalborg;
