@@ -1,6 +1,7 @@
 # Matching GIS_ID based on soil types
-# Date updated:   2023-04-29
-# Auhtor:         Christian Vedel 
+# Date updated:   2024-06-16
+# Author:         Christian Vedel 
+# Purpose:        Run matching on soil type
 #
 # Output:         'Matched_GIS_ID.csv'
 
