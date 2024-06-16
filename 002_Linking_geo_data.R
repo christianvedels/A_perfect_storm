@@ -2,7 +2,7 @@
 #
 # Date updated:   2024-06-15
 # Auhtor:         Christian Vedel 
-# Purpose:        Geo data cleaning
+# Purpose:        Link census data with parishes
 #
 # Output:         'merged_data' enriched with GIS_ID to join on shape file of parishes. 
 
