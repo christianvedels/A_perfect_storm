@@ -1,11 +1,8 @@
-# Replication files for "A perfect storm and the natural endowments of infrastructure"
+# Replication files for "A Perfect Storm: First-Nature Geography and Economic Development"
 
-This is the repository of the paper 'A perfect storm and the natural endowments of trade-enabling infrastructure'. The repository was created as I refactored all the code of the project to tie it up for a version to include in my thesis. Slides can be found here ([20 min.](https://raw.githack.com/christianvedels/A_perfect_storm_replication/main/Slides/20min/20min.html#1); [10 min.](https://raw.githack.com/christianvedels/A_perfect_storm_replication/main/Slides/10min/10min.html#1)). A short version of the paper is enclosed in this repository as 'Paper_short_version.pdf'. This specific version of the paper won the [EHS's New Researcher Prize](https://ehs.org.uk/society/grants-prizes/new-researcher-paper-prize-winners/) in the spring of 2023.
+This is the repository of the paper 'A Perfect Storm: First-Nature Geography and Economic Development'. Slides can be found here ([20 min.](https://raw.githack.com/christianvedels/A_perfect_storm_replication/main/Slides/20min/20min.html#1); [10 min.](https://raw.githack.com/christianvedels/A_perfect_storm_replication/main/Slides/10min/10min.html#1)). A short version of the paper is enclosed in this repository as 'Paper_short_version.pdf'. This specific version of the paper won the [EHS's New Researcher Prize](https://ehs.org.uk/society/grants-prizes/new-researcher-paper-prize-winners/) in the spring of 2023.
 
-
-
-
-The scripts in this repository are numbered to indicate the order in which to run them. Some of the data cannot be shared in this repository either because I am not authorized to redistribute it, or because it is too large. However, I have included all the necessary information to download or obtain the data below. All scripts from "008\_..." onwards require only data that is included in the repository.
+The scripts in this repository are numbered to indicate the order in which to run them. Some of the data cannot be shared in this repository either because I am not authorized to redistribute it, or because it is too large. However, I have included all the necessary information to download or obtain the data below. All scripts from "101\_..." onwards require only data that is included in the repository.
 
 The numbering of the scripts indicate running order. The first digit indicate level of analysis. Everything starting with 0, e.g. 002_Linking_geo_data.R processes raw data. Everything starting with the digit 1 are scripts intended to output data which is used in the analysis. Scripts starting with 2 outputs results which are found in the paper or appendix.
 
@@ -25,11 +22,6 @@ This contains demographic data at the parish level. The data contains the follow
 | GIS_ID                | Unique identifier for each parish, which links to the shape data                                         |
 | Pop                   | Population in parish                                                                                     |
 | Age\_[x]\_[y]         | People in age group x \<= age \<= y                                                                      |
-| Fishing               | Fishermen in parish                                                                                      |
-| Manufacturing         | People working in manufacturing                                                                          |
-| Farming               | Farmers and farm workers in the parish                                                                   |
-| Building              | Building workers in the parish                                                                           |
-| Merchants             | Merchants in the parish                                                                                  |
 | Born_different_county | Number of people born in a different county                                                              |
 | hisco_1st_digit[x]    | Number of people with first digit of their HISCO code [x]. See <https://historyofwork.iisg.nl/major.php> |
 | hisco_2nd_digit[x]    | Number of people with the two first digits of their HISCO code [x]. See <https://historyofwork.iisg.nl/major.php> |
@@ -285,6 +277,37 @@ The archaehological data used, can be downloaded from the website of the Danish 
 ### G. Soil types shape
 
 This contains the soil types of modern day Denmark, which was largely determined in the last ice age. See Pedersen et al (2019). It can be downloaded from: <https://www.geus.dk/produkter-ydelser-og-faciliteter/data-og-kort/danske-kort/download-jordartskort>
+
+## Scripts
+Here follows a short description of each script and its functionality:
+
+| Name                              | Description                                                               |
+|-----------------------------------|---------------------------------------------------------------------------|
+| `000_Functions.R`                 | Functions used in the rest of the project.                                |
+| `001_Read_census_data.R`          | This script reads csv-files containing census data and merges them.       |
+| `002_Linking_geo_data.R`          | Link census data with parishes.                                           |
+| `003_Occupations_data.R`          | Join on data on HISCO codes and categories.                               |
+| `004_Aggregate_demographic_data.R`| Aggregate data to parish level.                                           |
+| `005_Limfjord_regions.R`          | Defining Limfjord regions.                                                |
+| `006_Sound_toll_data.R`           | Extracting relevant Sound Toll data.                                      |
+| `007_Archaeological_data_clean.R` | Cleaning archaeological data.                                             |
+| `008_Market_access.R`             | Calculate change in Market Access.                                        |
+| `x009_Archaeological_monte_carlo.R`| Estimating the location of economic activity with archaeological findings.|
+| `010_Distance_to_market_towns.R`  | Computes distances to market towns for each parish.                       |
+| `011_Parish_soil.R`               | Find the soil type of each parish.                                        |
+| `x101_Constructing_arch_reg_data.R`| Construction of regression data for archaeological findings.              |
+| `102_Matching_soil_types.R`       | Run matching on soil type.                                                |
+| `103_Constructing_pop_reg.R`      | Constructs the population regression data used in the analysis.           |
+| `201_Main_map.R`                  | Construct the map showing the event (figure 1).                           |
+| `202_Sound_toll_results.R`        | Produces plots and regressions for trade.                                 |
+| `203_Pop_results.R`               | Produces plots and regressions for population results.                    |
+| `x204_Archaeological_results.R`    | Produces plots and regressions for archaeological results.                |
+| `205_Pop_mechanism.R`             | Mechanisms results.                                                       |
+
+
+
+
+
 
 ## References
 
