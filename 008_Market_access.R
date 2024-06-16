@@ -1,7 +1,7 @@
 # Market access
 # Date updated:   2024-06-16
 # Author:         Christian Vedel 
-# Purpse:         Calculcate change in Market Access
+# Purpse:         Calculate change in Market Access
 #
 # Output:         Geo.csv containing GIS ID and market access improvements by
 #                 the channel
