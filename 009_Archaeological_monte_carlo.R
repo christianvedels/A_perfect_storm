@@ -1,6 +1,7 @@
 # Archaeological Monte Carlo
-# Date updated:   2023-04-21
-# Auhtor:         Christian Vedel 
+# Date updated:   2024-06-16
+# Author:         Christian Vedel 
+#                 Estimating the location of economic activity with archaeological findings
 #
 # Output:         'Arch_panel.csv' containing archaeological observations 
 
