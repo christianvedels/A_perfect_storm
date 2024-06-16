@@ -20,7 +20,7 @@ reg_pop = reg_pop %>%
     Year = relevel(factor(Year), ref = "1801")
   )
 
-# ==== Manu + Fishin ====
+# ==== Manu + Fishing ====
 reg_pop = reg_pop %>% 
   mutate(
     manu = hisco_1st_digit7 + hisco_1st_digit8 + hisco_1st_digit9
