@@ -858,6 +858,49 @@ for(aff in c("Dummy", "MA")){
   }
 }
 
+# ==== Fishing ====
+fish = feols(
+  log(Fishing + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% 
+    mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+)
+
+fish = feols(
+  log(Fishing + 1) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  fish, "fish_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
+)
+
+
+# ==== Spinning ====
+mod1 = feols(
+  log(hisco_2nd_digit75 + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% 
+    mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  mod1, "spinning_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34",
+)
+
+spinning = feols(
+  log(hisco_2nd_digit75 + 1) ~ Year*Affected,
+  data = reg_pop %>% 
+    mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+plot_mod(
+  spinning, "spinning_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
+)
+
 # ==== Simple fertility and migration ====
 migr = feols(
   Share ~ Year*Affected,
