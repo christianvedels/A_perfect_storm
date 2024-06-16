@@ -1,9 +1,8 @@
 # Pop mechanism
-# Date updated:   2023-06-12
+# Date updated:   2024-06-16
 # Auhtor:         Christian Vedel 
 #
-# Purpose:        Construct the map showing the event        
-# Output:     
+# Purpose:        Mechanism results
 
 # ==== Libraries ====
 library(tidyverse)
@@ -15,6 +14,15 @@ source("000_Functions.R")
 
 # ==== Load data ====
 reg_pop = read_csv2("Data/Pop_reg.csv", guess_max = 2000)
+
+# ==== Manu + Fishing ====
+reg_pop = reg_pop %>% 
+  mutate(
+    manu = hisco_1st_digit7 + hisco_1st_digit8 + hisco_1st_digit9
+  ) %>% 
+  mutate(
+    Fishing = hisco_2nd_digit64
+  )
 
 # ==== Factors ====
 reg_pop = reg_pop %>% 
