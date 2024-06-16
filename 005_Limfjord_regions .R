@@ -1,6 +1,7 @@
 # Limfjord regions 
-# Date updated:   2023-04-21
+# Date updated:   2023-06-16
 # Auhtor:         Christian Vedel 
+# Purpose:        Defining Limfjord regions
 #
 # Output:         Geo.csv containing GIS ID and their Limfjord regions
 
@@ -85,6 +86,7 @@ p1 = ggplot() +
     aes(fill = distance_oce)
   ) +
   ggtitle("Distance to the ocean")
+p1
 
 p2 = ggplot() + 
   layer_spatial(
@@ -92,6 +94,7 @@ p2 = ggplot() +
     aes(fill = log(distance_lim))
   ) +
   ggtitle("Distance to the Limfjord")
+p2
 
 p3 = ggplot() + 
   layer_spatial(
@@ -99,6 +102,7 @@ p3 = ggplot() +
     aes(fill = limfjord_closest)
   ) +
   ggtitle("Limfjord closest")
+p3
 
 # Missing. Looked up on https://digdag.dk/
 # - Harbooer
@@ -141,6 +145,7 @@ p1 = ggplot() +
     aes(fill = dist_east_west>0)
   ) + 
   ggtitle("Distance East West")
+p1
 
 p1 = ggplot() + 
   layer_spatial(
@@ -148,6 +153,7 @@ p1 = ggplot() +
     aes(fill = dist_east_west)
   ) + 
   ggtitle("Distance East West")
+p1
 
 # Regions
 buffer = 20 # Middle zone size in km
@@ -174,7 +180,7 @@ p1 = ggplot() +
     aes(fill = limfjord_placement)
   ) + 
   ggtitle("limfjord_placement")
-
+p1
 
 geo_data = shape_parish@data
 
