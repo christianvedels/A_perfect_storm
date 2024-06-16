@@ -1,9 +1,9 @@
-# Construction of regression population data
-# Date updated:   2023-04-22
-# Auhtor:         Christian Vedel 
+# Regression archaeological data
+# Date updated:   2024-06-16
+# Author:         Christian Vedel 
+# Purpose:        Construction of regression data for archaeological findings. 
 #
-# Purpose:        
-# Output:         'Reg_pop.csv'
+# Output:         'Reg_arch_coins.csv'
 
 
 # ==== Library ====
