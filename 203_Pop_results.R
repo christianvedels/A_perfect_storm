@@ -1,9 +1,7 @@
 # Pop results
-# Date updated:   2023-06-12
-# Auhtor:         Christian Vedel 
-#
-# Purpose:        Construct the map showing the event        
-# Output:     
+# Date updated:   2024-06-16
+# Author:         Christian Vedel 
+# Purpose:        Produces plots and regressions for population results.       
 
 # ==== Libraries ====
 library(tidyverse)
@@ -22,10 +20,13 @@ reg_pop = reg_pop %>%
     Year = relevel(factor(Year), ref = "1801")
   )
 
-# ==== Manu ====
+# ==== Manu + Fishin ====
 reg_pop = reg_pop %>% 
   mutate(
     manu = hisco_1st_digit7 + hisco_1st_digit8 + hisco_1st_digit9
+  ) %>% 
+  mutate(
+    Fishing = hisco_2nd_digit64
   )
 
 # ==== Summary table ====
