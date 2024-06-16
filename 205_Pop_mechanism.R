@@ -22,7 +22,6 @@ reg_pop = reg_pop %>%
     Year = relevel(factor(Year), ref = "1801")
   )
 
-
 # ==== Effect of channel on occupational structure ====
 
 # Occupation
@@ -484,7 +483,7 @@ tmp = reg_pop %>%
 
 effects_6_to_9 = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combine = "bind_rows") %do% {
   reg_pop$occ_j = tmp[,j]
-  if(var(reg_pop$occ_j) == 0){
+  if(var(reg_pop$occ_j, na.rm = TRUE) == 0){
     return(NA)
   }
   
@@ -858,62 +857,6 @@ for(aff in c("Dummy", "MA")){
     ggsave(paste0("Plots/Mechanism/Detailed6789/", aff, "_", substr(app, 4, 6), ".png"), plot = p1, width = 2*10, height = 2*8, units = "cm")
   }
 }
-
-  
-
-# ==== Fishing ====
-fish = feols(
-  log(Fishing + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
-  data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  fish, "fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
-)
-
-fish = feols(
-  log(Fishing + 1) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  fish, "fish_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
-)
-
-
-# ==== Spinning ====
-mod1 = feols(
-  log(hisco_2nd_digit75 + 1) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
-  data = reg_pop %>% 
-    mutate(Affected = limfjord_placement_west),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  mod1, "spinning_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34",
-)
-
-spinning = feols(
-  log(hisco_2nd_digit75 + 1) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  spinning, "spinning_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
-)
-
-
-ropemakers = feols(
-  log(hisco_3rd_digit757 + 1) ~ Year*Affected,
-  data = reg_pop %>% 
-    mutate(Affected = delta_lMA_theta_1_alpha_10),
-  cluster = ~ GIS_ID
-)
-plot_mod(
-  ropemakers, "ropemakers_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
-)
 
 # ==== Simple fertility and migration ====
 migr = feols(
