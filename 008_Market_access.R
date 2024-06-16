@@ -1,6 +1,7 @@
 # Market access
-# Date updated:   2023-04-20
-# Auhtor:         Christian Vedel 
+# Date updated:   2024-06-16
+# Author:         Christian Vedel 
+# Purpse:         Calculcate change in Market Access
 #
 # Output:         Geo.csv containing GIS ID and market access improvements by
 #                 the channel
@@ -168,6 +169,7 @@ parish_spdf = SpatialPointsDataFrame(
 )
 
 # Cleaning market town data
+market_towns = read_csv2("Data/Market_towns.csv")
 market_towns = market_towns %>% 
   rowwise() %>%  
   mutate(
@@ -306,7 +308,7 @@ market_towns_spdf@data = market_towns_spdf@data %>%
 # plot(water_dk)
 # 
 # # Transform to same proj4string
-# water_dk = spTransform(water_dk, "+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs")  
+# water_dk = spTransform(water_dk, "+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs")
 # 
 # the_bbox = bbox(water_dk)
 # 
@@ -346,7 +348,7 @@ market_towns_spdf@data = market_towns_spdf@data %>%
 # the_gridDK@data = the_gridDK@data %>%
 #   mutate(land = land)
 # 
-# the_gridDK@data = the_gridDK@data %>% 
+# the_gridDK@data = the_gridDK@data %>%
 #   mutate(land = ifelse(long < 4109843, "water", land))
 # 
 # the_gridDK@data %>%
