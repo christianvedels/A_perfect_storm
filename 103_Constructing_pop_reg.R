@@ -1,8 +1,8 @@
 # Pop reg data
-# Date updated:   2023-06-12
+# Date updated:   2024-06-16
 # Auhtor:         Christian Vedel 
 #
-# Purpose:        Constructs the regression data used in the analysis        
+# Purpose:        Constructs the population regression data used in the analysis        
 # Output:         Pop_reg.csv
 
 # ==== Libraries ====
@@ -73,3 +73,4 @@ reg_pop = reg_pop %>%
 
 # ==== Save data ====
 write_csv2(reg_pop, "Data/Pop_reg.csv")
+
