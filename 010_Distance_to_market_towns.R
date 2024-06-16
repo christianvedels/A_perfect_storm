@@ -1,9 +1,9 @@
 # Distance to market town
-# Date updated:   2023-04-228
-# Auhtor:         Christian Vedel 
+# Date updated:   2024-06-16
+# Author:         Christian Vedel 
+# Purpose:        Computes distances to market towns for each parish
 #
-# Output:         Geo.csv
-#                 Computes distances to market towns for each parish
+# Output:         Distance_to_market_town.csv
 
 # ==== Libraries ====
 library(tidyverse)
