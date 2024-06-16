@@ -183,9 +183,6 @@ arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
   res_i = monteCarlo(Finding_types = finding_types_i, capB = capB)
 
   res_is = foreach(j = finding_types_i) %do% {
-    suppressWarnings({
-      j0 = assertive.strings:::strip_non_alphanumeric(j)
-    })
     cat(
       "--->", as.character(Sys.time()), j, 
       "                                                      \r"
@@ -218,9 +215,6 @@ arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
   res_i = monteCarlo_norm(Finding_types = finding_types_i, capB = capB)
   
   res_is = foreach(j = finding_types_i) %do% {
-    suppressWarnings({
-      j0 = assertive.strings:::strip_non_alphanumeric(j)
-    })
     cat(
       "--->", as.character(Sys.time()), j, 
       "                                                      \r"
