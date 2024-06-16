@@ -1,6 +1,7 @@
 # Archaeological data
 # Date updated:   2024-06-16
 # Author:         Christian Vedel 
+# Purpose:        Cleaning archaeological data
 #
 # Output:         'Arch.csv' containing archaeological observations 
 
