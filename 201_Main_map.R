@@ -1,8 +1,8 @@
 # Main map
-# Date updated:   2023-04-22
+# Date updated:   2024-06-16
 # Auhtor:         Christian Vedel 
+# Purpose:        Construct the map showing the event    
 #
-# Purpose:        Construct the map showing the event        
 # Output:         'Map.png' and 'Map_nobg.png'
 
 # ==== Libraries ====
