@@ -1,21 +1,9 @@
 # Soil types of parishes
-# Date updated:   2023-04-29
-# Auhtor:         Christian Vedel 
+# Date updated:   2024-06-16
+# Author:         Christian Vedel 
+# Purpose:        Find the soil type of each parish
 #
 # Output:         'Parish_soil.csv'
-
-# This script is based on the following prompt to chatGPT:
-# "I have two shape files:
-#   shape_parishes
-# shape_soil
-# 
-# Shape parishes contains the borders of parishes. Shape soil contain patches of different soil types.
-# I want to use an R script to check the how much of each soil type is in each parish. "
-
-
-# I repeatedly fed the error and used its response until the present script was generated
-# this was then adapted slightly.
-
 
 # ==== Libraries ====
 library(tidyverse)
@@ -25,7 +13,6 @@ library(ggspatial)
 # ==== Read in shapefiles ====
 shape_parishes = st_read("Data/sogne_shape", check_ring_dir = TRUE)
 shape_soil = st_read("Data/Jordart_200000_Shape/jordart_200000.shp", check_ring_dir = TRUE)
-
 
 # ==== Find area of each soil type in each parish ====
 # Confirm that the CRS (coordinate reference system) is the same for both shapefiles
