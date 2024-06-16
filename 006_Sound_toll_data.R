@@ -1,6 +1,7 @@
 # Sound toll
-# Date updated:   2023-04-20
-# Auhtor:         Christian Vedel 
+# Date updated:   2024-06-16
+# Author:         Christian Vedel 
+# Purpose:        Extracting relevant Sound Toll data
 #
 # Output:         LocalSoundToll.csv
 #
@@ -203,7 +204,7 @@ p1 = journeys_count0 %>%
     title = "Elsinore sound toll: Ships to/from port relative to Limfjord",
     y = "log(count)"
   )
-
+p1
 
 # ==== Save results ====
 places_standard_dk = places_standard %>% 
