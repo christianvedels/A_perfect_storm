@@ -1,8 +1,7 @@
 # Sound toll results
-# Date updated:   2023-04-22
-# Auhtor:         Christian Vedel 
-#
-# Purpose:        Plot of Limfjord trafic + regressions
+# Date updated:   2024-06-16
+# Author:         Christian Vedel 
+# Purpose:        Produces plots and regressions for trade.
 
 # ==== Libraries ====
 library(tidyverse)
@@ -148,7 +147,8 @@ p2 = data_channel %>%
     )
   ) +
   scale_x_continuous(breaks = seq(1830, 1875, by = 5)) + 
-  scale_y_log10()
+  scale_y_log10() +
+  geom_vline(xintercept = c(1867.5), lty = 2)
 
 p2
 ggsave("Plots/Ship_trafic_channel.png", plot = p2, width = 8, height = 4)
