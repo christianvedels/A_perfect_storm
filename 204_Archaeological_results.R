@@ -11,10 +11,10 @@ library(fixest)
 library(foreach)
 
 # ==== Bootstrapped data frames ====
-# The following files can be recreated with 009_Archaeological_monte_carlo.R
-# But this takes a while. They can also be donwloaded here:
-# https://www.dropbox.com/scl/fo/nxuv09eraovysu8bge9nu/h?dl=0&rlkey=a1d1lzxe04fzx6xa3fe0xvgq4
-#
+# This bit runs sampling for the bootstrapped standard errors
+# # The following files can be recreated with 009_Archaeological_monte_carlo.R
+# # They can also be downloaded here: https://www.dropbox.com/scl/fo/1efsishk2i0ifly1v33sg/AJMi07QDICIMfHhTMOle8Y8?rlkey=wnb5u6zun2i31g5jq2ow05y01&st=ykx0heoh&dl=0
+# 
 # load("Data/Tmp_arch_samples/Buildings.Rdata")
 # samples_buildings = arch_sampler(arch_samples = res_is$Overall_Buildings$samples)
 # 
@@ -31,15 +31,6 @@ geo_data = read_csv2("Data/Geo.csv", guess_max = 2000)
 market_access = read_csv2("Data/MA_estimates.csv", guess_max = 2000) 
 arch_raw = read_csv2("Data/Arch.csv", guess_max = 2000)
 matched_parishes = read_csv2("Data/Matched_parishes.csv")
-
-# ==== Default colors ====
-# Regions:
-regions_col = c(
-  reference = "black",
-  east = "#273a8f",
-  middle = "#2c5c34",
-  west = "#b33d3d"
-)
 
 # ==== Functions ====
 
