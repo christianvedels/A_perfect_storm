@@ -321,23 +321,6 @@ key_desc = data.frame(
   )
 )
 
-# What is a meaningfull effect?
-# For the dummy approach: 0.05, MA approach 0.5
-occ_effects_1901 %>% 
-  filter(
-    ifelse(
-      Affected == "MA", abs(Estimate)>0.25, abs(Estimate)>0.05
-    )
-  ) %>% 
-  left_join(key_desc, by = "hisco")
-# There is possibly a meaningful effect to all occupations (but not on all margins)
-
-meaningfull_effects = data.frame(
-  Affected = rep(c("MA", "Dummy")),
-  Effect_size_upper = c(1.591198*0.05, 0.236446*0.05),
-  Effect_size_lower = -c(1.591198*0.05, 0.236446*0.05)
-)
-
 # Bonferoni correction
 bonf_crit = abs(qnorm(0.025/NROW(occ_effects_1901)))
 
@@ -372,61 +355,6 @@ occ_effects_1901 = occ_effects_1901 %>%
     APE_pct_upper = APE_upper/average_parish_size
   )
 
-# Make plot
-nudge = 0.05
-p1 = occ_effects_1901 %>% 
-  mutate(
-    Approach = case_when(
-      Approach == "Extensive" ~ paste0("1: ", Approach),
-      Approach == "Intensive" ~ paste0("2: ", Approach),
-      Approach == "log(x+1)" ~ paste0("3: ", Approach),
-      Approach == "asinh(x)" ~ paste0("4: ", Approach)
-    )
-  ) %>% 
-  filter(
-    n_parishes > 100
-  ) %>%
-  left_join(key_desc, by = "hisco") %>% 
-  left_join(meaningfull_effects, by = "Affected") %>% 
-  group_by(hisco) %>% 
-  ungroup() %>% 
-  mutate(
-    intensive_text = ifelse(Approach == "2: Intensive", n_parishes, "")
-  ) %>% 
-  # mutate(
-  #   intensive_text = ifelse(Pretrend_pval<0.05, paste0(intensive_text,"*"), intensive_text)
-  # ) %>% 
-  mutate(
-    Approach = factor(Approach, levels = c("1: Extensive", "2: Intensive", "3: log(x+1)", "4: asinh(x)"))
-  ) %>% 
-  ggplot(aes(Approach, APE_pct, col = Affected)) + 
-  geom_point(position = position_nudge(x = c(nudge, -nudge))) + 
-  geom_errorbar(aes(ymin = APE_pct_lower, ymax = APE_pct_upper), position = position_nudge(x = c(nudge, -nudge))) +
-  facet_wrap(~description) + 
-  geom_hline(yintercept = 0) + 
-  geom_text(
-    aes(label = intensive_text),
-    position = position_nudge(
-      x = c(4*nudge, -4*nudge),
-      y = c(2*nudge, -2*nudge)
-    )
-    ) + 
-  theme_bw() + 
-  scale_color_manual(values = c(Dummy = "#2c5c34", MA = "#b33d3d")) + 
-  theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5)
-  ) + 
-  # geom_hline(aes(yintercept = Effect_size_upper, col = Affected), lty = 2) +
-  # geom_hline(aes(yintercept = Effect_size_lower, col = Affected), lty = 2) +
-  labs(
-    x = "",
-    y = "APE share"
-  ) +
-  theme(legend.position = "bottom")
-
-p1
-ggsave("Plots/Mechanism/All_occupations.png", plot = p1, width = 1.9*8, height = 1.9*9, units = "cm")
-
 # Table of all
 table0 = occ_effects_1901 %>% 
   mutate(
@@ -460,11 +388,6 @@ table0 %>% # For appendix
   arrange(hisco) %>% 
   knitr::kable("latex", booktabs = TRUE, align = "c")
 
-# Look up parameters
-table0 %>% 
-  filter(Approach == "2: Intensive") %>% 
-  filter(hisco %in% c(6, 7))
-
 # How many in each category in 1787/1801?
 reg_pop %>% 
   filter(Year %in% c(1801, 1901)) %>% 
@@ -478,6 +401,97 @@ reg_pop %>%
   mutate(
     pct = n/Pop
   )
+
+# Plot for paper
+plot_data = occ_effects_1901 %>% 
+  mutate(
+    Approach = case_when(
+      Approach == "Extensive" ~ paste0("1: ", Approach),
+      Approach == "Intensive" ~ paste0("2: ", Approach),
+      Approach == "log(x+1)" ~ paste0("3: ", Approach),
+      Approach == "asinh(x)" ~ paste0("4: ", Approach)
+    )
+  ) %>% 
+  # filter(
+  #   n_parishes > 100
+  # ) %>%
+  left_join(key_desc, by = "hisco") %>% 
+  group_by(hisco) %>% 
+  ungroup() %>% 
+  mutate(
+    intensive_text = ifelse(Approach == "2: Intensive", n_parishes, "")
+  ) %>% 
+  mutate(
+    Approach = factor(Approach, levels = c("1: Extensive", "2: Intensive", "3: log(x+1)", "4: asinh(x)"))
+  )
+  
+p1_ma = plot_data %>%   
+  filter(Affected == "MA") %>% 
+  ggplot(aes(description, APE_pct)) + 
+  geom_point(position = position_nudge(x = c(nudge, -nudge)), col = "#b33d3d") + 
+  geom_errorbar(aes(ymin = APE_pct_lower, ymax = APE_pct_upper), position = position_nudge(x = c(nudge, -nudge)), col = "#b33d3d") +
+  facet_wrap(~Approach) + 
+  geom_hline(yintercept = 0) + 
+  geom_text(
+    aes(label = intensive_text),
+    position = position_nudge(
+      x = c(4*nudge, -4*nudge),
+      y = c(5*nudge, -5*nudge)
+    ),
+    col = "#b33d3d"
+  ) + 
+  theme_bw() + 
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5)
+  ) + 
+  # geom_hline(aes(yintercept = Effect_size_upper, col = Affected), lty = 2) +
+  # geom_hline(aes(yintercept = Effect_size_lower, col = Affected), lty = 2) +
+  labs(
+    x = "",
+    y = "APE share"
+  ) +
+  theme(legend.position = "bottom")
+p1_ma
+
+p1_dummy = plot_data %>%   
+  filter(Affected == "Dummy") %>% 
+  ggplot(aes(description, APE_pct)) + 
+  geom_point(position = position_nudge(x = c(nudge, -nudge)), col = "#2c5c34") + 
+  geom_errorbar(aes(ymin = APE_pct_lower, ymax = APE_pct_upper), position = position_nudge(x = c(nudge, -nudge)), col = "#2c5c34") +
+  facet_wrap(~Approach) + 
+  geom_hline(yintercept = 0) + 
+  geom_text(
+    aes(label = intensive_text),
+    position = position_nudge(
+      x = c(4*nudge, -4*nudge),
+      y = c(0.5*nudge, -0.5*nudge)
+    ),
+    col = "#2c5c34"
+  ) + 
+  theme_bw() + 
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5)
+  ) + 
+  labs(
+    x = "",
+    y = "APE share"
+  ) +
+  theme(legend.position = "bottom")
+p1_dummy
+
+
+ggsave("Plots/Mechanism/All_occupations_MA.png", plot = p1_ma, width = 1.9*8, height = 1.9*9, units = "cm")
+ggsave("Plots/Mechanism/All_occupations_dummy.png", plot = p1_dummy, width = 1.9*8, height = 1.9*9, units = "cm")
+
+
+# Look up parameters
+table0 %>% 
+  filter(Approach == "2: Intensive") %>% 
+  filter(hisco %in% c(6, 7))
+
+table0 %>% 
+  filter(Approach == "1: Extensive") %>% 
+  filter(hisco %in% c(6, 7))
 
 # ==== What is inside '6' and '7/8/9'? ====
 # Extract only parameter estimates p-values are meaningless with so many estimates
@@ -797,6 +811,8 @@ table0 = effects_6_to_9 %>%
       "7/8/9: Production and related\nworkers, transportequipment operators\nand labourers"
     )
   )
+table0 %>% 
+  filter(description == "641: Fishermen")
 
 
 # Plot effects
@@ -828,7 +844,7 @@ for(aff in c("Dummy", "MA")){
     )
     
     p1 = table_i %>% 
-      ggplot(aes(Estimate, hisco, col = `HISCO first digit`)) + 
+      ggplot(aes(Estimate, hisco, col = `HISCO first digit`)) +
       geom_point(shape = 4) + 
       geom_text(
         aes(label = description),
