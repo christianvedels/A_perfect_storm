@@ -1,8 +1,17 @@
 # Functions
 #
-# Date updated:   2023-04-11
+# Date updated:   2024-06-17
 # Auhtor:         Christian Vedel 
 # Purpose:        Functions used in the rest of the project
+
+# ==== Default colors ====
+# Regions:
+regions_col = c(
+  reference = "black",
+  east = "#273a8f",
+  middle = "#2c5c34",
+  west = "#b33d3d"
+)
 
 # ==== substrRight =====
 # substr but from right
