@@ -172,19 +172,19 @@ site_types_tab = the_data %>%
     )
   )
 
-# loop
+# Uniform distribution
 arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
   cat("\n", i, "\n")
-  finding_types_i = site_types_tab %>% 
-    filter(Category == i) %>% 
-    select(finding_interpretation_en) %>% 
+  finding_types_i = site_types_tab %>%
+    filter(Category == i) %>%
+    select(finding_interpretation_en) %>%
     unlist() %>% unname()
-  
+
   res_i = monteCarlo(Finding_types = finding_types_i, capB = capB)
 
   res_is = foreach(j = finding_types_i) %do% {
     cat(
-      "--->", as.character(Sys.time()), j, 
+      "--->", as.character(Sys.time()), j,
       "                                                      \r"
     )
     res_j = monteCarlo(Finding_types = j, capB = capB)
@@ -193,7 +193,7 @@ arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
   names(res_is) = finding_types_i
   res_is[[length(res_is)+1]] = res_i
   names(res_is)[length(res_is)] = paste0("Overall_", i)
-  
+
   dir_i = paste0("Data/Tmp_arch_samples")
   if(!dir.exists(dir_i)){
     dir.create(dir_i)
@@ -203,7 +203,7 @@ arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
   return(res_is)
 }
 
-# loop
+# Normal distribution
 set.seed(20)
 arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
   cat("\n", i, "\n")
