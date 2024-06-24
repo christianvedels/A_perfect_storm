@@ -1,5 +1,5 @@
 # Archaeological results
-# Date updated:   2023-04-22
+# Date updated:   2024-06-16
 # Auhtor:         Christian Vedel 
 #
 # Purpose:        Archaeological results
@@ -9,20 +9,47 @@ library(tidyverse)
 source("000_Functions.R")
 library(fixest)
 library(foreach)
+library(dataverse)
 
 # ==== Bootstrapped data frames ====
-# This bit runs sampling for the bootstrapped standard errors
-# # The following files can be recreated with 009_Archaeological_monte_carlo.R
-# # They can also be downloaded here: https://www.dropbox.com/scl/fo/1efsishk2i0ifly1v33sg/AJMi07QDICIMfHhTMOle8Y8?rlkey=wnb5u6zun2i31g5jq2ow05y01&st=ykx0heoh&dl=0
+# # This bit runs sampling for the bootstrapped standard errors
+# # The following files can be recreated with 009_Archaeological_monte_carlo.R.
+# # The files are too large to redistribute via GitHub, for which reason they are
+# # drawn from the dataverse of this project. 
+Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
 # 
-# load("Data/Tmp_arch_samples/Buildings.Rdata")
+# res_is = get_dataframe_by_name(
+#   filename = get_file_info("Buildings_unif"),
+#   dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
+#   server = "dataverse.harvard.edu",
+#   .f = load0 # Function to read the file
+# )
+# # load("Data/Tmp_arch_samples/Buildings.Rdata") # If local copy
 # samples_buildings = arch_sampler(arch_samples = res_is$Overall_Buildings$samples)
 # 
-# load("Data/Tmp_arch_samples/Coin findings.Rdata")
+# res_is = get_dataframe_by_name(
+#   filename = get_file_info("Coin findings_unif.Rdata"),
+#   dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
+#   server = "dataverse.harvard.edu",
+#   .f = load0 # Function to read the file
+# )
+# # load("Data/Tmp_arch_samples/Coin findings.Rdata") # If local copy 
 # samples_coins = arch_sampler(arch_samples = res_is$`Overall_Coin findings`$samples)
 # 
 # save(samples_buildings, samples_coins, file = "Data/Tmp_reg_data_arch_samples.Rdata")
-load("Data/Tmp_reg_data_arch_samples.Rdata")
+
+# load("Data/Tmp_reg_data_arch_samples.Rdata") # If local copy
+x = get_dataframe_by_name(
+  filename = get_file_info("Reg_data_arch_samples_unif.Rdata"),
+  dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
+  server = "dataverse.harvard.edu",
+  .f = function(x){
+    load(x)
+    return(list(samples_buildings, samples_coins))
+  } # Function to read the file
+)
+samples_buildings = x[[1]]
+samples_coins = x[[2]]
 
 # ==== Load data =====
 coins = read_csv2("Data/Reg_arch_coins.csv", guess_max = 2000)
@@ -576,25 +603,57 @@ mods %>%
 
 
 # ==== Regressions based on data from the normal distribution ====
-# The following files can be recreated with 009_Archaeological_monte_carlo.R
-# But this takes a while. They can also be donwloaded here:
-# https://www.dropbox.com/s/62yxdax9eaqedu9/Tmp_reg_data_arch_samples_norm.Rdata?dl=0
+# # This bit runs sampling for the bootstrapped standard errors
+# # The following files can be recreated with 009_Archaeological_monte_carlo.R.
+# # The files are too large to redistribute via GitHub, for which reason they are
+# # drawn from the dataverse of this project.
+Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
 # 
-# load("Data/Tmp_arch_samples_norm/Buildings.Rdata")
+# res_is = get_dataframe_by_name(
+#   filename = get_file_info("Buildings_norm"),
+#   dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
+#   server = "dataverse.harvard.edu",
+#   .f = load0 # Function to read the file
+# )
+# # load("Data/Tmp_arch_samples/Buildings.Rdata") # If local copy
 # samples_buildings = arch_sampler(arch_samples = res_is$Overall_Buildings$samples)
 # 
-# load("Data/Tmp_arch_samples_norm/Coin findings.Rdata")
+# res_is = get_dataframe_by_name(
+#   filename = get_file_info("Coin findings_norm.Rdata"),
+#   dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
+#   server = "dataverse.harvard.edu",
+#   .f = load0 # Function to read the file
+# )
+# # load("Data/Tmp_arch_samples/Coin findings.Rdata") # If local copy
 # samples_coins = arch_sampler(arch_samples = res_is$`Overall_Coin findings`$samples)
 # 
 # save(samples_buildings, samples_coins, file = "Data/Tmp_reg_data_arch_samples_norm.Rdata")
-load("Data/Tmp_reg_data_arch_samples_norm.Rdata")
 
-coins = read_csv2("Data/Reg_arch_coins_norm.csv", guess_max = 2000) %>% 
+# load("Data/Tmp_reg_data_arch_samples.Rdata") # If local copy
+x = get_dataframe_by_name(
+  filename = get_file_info("Reg_data_arch_samples_norm.Rdata"),
+  dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
+  server = "dataverse.harvard.edu",
+  .f = function(x){
+    load(x)
+    return(list(samples_buildings, samples_coins))
+  } # Function to read the file
+)
+samples_buildings = x[[1]]
+samples_coins = x[[2]]
+
+# ==== Load data =====
+coins = read_csv2("Data/Reg_arch_coins_norm.csv", guess_max = 2000)
+buildings = read_csv2("Data/Reg_arch_buildings_norm.csv", guess_max = 2000)
+
+# ==== Small dataficiation ====
+coins = coins %>% 
   fastDummies::dummy_cols("limfjord_placement") %>% 
   mutate(
     Year = relevel(factor(rYear), ref = "1000")
   )
-buildings = read_csv2("Data/Reg_arch_buildings_norm.csv", guess_max = 2000) %>% 
+
+buildings = buildings %>% 
   fastDummies::dummy_cols("limfjord_placement") %>% 
   mutate(
     Year = relevel(factor(rYear), ref = "1000")
