@@ -400,3 +400,25 @@ cut_strings = function(x, limit = 20){
     }) %>% 
     unlist()
 }
+
+
+# ==== load0 ====
+# Nicer behaviour load
+
+load0 = function(fileName){
+  load(fileName)
+  get(ls()[ls() != "fileName"])
+}
+
+# ==== get_file_info ====
+# Gets file info from dataverse 
+get_file_info = function(f){
+  x = dataset_files(dataset = "https://doi.org/10.7910/DVN/P7STIM")
+  entry_adrr = lapply(x, function(y){
+    any(grepl(f, y))
+  }) %>% 
+    unlist() %>% 
+    which()
+  
+  return(x[[entry_adrr]])
+}
