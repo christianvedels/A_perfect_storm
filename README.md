@@ -149,10 +149,12 @@ Here $H$ is the set of all available ports (H for harbour). $h$ is a specific po
 
 The core aim of this entire exercise is to gain insights into how this measure changes with the breach namely ${MA}_p|No\:canal$ and ${MA}_p|Canal$. This comes from the change in the set of available ports $H\rightarrow H^*$. $H$ is all the consistently available ports before 1834. $H^*$ is those consistently available after 1834. The estimated conditional market access can then be expressed as
 
-$$\begin{split}
+$$
+\begin{split}
 {MA}_{p}|No\:channel &= {MA}_{p}|H \\
 {MA}_{p}|Channel &= {MA}_{p}|H^*.
-\end{split}$$
+\end{split}
+$$
 
 | Variable        | Description                                         |
 |-----------------|-----------------------------------------------------|
@@ -188,11 +190,7 @@ Regression data for arcaehological data based on monte carlo sampling from 009_A
 | [geo]                            | Geographical data from 'Geo.csv'                                                                                      |
 | delta_lMA_theta\_[x]\_alpha\_[y] | Difference in market access before/after channel based from MA_estimates.csv with parameters -x and y.                |
 
-### M. HISCO_sample_checked.csv
-
-1000 random observations of occupational descriptions and HISCO codes checked.
-
-### N. Distance_to_market_town.csv
+### M. Distance_to_market_town.csv
 
 | Variable             | Description                                         |
 |--------------------------------|----------------------------------------|
@@ -200,7 +198,7 @@ Regression data for arcaehological data based on monte carlo sampling from 009_A
 | Distance_market_town | Distance to the closest market town centroid        |
 | Closest_market_town  | Which market town is closest? Represented by GIS_ID |
 
-### O. Parish_soil.csv
+### N. Parish_soil.csv
 
 | Variable    | Description                                          |
 |-------------|------------------------------------------------------|
@@ -209,7 +207,7 @@ Regression data for arcaehological data based on monte carlo sampling from 009_A
 | area_parish | Area of the parish in m\^2                           |
 | pct         | How much of this parish is this particular soil type |
 
-### P. Matched_parishes.csv
+### O. Matched_parishes.csv
 
 This contains a data frame of parishes matched on propensity score. The propensity is for the being in the west Limfjord, which is estimated based on PLS propensity scores.
 
@@ -219,19 +217,19 @@ This contains a data frame of parishes matched on propensity score. The propensi
 | propensity         | Propensity score for these parishes. The predicted probability that they belong to the west Limfjord based on soil type alone |
 | limfjord_placement | Position in the Limfjord - 'west' or 'not'                                                                                    |
 
-### Q. 1977 Svalgard.csv
+### P. 1977 Svalgard.csv
 
 This contains data on ship traffic in the Agger channel from Svalgaard (1977)
 
 | Variable    | Description                                 |
 |-------------|---------------------------------------------|
 | Year        | Year                                        |
-| Ships_in    | Ships travelling into the Limfjord          |
-| Ships_out   | Ships travelling out of the Limfjord        |
+| Ships_in    | Ships traveling into the Limfjord          |
+| Ships_out   | Ships traveling out of the Limfjord        |
 | Ships_total | Total ship traffic                          |
 | Channel     | Agger channel or the later Thyborøn channel |
 Channel_depth_lower	| Channel depth lower end estimate in feet |
-Channel_depth_upper	| Channel depth upper end estimate  in feet |
+Channel_depth_upper	| Channel depth upper-end estimate  in feet |
 Channel_width	      | Channel width in the old Danish unit 'alen' |
 
 
@@ -253,33 +251,22 @@ The parish borders from 1820 are available in the Digital Atlas of Danish Histor
 
 ### D. Hisco codes for Danish census data
 
-This is data is available [here](https://www.dropbox.com/s/ov7ubxtqq21c6za/LL_hisco_codes_clean.csv?dl=0). It was created from the automatic HISCO labelling procedure described on my website: <https://sites.google.com/view/christianvedel>
-
-| Variable               | Description                                                                                                                                 |
-|--------------------------------|----------------------------------------|
-| pa_id                  | ID, which is unique for every year, which links to the rest of [links lives'](https://link-lives.dk/en/link-lives-a-research-project/) data |
-| Kilde                  | Source of the the data                                                                                                                      |
-| Year                   | Census year                                                                                                                                 |
-| Erhverv                | Occupational description (in Danish)                                                                                                        |
-| Stilling_i\_husstanden | Household position. Sometimes contains occupational description. (in Danish)                                                                |
-| RowID                  | ID used internally by the automatic HISCO labeling procedure                                                                                |
-| hisco[x]               | 1-5 hisco codes for each occupational description. Most only have one, but a few have more than one occupation.                             |
-| en_hisco_text[x]       | English hisco code description from [this repository](https://github.com/cedarfoundation/hisco)                                             |
+The HISCO codes for the Danish census data are available at Havard Dataverse: https://doi.org/10.7910/DVN/WZILNI  (Vedel, Dahl, Johansen 2024)
 
 ### E. Coast-line shape
 
-This is only used in 005_Limfjord_regions.R. It is slightly too large to redistribute. It contains coast lines, and is downloadable from: <https://osmdata.openstreetmap.de/data/water-polygons.html>. This was downloaded 2023-04-19.
+This is only used in 005_Limfjord_regions.R. It is slightly too large to redistribute. It contains coastlines, and is downloadable from: <https://osmdata.openstreetmap.de/data/water-polygons.html>. This was downloaded on 2023-04-19.
 
 ### F. Archaeological data
 
-The archaehological data used, can be downloaded from the website of the Danish Agency of Culture and Palaces. They maintain a database og all arhaeological sites in Denmark. This data is processed in '008_Archaeological_data.R'.
+The archaeological data used can be downloaded from the website of the Danish Agency of Culture and Palaces. They maintain a database of all archaeological sites in Denmark. This data is processed in '008_Archaeological_data.R'.
 
 ### G. Soil types shape
 
-This contains the soil types of modern day Denmark, which was largely determined in the last ice age. See Pedersen et al (2019). It can be downloaded from: <https://www.geus.dk/produkter-ydelser-og-faciliteter/data-og-kort/danske-kort/download-jordartskort>
+This contains the soil types of modern-day Denmark, which were largely determined in the last ice age. See Pedersen et al (2019). It can be downloaded from: <https://www.geus.dk/produkter-ydelser-og-faciliteter/data-og-kort/danske-kort/download-jordartskort>
 
 ## Scripts
-Here follows a short description of each script and its functionality:
+Here is a short description of each script and its functionality:
 
 | Name                              | Description                                                               |
 |-----------------------------------|---------------------------------------------------------------------------|
@@ -301,7 +288,7 @@ Here follows a short description of each script and its functionality:
 | `201_Main_map.R`                  | Construct the map showing the event (figure 1).                           |
 | `202_Sound_toll_results.R`        | Produces plots and regressions for trade.                                 |
 | `203_Pop_results.R`               | Produces plots and regressions for population results.                    |
-| `x204_Archaeological_results.R`    | Produces plots and regressions for archaeological results.                |
+| `204_Archaeological_results.R`    | Produces plots and regressions for archaeological results.                |
 | `205_Pop_mechanism.R`             | Mechanisms results.                                                       |
 
 
@@ -320,3 +307,5 @@ Harris, C. D. (1954). The Market as a Factor in the Localization of Industry in 
 Pedersen, S., Hermansen, B., Nathan, C., & Tougaard, L. (2019). Surface geology map of Denmark 1:200 000, version 2. GEUS. <https://eng.geus.dk/products-services-facilities/data-and-maps/maps-of-denmark>
 
 Svalgaard, R. (1977). Toldvagtskibe ved Agger Kanal samt toldvagtskibet "Thyborøn." Årbog for Thy, Mors Og Vester Hanherred, 35--57. <https://www.arkivthy.dk/images/Aarbog/1977/Svalgaard>, Robert Toldvagtskibet ved Agger kanal samt told.pdf
+
+Vedel, C., Dahl, C. M., Johansen, T. S. D., 2024, "HISCO codes for Danish Census data", https://doi.org/10.7910/DVN/WZILNI, Harvard Dataverse, V3
