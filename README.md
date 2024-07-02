@@ -6,7 +6,7 @@ The scripts in this repository are numbered to indicate the order in which to ru
 
 The numbering of the scripts indicate running order. The first digit indicate level of analysis. Everything starting with 0, e.g. 002_Linking_geo_data.R processes raw data. Everything starting with the digit 1 are scripts intended to output data which is used in the analysis. Scripts starting with 2 outputs results which are found in the paper or appendix.
 
-![Map](Plots/Map_manual_edits.png)
+![Map](Plots/Map.png)
 
 ## 1. Included data
 
