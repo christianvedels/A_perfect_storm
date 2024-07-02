@@ -30,12 +30,23 @@ market_access = market_access %>%
 
 # ==== Main_panels and save ====
 # These are the two main panels of archaeological findings used in the paper
+Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
 
-# The following files can be recreated with 009_Archaeological_monte_carlo.R
-# But this takes a while. They can also be donwloaded here: 
-# https://www.dropbox.com/scl/fo/nxuv09eraovysu8bge9nu/h?dl=0&rlkey=a1d1lzxe04fzx6xa3fe0xvgq4
+buildings = get_dataframe_by_name(
+  filename = get_file_info("Buildings_unif"),
+  dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
+  server = "dataverse.harvard.edu",
+  .f = load0 # Function to read the file
+)
 
-load("Data/Tmp_arch_samples/Buildings.Rdata")
+coins = get_dataframe_by_name(
+  filename = get_file_info("Coin findings_unif.Rdata"),
+  dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
+  server = "dataverse.harvard.edu",
+  .f = load0 # Function to read the file
+)
+
+# ==== Construct reg data
 buildings = construct_panel(res_is$Overall_Buildings$samples)
 buildings %>% 
   left_join(geo_data, by = "GIS_ID") %>% 

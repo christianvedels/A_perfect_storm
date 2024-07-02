@@ -292,10 +292,10 @@ Here follows a short description of each script and its functionality:
 | `006_Sound_toll_data.R`           | Extracting relevant Sound Toll data.                                      |
 | `007_Archaeological_data_clean.R` | Cleaning archaeological data.                                             |
 | `008_Market_access.R`             | Calculate change in Market Access.                                        |
-| `x009_Archaeological_monte_carlo.R`| Estimating the location of economic activity with archaeological findings.|
+| `009_Archaeological_monte_carlo.R`| Estimating the location of economic activity with archaeological findings.|
 | `010_Distance_to_market_towns.R`  | Computes distances to market towns for each parish.                       |
 | `011_Parish_soil.R`               | Find the soil type of each parish.                                        |
-| `x101_Constructing_arch_reg_data.R`| Construction of regression data for archaeological findings.              |
+| `101_Constructing_arch_reg_data.R`| Construction of regression data for archaeological findings.              |
 | `102_Matching_soil_types.R`       | Run matching on soil type.                                                |
 | `103_Constructing_pop_reg.R`      | Constructs the population regression data used in the analysis.           |
 | `201_Main_map.R`                  | Construct the map showing the event (figure 1).                           |
