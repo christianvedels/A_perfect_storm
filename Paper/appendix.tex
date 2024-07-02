@@ -18,9 +18,10 @@
         A Perfect Storm: First-Nature Geography and Economic Development \\
         
         \vspace{0.5cm}
-        \Large
+        \large
         Christian Vedel, University of Southern Denmark,\\
         \small
+        \vspace{0.25cm}
         christian-vs@sam.sdu.dk; 
         \url{https://github.com/christianvedels/A_perfect_storm}
         
@@ -39,7 +40,7 @@
 The effect of the channel on market access is computed based on 
 
 \begin{equation}
-\label{eq:MA2}
+\label{eq:MA2_a}
 {MA}_p = \sum_{h \in H} [CostDist(p, h; \alpha) + 1]^\theta
 \end{equation}
 
@@ -72,7 +73,7 @@ Column 1 shows poisson estimates of the the amount of trade using the Poisson es
 
 \begin{table}
 \centering
-\caption{\label{tab:reg_trade} Channel introduction and trade}
+\caption{Channel introduction and trade} \label{tab:reg_trade}
 \begin{tabular}{lccccc}
    \tabularnewline \midrule \midrule
    Dependent Variables: & \multicolumn{2}{c}{traffic}     & log(traffic+1)  & arcsinh(traffic)  & $1[traffic>0]$\\
@@ -105,7 +106,7 @@ Column 1 shows poisson estimates of the the amount of trade using the Poisson es
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{\label{tab:pop1} Regression results for population size}
+\caption{Regression results for population size} \label{tab:pop1}
 \footnotesize
 \begin{tabular}{lcc}
    \tabularnewline \midrule \midrule
@@ -152,24 +153,24 @@ Column 1 shows poisson estimates of the the amount of trade using the Poisson es
     \caption{Multiverse of the effect in different comparison groups and parameter choices, 1787}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:mult1} Multiverse of control groups\\Dummy approach}
+        \caption{Multiverse of control groups\\Dummy approach} \label{fig:mult1_1787}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/Multiverse_dummy.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:mult2} Multiverse of control groups\\Market access approach}
+        \caption{Multiverse of control groups\\Market access approach} \label{fig:mult2_1787}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/Multiverse_MA.png}
     \end{subfigure}
     \vspace{0.45cm}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:mult3} Multiverse of feasible parameters\\Market access approach}
+        \caption{Multiverse of feasible parameters\\Market access approach} \label{fig:mult3_1787}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/Multiverse_MA_param.png}
     \end{subfigure}
     \parbox{0.9\textwidth}{
     \caption*{\footnotesize \textit{Notes:} This is the multiverse of parameter estimates of the effect in 1901 given different feasible choices that could have been made for how to run the analysis. In panel a and panel b, 'A', 'B', and 'C', represents subgroups of the data. 'A' is the result, when the regression is computed using only parishes with a centroid less than 5 km from the coast. 'B' is the subgroups, where all parishes in around Copenhagen are excluded, 'C' is the subgroup of parishes, where the control group does not contain any parishes within 100 km of the Limfjord. 'D' represents the result when using only parishes located within 5 km of a market town. Panel (c) represents the effect given different market access parameters. For enhanced comparability, the log change in market access is standardized to unit variance and zero mean. \\ \textit{Source: Danish census data}}
-} \label{fig:pop2}
+} \label{fig:pop2_1787}
 \end{figure}
 
 \begin{figure}[H]
@@ -177,19 +178,19 @@ Column 1 shows poisson estimates of the the amount of trade using the Poisson es
     \caption{Multiverse of the effect in different comparison groups and parameter choices}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:mult1} Multiverse of control groups\\Dummy approach}
+        \caption{Multiverse of control groups\\Dummy approach} \label{fig:mult1}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/Multiverse_dummy_1787.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:mult2} Multiverse of control groups\\Market access approach}
+        \caption{Multiverse of control groups\\Market access approach} \label{fig:mult2}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/Multiverse_MA_1787.png}
     \end{subfigure}
     \vspace{0.45cm}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:mult3} Multiverse of feasible parameters\\Market access approach}
+        \caption{Multiverse of feasible parameters\\Market access approach} \label{fig:mult3}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/Multiverse_MA_param_1787.png}
     \end{subfigure}
     \caption*{Notes: Multiverse results for 1787. If any of these were different from zero it would indicate the existence of pretends. The dotted line indicate the default parameter estimate. The solid line is at zero.}
@@ -203,7 +204,7 @@ This section contains estimates based on the doubly-robust multi-period did esti
 
 \begin{table}[H]
 \centering
-\caption{\label{tab:cs_estimates} Callaway and Sant'Anna estimates}
+\caption{Callaway and Sant'Anna estimates} \label{tab:cs_estimates}
 \footnotesize
 \begin{tabular}{lccc}
    \tabularnewline \midrule \midrule
@@ -241,9 +242,10 @@ This section contains estimates based on the doubly-robust multi-period did esti
 
 \FloatBarrier
 \subsection{All occupational major categories estimates} 
-\begin{table}[]
+
+\begin{table}
     \centering
-    \caption{\label{tab:occ1} Effect on occupation in 1901 (HISCO first digit 1 to 3)}
+    \caption{Effect on occupation in 1901 (HISCO first digit 1 to 3)} \label{tab:occ1}
     \footnotesize
     \begin{tabular}{ccccc}
 \toprule
@@ -280,9 +282,9 @@ hisco & Affected & Approach & Estimate (1901) & n parishes\\
 }
 \end{table}
 
-\begin{table}[]
+\begin{table}
     \centering
-    \caption{\label{tab:occ2} Effect on occupation in 1901 (HISCO first digit 4 to 9)}
+    \caption{Effect on occupation in 1901 (HISCO first digit 4 to 9)} \label{tab:occ2}
     \footnotesize
     \begin{tabular}{ccccc}
 \toprule
@@ -330,30 +332,30 @@ hisco & Affected & Approach & Estimate (1901) & n parishes\\
 \FloatBarrier
 
 \subsection{Event plot fishing and spinning}
-\begin{figure}[h!]
+\begin{figure}
     \centering
     \caption{Fishermen and Spinners, Weavers, Knitters, Dyers And Related Workers}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:migr} Fishermen (MA approach)}
+        \caption{Fishermen (MA approach)} \label{fig:fish_ma}
         \includegraphics[width=\textwidth]{Plots/Mechanism/fish_MA.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:fert} Fishermen (Dummy approach)}
+        \caption{Fishermen (Dummy approach)} \label{fig:fish_dummy}
         \includegraphics[width=\textwidth]{Plots/Mechanism/fish_dummy.png}
     \end{subfigure}
     \vspace{0.45cm}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:migr} Spinners, weavers, knitters, dyers and related workers (MA approach)}
+        \caption{Spinners, weavers, knitters, dyers and related workers (MA approach)} \label{fig:spinners_ma}
         \includegraphics[width=\textwidth]{Plots/Mechanism/spinning_MA.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:fert} Spinners, weavers, knitters, dyers and related workers (Dummy approach)}
+        \caption{Spinners, weavers, knitters, dyers and related workers (Dummy approach)} \label{fig:spinners_dummy}
         \includegraphics[width=\textwidth]{Plots/Mechanism/spinning_dummy.png}
     \end{subfigure}
     \parbox{0.9\textwidth}{
@@ -364,18 +366,18 @@ hisco & Affected & Approach & Estimate (1901) & n parishes\\
 
 \FloatBarrier
 \subsection{Effects by age group} 
-\begin{figure}[h!]
+\begin{figure}
     \centering
     \caption{Age group composition}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:migr} Effect by age group (MA approach)}
+        \caption{Effect by age group (MA approach)} \label{fig:migr}
         \includegraphics[width=\textwidth]{Plots/Mechanism/Age_composition_MA.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:fert} Effect by age group (dummy approach)}
+        \caption{Effect by age group (dummy approach)} \label{fig:fert}
         \includegraphics[width=\textwidth]{Plots/Mechanism/Age_composition_Dummy.png}
     \end{subfigure}
     \parbox{0.9\textwidth}{
@@ -457,26 +459,29 @@ P(\{coins\}|t) = c\times P(t|\{coins\})
 \subsubsection{Estimation}
 The following loop (pseudocode) produces samples from $P(\{coins\}|t)$ and estimates the probability of interest:
 
-```{pseudo code}
-B = 1000 # Number of Monte Carlo samples
+\begin{verbatim}
+    ```{pseudo code}
+    B = 1000 # Number of Monte Carlo samples
+    
+    for b in 1 to B: # Loop of MC samples
+    	# Generate samples from Y_max_c Y_max_c:
+    	for c in 1 to C:
+    		t_c = sample_uniform(1, Y_min_c, Y_max_c)
+    		# Is t_c equal to t?
+    		coins_t[c] = t_c == t
+    		
+    	# Were there any coins associated with this time in this draw?
+    	number_of_coins = sum(coins_t)
+    	succces_t[b] = number_of_coins > 0
+    	
+    # Estimating the probability by analogy for each t
+    P_of_t_given_coins = sum(succces_t) / B
+    
+    # Converting to P({coins}|t)
+    P_of_coins_given_t = c_hat * P_of_t_given_coins
+    ```
+\end{verbatim}
 
-for b in 1 to B: # Loop of MC samples
-	# Generate samples from Y_max_c Y_max_c:
-	for c in 1 to C:
-		t_c = sample_uniform(1, Y_min_c, Y_max_c)
-		# Is t_c equal to t?
-		coins_t[c] = t_c == t
-		
-	# Were there any coins associated with this time in this draw?
-	number_of_coins = sum(coins_t)
-	succces_t[b] = number_of_coins > 0
-	
-# Estimating the probability by analogy for each t
-P_of_t_given_coins = sum(succces_t) / B
-
-# Converting to P({coins}|t)
-P_of_coins_given_t = c_hat * P_of_t_given_coins
-```
 
 
 This code is then repeated for every parish and every point in time $t$. This gives a panel of size $N\times T$ containing the estimated probability that a coin finding was generated at a particular point in time. This in turn can be used in econometric applications. 
@@ -488,7 +493,7 @@ Table \ref{tab:A_arch1} and \ref{tab:A_arch2} contain parameter estimates for al
 \begin{table}[H]
 \centering
 \footnotesize
-\caption{\label{tab:A_arch1} All parameters of table 3 columns 1-4}
+\caption{All parameters of table 3 columns 1-4} \label{tab:A_arch1}
 \begin{tabular}{lcccc}
    \tabularnewline \midrule \midrule
                                                     & \multicolumn{4}{c}{Archaeological findings}\\
@@ -496,35 +501,35 @@ Table \ref{tab:A_arch1} and \ref{tab:A_arch2} contain parameter estimates for al
                                                     & MA              & Dummy           & MA                    & Dummy\\
    \midrule
    Year750 $\times$ Affected                        & 0.0521$^{***}$  & 0.0050$^{***}$  & 0.0034                & -0.0010\\   
-                                                    & (0.0091)        & (0.0009)        & (0.0103)              & (0.0019)\\   
+                                                    & (0.0092)        & (0.0009)        & (0.0101)              & (0.0018)\\   
    Year800 $\times$ Affected                        & 0.0195$^{***}$  & 0.0020$^{***}$  & -0.0060               & -0.0024$^{*}$\\   
-                                                    & (0.0047)        & (0.0005)        & (0.0068)              & (0.0013)\\   
+                                                    & (0.0049)        & (0.0005)        & (0.0068)              & (0.0013)\\   
    Year850 $\times$ Affected                        & 0.0220$^{***}$  & 0.0022$^{***}$  & -0.0072               & -0.0028$^{**}$\\   
-                                                    & (0.0048)        & (0.0005)        & (0.0067)              & (0.0013)\\   
+                                                    & (0.0051)        & (0.0006)        & (0.0068)              & (0.0013)\\   
    Year900 $\times$ Affected                        & 0.0086$^{**}$   & 0.0010$^{***}$  & -0.0031               & -0.0014$^{*}$\\   
-                                                    & (0.0034)        & (0.0004)        & (0.0041)              & (0.0008)\\   
+                                                    & (0.0035)        & (0.0004)        & (0.0041)              & (0.0008)\\   
    Year950 $\times$ Affected                        & -0.0042         & -0.0002         & 0.0011                & 0.0002\\   
-                                                    & (0.0037)        & (0.0004)        & (0.0019)              & (0.0004)\\   
+                                                    & (0.0038)        & (0.0004)        & (0.0018)              & (0.0003)\\   
    Year1050 $\times$ Affected                       & 0.0059$^{**}$   & 0.0008$^{***}$  & -0.0063$^{**}$        & -0.0007\\   
-                                                    & (0.0026)        & (0.0003)        & (0.0032)              & (0.0006)\\   
+                                                    & (0.0025)        & (0.0003)        & (0.0032)              & (0.0006)\\   
    Year1100 $\times$ Affected                       & 0.0077          & 0.0004          & -0.0708$^{***}$       & -0.0066$^{**}$\\   
-                                                    & (0.0121)        & (0.0012)        & (0.0163)              & (0.0033)\\   
+                                                    & (0.0121)        & (0.0011)        & (0.0165)              & (0.0032)\\   
    Year1150 $\times$ Affected                       & 0.0075          & 0.0003          & -0.0681$^{***}$       & -0.0065$^{*}$\\   
-                                                    & (0.0122)        & (0.0012)        & (0.0168)              & (0.0034)\\   
-   Year1200 $\times$ Affected                       & -0.0327$^{**}$  & -0.0049$^{***}$ & -0.0736$^{***}$       & -0.0069$^{*}$\\   
-                                                    & (0.0150)        & (0.0013)        & (0.0171)              & (0.0035)\\   
+                                                    & (0.0121)        & (0.0011)        & (0.0170)              & (0.0033)\\   
+   Year1200 $\times$ Affected                       & -0.0327$^{**}$  & -0.0049$^{***}$ & -0.0736$^{***}$       & -0.0069$^{**}$\\   
+                                                    & (0.0151)        & (0.0013)        & (0.0174)              & (0.0034)\\   
    Year1250 $\times$ Affected                       & -0.0941$^{***}$ & -0.0120$^{***}$ & -0.0772$^{***}$       & -0.0066$^{*}$\\   
-                                                    & (0.0194)        & (0.0017)        & (0.0190)              & (0.0038)\\   
+                                                    & (0.0199)        & (0.0018)        & (0.0193)              & (0.0038)\\   
    Year1300 $\times$ Affected                       & -0.1479$^{***}$ & -0.0147$^{***}$ & -0.0685$^{***}$       & -0.0068$^{**}$\\   
-                                                    & (0.0223)        & (0.0030)        & (0.0179)              & (0.0032)\\   
+                                                    & (0.0236)        & (0.0032)        & (0.0178)              & (0.0031)\\   
    Year1350 $\times$ Affected                       & -0.1923$^{***}$ & -0.0193$^{***}$ & -0.0612$^{***}$       & -0.0065$^{**}$\\   
-                                                    & (0.0267)        & (0.0036)        & (0.0192)              & (0.0032)\\   
-   Year1400 $\times$ Affected                       & -0.1207$^{***}$ & -0.0116$^{***}$ & -0.0605$^{***}$       & -0.0060$^{*}$\\   
-                                                    & (0.0237)        & (0.0034)        & (0.0183)              & (0.0031)\\   
+                                                    & (0.0273)        & (0.0037)        & (0.0185)              & (0.0031)\\   
+   Year1400 $\times$ Affected                       & -0.1207$^{***}$ & -0.0116$^{***}$ & -0.0605$^{***}$       & -0.0060$^{**}$\\   
+                                                    & (0.0239)        & (0.0034)        & (0.0177)              & (0.0030)\\   
    Year1450 $\times$ Affected                       & -0.0606$^{***}$ & -0.0052         & -0.0599$^{***}$       & -0.0060$^{**}$\\   
-                                                    & (0.0233)        & (0.0035)        & (0.0181)              & (0.0030)\\   
+                                                    & (0.0234)        & (0.0034)        & (0.0174)              & (0.0029)\\   
    Year1500 $\times$ Affected                       & -0.1114$^{***}$ & -0.0104$^{***}$ & -0.0666$^{***}$       & -0.0064$^{*}$\\   
-                                                    & (0.0252)        & (0.0038)        & (0.0235)              & (0.0036)\\   
+                                                    & (0.0256)        & (0.0037)        & (0.0223)              & (0.0035)\\   
    \midrule \midrule
    \multicolumn{5}{l}{\emph{Custom standard-errors in parentheses}}\\
    \multicolumn{5}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
@@ -535,43 +540,43 @@ Table \ref{tab:A_arch1} and \ref{tab:A_arch2} contain parameter estimates for al
 \begin{table}
 \centering
 \footnotesize
-\caption{\label{tab:A_arch2} All parameters of table 3 columns 5-8}
+\caption{All parameters of table 3 columns 5-8} \label{tab:A_arch2}
 \begin{tabular}{lcccc}
    \tabularnewline \midrule \midrule
                                                     & \multicolumn{4}{c}{Archaeological findings}\\
                                                     & (5)             & (6)             & (7)                   & (8)\\  
                                                     & MA              & Dummy           & MA                    & Dummy\\
    \midrule
-   Year750 $\times$ Affected   & 0.0277$^{*}$           & 0.0033$^{*}$           & -0.0086        & -0.0026\\   
-                               & (0.0141)               & (0.0018)               & (0.0179)       & (0.0024)\\   
-   Year800 $\times$ Affected   & 0.0106                 & 0.0013                 & -0.0082        & -0.0020\\   
-                               & (0.0073)               & (0.0010)               & (0.0144)       & (0.0021)\\   
-   Year850 $\times$ Affected   & 0.0157$^{**}$          & 0.0020$^{*}$           & -0.0064        & -0.0021\\   
-                               & (0.0078)               & (0.0011)               & (0.0139)       & (0.0021)\\   
-   Year900 $\times$ Affected   & 0.0003                 & $6.47\times 10^{-5}$   & -0.0060        & -0.0014\\   
-                               & (0.0080)               & (0.0010)               & (0.0086)       & (0.0013)\\   
-   Year950 $\times$ Affected   & -0.0119                & -0.0015                & 0.0013         & $-6.47\times 10^{-5}$\\    
-                               & (0.0115)               & (0.0014)               & (0.0037)       & (0.0006)\\   
-   Year1050 $\times$ Affected  & 0.0002                 & $4.31\times 10^{-5}$   & -0.0092        & -0.0013\\   
-                               & (0.0026)               & (0.0003)               & (0.0062)       & (0.0009)\\   
-   Year1100 $\times$ Affected  & -0.0070                & -0.0009                & -0.0666$^{**}$ & -0.0066\\   
-                               & (0.0142)               & (0.0018)               & (0.0321)       & (0.0050)\\   
-   Year1150 $\times$ Affected  & -0.0060                & -0.0009                & -0.0649$^{**}$ & -0.0063\\   
-                               & (0.0134)               & (0.0017)               & (0.0329)       & (0.0051)\\   
-   Year1200 $\times$ Affected  & -0.0448$^{**}$         & -0.0060$^{**}$         & -0.0789$^{**}$ & -0.0085\\   
-                               & (0.0185)               & (0.0026)               & (0.0352)       & (0.0055)\\   
-   Year1250 $\times$ Affected  & -0.0854$^{***}$        & -0.0114$^{***}$        & -0.0947$^{**}$ & -0.0108$^{*}$\\   
-                               & (0.0262)               & (0.0039)               & (0.0379)       & (0.0059)\\   
-   Year1300 $\times$ Affected  & -0.1003$^{***}$        & -0.0104$^{**}$         & -0.0952$^{**}$ & -0.0118$^{**}$\\   
-                               & (0.0307)               & (0.0048)               & (0.0393)       & (0.0057)\\   
-   Year1350 $\times$ Affected  & -0.1293$^{***}$        & -0.0149$^{**}$         & -0.0839$^{**}$ & -0.0103$^{*}$\\   
-                               & (0.0415)               & (0.0060)               & (0.0420)       & (0.0060)\\   
-   Year1400 $\times$ Affected  & -0.0827$^{***}$        & -0.0090$^{*}$          & -0.0852$^{**}$ & -0.0101$^{*}$\\   
-                               & (0.0320)               & (0.0051)               & (0.0412)       & (0.0059)\\   
-   Year1450 $\times$ Affected  & -0.0532                & -0.0047                & -0.0887$^{**}$ & -0.0105$^{*}$\\   
-                               & (0.0324)               & (0.0052)               & (0.0410)       & (0.0059)\\   
-   Year1500 $\times$ Affected  & -0.0712$^{**}$         & -0.0067                & -0.0726        & -0.0093\\   
-                               & (0.0341)               & (0.0055)               & (0.0464)       & (0.0062)\\    
+   Year750 $\times$ Affected   & 0.0547$^{**}$   & 0.0063$^{**}$   & -0.0043         & -0.0003\\   
+                               & (0.0216)        & (0.0025)        & (0.0168)        & (0.0026)\\   
+   Year800 $\times$ Affected   & 0.0261$^{**}$   & 0.0031$^{**}$   & -0.0248$^{*}$   & -0.0034\\   
+                               & (0.0122)        & (0.0015)        & (0.0136)        & (0.0021)\\   
+   Year850 $\times$ Affected   & 0.0231$^{*}$    & 0.0027$^{*}$    & -0.0306$^{**}$  & -0.0049$^{**}$\\   
+                               & (0.0118)        & (0.0015)        & (0.0137)        & (0.0021)\\   
+   Year900 $\times$ Affected   & 0.0071          & 0.0008          & -0.0199$^{**}$  & -0.0033$^{**}$\\   
+                               & (0.0069)        & (0.0009)        & (0.0097)        & (0.0016)\\   
+   Year950 $\times$ Affected   & -0.0177$^{*}$   & -0.0021$^{*}$   & 0.0008          & $-8.62\times 10^{-6}$\\    
+                               & (0.0096)        & (0.0011)        & (0.0039)        & (0.0006)\\   
+   Year1050 $\times$ Affected  & 0.0051          & 0.0006          & -0.0083         & -0.0012\\   
+                               & (0.0039)        & (0.0005)        & (0.0064)        & (0.0010)\\   
+   Year1100 $\times$ Affected  & 0.0309          & 0.0036          & -0.0700$^{**}$  & -0.0077\\   
+                               & (0.0245)        & (0.0028)        & (0.0310)        & (0.0050)\\   
+   Year1150 $\times$ Affected  & 0.0320          & 0.0036          & -0.0705$^{**}$  & -0.0078\\   
+                               & (0.0245)        & (0.0029)        & (0.0318)        & (0.0051)\\   
+   Year1200 $\times$ Affected  & -0.0338         & -0.0044         & -0.0736$^{**}$  & -0.0082\\   
+                               & (0.0254)        & (0.0031)        & (0.0293)        & (0.0050)\\   
+   Year1250 $\times$ Affected  & -0.1216$^{***}$ & -0.0150$^{***}$ & -0.0829$^{***}$ & -0.0093$^{*}$\\   
+                               & (0.0350)        & (0.0045)        & (0.0318)        & (0.0054)\\   
+   Year1300 $\times$ Affected  & -0.1280$^{***}$ & -0.0131$^{**}$  & -0.0828$^{***}$ & -0.0099$^{**}$\\   
+                               & (0.0379)        & (0.0052)        & (0.0294)        & (0.0047)\\   
+   Year1350 $\times$ Affected  & -0.1408$^{***}$ & -0.0159$^{***}$ & -0.0669$^{**}$  & -0.0076\\   
+                               & (0.0414)        & (0.0058)        & (0.0297)        & (0.0046)\\   
+   Year1400 $\times$ Affected  & -0.0962$^{**}$  & -0.0104$^{*}$   & -0.0682$^{**}$  & -0.0077$^{*}$\\   
+                               & (0.0422)        & (0.0058)        & (0.0287)        & (0.0046)\\   
+   Year1450 $\times$ Affected  & -0.0693         & -0.0068         & -0.0717$^{**}$  & -0.0082$^{*}$\\   
+                               & (0.0466)        & (0.0064)        & (0.0293)        & (0.0047)\\   
+   Year1500 $\times$ Affected  & -0.1069$^{**}$  & -0.0121$^{*}$   & -0.0511         & -0.0066\\   
+                               & (0.0513)        & (0.0071)        & (0.0362)        & (0.0052)\\   
    \midrule \midrule
    \multicolumn{5}{l}{\emph{Custom standard-errors in parentheses}}\\
    \multicolumn{5}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
@@ -585,128 +590,125 @@ Figure \ref{fig:arch_reg1}, \ref{fig:arch_reg_boot1}, \ref{fig:arch_reg2} and \r
 Note that the results are qualitatively the same as the main results. 
 
 
-\begin{figure}[h!]
+\begin{figure}
     \centering
     \caption{Archaelogical results (full sample)}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:arch1a} Coins: Market access approach}
+        \caption{Coins: Market access approach} \label{fig:arch1a_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_MA_coins_norm.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:arch1b} Coins: Dummy approach}
+        \caption{Coins: Dummy approach} \label{fig:arch1b_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_dummy_coins_norm.png}
     \end{subfigure}
     \vspace{0.45cm}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:arch1c} Buildings: Market access approach}
+        \caption{Buildings: Market access approach} \label{fig:arch1c_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_MA_buildings_norm.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:arch1d} Buildings: Dummy approach}
+        \caption{Buildings: Dummy approach} \label{fig:arch1d_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_dummy_buildings_norm.png}
     \end{subfigure}
     \label{fig:arch_reg1}
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{figure}
     \centering
     \caption{Distribution of parameter estimates in 1350  (full sample)}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:distri_a} Coins: Market access approach}
+        \caption{Coins: Market access approach} \label{fig:distri_a_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_MA_coins_boot_norm.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:distri_b} Coins: Dummy approach}
+        \caption{Coins: Dummy approach} \label{fig:distri_b_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_dummy_coins_boot_norm.png}
     \end{subfigure}
     \vspace{0.45cm}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:distri_c} Buildings: Market access approach}
+        \caption{Buildings: Market access approach} \label{fig:distri_c_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_MA_buildings_boot_norm.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:distri_d} Buildings: Dummy approach}
+        \caption{Buildings: Dummy approach} \label{fig:distri_d_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_dummy_buildings_boot_norm.png}
     \end{subfigure}
     \label{fig:arch_reg_boot1}
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{figure}
     \centering
     \caption{Archaelogical results (matched sample)}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:arch1a} Coins: Market access approach}
+        \caption{Coins: Market access approach} \label{fig:arch1a_match_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_MA_coins_matched_norm.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:arch1b} Coins: Dummy approach}
+        \caption{Coins: Dummy approach} \label{fig:arch1b_match_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_dummy_coins_matched_norm.png}
     \end{subfigure}
     \vspace{0.45cm}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:arch1c} Buildings: Market access approach}
+        \caption{Buildings: Market access approach} \label{fig:arch1c_match_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_MA_buildings_matched_norm.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:arch1d} Buildings: Dummy approach}
+        \caption{Buildings: Dummy approach} \label{fig:arch1d_match_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_dummy_buildings_matched_norm.png}
     \end{subfigure}
     \label{fig:arch_reg2}
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{figure}
     \centering
     \caption{Distribution of parameter estimates in 1350  (matched sample)}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:distri_a} Coins: Market access approach}
+        \caption{Coins: Market access approach} \label{fig:distri_a_match_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_MA_coins_matched_boot_norm.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:distri_b} Coins: Dummy approach}
+        \caption{Coins: Dummy approach} \label{fig:distri_b_match_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_dummy_coins_matched_boot_norm.png}
     \end{subfigure}
     \vspace{0.45cm}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:distri_c} Buildings: Market access approach}
+        \caption{Buildings: Market access approach} \label{fig:distri_c_match_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_MA_buildings_matched_boot_norm.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \caption{\label{fig:distri_d} Buildings: Dummy approach}
+        \caption{Buildings: Dummy approach} \label{fig:distri_d_match_norm}
         \includegraphics[width=\textwidth]{Plots/Regression_plots/arch_dummy_buildings_matched_boot_norm.png}
     \end{subfigure}
     \label{fig:arch_reg_boot2}
 \end{figure}
 
 
-\bibliographyannex{references}
 
 
-
-\end{appendices}
