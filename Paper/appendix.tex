@@ -464,15 +464,15 @@ The following loop (pseudocode) produces samples from $P(\{coins\}|t)$ and estim
     B = 1000 # Number of Monte Carlo samples
     
     for b in 1 to B: # Loop of MC samples
-    	# Generate samples from Y_max_c Y_max_c:
-    	for c in 1 to C:
-    		t_c = sample_uniform(1, Y_min_c, Y_max_c)
-    		# Is t_c equal to t?
-    		coins_t[c] = t_c == t
+    ...	# Generate samples from Y_max_c Y_max_c:
+    ...	for c in 1 to C:
+    ...	...	t_c = sample_uniform(1, Y_min_c, Y_max_c)
+    ...	...	# Is t_c equal to t?
+    ...	...	coins_t[c] = t_c == t
     		
-    	# Were there any coins associated with this time in this draw?
-    	number_of_coins = sum(coins_t)
-    	succces_t[b] = number_of_coins > 0
+    ...	# Were there any coins associated with this time in this draw?
+    ...	number_of_coins = sum(coins_t)
+    ...	succces_t[b] = number_of_coins > 0
     	
     # Estimating the probability by analogy for each t
     P_of_t_given_coins = sum(succces_t) / B
