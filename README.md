@@ -15,7 +15,7 @@ $\rightarrow$ [YouTube video](https://youtu.be/BF_oNe-sABQ?si=goMgaQxRcwaskNkD)
   > Vedel, C. (2024). A Perfect Storm: First-Nature Geography and Economic Development. [Placeholder](https://arxiv.org/abs/2402.13604)
   
   ```bibtex
-  @misc{OccC2024breaking,
+  @misc{Vedel2024PerfectStorm,
       title={A Perfect Storm: First-Nature Geography and Economic Development}, 
       author={Christian Vedel},
       year={2024},
