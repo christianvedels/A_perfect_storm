@@ -4,25 +4,24 @@ This is the public repository of *A Perfect Storm: First-Nature Geography and Ec
 
 The paper tests the effect of changing first-nature geography on economic development using a storm in 1825, which fundamentally changed the geomorphology of the Limfjord region of Denmark. 
 
-$\rightarrow$ [Full paper on arXiv](https://arxiv.org/abs/2402.13604)  
-$\rightarrow$ [Slides](https://raw.githack.com/christianvedels/A_perfect_storm/main/Slides/slides.html)  
-$\rightarrow$ [YouTube video](https://youtu.be/BF_oNe-sABQ?si=goMgaQxRcwaskNkD)
+$\rightarrow$ [Full paper on arXiv](https://arxiv.org/abs/2408.00885)  
+$\rightarrow$ [Slides](https://raw.githack.com/christianvedels/A_perfect_storm/main/Slides/slides.html)
 
 
 <details>
   <summary>How to cite (click to expand)</summary>
 
-  > Vedel, C. (2024). A Perfect Storm: First-Nature Geography and Economic Development. [Placeholder](https://arxiv.org/abs/2402.13604)
+  > Vedel, C. (2024). A Perfect Storm: First-Nature Geography and Economic Development. [arxiv.org/abs/2408.00885](https://arxiv.org/abs/2408.00885)
   
   ```bibtex
   @misc{Vedel2024PerfectStorm,
       title={A Perfect Storm: First-Nature Geography and Economic Development}, 
       author={Christian Vedel},
       year={2024},
-      eprint={2402.13604}, % Placeholder
+      eprint={2408.00885},
       archivePrefix={arXiv},
-      primaryClass={cs.CL}
-      url={https://arxiv.org/abs/2402.13604}
+      primaryClass={econ.GN}
+      url={https://arxiv.org/abs/2408.00885}
   }
   ```
 </details>
