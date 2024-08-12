@@ -1,12 +1,40 @@
-# Replication files for "A Perfect Storm: First-Nature Geography and Economic Development"
+# A Perfect Storm: First-Nature Geography and Economic Development
 
-This is the repository of the paper 'A Perfect Storm: First-Nature Geography and Economic Development'. Slides can be found here ([20 min.](https://raw.githack.com/christianvedels/A_perfect_storm_replication/main/Slides/20min/20min.html#1); [10 min.](https://raw.githack.com/christianvedels/A_perfect_storm_replication/main/Slides/10min/10min.html#1)). A short version of the paper is enclosed in this repository as 'Paper_short_version.pdf'. This specific version of the paper won the [EHS's New Researcher Prize](https://ehs.org.uk/society/grants-prizes/new-researcher-paper-prize-winners/) in the spring of 2023.
+This is the public repository of *A Perfect Storm: First-Nature Geography and Economic Development* by *Christian Vedel (University of Southern Denmark)*
+
+The paper tests the effect of changing first-nature geography on economic development using a storm in 1825, which fundamentally changed the geomorphology of the Limfjord region of Denmark. 
+
+$\rightarrow$ [Full paper on arXiv](https://arxiv.org/abs/2408.00885)  
+$\rightarrow$ [Slides](https://raw.githack.com/christianvedels/A_perfect_storm/main/Slides/slides.html)  
+$\rightarrow$ [YouTube video](https://youtu.be/f7Xo7BO_Xqk)
+
+
+<details>
+  <summary>How to cite (click to expand)</summary>
+
+  > Vedel, C. (2024). A Perfect Storm: First-Nature Geography and Economic Development. [arxiv.org/abs/2408.00885](https://arxiv.org/abs/2408.00885)
+  
+  ```bibtex
+  @misc{vedel2024perfectstormfirstnaturegeography,
+      title={A Perfect Storm: First-Nature Geography and Economic Development}, 
+      author={Christian Vedel},
+      year={2024},
+      eprint={2408.00885},
+      archivePrefix={arXiv},
+      primaryClass={econ.GN},
+      url={https://arxiv.org/abs/2408.00885}, 
+}
+  ```
+</details>
+
+![Map](Plots/Map.png)
+
+-------------
 
 The scripts in this repository are numbered to indicate the order in which to run them. Some of the data cannot be shared in this repository either because I am not authorized to redistribute it, or because it is too large. However, I have included all the necessary information to download or obtain the data below. All scripts from "101\_..." onwards require only data that is included in the repository.
 
 The numbering of the scripts indicate running order. The first digit indicate level of analysis. Everything starting with 0, e.g. 002_Linking_geo_data.R processes raw data. Everything starting with the digit 1 are scripts intended to output data which is used in the analysis. Scripts starting with 2 outputs results which are found in the paper or appendix.
 
-![Map](Plots/Map.png)
 
 ## 1. Included data
 
