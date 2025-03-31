@@ -125,7 +125,7 @@ mod1 = feols(
   cluster = ~ GIS_ID
 )
 
-p1_dummy = plot_mod(mod1, "pop_dummy", ylab = "Parameter estimate", corner_text = "Control group: Non-Limfjord parishes")
+p1_dummy = plot_mod(mod1, "pop_dummy", ylab = "Parameter estimate", corner_text = "")
 
 p1_dummy
 
@@ -135,7 +135,7 @@ mod2 = feols(
   cluster = ~ GIS_ID
 )
 
-p2_ma = plot_mod(mod2, "pop_MA", ylab = "Parameter estimate", vadj = 1, corner_text = "Control group: Less Market Access improvement")
+p2_ma = plot_mod(mod2, "pop_MA", ylab = "Parameter estimate", vadj = 1, corner_text = "")
 
 p2_ma
 

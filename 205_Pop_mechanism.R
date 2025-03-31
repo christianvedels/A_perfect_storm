@@ -95,7 +95,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
   MA_logx1 = plot_mod( # MA approach
     mod_i_MA, 
     paste0("log_x1_HISCO_",i,"_MA"),
-    corner_text = "Control group: Less Market Access improvement",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
@@ -105,7 +105,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
   Dummy_logx1 = plot_mod( # Dummy approach
     mod_i_Dummy, 
     paste0("log_x1_HISCO_",i,"_Dummy"),
-    corner_text = "Control: Non-Limfjord parishes",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
@@ -131,7 +131,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
   MA_ext = plot_mod( # MA approach
     mod_i_MA, 
     paste0("extensive_HISCO_",i,"_MA"),
-    corner_text = "Control group: Less Market Access improvement",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
@@ -141,7 +141,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
   Dummy_ext = plot_mod( # Dummy approach
     mod_i_Dummy, 
     paste0("extensive_HISCO_",i,"_Dummy"),
-    corner_text = "Control: Non-Limfjord parishes",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
@@ -194,7 +194,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
   MA_int = plot_mod( # MA approach
     mod_i_MA, 
     paste0("intensive_HISCO_",i,"_MA"),
-    corner_text = "Control group: Less Market Access improvement",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
@@ -204,7 +204,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
   Dummy_int = plot_mod( # Dummy approach
     mod_i_Dummy, 
     paste0("intensive_HISCO_",i,"_Dummy"),
-    corner_text = "Control: Non-Limfjord parishes",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
@@ -230,7 +230,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
   MA_asinh = plot_mod( # MA approach
     mod_i_MA, 
     paste0("asinh_HISCO_",i,"_MA"),
-    corner_text = "Control group: Less Market Access improvement",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
@@ -240,7 +240,7 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
   Dummy_asinh = plot_mod( # Dummy approach
     mod_i_Dummy, 
     paste0("asinh_HISCO_",i,"_Dummy"),
-    corner_text = "Control: Non-Limfjord parishes",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Occupations/",
     return_data_and_plot = TRUE
@@ -900,7 +900,13 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
+  fish, 
+  "fish_MA", 
+  dir0 = "Plots/Mechanism/", 
+  ylab = "Parameter estimate", 
+  vadj = 0, 
+  the_col = "#b33d3d", 
+  corner_text = ""
 )
 
 
@@ -922,7 +928,13 @@ spinning = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  spinning, "spinning_MA", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#b33d3d", corner_text = "Control group: Less Market Access improvement"
+  spinning, 
+  "spinning_MA", 
+  dir0 = "Plots/Mechanism/", 
+  ylab = "Parameter estimate", 
+  vadj = 0, 
+  the_col = "#b33d3d", 
+  corner_text = ""
 )
 
 # ==== Simple fertility and migration ====
@@ -941,7 +953,7 @@ plot_mod(
   the_col = "#b33d3d", 
   dir0 = "Plots/Mechanism/", 
   ref_year = 1845, 
-  corner_text = "Control group: Less Market Access improvement",
+  corner_text = "",
   pretrend_test = FALSE,
   vadj_automatic = TRUE
 )
@@ -977,7 +989,7 @@ plot_mod(
   ylab = "Parameter estimate", 
   the_col = "#b33d3d", 
   dir0 = "Plots/Mechanism/", 
-  corner_text = "Control group: Less Market Access improvement",
+  corner_text = "",
   vadj_automatic = TRUE
 )
 
@@ -992,7 +1004,7 @@ plot_mod(
   ylab = "Parameter estimate", 
   the_col = "#2c5c34", 
   dir0 = "Plots/Mechanism/", 
-  corner_text = "Control group: Less Market Access improvement",
+  corner_text = "",
   vadj_automatic = TRUE
 )
 
@@ -1061,7 +1073,7 @@ effects_demographics = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combin
   MA_logx1 = plot_mod( # MA approach
     mod_i_MA, 
     paste0(name_j,"_MA"),
-    corner_text = "Control group: Less Market Access improvement",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Demographics/Age_groups/",
     return_data_and_plot = TRUE,
@@ -1248,7 +1260,7 @@ effects_demographics = foreach(j = 1:NCOL(tmp), .errorhandling = "stop", .combin
   MA_logx1 = plot_mod( # MA approach
     mod_i_MA, 
     paste0(name_j,"_MA"),
-    corner_text = "Control group: Less Market Access improvement",
+    corner_text = "",
     the_col = "#2c5c34",
     dir0 = "Plots/Mechanism/Demographics/Migration/",
     return_data_and_plot = TRUE,

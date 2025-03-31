@@ -71,7 +71,7 @@ plot_mod_arch = function(
     ylab = "",
     vadj = 0.15,
     the_col = "#b33d3d",
-    corner_text = "Control: Non-Limfjord parishes"
+    corner_text = ""
 ){
   capN = mod$nobs
   
