@@ -892,7 +892,8 @@ fish = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fish, "fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34"
+  fish, "fish_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34",
+  corner_text = ""
 )
 
 fish = feols(
@@ -921,6 +922,7 @@ mod1 = feols(
 )
 plot_mod(
   mod1, "spinning_dummy", dir0 = "Plots/Mechanism/", ylab = "Parameter estimate", vadj = 0, the_col = "#2c5c34",
+  corner_text = ""
 )
 
 spinning = feols(
