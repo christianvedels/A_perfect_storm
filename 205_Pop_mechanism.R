@@ -15,6 +15,8 @@ source("000_Functions.R")
 # ==== Load data ====
 reg_pop = read_csv2("Data/Pop_reg.csv", guess_max = 2000)
 
+nudge = 0.05 # Param for plots
+
 # ==== Manu + Fishing ====
 reg_pop = reg_pop %>% 
   mutate(
