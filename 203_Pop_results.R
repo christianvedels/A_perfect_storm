@@ -569,17 +569,8 @@ out2 = att_gt(
 
 ggdid(out2)
 
-# Pretreatment outcome also as covariate
-out3 = att_gt(
-  yname = "lPop",
-  tname = "Year_num",
-  gname = "Treat_year",
-  idname = "GIS_ID_num",
-  data = reg_pop0,
-  xformla = ~ lManu + lAgri + Child_women_ratio  + Age_0_1 + Age_1_4 + Age_5_14 + Age_15_24 + Age_25_34 + Age_35_44 + Age_45_54 + Age_55_64 + Age_65_125
-)
+summary(out1); summary(out2)
 
-ggdid(out3)
-
-summary(out1); summary(out2); summary(out3)
+out1$n*length(unique(reg_pop$Year))
+out2$n*length(unique(reg_pop$Year))
 

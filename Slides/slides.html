@@ -3,7 +3,7 @@
   <head>
     <title>slides.knit</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.25/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -105,13 +105,12 @@ class: center, middle, inverse
 .highlight {
   background-color: yellow;
 }
+
+.space-top {
+     margin-top: 3cm;
+  }
 &lt;/style&gt;
 
-&lt;style type="text/css"&gt;
-.remark-slide-number {
-  display: none;
-}
-&lt;/style&gt;
 
 
 
@@ -126,13 +125,19 @@ class: center, middle, inverse
 &lt;a href="https://github.com/christianvedels/A_perfect_storm"&gt;github.com/christianvedels/A_perfect_storm&lt;/a&gt; 
 &lt;img src="Figures/github-mark-white.png" alt="Logo" style="vertical-align: middle; height: 20px;"&gt;
 &lt;/p&gt;
+*Updated paper available on [arxiv.org/abs/2408.00885](https://arxiv.org/abs/2408.00885)*
 ]
 ]
 
 
 ---
-class: center, middle, inverse
+class: middle, inverse
+.space-top[
 # *Why is it that economic activity happens in some places rather than other places?*
+]
+
+
+*(I will tell you something you already know: Geography matters)*
 
 ???
 
@@ -140,12 +145,21 @@ class: center, middle, inverse
 ---
 class: center, middle, inverse
 
+.pull-left-wide[
 ### Distribution of Economic Activity across the world
 &lt;img src="Figures/The_earth_at_night_greyscale.png" width="75%" style="display: block; margin: auto;" /&gt;
 
 .small123[
-[www.commons.wikimedia.org/wiki/File:The_earth_at_night.jpg](https://commons.wikimedia.org/wiki/File:The_earth_at_night.jpg)  
-*Wikimedia Commons, retrieved from NASA Earth Observatory, 27 November 2012*
+*[Wikimedia Commons, retrieved from NASA Earth Observatory, 27 November 2012](www.commons.wikimedia.org/wiki/File:The_earth_at_night.jpg)*
+]
+
+]
+
+.pull-right-narrow[
+### Henderson et al (2018)
+- 24 physical geographical attributes ...
+- ...explain 47 pct of this
+- But how does it work? Is it just seeds? Is it contemporary?
 ]
 
 ???
@@ -153,26 +167,98 @@ class: center, middle, inverse
 - Simply loosing the geographical lottery gives you worse opportunities
 - Why?
 
+
+---
+&lt;img src="Figures/Map_nobg.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+???
+- This map essentially shows the entire story I am going to tell you today 
+- Market access improved because of new port becoming available 
+- Imagine being a merchant in one of these dots before 1834 
+- You would have to travel along the dotted line
+
+---
+class: center
+## Map
+&lt;iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d704129.7470425251!2d8.826970647896832!3d56.880787313536544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sda!2sdk!4v1634159326111!5m2!1sda!2sdk" width="1200" height="500" style="border:0;" allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;
+
 ---
 class: middle
 
 .pull-left-wide[
-# A Perfect Storm
-- In 1825 a storm breached the narrow Agger Istmus
-- In 1834 it became navigable
-- The same event happened in reverse in the 1100s
+# Where this came from
+
+- Covid, 
+- Summer escape 
+- Local history
+- Maritime Historian, Bo Poulsen, AAU
+  + *In particular* Poulsen (2019, 2022)
+  + This is in large a quantitative test of his work
+
+]
+
+.pull-right-narrow[
+![Biking_on_the_isthmus](Figures/2020-07-10 16.42.13.jpg)
 
 
-- Time variation in first-nature geography: Difference-in-difference to study the causal effect of geography on economic development
-
-- **Data:** Population, occupation, demography (fertility/internal migration), archaeological findings `\(\rightarrow\)` **First nature geography determines the location of prosperity**
 ]
 
 ---
-class: middle
+### Town of Thyborøn
+.pull-left-wide[
+![Thyborøn](Figures/2020-07-07 19.56.17.jpg)
+]
+
+---
+### Local fish - 25 pct of catch in 2021
+.pull-left-wide[
+.pull-right-wide[
+![Thyborøn](Figures/2020-07-08 19.44.06.jpg)
+]
+]
+
+---
+
+.space-top[
+.pull-left-wide[
+# A Perfect Storm
+
+
+- Time variation in first-nature geography: Causal effect of geography
+
+- **Data:** Population, occupation, demography (fertility/internal migration), archaeological findings 
+]
+
+]
+
+
+--
+
+.pull-left-wide[
+.red123[
+`\(\rightarrow\)` **First nature geography determines the location of prosperity**
+]
+]
+
+---
+# Beyond seeds?
+
+.pull-left-narrow[
+- Geography as seeds or active determinants? (Bosker, 2022) 
+- Can institutions overcome the forces of geography?
+
+- Seeds well documented: Diamond (1997), Matranga (2024), Allen et al (2023), Bleakly &amp; Lin (2012), Davis &amp; Weinstein (2002)
+]
+
+.pull-right-wide[
+![Simple](Figures/Simple_theory_illustration.png)
+]
+
+
+---
 
 .center[
-# Literature
+# Literature - geography versus institutions
 ]
 
 .pull-left[
@@ -190,37 +276,7 @@ class: middle
 - What about first nature? Extreme long-run: Diamond (1997); Allen et al. (2023); Matranga (2024)
 ]
 
----
-![Simple](Figures/Simple_theory_illustration.png)
 
----
-class: middle
-.pull-center[
-## This paper
-.green123[
-.medium123[
-*Explores the effects when first-nature geography suddenly changes*
-]
-.medium123[
-*Does first nature matter beyond the origin of path dependence?* 
-]
-]
-
-]
-
----
-&lt;img src="Figures/Map_nobg.png" width="75%" style="display: block; margin: auto;" /&gt;
-
-???
-- This map essentially shows the entire story I am going to tell you today 
-- Market access improved because of new port becoming available 
-- Imagine being a merchant in one of these dots before 1834 
-- You would have to travel along the dotted line
-
----
-class: center
-## Map
-&lt;iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d704129.7470425251!2d8.826970647896832!3d56.880787313536544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sda!2sdk!4v1634159326111!5m2!1sda!2sdk" width="1200" height="500" style="border:0;" allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;
 
 ---
 name: timeline
@@ -274,15 +330,16 @@ class: middle
 # Market Access
 .pull-left[
 Based on cost distance from parishes to harbours: 
-`$${MA}_p = \sum_{h \in H} [CostDist(p, h) + 1]^\theta \times W_{p}$$`
+`$${MA}_p = \sum_{h \in H} [CostDist(p, h)]^\theta$$`
 - CostDist - Dijkstra's algorithm and 1/10 land/sea ratio 
 - `\(\theta = -1\)`  
+- Findings robust to other levels of `\(\theta\)` and Cost Distance function specificaitons.
 ]
 
 ---
 name: censusdata
 
-# Main data: Census data
+# Population and occupations: Census data
 
 .pull-left[
 - Link Lives 
@@ -298,6 +355,26 @@ name: censusdata
 ![Filled form](https://upload.wikimedia.org/wikipedia/commons/9/9a/Folket%C3%A6lling-1840.jpg)
 
 ]
+
+---
+name: str-presentation
+# Trade: Sound Toll Register (STR)
+
+.pull-left[
+- Most ships to and from the Baltic region (1.8 mio. passages, 1497-1857) 
+- Extract traffic for Denmark  
+- Digitized by team at Gronningen (Veluwenkamp &amp; Woude, 2009)
+- Only ships passing [Elsinore](#elsinor)
+ 
+![Kronborg](https://upload.wikimedia.org/wikipedia/commons/9/97/Kronborg_Braun-Hogenberg.jpg)
+*Kronborg at Elsinore anno 1500, wikimedia commons*
+]
+
+.pull-right[
+![1838](Figures/1734_STR_RUG.jpg)
+*Page from Sound Toll Register in 1734 (www.rug.nl)*
+]
+
 
 ---
 class: center, middle
@@ -408,6 +485,23 @@ class: center
 ]
 
 ---
+class: middle
+# Geography and prosperity
+
+.pull-left-wide[
+- Can we conclude anything about well being of people? No
+
+- But:
+  + Higher productivity jobs
+  + Higher population density
+  + Driven by fertility (in a post-Malthusian economy Jensen et al, 2022)
+  + Points to increased levels of prosperity
+
+- *Geomorphology* is determines prosperity
+
+]
+
+---
 class: center, middle, inverse
 
 # What about external validity?
@@ -439,6 +533,34 @@ class: center, middle, inverse
 &lt;img src="Figures/Arch_descriptive.png" width="75%" style="display: block; margin: auto;" /&gt;
 
 ---
+# Some considerations about archaeological data
+
+--
+
+.pull-left[
+### Problems
+1. If a coin finding is dated to the period 745-1066, in which decade does it then count?
+  + *All of them?*
+  + What about a coin finding dated to between 1030 and 1039?
+2. Soil type shapes the economy but also availability of archaeological remains
+  + Huge selection problem
+3. Why would coins be left?
+  + Trade? Distress?
+]
+
+--
+.pull-right[
+### How to address them
+1. Use Bayesian Monte Carlo sampling procedure to estimate: `\(Pr(\{c\}|t)\)` from `\(Pr(t|c)\)`
+   + *Intution: Interpret arhcaeological dating as a probability distribution*
+2. Matching
+   + *Greedy propensity score matching - same soil profiles*
+3. Use several different outcomes
+   + Building, coins, other?
+
+]
+
+---
 class: middle
 .center[
 ## Effect on coin findings
@@ -448,12 +570,34 @@ class: middle
 &lt;img src="Figures/arch_dummy_coins.png" width="75%" style="display: block; margin: auto;" /&gt;
 ]
 
-.pull-right-narrow[
-- The West Limfjord region falls behind, when their channel closes
-- Completely due to geomorphology and determined in the last ice age 
-- Details of panel construction and more results in the paper
+---
+class: middle
+.center[
+## Effect on buildings findings
 ]
 
+.pull-left-wide[
+&lt;img src="Figures/arch_dummy_buildings.png" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Matching
+*Based on greedy propensity score matching*
+
+.pull-left[
+.pull-left[
+![Before](Figures/Propensity_before.png)
+![After](Figures/Propensity_after.png)
+]
+]
+
+--
+
+.pull-right[
+![Regression_table](Figures/Table3.png)
+
+*Regression table: Effect across all specificaitons*
+]
 
 
 ---
@@ -470,22 +614,272 @@ name: other-results
 
 .footnote[
 **Email**: christian-vs@sam.sdu.dk;&lt;br&gt;
+**BlueSky**: ‪@christianvedel.bsky.social;&lt;br&gt;
 **Twitter/X**: @Christian Vedel&lt;br&gt;
 Feel free to reach out :-)
 ]
 
 .pull-right[
-
+.pull-left[
+![Morsoe](Figures/Morsoe.jpg)
+]
+.pull-right[
 ![Map2](Figures/Map_nobg.png)
 ]
+
+*Morsø cast iron wood stove. Morsø iron foundry opened in 1853, right where it would benefit from British Coal and Swedish Iron*
+]
+
+---
+count: false
+class: center, middle
+# Appendix
+
+---
+name: new-ports
+# New ports
+[Back](#instmech)
+![New ports](Figures/WestMiddle_port_projects.png)
+
+---
+name: railways1
+# Railways (1/2)
+[Back](#instmech)
+
+.pull-left[
+![1860](Figures/Y1860.png)
+]
+
+.pull-right[
+![1866](Figures/Y1866.png)
+
+]
+
+Source: Fertner (2013)
+
+---
+name: railways2
+# Railways (2/2)
+[Back](#instmech)
+.pull-left[
+![1880](Figures/Y1880.png)
+]
+
+.pull-right[
+![1900](Figures/Y1900.png)
+]
+
+Source: Fertner (2013)
+
+---
+name: elsinor
+# Elsinor
+
+
+.center[
+&lt;iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3743.038856836935!2d12.616720634729397!3d56.03904113734528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sda!2sdk!4v1655049802848!5m2!1sda!2sdk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"&gt;&lt;/iframe&gt;
+]
+
+[Back to STR](#str-presentation), [Back to results](#str-results)
+
+
+---
+name: Rob_comp
+## Robustness: Comparison groups
+
+.pull-left[
+#### MA approach
+![MA_mult](Figures/Multiverse_MA.png)
+]
+
+.pull-right[
+#### Dummy approach
+![Dummy_mult](Figures/Multiverse_dummy.png)
+]
+
+[Back](#pop)
+
+.footnote[
+**Definitions:** A: &lt;5km to coast; B: Copenhagen excl.; C: Control &gt;100 km from Limfj.; D: &lt;5km to Market town
+]
+
+
+
+---
+name: all-paramMA
+## Robustness: Parameter choices
+
+&lt;img src="Figures/Multiverse_MA_param.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+[Back](#pop)
+
+
+---
+name: fish
+# Environmental impact
+
+.pull-left-wide[
+.pull-right-wide[
+![Fish](Figures/Herring_caught_Poulsen_et_al_2007.png)
+]
+]
+
+
+
+---
+name: newspapers
+# Newspapers
+
+.pull-left[
+- Based on all newspapers in published in the period
+]
+
+.pull-right[
+![Newspapers](Figures/Mentions_of_agger_channel.png)
+]
+
+---
+name: instmech
+# Mechanism: Adaptation
+
+.pull-left[
+[Back](#mechanism1)  
+*Theoretical mystery desribed by Redding and Turner (2015)*
+
+#### Historiography:
+- 1840s: [New ports were constructed in all west Limfjord market towns](#new-ports)
+- 1841: Independent rights for international trade
+- 1852: First ever Danish steam route to England 
+- 1856-1861: Construction of the Frederik VII canal at Løgstør 
+- 1860-1900: [Railways](#railways1) and highways 
+- 1875-1933: Groins to stabilise the channel (and coast) 
+]
+
+
+
+.pull-right[
+![FrederikVII](Figures/1884 Milton Jensen - Frederik VII canal - wikimedia commons.jpg)
+*Milton (1884) Frederik VII canal*
+
+![Trade](Figures/placat_1841.jpg)
+*'Placat' announcing trade rights of Limfjord market towns*
+]
+
+
+---
+name: hisco
+# New occupational data
+[Back](#censusdata)
+
+.pull-left[
+- Censuses 1787-1901 contain HISCO for some years (3.7 mio. observations) 
+- Training data `\(\rightarrow\)` 13.5 mio. records. 
+- Accuracy: 94 pct + Multlingual
+]
+
+.pull-right[
+- Check out [OccCANINE](https://github.com/christianvedels/OccCANINE)
+- [arXiv: Breaking the HISCO Barrier: Automatic Occupational Standardization with OccCANINE](https://arxiv.org/abs/2402.13604)
+w. Christian M. Dahl and Torben Johansen
+]
+
+
+![Network](Figures/Architecture.png)
+
+---
+class: center, middle
+name: appendixarch
+# Archaeological evidence details
+
+.footnote[
+[Back](#arch)
+]
+
+---
+
+.pull-left[
+## About the data
+- Administrative database of all archaelogical sites and finds 
+- Managed by ministry of culture 
+- 321 generic types of findings. E.g. coins
+- 1940 dated sites with coins between 750 and 1500
+
+- Panel construction:
+  + **Innovation:** Monte Carlo to estimate `\(P_i(Coin|t)\)`   
+  + Probability that a coin finding was generated at a specific time
+
+]
+
+.pull-right[
+## Data example
+![Data example](Figures/Arch_data_example.png)
+![Coins](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Hist_Museum_Oslo_IMG_2914_viking_coin_find.jpg/800px-Hist_Museum_Oslo_IMG_2914_viking_coin_find.jpg)
+*Coins, wikimedia commons*
+]
+
+.footnote[
+[Back](#arch)
+]
+
+---
+# Estimator of coin probability
+.pull-left[
+- **Objective:** We want to know *how likely it is that coin was left at a particular time `\(t\)`*
+- **What we have:** Observations of individual coin findings and a distribution of times `\(t\)`, which are likely for a specific coin finding in a place `\(i\)` 
+
+**In equation form:**
+- What we have: `\(P_i(t|c)\)`: Probability of `\(t\)` given one coin 
+- What we want: `\(P_i(\{c\}|t)\)`: Probability of *any* coins in time `\(t\)`
+]
+--
+.pull-right[
+### The solution
+Bayes formula and Monte Carlo
+- Simple to sample from this distribution
+- Sample `\(t\)` from each coin 
+- Count frequency of coin findings
+`$$P(\{c\}|t)=\left[1-\prod_{c=1}^{K_i} \left( 1 - P(t|c) \right)\right] P(\{c\})$$`
+where it is assumed that
+`\(P(t|c)\sim \mathscr{U}(Year_{min}^c; Year_{max}^c)\)` or
+`\(P(t|c)\sim \mathscr{N}(\mu_c, \sigma_c),\)`
+`\(\sigma_c=\frac{(Year_{max}^c - Year_{min}^c)}{1.96}\)`
+]
+
+
+---
+### All indicators 
+.pull-left-wide[
+![Other_ind](Figures/Arch_all.png)
+]
+
+
+
+
+
+---
+name: matching_coins
+#### Coin findings (matched sample)
+&lt;img src="Figures/arch_dummy_coins_matched.png" width="80%" style="display: block; margin: auto;" /&gt;
+[Back](#arch1)
+---
+name: matching_buildings
+#### Building findings (matched sample)
+&lt;img src="Figures/arch_dummy_buildings.png" width="80%" style="display: block; margin: auto;" /&gt;
+[Back](#arch2)
+---
+### Safer, more convenient harbours are nice
+.pull-left-wide[
+![Skudehandel](Figures/Wikimedia_skudehandel.jpg)
+]
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false,
-"ratio": "16:9"
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
