@@ -49,10 +49,10 @@ monteCarlo = function(Finding_types, capB = 1000, resoultion = 50){
           n = n()
         ) %>%
         mutate(
-          activity = as.numeric(n>1)
+          activity = as.numeric(n>=1)
         )
     })
-    
+
     # Joining with GIS IDs which never showed up
     res = expand.grid(
       GIS_ID = as.character(geo_data$GIS_ID),
@@ -66,24 +66,24 @@ monteCarlo = function(Finding_types, capB = 1000, resoultion = 50){
         n = ifelse(is.na(n), 0, n),
       ) %>%
       mutate(b = b)
-    
+
     return(res)
   }
-  
+
   suppressMessages({
-    res = count_boot %>% 
-      group_by(rYear, GIS_ID) %>% 
+    res = count_boot %>%
+      group_by(rYear, GIS_ID) %>%
       summarise(
         n = sum(n),
         success = sum(activity),
         trials = capB
-      ) %>% 
+      ) %>%
       mutate(
         rate = success/trials,
         rate_n = n/trials
       )
   })
-  
+
   return(
     list(
       panel = res,
@@ -114,10 +114,10 @@ monteCarlo_norm = function(Finding_types, capB = 1000, resoultion = 50){
           n = n()
         ) %>%
         mutate(
-          activity = as.numeric(n>1)
+          activity = as.numeric(n>=1)
         )
     })
-    
+
     # Joining with GIS IDs which never showed up
     res = expand.grid(
       GIS_ID = as.character(geo_data$GIS_ID),
@@ -131,24 +131,24 @@ monteCarlo_norm = function(Finding_types, capB = 1000, resoultion = 50){
         n = ifelse(is.na(n), 0, n),
       ) %>%
       mutate(b = b)
-    
+
     return(res)
   }
-  
+
   suppressMessages({
-    res = count_boot %>% 
-      group_by(rYear, GIS_ID) %>% 
+    res = count_boot %>%
+      group_by(rYear, GIS_ID) %>%
       summarise(
         n = sum(n),
         success = sum(activity),
         trials = capB
-      ) %>% 
+      ) %>%
       mutate(
         rate = success/trials,
         rate_n = n/trials
       )
   })
-  
+
   return(
     list(
       panel = res,
@@ -216,16 +216,16 @@ arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
   
   res_is = foreach(j = finding_types_i) %do% {
     cat(
-      "--->", as.character(Sys.time()), j, 
+      "--->", as.character(Sys.time()), j,
       "                                                      \r"
     )
-    res_j = monteCarlo(Finding_types = j, capB = capB)
+    res_j = monteCarlo_norm(Finding_types = j, capB = capB)
     return(res_j)
   }
   names(res_is) = finding_types_i
   res_is[[length(res_is)+1]] = res_i
   names(res_is)[length(res_is)] = paste0("Overall_", i)
-  
+
   dir_i = paste0("Data/Tmp_arch_samples_norm")
   if(!dir.exists(dir_i)){
     dir.create(dir_i)
