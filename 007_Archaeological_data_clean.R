@@ -7,14 +7,14 @@
 
 # ==== Libraries =====
 library(tidyverse)
-library(rgdal)
+library(sf)
 library(foreach)
 source("000_Functions.R")
 
 # ==== Load data ====
 the_data = read.csv("Data/Archeological finds/anlaeg_all_4326.csv", fileEncoding = "latin1")
-shape = readOGR("Data/Archeological finds/anlaeg_all_4326_shp")
-shape_parishes = readOGR("Data/sogne_shape/sogne.shp")
+shape = as(st_read("Data/Archeological finds/anlaeg_all_4326_shp"), "Spatial")
+shape_parishes = as(st_read("Data/sogne_shape/sogne.shp"), "Spatial")
 geo_data = read.csv2("Data/Geo.csv")
 
 # ==== Clean data ====
@@ -48,7 +48,7 @@ the_data = the_data %>% filter(datering %in% used_historical_periods)
 # Filter data
 the_data = the_data %>%
   filter(
-    til_aar <= 1500 | fra_aar >= 750
+    til_aar <= 1500 & fra_aar >= 750
   )
 
 # Over
