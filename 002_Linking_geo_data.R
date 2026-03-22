@@ -8,8 +8,8 @@
 
 # ==== Libraries and preparation ====
 library(tidyverse)
-source("000_functions.R")
-library(rgdal)
+source("000_Functions.R")
+library(sf)
 library(fst)
 
 # ==== Read data ====
@@ -17,7 +17,7 @@ merged_data = read_fst("Data/tmp_census.fst")
 merged_data_raw = read_fst("Data/tmp_census_raw.fst")
 
 # ==== Shape files ====
-shape_parish = readOGR("Data/sogne_shape") # From www.digdag.dk
+shape_parish = as(st_read("Data/sogne_shape"), "Spatial") # From www.digdag.dk
 
 # ==== Finding Lemvig ====
 # Lemvig (market town in the Limfjord) is missing in 'event_parish'
