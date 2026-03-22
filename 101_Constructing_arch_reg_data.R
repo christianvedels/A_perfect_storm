@@ -47,6 +47,7 @@ coins = get_dataframe_by_name(
 )
 
 # ==== Construct reg data
+load("Data/Tmp_arch_samples/Buildings.Rdata")
 buildings = construct_panel(res_is$Overall_Buildings$samples)
 buildings %>% 
   left_join(geo_data, by = "GIS_ID") %>% 
