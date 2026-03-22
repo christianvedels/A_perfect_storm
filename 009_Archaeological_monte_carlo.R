@@ -6,7 +6,7 @@
 # Output:         'Arch_panel.csv' containing archaeological observations 
 
 # ==== Options ====
-OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
+if(!exists("OVERWRITE")) OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
 
 # ==== Library ====
 library(tidyverse)
