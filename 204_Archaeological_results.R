@@ -449,7 +449,7 @@ vcov5$beta_samples %>%
   theme_bw() +
   geom_vline(xintercept = 0) +
   geom_vline(
-    xintercept = mod5$coefficients[names(mod1$coefficients)=="Year1350:Affected"],
+    xintercept = mod5$coefficients[names(mod5$coefficients)=="Year1350:Affected"],
     lty = 2
   )
 
