@@ -7,7 +7,7 @@
 # Output:         'merged_data' and 'merged_data_raw', which are both a merge of Link Lives data
 
 # ==== Options ====
-OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
+if(!exists("OVERWRITE")) OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
 
 # ==== Toydata ====
 # If TRUE only limited data will be loaded as toydata
