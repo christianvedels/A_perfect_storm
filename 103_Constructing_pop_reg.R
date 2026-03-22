@@ -13,7 +13,7 @@ library(foreach)
 reg_pop = read_csv2("Data/Popdata.csv", guess_max = 2000)
 geo_data = read_csv2("Data/Geo.csv", guess_max = 2000)
 market_access = read_csv2("Data/MA_estimates.csv", guess_max = 2000) 
-market_towns = read_csv2("Data/Market_towns.csv")
+market_towns = read_csv2("Data/Market_towns.csv", locale = locale(encoding = "latin1"))
 dist_mt = read_csv2("Data/Distance_to_market_town.csv", guess_max = 2000)
 
 # ==== Small dataficiations ====
