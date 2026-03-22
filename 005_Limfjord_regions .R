@@ -10,20 +10,15 @@
 library(tidyverse)
 source("000_Functions.R")
 library(sf)
-library(rgeos)
-library(rgdal)
 library(ggspatial)
 
 # ==== Load data ====
-# Downloaded 2023-04-19 from:
 # - https://osmdata.openstreetmap.de/data/water-polygons.html
-water_line = readOGR(
-  "Data/water-polygons-split-4326"
-)
+water_line = as(st_read("Data/water-polygons-split-4326"), "Spatial")
 
-shape_parish = readOGR("Data/sogne_shape") # From www.digdag.dk
+shape_parish = as(st_read("Data/sogne_shape"), "Spatial") # From www.digdag.dk
 
-limfjord = readOGR("Data/limfjorden/Limfjorden.shp")
+limfjord = as(st_read("Data/limfjorden/Limfjorden.shp"), "Spatial")
 
 # ==== Cleaning shape files ====
 
@@ -127,7 +122,7 @@ dist2line0 = function(x){
   x = degrees_to_km(x[2], x[1])
 
   a = (x2[1]-x1[1])*(x1[2]-x[2])-(x1[1]-x[1])*(x2[2]-x1[2])
-  b = sqrt((x2[1]-x1[1])^2+(x2[2]-x1[2]))
+  b = sqrt((x2[1]-x1[1])^2+(x2[2]-x1[2])^2)
   res = a/b
   res
 }
