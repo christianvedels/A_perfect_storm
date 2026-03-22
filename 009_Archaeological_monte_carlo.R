@@ -5,6 +5,9 @@
 #
 # Output:         'Arch_panel.csv' containing archaeological observations 
 
+# ==== Options ====
+OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
+
 # ==== Library ====
 library(tidyverse)
 library(foreach)
@@ -175,6 +178,15 @@ site_types_tab = the_data %>%
 # Uniform distribution
 arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
   cat("\n", i, "\n")
+  fpath_i = paste0("Data/Tmp_arch_samples/", i, ".Rdata")
+
+  file_fresh = file.exists(fpath_i) && difftime(Sys.time(), file.mtime(fpath_i), units = "days") < 7
+  if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)){
+    cat("  Skipping (file up to date)\n")
+    load(fpath_i)
+    return(res_is)
+  }
+
   finding_types_i = site_types_tab %>%
     filter(Category == i) %>%
     select(finding_interpretation_en) %>%
@@ -198,7 +210,7 @@ arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
   if(!dir.exists(dir_i)){
     dir.create(dir_i)
   }
-  save(res_is, file = paste0("Data/Tmp_arch_samples/", i,".Rdata") )
+  save(res_is, file = fpath_i)
 
   return(res_is)
 }
@@ -207,13 +219,22 @@ arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
 set.seed(20)
 arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
   cat("\n", i, "\n")
-  finding_types_i = site_types_tab %>% 
-    filter(Category == i) %>% 
-    select(finding_interpretation_en) %>% 
+  fpath_i = paste0("Data/Tmp_arch_samples_norm/", i, ".Rdata")
+
+  file_fresh = file.exists(fpath_i) && difftime(Sys.time(), file.mtime(fpath_i), units = "days") < 7
+  if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)){
+    cat("  Skipping (file up to date)\n")
+    load(fpath_i)
+    return(res_is)
+  }
+
+  finding_types_i = site_types_tab %>%
+    filter(Category == i) %>%
+    select(finding_interpretation_en) %>%
     unlist() %>% unname()
-  
+
   res_i = monteCarlo_norm(Finding_types = finding_types_i, capB = capB)
-  
+
   res_is = foreach(j = finding_types_i) %do% {
     cat(
       "--->", as.character(Sys.time()), j,
@@ -230,8 +251,8 @@ arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
   if(!dir.exists(dir_i)){
     dir.create(dir_i)
   }
-  save(res_is, file = paste0("Data/Tmp_arch_samples_norm/", i,".Rdata") )
-  
+  save(res_is, file = fpath_i)
+
   return(res_is)
 }
 
