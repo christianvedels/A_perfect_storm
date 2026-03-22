@@ -206,16 +206,16 @@ mult_dummy = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
   }
   
   if(groups_g$Within_5km_of_mt){
-    reg_pop_g = reg_pop_g %>% 
-      filter(non_limfjord_control)
-    
+    reg_pop_g = reg_pop_g %>%
+      filter(Within_5km_of_mt)
+
     if(group == ""){
       group = "D"
     } else {
       group = paste(group, "D", sep = ", ")
     }
   }
-  
+
   mod_g = feols(
     log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
     data = reg_pop_g %>% mutate(Affected = limfjord_placement_west),
@@ -307,16 +307,16 @@ mult_MA = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
   }
   
   if(groups_g$Within_5km_of_mt){
-    reg_pop_g = reg_pop_g %>% 
-      filter(non_limfjord_control)
-    
+    reg_pop_g = reg_pop_g %>%
+      filter(Within_5km_of_mt)
+
     if(group == ""){
       group = "D"
     } else {
       group = paste(group, "D", sep = ", ")
     }
   }
-  
+
   mod_g = feols(
     log(Pop) ~ Year*Affected,
     data = reg_pop_g %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
