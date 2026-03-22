@@ -8,7 +8,7 @@
 
 # ==== Libraries ====
 library(tidyverse)
-library(rgdal)
+library(sf)
 source("000_Functions.R")
 library(foreach)
 library(ggspatial)
@@ -16,18 +16,16 @@ library(raster)
 library(gdistance)
 
 # ==== Load data ====
-shape_parish = readOGR("Data/sogne_shape")
+shape_parish = as(st_read("Data/sogne_shape"), "Spatial")
 
-water_line = readOGR(
-  "Data/water-polygons-split-4326"
-)
+water_line = as(st_read("Data/water-polygons-split-4326"), "Spatial")
 
 # Sound toll
 sound_toll = read.csv2("data/LocalSoundToll.csv")
 
 # ==== Functions ====
 # marketPotential
-marketPotential = function(dist, theta = -1, weights = rep(1, length(x))){
+marketPotential = function(dist, theta = -1, weights = rep(1, length(dist))){
   sum((dist+1)^theta*weights)
 }
 
@@ -131,16 +129,18 @@ Calculate_and_plot = function(theta, alpha){
       MA_after_before = MA_after / MA_before
     )
   
-  parish_spdf@data = parish_spdf@data %>%
+  parish_spdf_local = parish_spdf
+  parish_spdf_local@data = parish_spdf_local@data %>%
     left_join(MAs, by = "GIS_ID")
-  
-  shape_parish@data = shape_parish@data %>%
+
+  shape_parish_local = shape_parish
+  shape_parish_local@data = shape_parish_local@data %>%
     left_join(MAs, by = "GIS_ID")
-  
-  p1 = parish_spdf@data %>%
+
+  p1 = parish_spdf_local@data %>%
     ggplot() +
     layer_spatial(
-      data = shape_parish,
+      data = shape_parish_local,
       aes(fill = log(MA_after/MA_before)),
       col = "grey"
     ) +
