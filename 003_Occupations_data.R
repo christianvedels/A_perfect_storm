@@ -9,6 +9,9 @@
 # HISCO codes generated from automatic HISCO classifier. 
 # See https://arxiv.org/abs/2402.13604 
 
+# ==== Options ====
+if(!exists("OVERWRITE")) OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
+
 # ==== Libraries ====
 library(tidyverse)
 library(foreach)
@@ -17,6 +20,17 @@ library(dataverse)
 
 # ==== Set dataverse env ====
 Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
+
+fpath_out     = "Data/tmp_census.fst"
+fpath_sentinel = "Data/RowID_GIS_ID_key.csv"  # Unique to 003 — use as freshness sentinel
+file_fresh = file.exists(fpath_sentinel) &&
+  difftime(Sys.time(), file.mtime(fpath_sentinel), units = "days") < 7 &&
+  file.exists(fpath_out) && file.mtime(fpath_out) >= file.mtime(fpath_sentinel)
+
+if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)){
+  cat("Skipping 003 (output file up to date or OVERWRITE = 0)\n")
+  merged_data = read_fst(fpath_out)
+} else {
 
 # ==== Load data ====
 merged_data = read_fst("Data/tmp_census.fst") 
@@ -58,7 +72,8 @@ hisco = hisco %>%
   )
 
 # Check uniqueness of ids
-hisco %>% group_by(Year, pa_id) %>% count() %>% filter(n>1)
+cat("Unique pa_id in HISCO data:", hisco$pa_id %>% unique() %>% length(), "\n")
+hisco %>% group_by(Year, pa_id) %>% count() %>% filter(n>1) %>% print()
 
 # Check data quality in 1000 random subsamples
 # set.seed(20)
@@ -67,13 +82,14 @@ hisco %>% group_by(Year, pa_id) %>% count() %>% filter(n>1)
 #   write_csv2("Data/HISCO_to_check.csv")
 
 # Check occupational observations
+cat("Total observations in HISCO data:", nrow(hisco), "\n")
 hisco %>% 
   group_by(Year) %>% 
   summarise(
     NA_Occupation = sum(is.na(Occupation)),
     NA_Household_position = sum(is.na(Household_position)),
     NA_both = sum(is.na(Occupation) & is.na(Household_position))
-  )
+  ) %>% print()
 
 # ==== Merge on HISCO codes and categories ====
 # Merge on HISCO codes
@@ -151,6 +167,8 @@ merged_data = merged_data0 %>%
   select(-unique_hiscos_3digit)
 
 # ==== Saving data enriched data ====
-write_fst(merged_data, "Data/tmp_census.fst", compress = 0)
+write_fst(merged_data, fpath_out, compress = 0)
+
+} # end OVERWRITE check
 
 
