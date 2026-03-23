@@ -10,7 +10,7 @@
 # See https://arxiv.org/abs/2402.13604 
 
 # ==== Options ====
-if(!exists("OVERWRITE")) OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
+if(!exists("OVERWRITE")) OVERWRITE = 2  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
 
 # ==== Libraries ====
 library(tidyverse)
@@ -91,80 +91,81 @@ hisco %>%
     NA_both = sum(is.na(Occupation) & is.na(Household_position))
   ) %>% print()
 
-# ==== Merge on HISCO codes and categories ====
-# Merge on HISCO codes
-merged_data0 = merged_data %>% 
-  left_join(hisco, by = c("Year", "pa_id"))
-merged_data = merged_data0
-rm(merged_data0)
-
 # ==== 0-9 first digit HISCO ====
-# This part takes a long time to run
-
 fix_hisco = function(x){
   x = as.character(x)
   x = ifelse(nchar(x)==4, paste0("0", x), x)
   return(x)
 }
 
-merged_data0 = merged_data %>% 
-  # sample_n(1000) %>%
-  # Fix HISCO codes to char
-  mutate_at(vars(starts_with("hisco")), fix_hisco) %>% 
-  mutate(unique_hiscos = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 1)))) %>% 
-  mutate(unique_hiscos_2digit = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 2)))) %>% 
-  mutate(unique_hiscos_3digit = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 3))))
+# Pre-compute the HISCO codes that appear globally (to get consistent columns across batches)
+hisco_cols = hisco %>% select(starts_with("hisco_")) %>% mutate_all(fix_hisco)
+appeared_2digit = sort(unique(unlist(apply(hisco_cols, 1, function(x) unique(substr(x, 1, 2))))))
+appeared_3digit = sort(unique(unlist(apply(hisco_cols, 1, function(x) unique(substr(x, 1, 3))))))
+appeared_2digit = appeared_2digit[!is.na(appeared_2digit) & appeared_2digit != "NA"]
+appeared_3digit = appeared_3digit[!is.na(appeared_3digit) & appeared_3digit != "NA"]
+rm(hisco_cols)
 
-# First digit
-merged_data0 = merged_data0 %>% 
-  mutate(
-    hisco_1st_digit0 = as.numeric(grepl("0", unique_hiscos)),
-    hisco_1st_digit1 = as.numeric(grepl("1", unique_hiscos)),
-    hisco_1st_digit2 = as.numeric(grepl("2", unique_hiscos)),
-    hisco_1st_digit3 = as.numeric(grepl("3", unique_hiscos)),
-    hisco_1st_digit4 = as.numeric(grepl("4", unique_hiscos)),
-    hisco_1st_digit5 = as.numeric(grepl("5", unique_hiscos)),
-    hisco_1st_digit6 = as.numeric(grepl("6", unique_hiscos)),
-    hisco_1st_digit7 = as.numeric(grepl("7", unique_hiscos)),
-    hisco_1st_digit8 = as.numeric(grepl("8", unique_hiscos)),
-    hisco_1st_digit9 = as.numeric(grepl("9", unique_hiscos))
-  ) %>% select(-unique_hiscos)
+# ==== Process in yearly batches ====
+batch_dir = "Data/tmp_occ_batches"
+if(!dir.exists(batch_dir)) dir.create(batch_dir)
 
-# Find the HISCO codes that appear in the data
-appeared_hiscos = sort(unique(unlist(merged_data0$unique_hiscos_2digit)))
-
-# Second digit
-for (i in 0:99) {
-  # Skip iterations if 'i' is not in appeared_hiscos
-  if (!(sprintf("%02d", i) %in% appeared_hiscos)){
-    next
+process_year = function(yr){
+  fpath_batch = file.path(batch_dir, paste0(yr, ".fst"))
+  batch_fresh = file.exists(fpath_batch) &&
+    difftime(Sys.time(), file.mtime(fpath_batch), units = "days") < 7
+  if(OVERWRITE == 0 || (OVERWRITE == 1 && batch_fresh)){
+    cat("  Year", yr, "- loading cached batch\n")
+    return(read_fst(fpath_batch))
   }
-  
-  cat(i, "         \r")
-  col_name = paste0("hisco_2nd_digit", sprintf("%02d", i))
-  merged_data0[col_name] <- as.numeric(grepl(sprintf("%02d", i), merged_data0$unique_hiscos_2digit))
+  cat("  Year", yr, "- processing\n")
+
+  md_yr = merged_data %>%
+    filter(Year == yr) %>%
+    left_join(hisco %>% filter(Year == as.character(yr)), by = c("Year", "pa_id")) %>%
+    mutate_at(vars(starts_with("hisco_") & !starts_with("hisco_1st") &
+                     !starts_with("hisco_2nd") & !starts_with("hisco_3rd")), fix_hisco)
+
+  hisco_raw_cols = !grepl("^en_hisco_text", names(md_yr)) & grepl("^hisco_[0-9]", names(md_yr))
+  md_yr = md_yr %>%
+    mutate(
+      unique_hiscos        = apply(.[, hisco_raw_cols], 1, function(x) unique(substr(x, 1, 1))),
+      unique_hiscos_2digit = apply(.[, hisco_raw_cols], 1, function(x) unique(substr(x, 1, 2))),
+      unique_hiscos_3digit = apply(.[, hisco_raw_cols], 1, function(x) unique(substr(x, 1, 3)))
+    )
+
+  # First digit
+  md_yr = md_yr %>%
+    mutate(
+      hisco_1st_digit0 = as.numeric(grepl("0", unique_hiscos)),
+      hisco_1st_digit1 = as.numeric(grepl("1", unique_hiscos)),
+      hisco_1st_digit2 = as.numeric(grepl("2", unique_hiscos)),
+      hisco_1st_digit3 = as.numeric(grepl("3", unique_hiscos)),
+      hisco_1st_digit4 = as.numeric(grepl("4", unique_hiscos)),
+      hisco_1st_digit5 = as.numeric(grepl("5", unique_hiscos)),
+      hisco_1st_digit6 = as.numeric(grepl("6", unique_hiscos)),
+      hisco_1st_digit7 = as.numeric(grepl("7", unique_hiscos)),
+      hisco_1st_digit8 = as.numeric(grepl("8", unique_hiscos)),
+      hisco_1st_digit9 = as.numeric(grepl("9", unique_hiscos))
+    ) %>% select(-unique_hiscos)
+
+  # Second digit
+  for(i in appeared_2digit){
+    md_yr[paste0("hisco_2nd_digit", i)] = as.numeric(grepl(i, md_yr$unique_hiscos_2digit))
+  }
+
+  # Third digit
+  for(i in appeared_3digit){
+    md_yr[paste0("hisco_3rd_digit", i)] = as.numeric(grepl(i, md_yr$unique_hiscos_3digit))
+  }
+
+  md_yr = md_yr %>% select(-unique_hiscos_2digit, -unique_hiscos_3digit)
+  write_fst(md_yr, fpath_batch, compress = 0)
+  return(md_yr)
 }
 
-# Find the HISCO codes that appear in the data
-appeared_hiscos = sort(unique(unlist(merged_data0$unique_hiscos_3digit)))
-
-# Third digit
-for (i in 0:999) {
-  # Skip iterations if 'i' is not in appeared_hiscos
-  if (!(sprintf("%03d", i) %in% appeared_hiscos)){
-    next
-  }
-    
-  cat(i, "         \r")
-  col_name = paste0("hisco_3rd_digit", sprintf("%03d", i))
-  merged_data0[col_name] <- as.numeric(grepl(sprintf("%03d", i), merged_data0$unique_hiscos_3digit))
-}
-
-
-# Delete temporary variables
-merged_data = merged_data0 %>% 
-  select(-unique_hiscos_2digit) %>% 
-  select(-unique_hiscos_3digit)
+years = sort(unique(merged_data$Year))
+merged_data = lapply(years, process_year) %>% bind_rows()
 
 # ==== Saving data enriched data ====
 write_fst(merged_data, fpath_out, compress = 0)
