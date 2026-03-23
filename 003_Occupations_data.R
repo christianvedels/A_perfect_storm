@@ -126,40 +126,30 @@ process_year = function(yr){
     mutate_at(vars(starts_with("hisco_") & !starts_with("hisco_1st") &
                      !starts_with("hisco_2nd") & !starts_with("hisco_3rd")), fix_hisco)
 
-  hisco_raw_cols = !grepl("^en_hisco_text", names(md_yr)) & grepl("^hisco_[0-9]", names(md_yr))
-  md_yr = md_yr %>%
-    mutate(
-      unique_hiscos        = apply(.[, hisco_raw_cols], 1, function(x) unique(substr(x, 1, 1))),
-      unique_hiscos_2digit = apply(.[, hisco_raw_cols], 1, function(x) unique(substr(x, 1, 2))),
-      unique_hiscos_3digit = apply(.[, hisco_raw_cols], 1, function(x) unique(substr(x, 1, 3)))
-    )
+  hisco_raw_cols = names(md_yr)[!grepl("^en_hisco_text", names(md_yr)) & grepl("^hisco_[0-9]", names(md_yr))]
+  hisco_mat = as.matrix(md_yr[, hisco_raw_cols])
+
+  # Build substr matrices once per digit level — much faster than row-wise apply()
+  mat1 = matrix(substr(hisco_mat, 1, 1), nrow = nrow(hisco_mat))
+  mat2 = matrix(substr(hisco_mat, 1, 2), nrow = nrow(hisco_mat))
+  mat3 = matrix(substr(hisco_mat, 1, 3), nrow = nrow(hisco_mat))
 
   # First digit
-  md_yr = md_yr %>%
-    mutate(
-      hisco_1st_digit0 = as.numeric(grepl("0", unique_hiscos)),
-      hisco_1st_digit1 = as.numeric(grepl("1", unique_hiscos)),
-      hisco_1st_digit2 = as.numeric(grepl("2", unique_hiscos)),
-      hisco_1st_digit3 = as.numeric(grepl("3", unique_hiscos)),
-      hisco_1st_digit4 = as.numeric(grepl("4", unique_hiscos)),
-      hisco_1st_digit5 = as.numeric(grepl("5", unique_hiscos)),
-      hisco_1st_digit6 = as.numeric(grepl("6", unique_hiscos)),
-      hisco_1st_digit7 = as.numeric(grepl("7", unique_hiscos)),
-      hisco_1st_digit8 = as.numeric(grepl("8", unique_hiscos)),
-      hisco_1st_digit9 = as.numeric(grepl("9", unique_hiscos))
-    ) %>% select(-unique_hiscos)
+  for(d in 0:9){
+    md_yr[[paste0("hisco_1st_digit", d)]] = as.numeric(rowSums(mat1 == as.character(d), na.rm = TRUE) > 0)
+  }
 
   # Second digit
-  for(i in appeared_2digit){
-    md_yr[paste0("hisco_2nd_digit", i)] = as.numeric(grepl(i, md_yr$unique_hiscos_2digit))
+  for(code in appeared_2digit){
+    md_yr[[paste0("hisco_2nd_digit", code)]] = as.numeric(rowSums(mat2 == code, na.rm = TRUE) > 0)
   }
 
   # Third digit
-  for(i in appeared_3digit){
-    md_yr[paste0("hisco_3rd_digit", i)] = as.numeric(grepl(i, md_yr$unique_hiscos_3digit))
+  for(code in appeared_3digit){
+    md_yr[[paste0("hisco_3rd_digit", code)]] = as.numeric(rowSums(mat3 == code, na.rm = TRUE) > 0)
   }
 
-  md_yr = md_yr %>% select(-unique_hiscos_2digit, -unique_hiscos_3digit)
+  rm(hisco_mat, mat1, mat2, mat3)
   write_fst(md_yr, fpath_batch, compress = 0)
   return(md_yr)
 }
