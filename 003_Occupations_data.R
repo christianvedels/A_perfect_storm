@@ -121,6 +121,29 @@ rm(hisco_cols)
 # ==== Process in yearly batches ====
 batch_dir = "Data/tmp_occ_batches"
 if(!dir.exists(batch_dir)) dir.create(batch_dir)
+chunk_size = 10000
+
+col_match = function(mat, code){
+  result = mat[, 1] == code & !is.na(mat[, 1])
+  for(j in seq_len(ncol(mat))[-1]) result = result | (mat[, j] == code & !is.na(mat[, j]))
+  as.integer(result)
+}
+
+process_chunk = function(chunk){
+  hisco_raw_cols = names(chunk)[!grepl("^en_hisco_text", names(chunk)) & grepl("^hisco_[0-9]", names(chunk))]
+  hisco_mat = as.matrix(chunk[, hisco_raw_cols])
+  mat1 = matrix(substr(hisco_mat, 1, 1), nrow = nrow(hisco_mat))
+  mat2 = matrix(substr(hisco_mat, 1, 2), nrow = nrow(hisco_mat))
+  mat3 = matrix(substr(hisco_mat, 1, 3), nrow = nrow(hisco_mat))
+  rm(hisco_mat); gc()
+  for(d in 0:9)             chunk[[paste0("hisco_1st_digit", d)]]    = as.integer(rowSums(mat1 == as.character(d), na.rm = TRUE) > 0)
+  rm(mat1); gc()
+  for(code in appeared_2digit) chunk[[paste0("hisco_2nd_digit", code)]] = as.integer(rowSums(mat2 == code, na.rm = TRUE) > 0)
+  rm(mat2); gc()
+  for(code in appeared_3digit) chunk[[paste0("hisco_3rd_digit", code)]] = col_match(mat3, code)
+  rm(mat3); gc()
+  chunk
+}
 
 process_year = function(yr){
   fpath_batch = file.path(batch_dir, paste0(yr, ".fst"))
@@ -138,36 +161,13 @@ process_year = function(yr){
     mutate_at(vars(starts_with("hisco_") & !starts_with("hisco_1st") &
                      !starts_with("hisco_2nd") & !starts_with("hisco_3rd")), fix_hisco)
 
-  hisco_raw_cols = names(md_yr)[!grepl("^en_hisco_text", names(md_yr)) & grepl("^hisco_[0-9]", names(md_yr))]
-  hisco_mat = as.matrix(md_yr[, hisco_raw_cols])
+  chunks = split(md_yr, ceiling(seq_len(nrow(md_yr)) / chunk_size))
+  cat("    (", length(chunks), "chunks of", chunk_size, ")\n")
+  md_yr = lapply(seq_along(chunks), function(k){
+    cat("    chunk", k, "/", length(chunks), "      \r")
+    process_chunk(chunks[[k]])
+  }) %>% bind_rows()
 
-  mat1 = matrix(substr(hisco_mat, 1, 1), nrow = nrow(hisco_mat))
-  mat2 = matrix(substr(hisco_mat, 1, 2), nrow = nrow(hisco_mat))
-  mat3 = matrix(substr(hisco_mat, 1, 3), nrow = nrow(hisco_mat))
-  rm(hisco_mat); gc()
-
-  # First digit — free mat1 immediately after
-  for(d in 0:9){
-    md_yr[[paste0("hisco_1st_digit", d)]] = as.integer(rowSums(mat1 == as.character(d), na.rm = TRUE) > 0)
-  }
-  rm(mat1); gc()
-
-  # Second digit — free mat2 immediately after
-  for(code in appeared_2digit){
-    md_yr[[paste0("hisco_2nd_digit", code)]] = as.integer(rowSums(mat2 == code, na.rm = TRUE) > 0)
-  }
-  rm(mat2); gc()
-
-  # Third digit — column-wise OR avoids allocating a full mat3 == code matrix per iteration
-  col_match = function(mat, code){
-    result = mat[, 1] == code & !is.na(mat[, 1])
-    for(j in seq_len(ncol(mat))[-1]) result = result | (mat[, j] == code & !is.na(mat[, j]))
-    as.integer(result)
-  }
-  for(code in appeared_3digit){
-    md_yr[[paste0("hisco_3rd_digit", code)]] = col_match(mat3, code)
-  }
-  rm(mat3); gc()
   write_fst(md_yr, fpath_batch, compress = 0)
   return(md_yr)
 }
