@@ -34,12 +34,24 @@ if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)){
 
 # ==== Load data ====
 merged_data = read_fst("Data/tmp_census.fst") 
-hisco = get_dataframe_by_name(
-  filename = "Census_HISCO_codes_clean.csv",
-  dataset = "10.7910/DVN/WZILNI", # DOI
-  server = "dataverse.harvard.edu",
-  .f = function(x) read_csv(x) # Function to read the file
-)
+hisco_local = "Data/Census_HISCO_codes_clean.csv"
+if(file.exists(hisco_local)){
+  cat("Loading HISCO data from local file\n")
+  hisco = read_csv(hisco_local)
+} else {
+  cat("Downloading HISCO data from Dataverse\n")
+  hisco = get_dataframe_by_name(
+    filename = "Census_HISCO_codes_clean.csv",
+    dataset = "10.7910/DVN/WZILNI", # DOI
+    server = "dataverse.harvard.edu",
+    .f = function(x) read_csv(x)
+  )
+  if(NROW(hisco) == 0 || NCOL(hisco) == 0){
+    stop("Dataverse download of Census_HISCO_codes_clean.csv returned an empty file. Check your internet connection and try again.")
+  }
+  write_csv(hisco, hisco_local)
+  cat("Saved to", hisco_local, "\n")
+}
 
 # Extract GIS_ID/RowID key for other projects
 tmp = merged_data %>% 
@@ -129,27 +141,33 @@ process_year = function(yr){
   hisco_raw_cols = names(md_yr)[!grepl("^en_hisco_text", names(md_yr)) & grepl("^hisco_[0-9]", names(md_yr))]
   hisco_mat = as.matrix(md_yr[, hisco_raw_cols])
 
-  # Build substr matrices once per digit level — much faster than row-wise apply()
   mat1 = matrix(substr(hisco_mat, 1, 1), nrow = nrow(hisco_mat))
   mat2 = matrix(substr(hisco_mat, 1, 2), nrow = nrow(hisco_mat))
   mat3 = matrix(substr(hisco_mat, 1, 3), nrow = nrow(hisco_mat))
+  rm(hisco_mat); gc()
 
-  # First digit
+  # First digit — free mat1 immediately after
   for(d in 0:9){
-    md_yr[[paste0("hisco_1st_digit", d)]] = as.numeric(rowSums(mat1 == as.character(d), na.rm = TRUE) > 0)
+    md_yr[[paste0("hisco_1st_digit", d)]] = as.integer(rowSums(mat1 == as.character(d), na.rm = TRUE) > 0)
   }
+  rm(mat1); gc()
 
-  # Second digit
+  # Second digit — free mat2 immediately after
   for(code in appeared_2digit){
-    md_yr[[paste0("hisco_2nd_digit", code)]] = as.numeric(rowSums(mat2 == code, na.rm = TRUE) > 0)
+    md_yr[[paste0("hisco_2nd_digit", code)]] = as.integer(rowSums(mat2 == code, na.rm = TRUE) > 0)
   }
+  rm(mat2); gc()
 
-  # Third digit
+  # Third digit — column-wise OR avoids allocating a full mat3 == code matrix per iteration
+  col_match = function(mat, code){
+    result = mat[, 1] == code & !is.na(mat[, 1])
+    for(j in seq_len(ncol(mat))[-1]) result = result | (mat[, j] == code & !is.na(mat[, j]))
+    as.integer(result)
+  }
   for(code in appeared_3digit){
-    md_yr[[paste0("hisco_3rd_digit", code)]] = as.numeric(rowSums(mat3 == code, na.rm = TRUE) > 0)
+    md_yr[[paste0("hisco_3rd_digit", code)]] = col_match(mat3, code)
   }
-
-  rm(hisco_mat, mat1, mat2, mat3)
+  rm(mat3); gc()
   write_fst(md_yr, fpath_batch, compress = 0)
   return(md_yr)
 }
