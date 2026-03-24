@@ -88,12 +88,10 @@ sub_scandi_mis = function(x){
 # bb:   Bounding box (e.g. matrix(c(8, 54, 16, 58), nrow=2))
 
 Clip_it = function(shp, bb){
-  if(class(bb)[1] == "matrix") b_poly = as(raster::extent(as.vector(t(bb))), "SpatialPolygons")
-  else b_poly = as(raster::extent(bb), "SpatialPolygons")
+  if(class(bb)[1] == "matrix") bbox_vec = c(xmin=bb[1,1], ymin=bb[2,1], xmax=bb[1,2], ymax=bb[2,2])
+  else bbox_vec = as.vector(raster::extent(bb))
   shp_sf = sf::st_as_sf(shp)
-  b_poly_sf = sf::st_as_sf(b_poly)
-  sf::st_crs(b_poly_sf) = sf::st_crs(shp_sf)
-  result = sf::st_intersection(shp_sf, b_poly_sf)
+  result = sf::st_crop(shp_sf, bbox_vec)
   as(result, "Spatial")
 }
 
