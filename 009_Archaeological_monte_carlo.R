@@ -189,7 +189,7 @@ arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
 
   finding_types_i = site_types_tab %>%
     filter(Category == i) %>%
-    select(finding_interpretation_en) %>%
+    dplyr::select(finding_interpretation_en) %>%
     unlist() %>% unname()
 
   res_i = monteCarlo(Finding_types = finding_types_i, capB = capB)
@@ -230,7 +230,7 @@ arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
 
   finding_types_i = site_types_tab %>%
     filter(Category == i) %>%
-    select(finding_interpretation_en) %>%
+    dplyr::select(finding_interpretation_en) %>%
     unlist() %>% unname()
 
   res_i = monteCarlo_norm(Finding_types = finding_types_i, capB = capB)
