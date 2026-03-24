@@ -10,7 +10,7 @@
 # See https://arxiv.org/abs/2402.13604 
 
 # ==== Options ====
-if(!exists("OVERWRITE")) OVERWRITE = 2  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
+if(!exists("OVERWRITE")) OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
 
 # ==== Libraries ====
 library(tidyverse)
@@ -118,6 +118,15 @@ appeared_2digit = appeared_2digit[!is.na(appeared_2digit) & appeared_2digit != "
 appeared_3digit = appeared_3digit[!is.na(appeared_3digit) & appeared_3digit != "NA"]
 rm(hisco_cols)
 
+# Pre-split hisco by year to disk, then free it from memory
+batch_dir_hisco = "Data/tmp_occ_batches"
+if(!dir.exists(batch_dir_hisco)) dir.create(batch_dir_hisco)
+for(yr_h in unique(hisco$Year)){
+  write_fst(hisco %>% filter(Year == as.character(yr_h)),
+            file.path(batch_dir_hisco, paste0("hisco_", yr_h, ".fst")), compress = 0)
+}
+rm(hisco); gc()
+
 # ==== Process in yearly batches ====
 batch_dir = "Data/tmp_occ_batches"
 if(!dir.exists(batch_dir)) dir.create(batch_dir)
@@ -146,37 +155,53 @@ process_chunk = function(chunk){
 }
 
 process_year = function(yr){
-  fpath_batch = file.path(batch_dir, paste0(yr, ".fst"))
-  batch_fresh = file.exists(fpath_batch) &&
-    difftime(Sys.time(), file.mtime(fpath_batch), units = "days") < 7
+  n_expected = ceiling(sum(merged_data$Year == yr) / chunk_size)
+
+  saved_files = sort(list.files(batch_dir, pattern = paste0("^", yr, "_[0-9]+\\.fst$"), full.names = TRUE))
+  chunks_complete = length(saved_files) == n_expected
+  batch_fresh = chunks_complete &&
+    difftime(Sys.time(), file.mtime(saved_files[1]), units = "days") < 7
+
   if(OVERWRITE == 0 || (OVERWRITE == 1 && batch_fresh)){
-    cat("  Year", yr, "- loading cached batch\n")
-    return(read_fst(fpath_batch))
+    cat("  Year", yr, "- cached, skipping\n")
+    return(invisible(NULL))
   }
-  cat("  Year", yr, "- processing\n")
+
+  if(!chunks_complete){
+    cat("  Year", yr, "- incomplete cache (", length(saved_files), "/", n_expected, "chunks), resuming\n")
+  } else {
+    cat("  Year", yr, "- processing\n")
+  }
+
+  hisco_yr_path = file.path(batch_dir, paste0("hisco_", yr, ".fst"))
+  hisco_yr = if(file.exists(hisco_yr_path)) read_fst(hisco_yr_path) else data.frame()
 
   md_yr = merged_data %>%
     filter(Year == yr) %>%
-    left_join(hisco %>% filter(Year == as.character(yr)), by = c("Year", "pa_id")) %>%
+    left_join(hisco_yr, by = c("Year", "pa_id")) %>%
     mutate_at(vars(starts_with("hisco_") & !starts_with("hisco_1st") &
                      !starts_with("hisco_2nd") & !starts_with("hisco_3rd")), fix_hisco)
 
   chunks = split(md_yr, ceiling(seq_len(nrow(md_yr)) / chunk_size))
   cat("    (", length(chunks), "chunks of", chunk_size, ")\n")
-  md_yr = lapply(seq_along(chunks), function(k){
-    cat("    chunk", k, "/", length(chunks), "      \r")
-    process_chunk(chunks[[k]])
-  }) %>% bind_rows()
-
-  write_fst(md_yr, fpath_batch, compress = 0)
-  return(md_yr)
+  lapply(seq_along(chunks), function(k){
+    fpath_chunk = file.path(batch_dir, paste0(yr, "_", k, ".fst"))
+    if(file.exists(fpath_chunk)){
+      cat("    chunk", k, "/", length(chunks), "- cached\r")
+      return(invisible(NULL))
+    }
+    cat("    chunk", k, "/", length(chunks), "- processing\r")
+    result = process_chunk(chunks[[k]])
+    write_fst(result, fpath_chunk, compress = 0)
+    write_fst(result, fpath_chunk, compress = 0)
+    invisible(NULL)
+  })
+  invisible(NULL)
 }
 
 years = sort(unique(merged_data$Year))
-merged_data = lapply(years, process_year) %>% bind_rows()
-
-# ==== Saving data enriched data ====
-write_fst(merged_data, fpath_out, compress = 0)
+lapply(years, process_year)
+cat("All years processed. Output in", batch_dir, "\n")
 
 } # end OVERWRITE check
 
