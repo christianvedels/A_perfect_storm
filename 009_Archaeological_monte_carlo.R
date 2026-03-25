@@ -176,15 +176,14 @@ site_types_tab = the_data %>%
   )
 
 # Uniform distribution
-arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
+for(i in unique(site_types_tab$Category)) {
   cat("\n", i, "\n")
   fpath_i = paste0("Data/Tmp_arch_samples/", i, ".Rdata")
 
   file_fresh = file.exists(fpath_i) && difftime(Sys.time(), file.mtime(fpath_i), units = "days") < 7
   if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)){
     cat("  Skipping (file up to date)\n")
-    load(fpath_i)
-    return(res_is)
+    next
   }
 
   finding_types_i = site_types_tab %>%
@@ -211,21 +210,18 @@ arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
     dir.create(dir_i)
   }
   save(res_is, file = fpath_i)
-
-  return(res_is)
 }
 
 # Normal distribution
 set.seed(20)
-arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
+for(i in unique(site_types_tab$Category)) {
   cat("\n", i, "\n")
   fpath_i = paste0("Data/Tmp_arch_samples_norm/", i, ".Rdata")
 
   file_fresh = file.exists(fpath_i) && difftime(Sys.time(), file.mtime(fpath_i), units = "days") < 7
   if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)){
     cat("  Skipping (file up to date)\n")
-    load(fpath_i)
-    return(res_is)
+    next
   }
 
   finding_types_i = site_types_tab %>%
@@ -252,8 +248,6 @@ arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
     dir.create(dir_i)
   }
   save(res_is, file = fpath_i)
-
-  return(res_is)
 }
 
 # load("Data/Tmp_arch_samples/Buildings.Rdata")
