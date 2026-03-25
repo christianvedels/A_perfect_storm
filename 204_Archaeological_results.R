@@ -577,8 +577,20 @@ mods = list(
 )
 
 dir.create("Tables", showWarnings = FALSE)
+arch_dict = c(
+  "Year950"  = "Year 950",
+  "Year1050" = "Year 1050",
+  "Year1150" = "Year 1150",
+  "Year1250" = "Year 1250",
+  "Year1350" = "Year 1350"
+)
 mods %>%
-  etable(tex = TRUE, file = "Tables/204_arch_main.txt")
+  etable(
+    tex = TRUE,
+    keep = "%Year[0-9]+:Affected",
+    dict = arch_dict,
+    file = "Tables/204_arch_main.txt"
+  )
 
 
 # To show all parameters in the appendix

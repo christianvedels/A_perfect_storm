@@ -43,9 +43,19 @@ reg_pop %>%
     Born_different_county,
     Child_women_ratio
   ) %>% 
-  psych::describe(quant = c(0.25, 0.75)) %>% 
-  mutate_all(round, 2) %>% 
-  select(n, mean, sd, min, Q0.25, median, Q0.75, max) %>% 
+  psych::describe() %>%
+  mutate_all(round, 2) %>%
+  select(n, mean, sd, min, median, max) %>%
+  `rownames<-`(c(
+    "Population",
+    "Affected: West Limfjord",
+    "Affected: $\\Delta log(MA_i)$",
+    "HISCO Agricultural",
+    "HISCO Manufacturing",
+    "Born in different county",
+    "Child-women ratio"
+  )) %>%
+  `colnames<-`(c("Observations", "Mean", "SD", "Min", "Median", "Max")) %>%
   knitr::kable("latex", booktabs = TRUE, align = "c") %>% {
     dir.create("Tables", showWarnings = FALSE)
     writeLines(., "Tables/203_pop_descriptive.txt")
@@ -150,7 +160,21 @@ mods = list(
 
 dir.create("Tables", showWarnings = FALSE)
 mods %>%
-  etable(tex = TRUE, file = "Tables/203_pop_main.txt")
+  etable(
+    tex = TRUE,
+    keep = "%Year[0-9]+:Affected",
+    dict = c(
+      "Year1787" = "Year 1787",
+      "Year1834" = "Year 1834",
+      "Year1840" = "Year 1840",
+      "Year1845" = "Year 1845",
+      "Year1850" = "Year 1850",
+      "Year1860" = "Year 1860",
+      "Year1880" = "Year 1880",
+      "Year1901" = "Year 1901"
+    ),
+    file = "Tables/203_pop_main.txt"
+  )
 
 # ==== APE ====
 Pop_avg_midpoint = reg_pop %>% 

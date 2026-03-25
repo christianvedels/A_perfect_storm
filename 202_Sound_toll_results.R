@@ -187,4 +187,18 @@ mod4 = feols(
 mods = list(mod0, mod1, mod2, mod3, mod4)
 
 dir.create("Tables", showWarnings = FALSE)
-etable(mods, tex = TRUE, file = "Tables/202_sound_toll.txt")
+etable(
+  mods, tex = TRUE,
+  keep = "%After:limfjord_placement",
+  dict = c(
+    "After" = "Post",
+    "limfjord_placementeast"   = "east",
+    "limfjord_placementmiddle" = "middle",
+    "limfjord_placementwest"   = "west"
+  ),
+  extralines = list(
+    "1807--1814 excl." = c("No", "Yes", "No", "No", "No"),
+    "1825--1833 excl." = c("No", "Yes", "No", "No", "No")
+  ),
+  file = "Tables/202_sound_toll.txt"
+)
