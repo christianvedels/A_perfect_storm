@@ -56,7 +56,7 @@ reg_pop %>%
     "Child-women ratio"
   )) %>%
   `colnames<-`(c("Observations", "Mean", "SD", "Min", "Median", "Max")) %>%
-  knitr::kable("latex", booktabs = TRUE, align = "c") %>% {
+  knitr::kable("latex", booktabs = TRUE, align = "c", escape = FALSE) %>% {
     dir.create("Tables", showWarnings = FALSE)
     writeLines(., "Tables/203_pop_descriptive.txt")
   }
@@ -173,7 +173,8 @@ mods %>%
       "Year1880" = "Year 1880",
       "Year1901" = "Year 1901"
     ),
-    file = "Tables/203_pop_main.txt"
+    file = "Tables/203_pop_main.txt",
+    replace = TRUE
   )
 
 # ==== APE ====

@@ -589,7 +589,8 @@ mods %>%
     tex = TRUE,
     keep = "%Year[0-9]+:Affected",
     dict = arch_dict,
-    file = "Tables/204_arch_main.txt"
+    file = "Tables/204_arch_main.txt",
+    replace = TRUE
   )
 
 

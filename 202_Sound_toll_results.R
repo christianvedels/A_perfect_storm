@@ -200,5 +200,6 @@ etable(
     "1807--1814 excl." = c("No", "Yes", "No", "No", "No"),
     "1825--1833 excl." = c("No", "Yes", "No", "No", "No")
   ),
-  file = "Tables/202_sound_toll.txt"
+  file = "Tables/202_sound_toll.txt",
+  replace = TRUE
 )

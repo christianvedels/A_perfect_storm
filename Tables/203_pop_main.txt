@@ -4,86 +4,30 @@
 \begin{tabular}{lcc}
    \tabularnewline \midrule \midrule
    Dependent Variable: & \multicolumn{2}{c}{log(Pop)}\\
-   Model:                                           & (1)             & (2)\\  
+   Model:                       & (1)            & (2)\\  
    \midrule
    \emph{Variables}\\
-   Constant                                         & 5.983$^{***}$   & 6.141$^{***}$\\   
-                                                    & (0.0165)        & (0.0224)\\   
-   Year1787                                         & -0.0960$^{***}$ & -0.0958$^{***}$\\   
-                                                    & (0.0039)        & (0.0053)\\   
-   Year1834                                         & 0.2731$^{***}$  & 0.2724$^{***}$\\   
-                                                    & (0.0051)        & (0.0069)\\   
-   Year1840                                         & 0.3231$^{***}$  & 0.3344$^{***}$\\   
-                                                    & (0.0053)        & (0.0072)\\   
-   Year1845                                         & 0.3695$^{***}$  & 0.3807$^{***}$\\   
-                                                    & (0.0056)        & (0.0073)\\   
-   Year1850                                         & 0.4083$^{***}$  & 0.4202$^{***}$\\   
-                                                    & (0.0063)        & (0.0088)\\   
-   Year1860                                         & 0.5008$^{***}$  & 0.5014$^{***}$\\   
-                                                    & (0.0066)        & (0.0088)\\   
-   Year1880                                         & 0.6299$^{***}$  & 0.5950$^{***}$\\   
-                                                    & (0.0076)        & (0.0102)\\   
-   Year1901                                         & 0.6475$^{***}$  & 0.5795$^{***}$\\   
-                                                    & (0.0095)        & (0.0130)\\   
-   Affected                                         & -0.4271$^{***}$ & -3.418$^{***}$\\   
-                                                    & (0.0446)        & (0.2554)\\   
-   limfjord\_placement\_middle                      & -0.4786$^{***}$ &   \\   
-                                                    & (0.0636)        &   \\   
-   limfjord\_placement\_east                        & -0.0535         &   \\   
-                                                    & (0.0783)        &   \\   
-   Year1787 $\times$ Affected                       & 0.0113          & 0.0379\\   
-                                                    & (0.0112)        & (0.0626)\\   
-   Year1834 $\times$ Affected                       & 0.0178          & -0.0146\\   
-                                                    & (0.0132)        & (0.0748)\\   
-   Year1840 $\times$ Affected                       & -0.0059         & -0.2651$^{***}$\\   
-                                                    & (0.0138)        & (0.0759)\\   
-   Year1845 $\times$ Affected                       & -0.0012         & -0.2531$^{***}$\\   
-                                                    & (0.0150)        & (0.0775)\\   
-   Year1850 $\times$ Affected                       & 0.0040          & -0.2466$^{***}$\\   
-                                                    & (0.0159)        & (0.0900)\\   
-   Year1860 $\times$ Affected                       & 0.0366$^{**}$   & 0.0183\\   
-                                                    & (0.0184)        & (0.0972)\\   
-   Year1880 $\times$ Affected                       & 0.1411$^{***}$  & 0.8349$^{***}$\\   
-                                                    & (0.0214)        & (0.1155)\\   
-   Year1901 $\times$ Affected                       & 0.2392$^{***}$  & 1.591$^{***}$\\   
-                                                    & (0.0282)        & (0.1607)\\   
-   Year1787 $\times$ limfjord\_placement\_middle    & 0.0152          &   \\   
-                                                    & (0.0188)        &   \\   
-   Year1834 $\times$ limfjord\_placement\_middle    & -0.0291         &   \\   
-                                                    & (0.0300)        &   \\   
-   Year1840 $\times$ limfjord\_placement\_middle    & -0.0676$^{***}$ &   \\   
-                                                    & (0.0256)        &   \\   
-   Year1845 $\times$ limfjord\_placement\_middle    & -0.0716$^{***}$ &   \\   
-                                                    & (0.0267)        &   \\   
-   Year1850 $\times$ limfjord\_placement\_middle    & -0.0755$^{***}$ &   \\   
-                                                    & (0.0260)        &   \\   
-   Year1860 $\times$ limfjord\_placement\_middle    & -0.0753$^{***}$ &   \\   
-                                                    & (0.0290)        &   \\   
-   Year1880 $\times$ limfjord\_placement\_middle    & 0.0571$^{**}$   &   \\   
-                                                    & (0.0289)        &   \\   
-   Year1901 $\times$ limfjord\_placement\_middle    & 0.1392$^{***}$  &   \\   
-                                                    & (0.0392)        &   \\   
-   Year1787 $\times$ limfjord\_placement\_east      & 0.0234          &   \\   
-                                                    & (0.0185)        &   \\   
-   Year1834 $\times$ limfjord\_placement\_east      & -0.0707         &   \\   
-                                                    & (0.0449)        &   \\   
-   Year1840 $\times$ limfjord\_placement\_east      & -0.0822$^{*}$   &   \\   
-                                                    & (0.0454)        &   \\   
-   Year1845 $\times$ limfjord\_placement\_east      & -0.0714$^{***}$ &   \\   
-                                                    & (0.0239)        &   \\   
-   Year1850 $\times$ limfjord\_placement\_east      & -0.0525$^{**}$  &   \\   
-                                                    & (0.0215)        &   \\   
-   Year1860 $\times$ limfjord\_placement\_east      & 0.0231          &   \\   
-                                                    & (0.0294)        &   \\   
-   Year1880 $\times$ limfjord\_placement\_east      & 0.0695$^{**}$   &   \\   
-                                                    & (0.0319)        &   \\   
-   Year1901 $\times$ limfjord\_placement\_east      & 0.1507$^{***}$  &   \\   
-                                                    & (0.0426)        &   \\   
+   Year 1787 $\times$ Affected  & 0.0113         & 0.0379\\   
+                                & (0.0112)       & (0.0626)\\   
+   Year 1834 $\times$ Affected  & 0.0178         & -0.0146\\   
+                                & (0.0132)       & (0.0748)\\   
+   Year 1840 $\times$ Affected  & -0.0059        & -0.2651$^{***}$\\   
+                                & (0.0138)       & (0.0759)\\   
+   Year 1845 $\times$ Affected  & -0.0012        & -0.2531$^{***}$\\   
+                                & (0.0150)       & (0.0775)\\   
+   Year 1850 $\times$ Affected  & 0.0040         & -0.2466$^{***}$\\   
+                                & (0.0159)       & (0.0900)\\   
+   Year 1860 $\times$ Affected  & 0.0366$^{**}$  & 0.0183\\   
+                                & (0.0184)       & (0.0972)\\   
+   Year 1880 $\times$ Affected  & 0.1411$^{***}$ & 0.8349$^{***}$\\   
+                                & (0.0214)       & (0.1155)\\   
+   Year 1901 $\times$ Affected  & 0.2392$^{***}$ & 1.591$^{***}$\\   
+                                & (0.0282)       & (0.1607)\\   
    \midrule
    \emph{Fit statistics}\\
-   Observations                                     & 14,301          & 14,301\\  
-   R$^2$                                            & 0.19081         & 0.21738\\  
-   Adjusted R$^2$                                   & 0.18883         & 0.21645\\  
+   Observations                 & 14,301         & 14,301\\  
+   R$^2$                        & 0.19081        & 0.21738\\  
+   Adjusted R$^2$               & 0.18883        & 0.21645\\  
    \midrule \midrule
    \multicolumn{3}{l}{\emph{Clustered (GIS\_ID) standard-errors in parentheses}}\\
    \multicolumn{3}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
