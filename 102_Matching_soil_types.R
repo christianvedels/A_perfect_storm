@@ -9,7 +9,7 @@
 # ==== Libraries ====
 library(tidyverse)
 source("000_Functions.R")
-library(caret)
+library(xgboost)
 library(foreach)
 
 # ==== Load data ====
@@ -55,25 +55,35 @@ reg_data = geo_data %>%
 
 # ==== Run estimator of propensity ====
 set.seed(20)
-# Define the cross-validation parameters
-ctrl = trainControl(method = "cv", number = 5, verboseIter = TRUE)
+x_mat = reg_data %>%
+  select(-GIS_ID, -limfjord_placement_west) %>%
+  data.frame() %>%
+  as.matrix()
+y_vec = as.numeric(reg_data$limfjord_placement_west) - 1  # 0/1
 
-# Define the XGBoost model
-Model = train(
-  x = reg_data %>% select(-GIS_ID, -limfjord_placement_west) %>% data.frame(), 
-  y = reg_data %>% select(limfjord_placement_west) %>% unlist(),
-  method = "xgbTree", 
-  trControl = ctrl,  # Cross-validation control
-  verbose = TRUE
-  )
+dtrain = xgb.DMatrix(data = x_mat, label = y_vec)
 
-# Print the results
-plot(Model)
-
-propensity = Model %>% predict(
-  newdata = reg_data %>% select(-GIS_ID, -limfjord_placement_west) %>% data.frame(),
-  type = "prob"
+# 5-fold CV to select nrounds
+cv_result = xgb.cv(
+  data = dtrain,
+  nrounds = 150,
+  nfold = 5,
+  params = list(objective = "binary:logistic", eval_metric = "logloss", verbosity = 0)
 )
+best_nrounds = which.min(cv_result$evaluation_log$test_logloss_mean)
+cat("Best nrounds:", best_nrounds, "\n")
+
+# Fit final model (y must be factor for binary:logistic in xgboost 2.x)
+Model = xgboost(
+  x = x_mat,
+  y = factor(y_vec, levels = c(0, 1)),
+  nrounds = best_nrounds,
+  eval_metric = "logloss",
+  verbosity = 0
+)
+
+propensity_prob = predict(Model, x_mat)
+propensity = data.frame(`0` = 1 - propensity_prob, `1` = propensity_prob, check.names = FALSE)
 
 # ==== Matching ====
 reg_data$propensity = propensity[,2]
