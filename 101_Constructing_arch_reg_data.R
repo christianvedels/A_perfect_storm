@@ -28,24 +28,6 @@ market_access = market_access %>%
     names_glue = "delta_lMA_theta_{-theta}_alpha_{alpha}"
   )
 
-# ==== Main_panels and save ====
-# These are the two main panels of archaeological findings used in the paper
-Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
-
-buildings = get_dataframe_by_name(
-  filename = get_file_info("Buildings_unif"),
-  dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
-  server = "dataverse.harvard.edu",
-  .f = load0 # Function to read the file
-)
-
-coins = get_dataframe_by_name(
-  filename = get_file_info("Coin findings_unif.Rdata"),
-  dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
-  server = "dataverse.harvard.edu",
-  .f = load0 # Function to read the file
-)
-
 # ==== Construct reg data
 load("Data/Tmp_arch_samples/Buildings.Rdata")
 buildings = construct_panel(res_is$Overall_Buildings$samples)
