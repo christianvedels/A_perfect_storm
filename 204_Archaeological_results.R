@@ -12,6 +12,7 @@ library(foreach)
 library(dataverse)
 
 # ==== Bootstrapped data frames ====
+stop("EVERYTHING BELOW NEEDS TO BE UPDATED. THIS IS ERROR IS THROWN TO PREVENT ACCIDENTAL RUNNING OF OUTDATED CODE. PLEASE UPDATE THE CODE BELOW AND THEN REMOVE THIS STOP() CALL.")
 # # This bit runs sampling for the bootstrapped standard errors
 # # The following files can be recreated with 009_Archaeological_monte_carlo.R.
 # # The files are too large to redistribute via GitHub, for which reason they are
@@ -575,8 +576,9 @@ mods = list(
   mod8
 )
 
+dir.create("Tables", showWarnings = FALSE)
 mods %>%
-  etable(tex = TRUE)
+  etable(tex = TRUE, file = "Tables/204_arch_main.txt")
 
 
 # To show all parameters in the appendix
@@ -588,7 +590,7 @@ mods = list(
 )
 
 mods %>%
-  etable(tex = TRUE)
+  etable(tex = TRUE, file = "Tables/204_arch_appendix_mod1_4.txt")
 
 mods = list(
   mod5,
@@ -598,7 +600,7 @@ mods = list(
 )
 
 mods %>%
-  etable(tex = TRUE)
+  etable(tex = TRUE, file = "Tables/204_arch_appendix_mod5_8.txt")
 
 
 

@@ -186,4 +186,5 @@ mod4 = feols(
 
 mods = list(mod0, mod1, mod2, mod3, mod4)
 
-etable(mods, tex = TRUE)
+dir.create("Tables", showWarnings = FALSE)
+etable(mods, tex = TRUE, file = "Tables/202_sound_toll.txt")

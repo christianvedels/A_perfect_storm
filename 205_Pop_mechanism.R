@@ -386,9 +386,12 @@ table0 = occ_effects_1901 %>%
   select(hisco, Affected, Approach, Estimate, Pretrend_pval, APE, APE_pct, n_parishes)
 
 table0 %>% # For appendix
-  select(hisco, Affected, Approach, Estimate, n_parishes) %>% 
-  arrange(hisco) %>% 
-  knitr::kable("latex", booktabs = TRUE, align = "c")
+  select(hisco, Affected, Approach, Estimate, n_parishes) %>%
+  arrange(hisco) %>%
+  knitr::kable("latex", booktabs = TRUE, align = "c") %>% {
+    dir.create("Tables", showWarnings = FALSE)
+    writeLines(., "Tables/205_pop_mechanism_hisco.txt")
+  }
 
 # How many in each category in 1787/1801?
 reg_pop %>% 

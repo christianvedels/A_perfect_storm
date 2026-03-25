@@ -46,7 +46,10 @@ reg_pop %>%
   psych::describe(quant = c(0.25, 0.75)) %>% 
   mutate_all(round, 2) %>% 
   select(n, mean, sd, min, Q0.25, median, Q0.75, max) %>% 
-  knitr::kable("latex", booktabs = TRUE, align = "c")
+  knitr::kable("latex", booktabs = TRUE, align = "c") %>% {
+    dir.create("Tables", showWarnings = FALSE)
+    writeLines(., "Tables/203_pop_descriptive.txt")
+  }
 
 n1 = reg_pop %>% 
   distinct(Year) %>% NROW()
@@ -145,8 +148,9 @@ mods = list(
   mod2
 )
 
-mods %>% 
-  etable(tex = TRUE)
+dir.create("Tables", showWarnings = FALSE)
+mods %>%
+  etable(tex = TRUE, file = "Tables/203_pop_main.txt")
 
 # ==== APE ====
 Pop_avg_midpoint = reg_pop %>% 
