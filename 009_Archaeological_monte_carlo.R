@@ -250,5 +250,27 @@ for(i in unique(site_types_tab$Category)) {
   save(res_is, file = fpath_i)
 }
 
-# load("Data/Tmp_arch_samples/Buildings.Rdata")
-# res_is$Overall_Buildings
+# ==== Assemble consolidated sample files for 204 ====
+# Builds Tmp_reg_data_arch_samples.Rdata and _norm.Rdata from the
+# individual category files produced above, matching the structure that
+# was previously downloaded from Dataverse.
+source("000_Functions.R")
+
+assemble_samples = function(arch_dir, out_file) {
+  file_fresh = file.exists(out_file) &&
+    difftime(Sys.time(), file.mtime(out_file), units = "days") < 7
+  if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)) {
+    cat("  [SKIP]", out_file, "(up to date)\n")
+    return(invisible(NULL))
+  }
+  cat("\nAssembling", out_file, "...\n")
+  load(file.path(arch_dir, "Buildings.Rdata"))
+  samples_buildings = arch_sampler(arch_samples = res_is$Overall_Buildings$samples)
+  load(file.path(arch_dir, "Coin findings.Rdata"))
+  samples_coins = arch_sampler(arch_samples = res_is$`Overall_Coin findings`$samples)
+  save(samples_buildings, samples_coins, file = out_file)
+  cat("  Saved", out_file, "\n")
+}
+
+assemble_samples("Data/Tmp_arch_samples",      "Data/Tmp_reg_data_arch_samples.Rdata")
+assemble_samples("Data/Tmp_arch_samples_norm", "Data/Tmp_reg_data_arch_samples_norm.Rdata")
