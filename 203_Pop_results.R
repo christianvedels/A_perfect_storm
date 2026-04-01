@@ -603,3 +603,52 @@ summary(out1); summary(out2)
 out1$n*length(unique(reg_pop$Year))
 out2$n*length(unique(reg_pop$Year))
 
+# ==== Save Callaway-Sant'Anna table ====
+# type = "dynamic" gives event-study relative times; absolute year = 1834 + egt
+agg1 = aggte(out1, type = "dynamic")
+agg2 = aggte(out2, type = "dynamic")
+
+# Format helpers
+star_cs = function(att, se, crit) ifelse(abs(att / se) > crit, "*", "")
+fmt4    = function(x)             sprintf("%.4f", x)
+
+years = 1834 + agg1$egt   # map relative time → calendar year
+
+make_row = function(yr, a1, se1, cv1, a2, se2, cv2) {
+  c(
+    sprintf("    %d & %s%s & %s%s \\\\",
+            yr,
+            fmt4(a1), star_cs(a1, se1, cv1),
+            fmt4(a2), star_cs(a2, se2, cv2)),
+    sprintf("         & (%s) & (%s) \\\\", fmt4(se1), fmt4(se2))
+  )
+}
+
+rows = unlist(mapply(
+  make_row,
+  years,
+  agg1$att.egt, agg1$se.egt, agg1$crit.val.egt,
+  agg2$att.egt, agg2$se.egt, agg2$crit.val.egt,
+  SIMPLIFY = FALSE
+))
+
+n1 = format(out1$n * length(unique(reg_pop$Year)), big.mark = ",")
+n2 = format(out2$n * length(unique(reg_pop$Year)), big.mark = ",")
+
+tex_lines = c(
+  "\\begin{tabular}{lcc}",
+  "   \\tabularnewline \\midrule \\midrule",
+  "   Outcome: & \\multicolumn{2}{c}{log(Population)}\\\\",
+  "            & (1)           & (2)\\\\  ",
+  "   \\midrule",
+  rows,
+  "   \\midrule",
+  sprintf("   Observations & %s & %s\\\\  ", n1, n2),
+  "   \\midrule \\midrule",
+  "   \\multicolumn{3}{l}{\\emph{'*' confidence band (95 percent) does not cover 0}}\\\\",
+  "\\end{tabular}"
+)
+
+dir.create("Tables", showWarnings = FALSE)
+writeLines(tex_lines, "Tables/203_CS_estimates.txt")
+
