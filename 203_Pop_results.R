@@ -185,6 +185,10 @@ Pop_avg_midpoint = reg_pop %>%
 APE1 = Pop_avg_midpoint * mod1$coefficients["Year1901:Affected"]
 APE2 = Pop_avg_midpoint * mod2$coefficients["Year1901:Affected"]
 
+# Convert to pct
+pct_effect = (exp(mod1$coefficients["Year1901:Affected"]) - 1)*100
+pct_effect
+
 # ==== Multiverse ====
 # Multiverse dummy
 sub_groups = expand.grid(
@@ -272,7 +276,8 @@ p1 = mult_dummy %>%
   geom_point() + 
   geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
   geom_vline(xintercept = default, lty = 2) + 
-  xlim(0, NA) + 
+  geom_vline(xintercept = 0) +
+  # xlim(0, NA) + 
   theme_bw() + 
   scale_color_manual(
     values = c("No" = "black", "Yes" = "#b33d3d")
@@ -373,6 +378,7 @@ p1 = mult_MA %>%
   geom_point() + 
   geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
   geom_vline(xintercept = default, lty = 2) + 
+  geom_vline(xintercept = 0) +
   xlim(0, NA) + 
   theme_bw() + 
   scale_color_manual(
@@ -436,6 +442,7 @@ p1 = mult_MA2 %>%
   geom_point() + 
   geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
   geom_vline(xintercept = default, lty = 2) + 
+  geom_vline(xintercept = 0) +
   theme_bw() + 
   scale_color_manual(
     values = c("No" = "black", "Yes" = "#b33d3d")
