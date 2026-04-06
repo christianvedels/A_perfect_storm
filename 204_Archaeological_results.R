@@ -200,10 +200,10 @@ p1 = arch_raw1 %>%
     col = "Location in Limfjord:",
     y = "Mean of coin findings"
   )
-  
+
 p1
 ggsave("Plots/Arch_descriptive.png", plot = p1, width = 8, height = 5)
-  
+
 # ==== Regressions full samples ====
 # MA approach
 mod1 = feols(
@@ -223,7 +223,7 @@ vcov1 = vcov_function_boot(
 mod1 = summary(
   mod1,
   vcov = vcov1$vcov
-  )
+)
 
 plot_mod_arch(mod1, "arch_MA_coins", ref_year = 1000, the_col = regions_col["west"])
 
@@ -541,6 +541,24 @@ mods = list(
 )
 
 dir.create("Tables", showWarnings = FALSE)
+
+# ==== Baseline activity (all of DK, pre-shock: rYear <= 1000) ====
+# Coefficients are in probability units: dummy → beta pp change;
+# log(MA) → beta pp change per log-point change in MA.
+# Reporting the mean outcome lets readers scale these directly.
+baseline_coins     <- coins     %>% filter(rYear <= 1000) %>% summarise(m = mean(activity, na.rm = TRUE)) %>% pull(m)
+baseline_buildings <- buildings %>% filter(rYear <= 1000) %>% summarise(m = mean(activity, na.rm = TRUE)) %>% pull(m)
+
+# Column order in etable: mod1 mod2 mod3 mod4 mod5 mod6 mod7 mod8
+# coins = cols 1,2,5,6 | buildings = cols 3,4,7,8
+arch_baseline_row <- list(
+  "Mean outcome (pre-shock)" = round(
+    c(baseline_coins, baseline_coins, baseline_buildings, baseline_buildings,
+      baseline_coins, baseline_coins, baseline_buildings, baseline_buildings),
+    4
+  )
+)
+
 arch_dict = c(
   "Year950"  = "Year 950",
   "Year1050" = "Year 1050",
@@ -553,6 +571,7 @@ mods %>%
     tex = TRUE,
     keep = "%(Year950|Year1050|Year1150|Year1250|Year1350):Affected",
     dict = arch_dict,
+    extralines = arch_baseline_row,
     file = "Tables/204_arch_main.txt",
     replace = TRUE
   )
