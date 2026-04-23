@@ -992,13 +992,22 @@ fertility = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fertility, "fertility_MA", 
-  ylab = "Parameter estimate", 
-  the_col = "#b33d3d", 
-  dir0 = "Plots/Mechanism/", 
+  fertility, "fertility_MA",
+  ylab = "Parameter estimate",
+  the_col = "#b33d3d",
+  dir0 = "Plots/Mechanism/",
   corner_text = "",
   vadj_automatic = TRUE
 )
+
+# Export fertility MA coefficients for BoE footnote
+# See Paper_latex/A_perfect_storm/Review/boe_fertility_footnote.md
+broom::tidy(fertility) %>%
+  filter(str_detect(term, ":")) %>%
+  mutate(year = as.integer(str_extract(term, "\\d{4}"))) %>%
+  select(year, estimate, std.error) %>%
+  arrange(year) %>%
+  write_csv("Tables/fertility_MA_coefs.csv")
 
 fertility = feols(
   Child_women_ratio ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
