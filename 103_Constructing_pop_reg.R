@@ -35,8 +35,34 @@ reg_pop = reg_pop %>%
   left_join(market_access, by = "GIS_ID") %>%
   mutate(Year = relevel(factor(Year), ref = "1801")) %>%
   fastDummies::dummy_cols("limfjord_placement") %>% 
-  filter(consistent == 1) %>% 
   drop_na(GIS_ID)
+
+# ==== Count dropped parishes by Limfjord treatment status ====
+# Parishes are dropped if they do not appear in all census years (consistent == 0).
+# Report how many dropped parishes fall in each Limfjord region to assess
+# whether treatment parishes are over-represented (attenuation risk).
+dropped_summary = reg_pop %>%
+  filter(consistent == 0) %>%
+  distinct(GIS_ID, limfjord_placement) %>%
+  count(limfjord_placement, name = "n_dropped")
+
+total_dropped = reg_pop %>%
+  filter(consistent == 0) %>%
+  distinct(GIS_ID) %>%
+  nrow()
+
+total_parishes = reg_pop %>%
+  distinct(GIS_ID) %>%
+  nrow()
+
+cat(sprintf(
+  "\nSample restriction:\n  Total parishes: %d\n  Dropped (inconsistent): %d\n",
+  total_parishes, total_dropped
+))
+print(dropped_summary)
+
+reg_pop = reg_pop %>%
+  filter(consistent == 1)
 
 # Adding market town dummmy
 mt = market_towns %>% 
