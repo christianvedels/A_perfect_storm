@@ -10,6 +10,7 @@ library(fixest)
 library(sandwich)
 library(foreach)
 library(ggridges)
+library(kableExtra)
 source("000_Functions.R")
 
 # ==== Load data ====
@@ -1016,30 +1017,315 @@ fertility = feols(
   cluster = ~ GIS_ID
 )
 plot_mod(
-  fertility, "fertility_Dummy", 
-  ylab = "Parameter estimate", 
-  the_col = "#2c5c34", 
-  dir0 = "Plots/Mechanism/", 
+  fertility, "fertility_Dummy",
+  ylab = "Parameter estimate",
+  the_col = "#2c5c34",
+  dir0 = "Plots/Mechanism/",
   corner_text = "",
   vadj_automatic = TRUE
 )
 
+# ==== Back-of-envelope: fertility -> population ====
 
-# Simple plot of fertility
-reg_pop %>% 
+# Re-run with distinct names so objects survive for bootstrap
+fertility_MA_boe = feols(
+  Child_women_ratio ~ Year*Affected,
+  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+
+fertility_Dummy_boe = feols(
+  Child_women_ratio ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+
+# Population regressions to obtain observed year-by-year elasticities
+pop_MA_mod = feols(
+  log(Pop) ~ Year*Affected,
+  data = reg_pop %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+  cluster = ~ GIS_ID
+)
+
+pop_Dummy_mod = feols(
+  log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+  data = reg_pop %>% mutate(Affected = limfjord_placement_west),
+  cluster = ~ GIS_ID
+)
+
+# Extract Year x Affected interaction coefs and their joint vcov submatrix
+extract_ya = function(mod) {
+  broom::tidy(mod) %>%
+    filter(str_detect(term, ":Affected$")) %>%
+    mutate(year = as.integer(str_extract(term, "\\d{4}"))) %>%
+    filter(!is.na(year)) %>%
+    select(year, estimate, std.error) %>%
+    arrange(year)
+}
+
+# Midpoint-based inter-census intervals (breach year 1825 as left boundary)
+boe_years  = c(1834, 1840, 1845, 1850, 1860, 1880, 1901)
+boundaries = c(1825, (boe_years[-length(boe_years)] + boe_years[-1]) / 2, 1901)
+dt_vals    = diff(boundaries)
+
+# Share of women 15-44 in treated parishes at 1801 baseline
+w_f = reg_pop %>%
+  filter(as.character(Year) == "1801", limfjord_placement_west == 1) %>%
+  summarise(
+    w_f = sum(Age_15_24_f + Age_25_34_f + Age_35_44_f, na.rm = TRUE) / sum(Pop, na.rm = TRUE)
+  ) %>%
+  pull(w_f)
+
+# Point-estimate table
+make_boe = function(fert_mod, pop_mod, approach) {
+  fert_c = extract_ya(fert_mod) %>% filter(year %in% boe_years)
+  pop_c  = extract_ya(pop_mod)  %>% filter(year %in% boe_years)
+  data.frame(
+    year      = boe_years,
+    beta_f    = fert_c$estimate,
+    Dt        = dt_vals,
+    beta_f_Dt = fert_c$estimate * dt_vals,
+    cumul_sum = cumsum(fert_c$estimate * dt_vals),
+    boe_pop   = (w_f / 5) * cumsum(fert_c$estimate * dt_vals),
+    obs_pop   = pop_c$estimate,
+    approach  = approach
+  )
+}
+
+# Cluster bootstrap: resample parishes with replacement, re-run regressions
+boe_bootstrap = function(data, n_boot = 500) {
+  parishes = unique(data$GIS_ID)
+
+  cat("Running bootstrap: \n")
+
+  foreach(b = seq_len(n_boot), .combine = "bind_rows", .errorhandling = "remove") %do% {
+    if (b %% 5 == 0) { cat(sprintf("\rBootstrap %d / %d", b, n_boot))}
+    sample_frame = data.frame(
+      GIS_ID     = sample(parishes, length(parishes), replace = TRUE),
+      GIS_ID_new = seq_along(parishes)
+    )
+    bd = sample_frame %>%
+      left_join(data, by = "GIS_ID", relationship = "many-to-many") %>%
+      mutate(GIS_ID = GIS_ID_new, Year = relevel(factor(as.character(Year)), ref = "1801")) %>%
+      drop_na(Child_women_ratio, Pop)
+
+    
+    fert_ma = feols(
+      Child_women_ratio ~ Year*Affected,
+      data = bd %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+      vcov = "iid"
+    )
+    fert_dummy = feols(
+      Child_women_ratio ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+      data = bd %>% mutate(Affected = limfjord_placement_west),
+      vcov = "iid"
+    )
+    pop_ma = feols(
+      log(Pop) ~ Year*Affected,
+      data = bd %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
+      vcov = "iid"
+    )
+    pop_dummy = feols(
+      log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
+      data = bd %>% mutate(Affected = limfjord_placement_west),
+      vcov = "iid"
+    )
+    
+
+    fert_ma_c    = extract_ya(fert_ma)    %>% filter(year %in% boe_years) %>% pull(estimate)
+    fert_dummy_c = extract_ya(fert_dummy) %>% filter(year %in% boe_years) %>% pull(estimate)
+    pop_ma_c     = extract_ya(pop_ma)     %>% filter(year %in% boe_years) %>% pull(estimate)
+    pop_dummy_c  = extract_ya(pop_dummy)  %>% filter(year %in% boe_years) %>% pull(estimate)
+
+    bind_rows(
+      data.frame(year = boe_years, beta_f = fert_ma_c,    boe_pop = (w_f/5)*cumsum(fert_ma_c*dt_vals),    obs_pop = pop_ma_c,    approach = "Market Access", b = b),
+      data.frame(year = boe_years, beta_f = fert_dummy_c, boe_pop = (w_f/5)*cumsum(fert_dummy_c*dt_vals), obs_pop = pop_dummy_c, approach = "Dummy",         b = b)
+    )
+  }
+}
+
+set.seed(20)
+boe_boot_draws = boe_bootstrap(reg_pop)
+
+boe_boot = boe_boot_draws %>%
+  group_by(year, approach) %>%
+  summarise(
+    boe_lo  = quantile(boe_pop, 0.025),
+    boe_hi  = quantile(boe_pop, 0.975),
+    obs_lo  = quantile(obs_pop, 0.025),
+    obs_hi  = quantile(obs_pop, 0.975),
+    .groups = "drop"
+  ) %>%
+  left_join(
+    bind_rows(
+      make_boe(fertility_MA_boe,    pop_MA_mod,    "MA")    %>% mutate(approach = "Market Access"),
+      make_boe(fertility_Dummy_boe, pop_Dummy_mod, "Dummy")
+    ) %>% select(year, approach, boe_pop, obs_pop),
+    by = c("year", "approach")
+  )
+
+boe_MA    = make_boe(fertility_MA_boe,    pop_MA_mod,    "MA")
+boe_Dummy = make_boe(fertility_Dummy_boe, pop_Dummy_mod, "Dummy")
+boe_table = bind_rows(boe_MA, boe_Dummy)
+write_csv(boe_table, "Tables/boe_fertility_pop.csv")
+
+# Update MA coefs csv used in appendix note
+extract_ya(fertility_MA_boe) %>% write_csv("Tables/fertility_MA_coefs.csv")
+
+# Wide LaTeX table: MA and Dummy side by side
+boe_wide = boe_MA %>%
+  select(year, Dt, beta_f_MA = beta_f, boe_pop_MA = boe_pop, obs_pop_MA = obs_pop) %>%
+  left_join(
+    boe_Dummy %>% select(year, beta_f_Dummy = beta_f, boe_pop_Dummy = boe_pop, obs_pop_Dummy = obs_pop),
+    by = "year"
+  ) %>%
+  mutate(across(where(is.numeric), ~round(., 3)))
+
+boe_wide %>%
+  knitr::kable(
+    "latex", booktabs = TRUE, escape = FALSE,
+    col.names = c("Year", "$\\Delta t$",
+                  "$\\hat{\\beta}_f$", "BoE pop", "Obs pop",
+                  "$\\hat{\\beta}_f$", "BoE pop", "Obs pop"),
+    align = "c"
+  ) %>%
+  kableExtra::add_header_above(c(" " = 2, "Market Access" = 3, "Dummy" = 3)) %>%
+  writeLines("Tables/boe_fertility_pop.tex")
+
+# ==== BoE step-by-step plots ====
+
+# Interval boundaries for step function
+step_bounds = data.frame(
+  year    = boe_years,
+  t_start = boundaries[-length(boundaries)],
+  t_end   = boundaries[-1]
+)
+
+# --- Step 1: share of women 15-44 over time (west Limfjord) ---
+w_f_time = reg_pop %>%
+  mutate(year_int = as.integer(as.character(Year))) %>%
+  filter(limfjord_placement_west == 1) %>%
+  group_by(year_int) %>%
+  summarise(
+    w_f_t = sum(Age_15_24_f + Age_25_34_f + Age_35_44_f, na.rm = TRUE) / sum(Pop, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# --- Step 2 & 3: beta_f as step function (CWR and annual rate /5) ---
+step_df = beta_f_ci %>%
+  left_join(step_bounds, by = "year")
+
+step_long = bind_rows(
+  step_df %>% transmute(year, approach, t_start, t_end,
+    metric = "CWR elasticity",
+    value = beta_f, lo_val = lo, hi_val = hi),
+  step_df %>% transmute(year, approach, t_start, t_end,
+    metric = "Annual rate elasticity (CWR / 5)",
+    value = beta_f / 5, lo_val = lo / 5, hi_val = hi / 5)
+) %>%
+  mutate(metric = factor(metric, levels = c("CWR elasticity", "Annual rate elasticity (CWR / 5)")))
+
+p_boe_step2 = step_long %>%
+  ggplot() +
+  geom_rect(aes(xmin = t_start, xmax = t_end, ymin = lo_val, ymax = hi_val, fill = approach), alpha = 0.15) +
+  geom_segment(aes(x = t_start, xend = t_end, y = value, yend = value, col = approach), linewidth = 1) +
+  geom_hline(yintercept = 0, lty = 2) +
+  facet_grid(metric ~ approach, scales = "free") +
+  scale_color_manual(values = c("Market Access" = "#b33d3d", "Dummy" = "#2c5c34")) +
+  scale_fill_manual( values = c("Market Access" = "#b33d3d", "Dummy" = "#2c5c34")) +
+  theme_bw() +
+  labs(x = "Year", y = "Elasticity", col = NULL, fill = NULL) +
+  theme(legend.position = "none")
+
+# --- Step 4: annual fertility contribution to population = beta_f * (w_f / 5) ---
+p_boe_step3 = step_df %>%
   mutate(
-    Year = as.numeric(as.character(Year))
-  ) %>% 
-  filter(
-    limfjord_placement %in% c("west", "not")
-  ) %>% 
-  ggplot(aes(Year, Child_women_ratio, col = limfjord_placement)) +
-  # geom_point(alpha = 0.1) + 
-  geom_line(data = . %>%
-              group_by(Year, limfjord_placement) %>%
-              summarise(mean_child_women_ratio = mean(Child_women_ratio, na.rm = TRUE)),
-            aes(y = mean_child_women_ratio)) + 
-  theme_bw()
+    contrib    = beta_f * (w_f / 5),
+    contrib_lo = lo     * (w_f / 5),
+    contrib_hi = hi     * (w_f / 5)
+  ) %>%
+  ggplot() +
+  geom_rect(aes(xmin = t_start, xmax = t_end, ymin = contrib_lo, ymax = contrib_hi, fill = approach), alpha = 0.15) +
+  geom_segment(aes(x = t_start, xend = t_end, y = contrib, yend = contrib, col = approach), linewidth = 1) +
+  geom_hline(yintercept = 0, lty = 2) +
+  facet_wrap(~approach, scales = "free_y") +
+  scale_color_manual(values = c("Market Access" = "#b33d3d", "Dummy" = "#2c5c34")) +
+  scale_fill_manual( values = c("Market Access" = "#b33d3d", "Dummy" = "#2c5c34")) +
+  theme_bw() +
+  labs(x = "Year", y = expression(hat(beta)[f] %*% (w[f]/5)),
+       subtitle = "Annual fertility contribution to population elasticity") +
+  theme(legend.position = "none")
+
+p_boe_step2
+p_boe_step3
+ggsave("Plots/Mechanism/boe_step2_betaf.png",   plot = p_boe_step2, width = 16, height = 12, units = "cm", dpi = 300)
+ggsave("Plots/Mechanism/boe_step3_contrib.png", plot = p_boe_step3, width = 16, height =  8, units = "cm", dpi = 300)
+
+# --- Step 5: cumulative sum vs observed population (p_boe below) ---
+
+# Plot: BoE fertility contribution vs observed population elasticity
+plot_boe = bind_rows(
+  boe_boot %>% transmute(year, approach,
+    series = "BoE fertility contribution",
+    estimate = boe_pop, lo = boe_lo, hi = boe_hi),
+  boe_boot %>% transmute(year, approach,
+    series = "Observed population",
+    estimate = obs_pop, lo = obs_lo, hi = obs_hi)
+)
+
+p_boe = plot_boe %>%
+  ggplot(aes(year, estimate, col = series, fill = series)) +
+  geom_ribbon(aes(ymin = lo, ymax = hi), alpha = 0.15, col = NA) +
+  geom_line() +
+  geom_point() +
+  geom_hline(yintercept = 0, lty = 2) +
+  facet_wrap(~approach, scales = "free_y") +
+  scale_color_manual(values = c(
+    "BoE fertility contribution" = "#b33d3d",
+    "Observed population"        = "#2c5c34"
+  )) +
+  scale_fill_manual(values = c(
+    "BoE fertility contribution" = "#b33d3d",
+    "Observed population"        = "#2c5c34"
+  )) +
+  theme_bw() +
+  labs(x = "Census year", y = "Cumulative elasticity", col = NULL, fill = NULL) +
+  theme(legend.position = "bottom")
+
+p_boe
+ggsave("Plots/Mechanism/boe_fertility_pop.png", plot = p_boe, width = 16, height =  9, units = "cm", dpi = 300)
+
+# Plot: fertility rate (beta_f) per census year with bootstrap CIs
+beta_f_ci = boe_boot_draws %>%
+  group_by(year, approach) %>%
+  summarise(
+    lo = quantile(beta_f, 0.025),
+    hi = quantile(beta_f, 0.975),
+    .groups = "drop"
+  ) %>%
+  left_join(
+    bind_rows(
+      make_boe(fertility_MA_boe,    pop_MA_mod,    "MA")    %>% mutate(approach = "Market Access"),
+      make_boe(fertility_Dummy_boe, pop_Dummy_mod, "Dummy")
+    ) %>% select(year, approach, beta_f),
+    by = c("year", "approach")
+  )
+
+p_beta_f = beta_f_ci %>%
+  ggplot(aes(year, beta_f, col = approach, fill = approach)) +
+  geom_ribbon(aes(ymin = lo, ymax = hi), alpha = 0.15, col = NA) +
+  geom_line() +
+  geom_point() +
+  geom_hline(yintercept = 0, lty = 2) +
+  scale_color_manual(values = c("Market Access" = "#b33d3d", "Dummy" = "#2c5c34")) +
+  scale_fill_manual( values = c("Market Access" = "#b33d3d", "Dummy" = "#2c5c34")) +
+  theme_bw() +
+  labs(x = "Census year", y = "Fertility elasticity (CWR)", col = NULL, fill = NULL) +
+  theme(legend.position = "bottom")
+
+p_beta_f
+ggsave("Plots/Mechanism/boe_beta_f.png", plot = p_beta_f, width = 2*10, height = 2*7, units = "cm")
+
 
 # ==== Effect on age ====
 tmp = reg_pop %>%
