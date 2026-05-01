@@ -1207,6 +1207,21 @@ w_f_time = reg_pop %>%
     .groups = "drop"
   )
 
+beta_f_ci = boe_boot_draws %>%
+  group_by(year, approach) %>%
+  summarise(
+    lo = quantile(beta_f, 0.025),
+    hi = quantile(beta_f, 0.975),
+    .groups = "drop"
+  ) %>%
+  left_join(
+    bind_rows(
+      make_boe(fertility_MA_boe,    pop_MA_mod,    "MA")    %>% mutate(approach = "Market Access"),
+      make_boe(fertility_Dummy_boe, pop_Dummy_mod, "Dummy")
+    ) %>% select(year, approach, beta_f),
+    by = c("year", "approach")
+  )
+
 # --- Step 2 & 3: beta_f as step function (CWR and annual rate /5) ---
 step_df = beta_f_ci %>%
   left_join(step_bounds, by = "year")
@@ -1292,21 +1307,6 @@ p_boe
 ggsave("Plots/Mechanism/boe_fertility_pop.png", plot = p_boe, width = 16, height =  9, units = "cm", dpi = 300)
 
 # Plot: fertility rate (beta_f) per census year with bootstrap CIs
-beta_f_ci = boe_boot_draws %>%
-  group_by(year, approach) %>%
-  summarise(
-    lo = quantile(beta_f, 0.025),
-    hi = quantile(beta_f, 0.975),
-    .groups = "drop"
-  ) %>%
-  left_join(
-    bind_rows(
-      make_boe(fertility_MA_boe,    pop_MA_mod,    "MA")    %>% mutate(approach = "Market Access"),
-      make_boe(fertility_Dummy_boe, pop_Dummy_mod, "Dummy")
-    ) %>% select(year, approach, beta_f),
-    by = c("year", "approach")
-  )
-
 p_beta_f = beta_f_ci %>%
   ggplot(aes(year, beta_f, col = approach, fill = approach)) +
   geom_ribbon(aes(ymin = lo, ymax = hi), alpha = 0.15, col = NA) +
