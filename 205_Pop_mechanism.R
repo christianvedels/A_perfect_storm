@@ -152,14 +152,10 @@ occ_effects_1901 = foreach(i = 1:7, .combine = "bind_rows") %do% {
     filter(Year == 1901)
   
   # intensive
-  with_occ_consist = reg_pop %>% # IDs which consistently have >0
-    filter(occ_i>0) %>% 
-    group_by(GIS_ID) %>% 
-    count() %>% 
-    ungroup() %>% 
-    filter(
-      n == max(n) # Only those observed in all years with the above filter
-    )
+  with_occ_consist = reg_pop %>% # IDs with occ > 0 in pre-treatment period (avoids post-treatment conditioning bias)
+    filter(as.integer(as.character(Year)) < 1825, occ_i > 0) %>%
+    select(GIS_ID) %>%
+    distinct()
   
   exposed_pop_int = reg_pop %>%
     filter(Year == 1901) %>% 
