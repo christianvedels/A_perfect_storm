@@ -107,7 +107,7 @@ monteCarlo_norm = function(Finding_types, capB = 1000, resoultion = 50){
       res = the_data0 %>%
         mutate(
           mean0 = (From_year+To_year)/2,
-          sd0 = (To_year - From_year)/1.96
+          sd0 = (To_year - From_year)/3.92
         ) %>% 
         mutate(
           rYear = round(rnorm(n(), mean0, sd0)/resoultion)*resoultion
