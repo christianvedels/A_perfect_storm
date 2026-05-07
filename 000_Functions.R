@@ -88,10 +88,11 @@ sub_scandi_mis = function(x){
 # bb:   Bounding box (e.g. matrix(c(8, 54, 16, 58), nrow=2))
 
 Clip_it = function(shp, bb){
-  require(rgeos)
-  if(class(bb)[1] == "matrix") b_poly <- as(raster::extent(as.vector(t(bb))), "SpatialPolygons")
-  else b_poly <- as(raster::extent(bb), "SpatialPolygons")
-  gIntersection(shp, b_poly, byid = T)
+  if(class(bb)[1] == "matrix") bbox_vec = c(xmin=bb[1,1], ymin=bb[2,1], xmax=bb[1,2], ymax=bb[2,2])
+  else bbox_vec = as.vector(raster::extent(bb))
+  shp_sf = sf::st_as_sf(shp)
+  result = sf::st_crop(shp_sf, bbox_vec)
+  as(result, "Spatial")
 }
 
 
@@ -406,8 +407,9 @@ cut_strings = function(x, limit = 20){
 # Nicer behaviour load
 
 load0 = function(fileName){
-  load(fileName)
-  get(ls()[ls() != "fileName"])
+  e = new.env()
+  load(fileName, envir = e)
+  get(ls(e)[1], envir = e)
 }
 
 # ==== get_file_info ====

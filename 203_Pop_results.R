@@ -43,10 +43,23 @@ reg_pop %>%
     Born_different_county,
     Child_women_ratio
   ) %>% 
-  psych::describe(quant = c(0.25, 0.75)) %>% 
-  mutate_all(round, 2) %>% 
-  select(n, mean, sd, min, Q0.25, median, Q0.75, max) %>% 
-  knitr::kable("latex", booktabs = TRUE, align = "c")
+  psych::describe() %>%
+  mutate_all(round, 2) %>%
+  select(n, mean, sd, min, median, max) %>%
+  `rownames<-`(c(
+    "Population",
+    "Affected: West Limfjord",
+    "Affected: $\\Delta log(MA_i)$",
+    "HISCO Agricultural",
+    "HISCO Manufacturing",
+    "Born in different county",
+    "Child-women ratio"
+  )) %>%
+  `colnames<-`(c("Observations", "Mean", "SD", "Min", "Median", "Max")) %>%
+  knitr::kable("latex", booktabs = TRUE, align = "c", escape = FALSE) %>% {
+    dir.create("Tables", showWarnings = FALSE)
+    writeLines(., "Tables/203_pop_descriptive.txt")
+  }
 
 n1 = reg_pop %>% 
   distinct(Year) %>% NROW()
@@ -145,8 +158,24 @@ mods = list(
   mod2
 )
 
-mods %>% 
-  etable(tex = TRUE)
+dir.create("Tables", showWarnings = FALSE)
+mods %>%
+  etable(
+    tex = TRUE,
+    keep = "%Year[0-9]+:Affected",
+    dict = c(
+      "Year1787" = "Year 1787",
+      "Year1834" = "Year 1834",
+      "Year1840" = "Year 1840",
+      "Year1845" = "Year 1845",
+      "Year1850" = "Year 1850",
+      "Year1860" = "Year 1860",
+      "Year1880" = "Year 1880",
+      "Year1901" = "Year 1901"
+    ),
+    file = "Tables/203_pop_main.txt",
+    replace = TRUE
+  )
 
 # ==== APE ====
 Pop_avg_midpoint = reg_pop %>% 
@@ -155,6 +184,10 @@ Pop_avg_midpoint = reg_pop %>%
 
 APE1 = Pop_avg_midpoint * mod1$coefficients["Year1901:Affected"]
 APE2 = Pop_avg_midpoint * mod2$coefficients["Year1901:Affected"]
+
+# Convert to pct
+pct_effect = (exp(mod1$coefficients["Year1901:Affected"]) - 1)*100
+pct_effect
 
 # ==== Multiverse ====
 # Multiverse dummy
@@ -206,16 +239,16 @@ mult_dummy = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
   }
   
   if(groups_g$Within_5km_of_mt){
-    reg_pop_g = reg_pop_g %>% 
-      filter(non_limfjord_control)
-    
+    reg_pop_g = reg_pop_g %>%
+      filter(Within_5km_of_mt)
+
     if(group == ""){
       group = "D"
     } else {
       group = paste(group, "D", sep = ", ")
     }
   }
-  
+
   mod_g = feols(
     log(Pop) ~ Year*Affected + Year*limfjord_placement_middle + Year*limfjord_placement_east,
     data = reg_pop_g %>% mutate(Affected = limfjord_placement_west),
@@ -243,7 +276,8 @@ p1 = mult_dummy %>%
   geom_point() + 
   geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
   geom_vline(xintercept = default, lty = 2) + 
-  xlim(0, NA) + 
+  geom_vline(xintercept = 0) +
+  # xlim(0, NA) + 
   theme_bw() + 
   scale_color_manual(
     values = c("No" = "black", "Yes" = "#b33d3d")
@@ -307,16 +341,16 @@ mult_MA = foreach(g = 1:NROW(sub_groups), .combine = "bind_rows") %do% {
   }
   
   if(groups_g$Within_5km_of_mt){
-    reg_pop_g = reg_pop_g %>% 
-      filter(non_limfjord_control)
-    
+    reg_pop_g = reg_pop_g %>%
+      filter(Within_5km_of_mt)
+
     if(group == ""){
       group = "D"
     } else {
       group = paste(group, "D", sep = ", ")
     }
   }
-  
+
   mod_g = feols(
     log(Pop) ~ Year*Affected,
     data = reg_pop_g %>% mutate(Affected = delta_lMA_theta_1_alpha_10),
@@ -344,6 +378,7 @@ p1 = mult_MA %>%
   geom_point() + 
   geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
   geom_vline(xintercept = default, lty = 2) + 
+  geom_vline(xintercept = 0) +
   xlim(0, NA) + 
   theme_bw() + 
   scale_color_manual(
@@ -407,6 +442,7 @@ p1 = mult_MA2 %>%
   geom_point() + 
   geom_errorbarh(aes(xmin = Lower, xmax = Upper, col = the_col)) + 
   geom_vline(xintercept = default, lty = 2) + 
+  geom_vline(xintercept = 0) +
   theme_bw() + 
   scale_color_manual(
     values = c("No" = "black", "Yes" = "#b33d3d")
@@ -573,4 +609,53 @@ summary(out1); summary(out2)
 
 out1$n*length(unique(reg_pop$Year))
 out2$n*length(unique(reg_pop$Year))
+
+# ==== Save Callaway-Sant'Anna table ====
+# type = "dynamic" gives event-study relative times; absolute year = 1834 + egt
+agg1 = aggte(out1, type = "dynamic")
+agg2 = aggte(out2, type = "dynamic")
+
+# Format helpers
+star_cs = function(att, se, crit) ifelse(abs(att / se) > crit, "*", "")
+fmt4    = function(x)             sprintf("%.4f", x)
+
+years = 1834 + agg1$egt   # map relative time → calendar year
+
+make_row = function(yr, a1, se1, cv1, a2, se2, cv2) {
+  c(
+    sprintf("    %d & %s%s & %s%s \\\\",
+            yr,
+            fmt4(a1), star_cs(a1, se1, cv1),
+            fmt4(a2), star_cs(a2, se2, cv2)),
+    sprintf("         & (%s) & (%s) \\\\", fmt4(se1), fmt4(se2))
+  )
+}
+
+rows = unlist(mapply(
+  make_row,
+  years,
+  agg1$att.egt, agg1$se.egt, agg1$crit.val.egt,
+  agg2$att.egt, agg2$se.egt, agg2$crit.val.egt,
+  SIMPLIFY = FALSE
+))
+
+n1 = format(out1$n * length(unique(reg_pop$Year)), big.mark = ",")
+n2 = format(out2$n * length(unique(reg_pop$Year)), big.mark = ",")
+
+tex_lines = c(
+  "\\begin{tabular}{lcc}",
+  "   \\tabularnewline \\midrule \\midrule",
+  "   Outcome: & \\multicolumn{2}{c}{log(Population)}\\\\",
+  "            & (1)           & (2)\\\\  ",
+  "   \\midrule",
+  rows,
+  "   \\midrule",
+  sprintf("   Observations & %s & %s\\\\  ", n1, n2),
+  "   \\midrule \\midrule",
+  "   \\multicolumn{3}{l}{\\emph{'*' confidence band (95 percent) does not cover 0}}\\\\",
+  "\\end{tabular}"
+)
+
+dir.create("Tables", showWarnings = FALSE)
+writeLines(tex_lines, "Tables/203_CS_estimates.txt")
 

@@ -6,6 +6,9 @@
 #
 # Output:         'merged_data' and 'merged_data_raw', which are both a merge of Link Lives data
 
+# ==== Options ====
+if(!exists("OVERWRITE")) OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
+
 # ==== Toydata ====
 # If TRUE only limited data will be loaded as toydata
 toyrun = FALSE
@@ -15,6 +18,15 @@ library(tidyverse)
 source("000_functions.R")
 library(foreach)
 library(fst)
+
+fpath_std = "Data/tmp_census.fst"
+fpath_raw = "Data/tmp_census_raw.fst"
+
+files_exist = file.exists(fpath_std) && file.exists(fpath_raw)
+files_fresh = files_exist && difftime(Sys.time(), file.mtime(fpath_std), units = "days") < 7
+
+if(OVERWRITE == 2 || (OVERWRITE == 1 && !files_fresh)){
+  # Run and overwrite
 
 # ==== Loading standardized data ====
 # How much to load?
@@ -155,6 +167,15 @@ lapply(the_data_std, NROW)
 merged_data = the_data_std %>% do.call("bind_rows",.)
 merged_data_raw = the_data_raw %>% do.call("bind_rows",.)
 
-write_fst(merged_data, "Data/tmp_census.fst", compress = 0) 
-write_fst(merged_data_raw, "Data/tmp_census_raw.fst", compress = 0)
+if(NROW(merged_data) == 0){
+  stop("No census data found in '../Link lives census'. Download from https://www.rigsarkivet.dk/udforsk/link-lives-data/ and place in the expected directory.")
+}
+write_fst(merged_data, fpath_std, compress = 0)
+write_fst(merged_data_raw, fpath_raw, compress = 0)
+
+} else {
+  cat("Skipping 001 (output files up to date or OVERWRITE = 0)\n")
+  merged_data     = read_fst(fpath_std)
+  merged_data_raw = read_fst(fpath_raw)
+} # end OVERWRITE check
 

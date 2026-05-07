@@ -16,9 +16,14 @@ source("000_Functions.R")
 years = c("1787", "1801", "1834", "1840", "1845", "1850", "1860", "1880", "1901")
 for(y in years){
   # ==== Load data ====
-  merged_data = read_fst("Data/tmp_census.fst") 
-  merged_data = merged_data %>% 
-    filter(Year==y)
+  # Read year's chunks from 003 batch output
+  batch_files = sort(list.files("Data/tmp_occ_batches",
+                                pattern = paste0("^", y, "_[0-9]+\\.fst$"),
+                                full.names = TRUE))
+  if(length(batch_files) == 0){
+    stop("No batch files found for year ", y, " in Data/tmp_occ_batches. Run 003 first.")
+  }
+  merged_data = lapply(batch_files, read_fst) %>% bind_rows()
   
   # ==== Misc functions ====
   # Small functions used in this script in particular
@@ -52,16 +57,16 @@ for(y in years){
         Age_q075 = quantile(age, probs = 0.75, na.rm = TRUE),
         Age_q095 = quantile(age, probs = 0.95, na.rm = TRUE),
         Born_different_county = sum(Born_different_county, na.rm = TRUE),
-        hisco_1st_digit0 = sum(hisco_1st_digit0),
-        hisco_1st_digit1 = sum(hisco_1st_digit1),
-        hisco_1st_digit2 = sum(hisco_1st_digit2),
-        hisco_1st_digit3 = sum(hisco_1st_digit3),
-        hisco_1st_digit4 = sum(hisco_1st_digit4),
-        hisco_1st_digit5 = sum(hisco_1st_digit5),
-        hisco_1st_digit6 = sum(hisco_1st_digit6),
-        hisco_1st_digit7 = sum(hisco_1st_digit7),
-        hisco_1st_digit8 = sum(hisco_1st_digit8),
-        hisco_1st_digit9 = sum(hisco_1st_digit9),
+        hisco_1st_digit0 = sum(hisco_1st_digit0, na.rm = TRUE),
+        hisco_1st_digit1 = sum(hisco_1st_digit1, na.rm = TRUE),
+        hisco_1st_digit2 = sum(hisco_1st_digit2, na.rm = TRUE),
+        hisco_1st_digit3 = sum(hisco_1st_digit3, na.rm = TRUE),
+        hisco_1st_digit4 = sum(hisco_1st_digit4, na.rm = TRUE),
+        hisco_1st_digit5 = sum(hisco_1st_digit5, na.rm = TRUE),
+        hisco_1st_digit6 = sum(hisco_1st_digit6, na.rm = TRUE),
+        hisco_1st_digit7 = sum(hisco_1st_digit7, na.rm = TRUE),
+        hisco_1st_digit8 = sum(hisco_1st_digit8, na.rm = TRUE),
+        hisco_1st_digit9 = sum(hisco_1st_digit9, na.rm = TRUE),
         no_occupation_in_prime = sum(is.na(hisco_1) & age >= 25 & age < 55)
       ) %>%
       mutate(

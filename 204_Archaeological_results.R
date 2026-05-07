@@ -12,44 +12,8 @@ library(foreach)
 library(dataverse)
 
 # ==== Bootstrapped data frames ====
-# # This bit runs sampling for the bootstrapped standard errors
-# # The following files can be recreated with 009_Archaeological_monte_carlo.R.
-# # The files are too large to redistribute via GitHub, for which reason they are
-# # drawn from the dataverse of this project. 
-Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
-# 
-# res_is = get_dataframe_by_name(
-#   filename = get_file_info("Buildings_unif"),
-#   dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
-#   server = "dataverse.harvard.edu",
-#   .f = load0 # Function to read the file
-# )
-# # load("Data/Tmp_arch_samples/Buildings.Rdata") # If local copy
-# samples_buildings = arch_sampler(arch_samples = res_is$Overall_Buildings$samples)
-# 
-# res_is = get_dataframe_by_name(
-#   filename = get_file_info("Coin findings_unif.Rdata"),
-#   dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
-#   server = "dataverse.harvard.edu",
-#   .f = load0 # Function to read the file
-# )
-# # load("Data/Tmp_arch_samples/Coin findings.Rdata") # If local copy 
-# samples_coins = arch_sampler(arch_samples = res_is$`Overall_Coin findings`$samples)
-# 
-# save(samples_buildings, samples_coins, file = "Data/Tmp_reg_data_arch_samples.Rdata")
-
-# load("Data/Tmp_reg_data_arch_samples.Rdata") # If local copy
-x = get_dataframe_by_name(
-  filename = get_file_info("Reg_data_arch_samples_unif.Rdata"),
-  dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
-  server = "dataverse.harvard.edu",
-  .f = function(x){
-    load(x)
-    return(list(samples_buildings, samples_coins))
-  } # Function to read the file
-)
-samples_buildings = x[[1]]
-samples_coins = x[[2]]
+# Bootstrapped samples produced by 009_Archaeological_monte_carlo.R
+load("Data/Tmp_reg_data_arch_samples.Rdata")
 
 # ==== Load data =====
 coins = read_csv2("Data/Reg_arch_coins.csv", guess_max = 2000)
@@ -177,7 +141,8 @@ samples_buildings = lapply(samples_buildings, function(x){
 
 # ==== Clean raw data for descriptive plot ====
 # Arch raw
-arch_raw = arch_raw %>% 
+arch_raw = arch_raw %>%
+  mutate(GIS_ID = as.character(GIS_ID)) %>%
   left_join(geo_data, by = "GIS_ID")
 
 arch_raw1 = foreach(y = seq(750, 1500, by = 50), .combine = "bind_rows") %do% {
@@ -235,10 +200,10 @@ p1 = arch_raw1 %>%
     col = "Location in Limfjord:",
     y = "Mean of coin findings"
   )
-  
+
 p1
 ggsave("Plots/Arch_descriptive.png", plot = p1, width = 8, height = 5)
-  
+
 # ==== Regressions full samples ====
 # MA approach
 mod1 = feols(
@@ -258,7 +223,7 @@ vcov1 = vcov_function_boot(
 mod1 = summary(
   mod1,
   vcov = vcov1$vcov
-  )
+)
 
 plot_mod_arch(mod1, "arch_MA_coins", ref_year = 1000, the_col = regions_col["west"])
 
@@ -449,7 +414,7 @@ vcov5$beta_samples %>%
   theme_bw() +
   geom_vline(xintercept = 0) +
   geom_vline(
-    xintercept = mod5$coefficients[names(mod1$coefficients)=="Year1350:Affected"],
+    xintercept = mod5$coefficients[names(mod5$coefficients)=="Year1350:Affected"],
     lty = 2
   )
 
@@ -575,8 +540,41 @@ mods = list(
   mod8
 )
 
+dir.create("Tables", showWarnings = FALSE)
+
+# ==== Baseline activity (all of DK, pre-shock: rYear <= 1000) ====
+# Coefficients are in probability units: dummy → beta pp change;
+# log(MA) → beta pp change per log-point change in MA.
+# Reporting the mean outcome lets readers scale these directly.
+baseline_coins     <- coins     %>% filter(rYear <= 1000) %>% summarise(m = mean(activity, na.rm = TRUE)) %>% pull(m)
+baseline_buildings <- buildings %>% filter(rYear <= 1000) %>% summarise(m = mean(activity, na.rm = TRUE)) %>% pull(m)
+
+# Column order in etable: mod1 mod2 mod3 mod4 mod5 mod6 mod7 mod8
+# coins = cols 1,2,5,6 | buildings = cols 3,4,7,8
+arch_baseline_row <- list(
+  "Mean outcome (pre-shock)" = round(
+    c(baseline_coins, baseline_coins, baseline_buildings, baseline_buildings,
+      baseline_coins, baseline_coins, baseline_buildings, baseline_buildings),
+    4
+  )
+)
+
+arch_dict = c(
+  "Year950"  = "Year 950",
+  "Year1050" = "Year 1050",
+  "Year1150" = "Year 1150",
+  "Year1250" = "Year 1250",
+  "Year1350" = "Year 1350"
+)
 mods %>%
-  etable(tex = TRUE)
+  etable(
+    tex = TRUE,
+    keep = "%(Year950|Year1050|Year1150|Year1250|Year1350):Affected",
+    dict = arch_dict,
+    extralines = arch_baseline_row,
+    file = "Tables/204_arch_main.txt",
+    replace = TRUE
+  )
 
 
 # To show all parameters in the appendix
@@ -588,7 +586,7 @@ mods = list(
 )
 
 mods %>%
-  etable(tex = TRUE)
+  etable(tex = TRUE, file = "Tables/204_arch_appendix_mod1_4.txt")
 
 mods = list(
   mod5,
@@ -598,7 +596,7 @@ mods = list(
 )
 
 mods %>%
-  etable(tex = TRUE)
+  etable(tex = TRUE, file = "Tables/204_arch_appendix_mod5_8.txt")
 
 
 
@@ -607,40 +605,15 @@ mods %>%
 # # The following files can be recreated with 009_Archaeological_monte_carlo.R.
 # # The files are too large to redistribute via GitHub, for which reason they are
 # # drawn from the dataverse of this project.
-Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
-# 
-# res_is = get_dataframe_by_name(
-#   filename = get_file_info("Buildings_norm"),
-#   dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
-#   server = "dataverse.harvard.edu",
-#   .f = load0 # Function to read the file
-# )
-# # load("Data/Tmp_arch_samples/Buildings.Rdata") # If local copy
-# samples_buildings = arch_sampler(arch_samples = res_is$Overall_Buildings$samples)
-# 
-# res_is = get_dataframe_by_name(
-#   filename = get_file_info("Coin findings_norm.Rdata"),
-#   dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
-#   server = "dataverse.harvard.edu",
-#   .f = load0 # Function to read the file
-# )
-# # load("Data/Tmp_arch_samples/Coin findings.Rdata") # If local copy
-# samples_coins = arch_sampler(arch_samples = res_is$`Overall_Coin findings`$samples)
-# 
-# save(samples_buildings, samples_coins, file = "Data/Tmp_reg_data_arch_samples_norm.Rdata")
-
-# load("Data/Tmp_reg_data_arch_samples.Rdata") # If local copy
-x = get_dataframe_by_name(
-  filename = get_file_info("Reg_data_arch_samples_norm.Rdata"),
-  dataset = "https://doi.org/10.7910/DVN/P7STIM", # DOI
-  server = "dataverse.harvard.edu",
-  .f = function(x){
-    load(x)
-    return(list(samples_buildings, samples_coins))
-  } # Function to read the file
-)
-samples_buildings = x[[1]]
-samples_coins = x[[2]]
+{
+  f = "Data/Tmp_reg_data_arch_samples_norm.Rdata"
+  f_fresh = file.exists(f) && difftime(Sys.time(), file.mtime(f), units = "days") < 7
+  if(!f_fresh) {
+    cat("  Arch norm samples missing or stale — running 009_Archaeological_monte_carlo.R\n")
+    source("009_Archaeological_monte_carlo.R")
+  }
+}
+load("Data/Tmp_reg_data_arch_samples_norm.Rdata")
 
 # ==== Load data =====
 coins = read_csv2("Data/Reg_arch_coins_norm.csv", guess_max = 2000)

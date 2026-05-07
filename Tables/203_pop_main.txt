@@ -1,0 +1,37 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcc}
+   \tabularnewline \midrule \midrule
+   Dependent Variable: & \multicolumn{2}{c}{log(Pop)}\\
+   Model:                       & (1)            & (2)\\  
+   \midrule
+   \emph{Variables}\\
+   Year 1787 $\times$ Affected  & 0.0113         & 0.0379\\   
+                                & (0.0112)       & (0.0626)\\   
+   Year 1834 $\times$ Affected  & 0.0178         & -0.0146\\   
+                                & (0.0132)       & (0.0748)\\   
+   Year 1840 $\times$ Affected  & -0.0059        & -0.2651$^{***}$\\   
+                                & (0.0138)       & (0.0759)\\   
+   Year 1845 $\times$ Affected  & -0.0012        & -0.2531$^{***}$\\   
+                                & (0.0150)       & (0.0775)\\   
+   Year 1850 $\times$ Affected  & 0.0040         & -0.2466$^{***}$\\   
+                                & (0.0159)       & (0.0900)\\   
+   Year 1860 $\times$ Affected  & 0.0366$^{**}$  & 0.0183\\   
+                                & (0.0184)       & (0.0972)\\   
+   Year 1880 $\times$ Affected  & 0.1411$^{***}$ & 0.8349$^{***}$\\   
+                                & (0.0214)       & (0.1155)\\   
+   Year 1901 $\times$ Affected  & 0.2392$^{***}$ & 1.591$^{***}$\\   
+                                & (0.0282)       & (0.1607)\\   
+   \midrule
+   \emph{Fit statistics}\\
+   Observations                 & 14,301         & 14,301\\  
+   R$^2$                        & 0.19081        & 0.21738\\  
+   Adjusted R$^2$               & 0.18883        & 0.21645\\  
+   \midrule \midrule
+   \multicolumn{3}{l}{\emph{Clustered (GIS\_ID) standard-errors in parentheses}}\\
+   \multicolumn{3}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

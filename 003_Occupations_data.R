@@ -9,6 +9,9 @@
 # HISCO codes generated from automatic HISCO classifier. 
 # See https://arxiv.org/abs/2402.13604 
 
+# ==== Options ====
+if(!exists("OVERWRITE")) OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
+
 # ==== Libraries ====
 library(tidyverse)
 library(foreach)
@@ -18,14 +21,37 @@ library(dataverse)
 # ==== Set dataverse env ====
 Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
 
+fpath_out     = "Data/tmp_census.fst"
+fpath_sentinel = "Data/RowID_GIS_ID_key.csv"  # Unique to 003 — use as freshness sentinel
+file_fresh = file.exists(fpath_sentinel) &&
+  difftime(Sys.time(), file.mtime(fpath_sentinel), units = "days") < 7 &&
+  file.exists(fpath_out) && file.mtime(fpath_out) >= file.mtime(fpath_sentinel)
+
+if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)){
+  cat("Skipping 003 (output file up to date or OVERWRITE = 0)\n")
+  merged_data = read_fst(fpath_out)
+} else {
+
 # ==== Load data ====
 merged_data = read_fst("Data/tmp_census.fst") 
-hisco = get_dataframe_by_name(
-  filename = "Census_HISCO_codes_clean.csv",
-  dataset = "10.7910/DVN/WZILNI", # DOI
-  server = "dataverse.harvard.edu",
-  .f = function(x) read_csv(x) # Function to read the file
-)
+hisco_local = "Data/Census_HISCO_codes_clean.csv"
+if(file.exists(hisco_local)){
+  cat("Loading HISCO data from local file\n")
+  hisco = read_csv(hisco_local)
+} else {
+  cat("Downloading HISCO data from Dataverse\n")
+  hisco = get_dataframe_by_name(
+    filename = "Census_HISCO_codes_clean.csv",
+    dataset = "10.7910/DVN/WZILNI", # DOI
+    server = "dataverse.harvard.edu",
+    .f = function(x) read_csv(x)
+  )
+  if(NROW(hisco) == 0 || NCOL(hisco) == 0){
+    stop("Dataverse download of Census_HISCO_codes_clean.csv returned an empty file. Check your internet connection and try again.")
+  }
+  write_csv(hisco, hisco_local)
+  cat("Saved to", hisco_local, "\n")
+}
 
 # Extract GIS_ID/RowID key for other projects
 tmp = merged_data %>% 
@@ -58,7 +84,8 @@ hisco = hisco %>%
   )
 
 # Check uniqueness of ids
-hisco %>% group_by(Year, pa_id) %>% count() %>% filter(n>1)
+cat("Unique pa_id in HISCO data:", hisco$pa_id %>% unique() %>% length(), "\n")
+hisco %>% group_by(Year, pa_id) %>% count() %>% filter(n>1) %>% print()
 
 # Check data quality in 1000 random subsamples
 # set.seed(20)
@@ -67,90 +94,115 @@ hisco %>% group_by(Year, pa_id) %>% count() %>% filter(n>1)
 #   write_csv2("Data/HISCO_to_check.csv")
 
 # Check occupational observations
+cat("Total observations in HISCO data:", nrow(hisco), "\n")
 hisco %>% 
   group_by(Year) %>% 
   summarise(
     NA_Occupation = sum(is.na(Occupation)),
     NA_Household_position = sum(is.na(Household_position)),
     NA_both = sum(is.na(Occupation) & is.na(Household_position))
-  )
-
-# ==== Merge on HISCO codes and categories ====
-# Merge on HISCO codes
-merged_data0 = merged_data %>% 
-  left_join(hisco, by = c("Year", "pa_id"))
-merged_data = merged_data0
-rm(merged_data0)
+  ) %>% print()
 
 # ==== 0-9 first digit HISCO ====
-# This part takes a long time to run
-
 fix_hisco = function(x){
   x = as.character(x)
   x = ifelse(nchar(x)==4, paste0("0", x), x)
   return(x)
 }
 
-merged_data0 = merged_data %>% 
-  # sample_n(1000) %>%
-  # Fix HISCO codes to char
-  mutate_at(vars(starts_with("hisco")), fix_hisco) %>% 
-  mutate(unique_hiscos = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 1)))) %>% 
-  mutate(unique_hiscos_2digit = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 2)))) %>% 
-  mutate(unique_hiscos_3digit = apply(.[, !grepl("^en_hisco_text", names(.)) & grepl("^hisco", names(.))], 1, function(x) unique(substr(x, 1, 3))))
+# Pre-compute the HISCO codes that appear globally (to get consistent columns across batches)
+hisco_cols = hisco %>% select(starts_with("hisco_")) %>% mutate_all(fix_hisco)
+appeared_2digit = sort(unique(unlist(apply(hisco_cols, 1, function(x) unique(substr(x, 1, 2))))))
+appeared_3digit = sort(unique(unlist(apply(hisco_cols, 1, function(x) unique(substr(x, 1, 3))))))
+appeared_2digit = appeared_2digit[!is.na(appeared_2digit) & appeared_2digit != "NA"]
+appeared_3digit = appeared_3digit[!is.na(appeared_3digit) & appeared_3digit != "NA"]
+rm(hisco_cols)
 
-# First digit
-merged_data0 = merged_data0 %>% 
-  mutate(
-    hisco_1st_digit0 = as.numeric(grepl("0", unique_hiscos)),
-    hisco_1st_digit1 = as.numeric(grepl("1", unique_hiscos)),
-    hisco_1st_digit2 = as.numeric(grepl("2", unique_hiscos)),
-    hisco_1st_digit3 = as.numeric(grepl("3", unique_hiscos)),
-    hisco_1st_digit4 = as.numeric(grepl("4", unique_hiscos)),
-    hisco_1st_digit5 = as.numeric(grepl("5", unique_hiscos)),
-    hisco_1st_digit6 = as.numeric(grepl("6", unique_hiscos)),
-    hisco_1st_digit7 = as.numeric(grepl("7", unique_hiscos)),
-    hisco_1st_digit8 = as.numeric(grepl("8", unique_hiscos)),
-    hisco_1st_digit9 = as.numeric(grepl("9", unique_hiscos))
-  ) %>% select(-unique_hiscos)
+# Pre-split hisco by year to disk, then free it from memory
+batch_dir_hisco = "Data/tmp_occ_batches"
+if(!dir.exists(batch_dir_hisco)) dir.create(batch_dir_hisco)
+for(yr_h in unique(hisco$Year)){
+  write_fst(hisco %>% filter(Year == as.character(yr_h)),
+            file.path(batch_dir_hisco, paste0("hisco_", yr_h, ".fst")), compress = 0)
+}
+rm(hisco); gc()
 
-# Find the HISCO codes that appear in the data
-appeared_hiscos = sort(unique(unlist(merged_data0$unique_hiscos_2digit)))
+# ==== Process in yearly batches ====
+batch_dir = "Data/tmp_occ_batches"
+if(!dir.exists(batch_dir)) dir.create(batch_dir)
+chunk_size = 10000
 
-# Second digit
-for (i in 0:99) {
-  # Skip iterations if 'i' is not in appeared_hiscos
-  if (!(sprintf("%02d", i) %in% appeared_hiscos)){
-    next
-  }
-  
-  cat(i, "         \r")
-  col_name = paste0("hisco_2nd_digit", sprintf("%02d", i))
-  merged_data0[col_name] <- as.numeric(grepl(sprintf("%02d", i), merged_data0$unique_hiscos_2digit))
+col_match = function(mat, code){
+  result = mat[, 1] == code & !is.na(mat[, 1])
+  for(j in seq_len(ncol(mat))[-1]) result = result | (mat[, j] == code & !is.na(mat[, j]))
+  as.integer(result)
 }
 
-# Find the HISCO codes that appear in the data
-appeared_hiscos = sort(unique(unlist(merged_data0$unique_hiscos_3digit)))
-
-# Third digit
-for (i in 0:999) {
-  # Skip iterations if 'i' is not in appeared_hiscos
-  if (!(sprintf("%03d", i) %in% appeared_hiscos)){
-    next
-  }
-    
-  cat(i, "         \r")
-  col_name = paste0("hisco_3rd_digit", sprintf("%03d", i))
-  merged_data0[col_name] <- as.numeric(grepl(sprintf("%03d", i), merged_data0$unique_hiscos_3digit))
+process_chunk = function(chunk){
+  hisco_raw_cols = names(chunk)[!grepl("^en_hisco_text", names(chunk)) & grepl("^hisco_[0-9]", names(chunk))]
+  hisco_mat = as.matrix(chunk[, hisco_raw_cols])
+  mat1 = matrix(substr(hisco_mat, 1, 1), nrow = nrow(hisco_mat))
+  mat2 = matrix(substr(hisco_mat, 1, 2), nrow = nrow(hisco_mat))
+  mat3 = matrix(substr(hisco_mat, 1, 3), nrow = nrow(hisco_mat))
+  rm(hisco_mat); gc()
+  for(d in 0:9)             chunk[[paste0("hisco_1st_digit", d)]]    = as.integer(rowSums(mat1 == as.character(d), na.rm = TRUE) > 0)
+  rm(mat1); gc()
+  for(code in appeared_2digit) chunk[[paste0("hisco_2nd_digit", code)]] = as.integer(rowSums(mat2 == code, na.rm = TRUE) > 0)
+  rm(mat2); gc()
+  for(code in appeared_3digit) chunk[[paste0("hisco_3rd_digit", code)]] = col_match(mat3, code)
+  rm(mat3); gc()
+  chunk
 }
 
+process_year = function(yr){
+  n_expected = ceiling(sum(merged_data$Year == yr) / chunk_size)
 
-# Delete temporary variables
-merged_data = merged_data0 %>% 
-  select(-unique_hiscos_2digit) %>% 
-  select(-unique_hiscos_3digit)
+  saved_files = sort(list.files(batch_dir, pattern = paste0("^", yr, "_[0-9]+\\.fst$"), full.names = TRUE))
+  chunks_complete = length(saved_files) == n_expected
+  batch_fresh = chunks_complete &&
+    difftime(Sys.time(), file.mtime(saved_files[1]), units = "days") < 7
 
-# ==== Saving data enriched data ====
-write_fst(merged_data, "Data/tmp_census.fst", compress = 0)
+  if(OVERWRITE == 0 || (OVERWRITE == 1 && batch_fresh)){
+    cat("  Year", yr, "- cached, skipping\n")
+    return(invisible(NULL))
+  }
+
+  if(!chunks_complete){
+    cat("  Year", yr, "- incomplete cache (", length(saved_files), "/", n_expected, "chunks), resuming\n")
+  } else {
+    cat("  Year", yr, "- processing\n")
+  }
+
+  hisco_yr_path = file.path(batch_dir, paste0("hisco_", yr, ".fst"))
+  hisco_yr = if(file.exists(hisco_yr_path)) read_fst(hisco_yr_path) else data.frame()
+
+  md_yr = merged_data %>%
+    filter(Year == yr) %>%
+    left_join(hisco_yr, by = c("Year", "pa_id")) %>%
+    mutate_at(vars(starts_with("hisco_") & !starts_with("hisco_1st") &
+                     !starts_with("hisco_2nd") & !starts_with("hisco_3rd")), fix_hisco)
+
+  chunks = split(md_yr, ceiling(seq_len(nrow(md_yr)) / chunk_size))
+  cat("    (", length(chunks), "chunks of", chunk_size, ")\n")
+  lapply(seq_along(chunks), function(k){
+    fpath_chunk = file.path(batch_dir, paste0(yr, "_", k, ".fst"))
+    if(file.exists(fpath_chunk)){
+      cat("    chunk", k, "/", length(chunks), "- cached\r")
+      return(invisible(NULL))
+    }
+    cat("    chunk", k, "/", length(chunks), "- processing\r")
+    result = process_chunk(chunks[[k]])
+    write_fst(result, fpath_chunk, compress = 0)
+    write_fst(result, fpath_chunk, compress = 0)
+    invisible(NULL)
+  })
+  invisible(NULL)
+}
+
+years = sort(unique(merged_data$Year))
+lapply(years, process_year)
+cat("All years processed. Output in", batch_dir, "\n")
+
+} # end OVERWRITE check
 
 

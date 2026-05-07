@@ -153,7 +153,7 @@ p2 = data_channel %>%
 p2
 ggsave("Plots/Ship_trafic_channel.png", plot = p2, width = 8, height = 4)
 
-# ==== Regressions for appendix ====
+# ==== Regressions ====
 mod0 = fepois(
   trafic ~ After*limfjord_placement,
   data = data0,
@@ -186,4 +186,21 @@ mod4 = feols(
 
 mods = list(mod0, mod1, mod2, mod3, mod4)
 
-etable(mods, tex = TRUE)
+dir.create("Tables", showWarnings = FALSE)
+etable(
+  mods, tex = TRUE,
+  keep = "%After:limfjord_placement",
+  dict = c(
+    "After" = "Post",
+    "limfjord_placementeast"   = "east",
+    "limfjord_placementmiddle" = "middle",
+    "limfjord_placementwest"   = "west"
+  ),
+  extralines = list(
+    "1807--1814 excl." = c("No", "Yes", "No", "No", "No"),
+    "1825--1833 excl." = c("No", "Yes", "No", "No", "No")
+  ),
+  file = "Tables/202_sound_toll.txt",
+  replace = TRUE,
+  fitstat = "n"
+)

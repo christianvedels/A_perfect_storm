@@ -5,6 +5,9 @@
 #
 # Output:         'Arch_panel.csv' containing archaeological observations 
 
+# ==== Options ====
+if(!exists("OVERWRITE")) OVERWRITE = 1  # 0: never overwrite; 1: overwrite if files are older than 7 days; 2: always overwrite
+
 # ==== Library ====
 library(tidyverse)
 library(foreach)
@@ -49,10 +52,10 @@ monteCarlo = function(Finding_types, capB = 1000, resoultion = 50){
           n = n()
         ) %>%
         mutate(
-          activity = as.numeric(n>1)
+          activity = as.numeric(n>=1)
         )
     })
-    
+
     # Joining with GIS IDs which never showed up
     res = expand.grid(
       GIS_ID = as.character(geo_data$GIS_ID),
@@ -66,24 +69,24 @@ monteCarlo = function(Finding_types, capB = 1000, resoultion = 50){
         n = ifelse(is.na(n), 0, n),
       ) %>%
       mutate(b = b)
-    
+
     return(res)
   }
-  
+
   suppressMessages({
-    res = count_boot %>% 
-      group_by(rYear, GIS_ID) %>% 
+    res = count_boot %>%
+      group_by(rYear, GIS_ID) %>%
       summarise(
         n = sum(n),
         success = sum(activity),
         trials = capB
-      ) %>% 
+      ) %>%
       mutate(
         rate = success/trials,
         rate_n = n/trials
       )
   })
-  
+
   return(
     list(
       panel = res,
@@ -104,7 +107,7 @@ monteCarlo_norm = function(Finding_types, capB = 1000, resoultion = 50){
       res = the_data0 %>%
         mutate(
           mean0 = (From_year+To_year)/2,
-          sd0 = (To_year - From_year)/1.96
+          sd0 = (To_year - From_year)/3.92
         ) %>% 
         mutate(
           rYear = round(rnorm(n(), mean0, sd0)/resoultion)*resoultion
@@ -114,10 +117,10 @@ monteCarlo_norm = function(Finding_types, capB = 1000, resoultion = 50){
           n = n()
         ) %>%
         mutate(
-          activity = as.numeric(n>1)
+          activity = as.numeric(n>=1)
         )
     })
-    
+
     # Joining with GIS IDs which never showed up
     res = expand.grid(
       GIS_ID = as.character(geo_data$GIS_ID),
@@ -131,24 +134,24 @@ monteCarlo_norm = function(Finding_types, capB = 1000, resoultion = 50){
         n = ifelse(is.na(n), 0, n),
       ) %>%
       mutate(b = b)
-    
+
     return(res)
   }
-  
+
   suppressMessages({
-    res = count_boot %>% 
-      group_by(rYear, GIS_ID) %>% 
+    res = count_boot %>%
+      group_by(rYear, GIS_ID) %>%
       summarise(
         n = sum(n),
         success = sum(activity),
         trials = capB
-      ) %>% 
+      ) %>%
       mutate(
         rate = success/trials,
         rate_n = n/trials
       )
   })
-  
+
   return(
     list(
       panel = res,
@@ -173,11 +176,19 @@ site_types_tab = the_data %>%
   )
 
 # Uniform distribution
-arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
+for(i in unique(site_types_tab$Category)) {
   cat("\n", i, "\n")
+  fpath_i = paste0("Data/Tmp_arch_samples/", i, ".Rdata")
+
+  file_fresh = file.exists(fpath_i) && difftime(Sys.time(), file.mtime(fpath_i), units = "days") < 7
+  if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)){
+    cat("  Skipping (file up to date)\n")
+    next
+  }
+
   finding_types_i = site_types_tab %>%
     filter(Category == i) %>%
-    select(finding_interpretation_en) %>%
+    dplyr::select(finding_interpretation_en) %>%
     unlist() %>% unname()
 
   res_i = monteCarlo(Finding_types = finding_types_i, capB = capB)
@@ -198,42 +209,68 @@ arch_data = foreach(i = unique(site_types_tab$Category)) %do% {
   if(!dir.exists(dir_i)){
     dir.create(dir_i)
   }
-  save(res_is, file = paste0("Data/Tmp_arch_samples/", i,".Rdata") )
-
-  return(res_is)
+  save(res_is, file = fpath_i)
 }
 
 # Normal distribution
 set.seed(20)
-arch_data_norm = foreach(i = unique(site_types_tab$Category)) %do% {
+for(i in unique(site_types_tab$Category)) {
   cat("\n", i, "\n")
-  finding_types_i = site_types_tab %>% 
-    filter(Category == i) %>% 
-    select(finding_interpretation_en) %>% 
+  fpath_i = paste0("Data/Tmp_arch_samples_norm/", i, ".Rdata")
+
+  file_fresh = file.exists(fpath_i) && difftime(Sys.time(), file.mtime(fpath_i), units = "days") < 7
+  if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)){
+    cat("  Skipping (file up to date)\n")
+    next
+  }
+
+  finding_types_i = site_types_tab %>%
+    filter(Category == i) %>%
+    dplyr::select(finding_interpretation_en) %>%
     unlist() %>% unname()
-  
+
   res_i = monteCarlo_norm(Finding_types = finding_types_i, capB = capB)
-  
+
   res_is = foreach(j = finding_types_i) %do% {
     cat(
-      "--->", as.character(Sys.time()), j, 
+      "--->", as.character(Sys.time()), j,
       "                                                      \r"
     )
-    res_j = monteCarlo(Finding_types = j, capB = capB)
+    res_j = monteCarlo_norm(Finding_types = j, capB = capB)
     return(res_j)
   }
   names(res_is) = finding_types_i
   res_is[[length(res_is)+1]] = res_i
   names(res_is)[length(res_is)] = paste0("Overall_", i)
-  
+
   dir_i = paste0("Data/Tmp_arch_samples_norm")
   if(!dir.exists(dir_i)){
     dir.create(dir_i)
   }
-  save(res_is, file = paste0("Data/Tmp_arch_samples_norm/", i,".Rdata") )
-  
-  return(res_is)
+  save(res_is, file = fpath_i)
 }
 
-# load("Data/Tmp_arch_samples/Buildings.Rdata")
-# res_is$Overall_Buildings
+# ==== Assemble consolidated sample files for 204 ====
+# Builds Tmp_reg_data_arch_samples.Rdata and _norm.Rdata from the
+# individual category files produced above, matching the structure that
+# was previously downloaded from Dataverse.
+source("000_Functions.R")
+
+assemble_samples = function(arch_dir, out_file) {
+  file_fresh = file.exists(out_file) &&
+    difftime(Sys.time(), file.mtime(out_file), units = "days") < 7
+  if(OVERWRITE == 0 || (OVERWRITE == 1 && file_fresh)) {
+    cat("  [SKIP]", out_file, "(up to date)\n")
+    return(invisible(NULL))
+  }
+  cat("\nAssembling", out_file, "...\n")
+  load(file.path(arch_dir, "Buildings.Rdata"))
+  samples_buildings = arch_sampler(arch_samples = res_is$Overall_Buildings$samples)
+  load(file.path(arch_dir, "Coin findings.Rdata"))
+  samples_coins = arch_sampler(arch_samples = res_is$`Overall_Coin findings`$samples)
+  save(samples_buildings, samples_coins, file = out_file)
+  cat("  Saved", out_file, "\n")
+}
+
+assemble_samples("Data/Tmp_arch_samples",      "Data/Tmp_reg_data_arch_samples.Rdata")
+assemble_samples("Data/Tmp_arch_samples_norm", "Data/Tmp_reg_data_arch_samples_norm.Rdata")
